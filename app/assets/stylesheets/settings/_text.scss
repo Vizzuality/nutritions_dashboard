@@ -1,0 +1,24 @@
+/*
+ * Here you should find all the types of text
+ * for the project.
+ *
+ * There are some with colors and some without.
+ * Those without color can be found with different
+ * color along the project and setted with the apropiate
+ * class or it will inherit it from its father.
+ */
+
+.text {
+  font-family: $font-family-1;
+  
+  /*
+   * COLORS
+   */
+  &.-dark {
+    color: $black;
+  }
+
+  &.-light {
+    color: $white;
+  }
+}

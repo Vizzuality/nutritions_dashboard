@@ -1,0 +1,47 @@
+$label-width: 100px;
+
+input[type="password"],
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="number"],
+textarea {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  top: 2px;
+  margin: 0;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: normal;
+  background: rgba($black, .05);
+  border-radius: 0px;
+  outline: none;
+
+  // ALIGN
+  &.-left {
+    text-align: left;
+  }
+
+  &.-right {
+    text-align: right;
+  }
+
+  &.-disabled { opacity: 0.5; }
+
+  &:focus {
+    border-color: rgba($black, .4);
+  }
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance:textfield;
+}

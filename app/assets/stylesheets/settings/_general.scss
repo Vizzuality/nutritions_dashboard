@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+/**
+ * Reset some basic elements
+ */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  font-family: $font-family-1;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body, html {
+  &.-fixed {
+    overflow: hidden;
+  }
+}
+li {
+  list-style: none;
+}
+
+
+a, li {
+  /* Avoid important here because we do want underline styles for some links */
+  text-decoration: none;
+}
+
+button {
+  @extend %clean-button-or-input;
+  cursor: pointer;
+  border: 0;
+}
+
+.-no-scroll {
+  overflow: hidden;
+}
+
+.-is-printable {
+  display: none;
+}

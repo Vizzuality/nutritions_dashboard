@@ -1,0 +1,44 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require normalize-css
+ *= require select2
+ *= require leaflet
+ *= require_self
+ */
+
+/*
+ * Settings
+ */
+
+@import "settings/settings";
+@import "settings/general";
+@import "settings/utils";
+@import "settings/text";
+@import "settings/icons";
+@import "settings/buttons";
+@import "settings/select-2-reset";
+
+/*
+ * THANK YOU FOR KEEPING ALPHABETICAL ORDER
+ * Beyond this point, modules shouldn't have dependency among them.
+ */
+
+/*
+ * Layouts
+ */
+@import "layouts/*";
+
+/*
+ * Components
+ */
+@import "components/*";

@@ -1,0 +1,120 @@
+/*
+ * FUNCTIONS
+ */
+
+//rem converter
+@function rem($px, $base: 16px) {
+  @return ($px / $base) * 1rem;
+}
+
+// Clearfix
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+    visibility: hidden;
+    font-size: 0;
+    height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// Degradado
+@mixin gradient($origin: left, $start: #ffffff, $stop: #000000) {
+  // background-color: $start;
+  background-image: -webkit-linear-gradient($origin, $start, $stop);
+  background-image: -moz-linear-gradient($origin, $start, $stop);
+  background-image: -o-linear-gradient($origin, $start, $stop);
+  background-image: -ms-linear-gradient($origin, $start, $stop);
+  background-image: linear-gradient($origin, $start, $stop);
+}
+
+/*
+ * SHAPES
+ */
+@mixin arrow ($width, $color, $border-width, $deg) {
+  width: $width;
+  height: $width;
+  border-top: $border-width solid $color;
+  border-left: $border-width solid $color;
+  transform: rotate($deg);
+  pointer-events: none;
+}
+
+@mixin equi-triangle ($width, $color, $direction) {
+  width: 0;
+  height: 0;
+  @if $direction == 'top' {
+    border-left: $width solid transparent;
+    border-right: $width solid transparent;
+    border-bottom: $width solid $color;
+  } @else if $direction == 'bottom' {
+    border-left: $width solid transparent;
+    border-right: $width solid transparent;
+    border-top: $width solid $color;
+  } @else if $direction == 'left' {
+    border-top: $width solid transparent;
+    border-bottom: $width solid transparent;
+    border-right: $width solid $color;
+  } @if $direction == 'right' {
+    border-top: $width solid transparent;
+    border-bottom: $width solid transparent;
+    border-left: $width solid $color;
+  }
+}
+
+
+%clearfix {
+  &:before, &:after {
+    display: table;
+    content: '';
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+%clean-button-or-input {
+  appearance: none;
+  box-shadow: none;
+  background-color: transparent;
+  border: 0;
+  text-decoration: none;
+  outline: none;
+  padding: 0;
+
+  // &:hover {
+    // appearance: none;
+    // -webkit-user-select: none;
+  // }
+}
+
+@mixin placeholder() {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder {@content}
+  &::-moz-placeholder {@content}
+  &:-ms-input-placeholder {@content}
+}
+
+%center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+%centerx {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+%centery {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
