@@ -2,7 +2,13 @@
 Rails.application.routes.draw do
 
   resources :about,      only: [:index]
-  resources :dashboards, only: [:index]
+
+  get '/dashboards(/:mode)(/:id)', to: 'dashboards#show'
 
   root 'welcome#index'
 end
+
+
+
+
+

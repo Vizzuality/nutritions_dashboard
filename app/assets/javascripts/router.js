@@ -2,6 +2,10 @@
 
   'use strict';
 
+  // ROUTES EXAMPLES
+  // * dashboards/region --> select region mode
+  // * dashboards/region/sub-sahara --> select region mode and sub-sahara item
+
   App.Router = Backbone.Router.extend({
 
     /**
@@ -11,7 +15,8 @@
      */
     routes: {
       '': 'Welcome#index',
-      
+      'dashboards(/:mode)(/:id)': 'Dashboards#show',
+
       // Here you have an example
       // 'countries': 'Countries#index',
       // 'countries/:iso': 'Countries#show'
@@ -20,10 +25,11 @@
     initialize: function() {
       // We are going to save params in model
       this.params = new (Backbone.Model.extend());
+
       // Listening events
-      this.params.on('change', _.bind(this.updateUrl, this));
+      // this.params.on('change', _.bind(this.updateUrl, this));
       // Global event to update params from external actions
-      App.Events.on('params:update', _.bind(this.updateParams, this));
+      // App.Events.on('params:update', _.bind(this.updateParams, this));
     },
 
     /**
@@ -39,6 +45,7 @@
      * @param  {Object} params
      */
     updateParams: function(params) {
+      debugger
       this.params.clear().set(params, { silent: true });
       this.updateUrl();
     },

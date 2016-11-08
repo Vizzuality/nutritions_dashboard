@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require turbolinks
 //= require jquery_ujs
 //= require URIjs
 //= require handlebars
@@ -46,3 +47,4 @@
   };
 
 }).call(this);
+

@@ -31,15 +31,18 @@
       var routeSplited = routeName.split('#');
       var controllerName = routeSplited[0];
       var actionName = routeSplited[1];
-      var params = (!!_.compact(routeParams).length) ? _.extend({id: routeParams[0]}, this.getParams(window.location.search)) : this.getParams(window.location.search);
+
+      var params = routeParams;
+
       if (App.Controller[controllerName] &&
         App.Controller.hasOwnProperty(controllerName)) {
         var currentController = new App.Controller[controllerName]();
         // Checking if action exists
-        if (currentController[actionName] &&
-          typeof currentController[actionName] === 'function') {
-          // Setting new params in model
-          this.updateParams(params);
+        if (currentController[actionName] && typeof currentController[actionName] === 'function') {
+
+          // Setting new params in model - WARNING: We don't actually need this. As we are managing routes from rails.
+          // this.updateParams(params);
+
           // Executing controller#action and passing url params
           currentController[actionName](params);
         } else {
