@@ -66,7 +66,10 @@
     Backbone.history.start({ pushState: true });
   }
 
-  document.addEventListener('DOMContentLoaded', initApp);
-
+  /*
+   * As we will using turbolinks, we will listen to the turbolinks
+   * load event and we will refresh the app each time the page loads.
+   */
+  document.addEventListener('turbolinks:load', initApp);
 
 })(this.App);

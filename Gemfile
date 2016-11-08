@@ -44,13 +44,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Assets pipeline
 gem 'uglifier', '>= 1.3.0'
-gem 'jquery-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'autoprefixer-rails'
 gem 'handlebars_assets'
 gem 'leaflet-rails'
-gem 'rails-assets-validate'
-gem "select2-rails"
+gem 'select2-rails'
 
 
 source 'https://rails-assets.org' do
@@ -59,6 +57,4 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-backbone'
   gem 'rails-assets-URIjs'
   gem 'rails-assets-d3', '~> 3.5.17'
-  gem 'rails-assets-c3', '0.4.11'
-  gem 'rails-assets-jquery.transit'
 end
