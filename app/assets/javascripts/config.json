@@ -1,4 +1,3 @@
 {
-  cartoUser: "nutritions",
-  baseUrl: "https://{0}.cartodb.com/api/v2/sql"
+  
 }

@@ -31,7 +31,7 @@
         item: this.status.get('item')
       };
 
-      this.collection.getData(params).done(function(data){
+      this.collection.getDataForScenarios(params).done(function(data){
         this.data = data;
         this.render();
       }).bind(this);
@@ -39,6 +39,7 @@
 
     render: function() {
       //Render graph widget.
+      console.log(this.data);
     }
 
   });

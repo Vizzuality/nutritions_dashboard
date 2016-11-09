@@ -6,13 +6,15 @@
 
   App.Collection.CartoCollection = Backbone.Collection.extend({
 
+    cartoUser: 'nutritions',
+    baseUrl: 'https://{0}.carto.com/api/v2/',
 
     url: function() {
       return this._urlForQuery(this._getQuery());
     },
 
     _urlForQuery: function(query) {
-      return format(BASE_URL, this.user_name) + "?q=" + query;
+      return format(this.baseUrl, this.cartoUser) + "?q=" + query;
     },
 
     _getQuery: function() {
