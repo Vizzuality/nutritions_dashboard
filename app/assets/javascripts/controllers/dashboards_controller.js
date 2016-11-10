@@ -27,6 +27,10 @@
       //Meeting targets View
       //Packages View
 
+      this.currentBurdenView = new App.View.CurrentBurdenView({
+        el: '#currentBurdenView'
+      });
+
       this.scenarioComparisionView = new App.View.ScenarioComparisionView({
         el: '#scenarioComparisonView'
       });

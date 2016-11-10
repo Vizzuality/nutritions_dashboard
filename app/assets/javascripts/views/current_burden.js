@@ -4,11 +4,11 @@
 
   App.View = App.View || {};
 
-  App.View.ScenarioComparisionView = Backbone.View.extend({
+  App.View.CurrentBurdenView = Backbone.View.extend({
 
     initialize: function() {
       this.status = new Backbone.Model({});
-      this.collection = new App.Collection.IndicatorsCollection();
+      this.collection = new App.Collection.WorldBankDataCollection();
 
       this._addListeners();
     },
@@ -33,7 +33,7 @@
         item: this.status.get('item')
       };
 
-      this.collection.getDataForScenarios(params).done(function(){
+      this.collection.getDataForCurrentBurden().done(function(){
         this.render();
       }.bind(this));
     },
@@ -49,22 +49,21 @@
         options: {
           data: {
             columns: [
-                ['gap', 300, 350, 400, 500, 520, 600],
-                ['data2', 130, 150, 180, 200, 230, 550],
-                ['data3', 200, 230, 280, 300, 350, 750]
+              ['data1', 30, 200, 100, 400]
             ],
-            types: {
-                gap: 'area',
-                data2: 'area',
-                data3: 'area'
-                // 'line', 'spline', 'step', 'area', 'area-step' are also available to stack
-            },
-            groups: [['gap', 'data2', 'data3']],
+            type: 'bar'
+          },
+          bar: {
+              width: {
+                  ratio: 0.5 // this makes bar width 50% of length between ticks
+              }
+              // or
+              //width: 100 // this makes bar width 100px
           },
           axis: {
             x: {
               type: 'category',
-              categories: ['2015', '2016', '2017', '2018', '2019', '2019'], //pluck values from data,
+              categories: ['Stunting', 'Wasting', 'Anemia', 'Non-exclusive Breastfeeding'], //pluck values from data,
               tick: {},
               padding: {
                 left: 0,
