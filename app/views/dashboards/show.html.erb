@@ -1,5 +1,43 @@
-<h1>Dashboards#show</h1>
-<p>Find me in app/views/dashboards/show.html.erb</p>
+<div class="l-selectors">
+  <div class="wrap">
+    <div class="l-map">
+      <div id="map"></div>
+    </div>
+    <div class="l-selectors">
+      <div id="mode-selector"></div>
+      <div id="group-selector"></div>
+    </div>
+  </div>
+</div>
 
+<div class="l-charts">
+  <div class="l-current-burden">
+    <div class="wrap">
+      <h2>Current Burden of Nutritional Conditions</h2>
+      <div id="currentBurdenView"><div class="c-chart"></div></div>
+    </div>
+  </div>
 
-<div id="scenarioComparisonView"></div>
+  <div class="l-targets-cost">
+    <div class="wrap">
+      <h2>Cost of Meeting Targets, 2016-2025</h2>
+      <div id="targetsCostView"><div class="c-chart"></div></div>
+    </div>
+  </div>
+
+  <div class="l-packages">
+    <div class="wrap">
+      <h2>Cost of Packages Comparison</h2>
+      <div id="packagesView"><div class="c-chart"></div></div>
+    </div>
+  </div>
+
+  <div class="l-scenarios">
+    <div class="wrap">
+      <h2>Scenario Comparison</h2>
+      <div id="scenarioComparisonView"><div class="c-chart"></div></div>
+    </div>
+  </div>
+
+  <div class="l-comments"></div>
+</div>

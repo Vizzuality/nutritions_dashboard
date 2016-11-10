@@ -1,3 +1,5 @@
 {
-  
+  "user": "nutritions",
+  "baseUrl": "https://{0}.carto.com/api/v2/sql",
+  "indicators_table": "indicators"
 }

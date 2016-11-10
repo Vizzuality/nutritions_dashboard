@@ -7,14 +7,14 @@
   App.Collection.CartoCollection = Backbone.Collection.extend({
 
     cartoUser: 'nutritions',
-    baseUrl: 'https://{0}.carto.com/api/v2/',
+    baseUrl: 'https://{0}.carto.com/api/v2/sql',
 
     url: function() {
       return this._urlForQuery(this._getQuery());
     },
 
     _urlForQuery: function(query) {
-      return format(this.baseUrl, this.cartoUser) + "?q=" + query;
+      return App.Helper.Utils.format(this.baseUrl, this.cartoUser) + "?q=" + query;
     },
 
     _getQuery: function() {
@@ -24,7 +24,7 @@
         columns = this.columns.join(", ");
       }
 
-      return format("SELECT {0} FROM {1}", columns, this.table);
+      return App.Helper.Utils.format("SELECT {0} FROM {1}", columns, this.table);
     },
 
     parse: function(data) {
