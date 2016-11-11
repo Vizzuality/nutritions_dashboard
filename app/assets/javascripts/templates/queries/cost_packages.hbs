@@ -1,0 +1,1 @@
+SELECT region, scenario, source, target, _2015, _2016, _2017, _2018, _2019, _2020, _2021, _2022, _2023, _2024, _2025 FROM {{table}} WHERE world_bank_region='{{group}}' and target='Composite' ORDER BY region, scenario, target

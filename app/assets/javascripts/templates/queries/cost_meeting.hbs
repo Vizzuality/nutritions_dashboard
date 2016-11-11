@@ -1,0 +1,4 @@
+SELECT sum_of_package, target
+FROM targets_aggregate
+WHERE iso_code='IND' and scenario='Business As Usual' and package='Full' and sum_of_package is not null
+ORDER BY target

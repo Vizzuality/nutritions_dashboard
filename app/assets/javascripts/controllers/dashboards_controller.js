@@ -31,6 +31,10 @@
         el: '#currentBurdenView'
       });
 
+      this.costPackagesView = new App.View.CostPackagesView({
+        el: '#costPackagesView'
+      });
+
       this.scenarioComparisionView = new App.View.ScenarioComparisionView({
         el: '#scenarioComparisonView'
       });
