@@ -39,32 +39,49 @@
     },
 
     render: function() {
-      // console.log(this.collection.toJSON());
       this._drawGraph();
     },
 
+    _parseData: function() {
+      var data = this.collection.toJSON();
+      var dataByScenario = _.groupBy(data, 'scenario');
+
+      for (var i in dataByScenario) {
+        var packages = _.groupBy(dataByScenario[i], 'package');
+        dataByScenario[i] = packages;
+      }
+
+      return dataByScenario;
+    },
+
     _drawGraph: function() {
+      var data = this._parseData()['Global Solidarity']['Full'];
+
       this.stackChart = new App.View.Chart({
         el: this.el,
         options: {
           data: {
-            columns: [
-                ['gap', 300, 350, 400, 500, 520, 600],
-                ['data2', 130, 150, 180, 200, 230, 550],
-                ['data3', 200, 230, 280, 300, 350, 750]
-            ],
+            json: {
+              'Domestic': _.pluck(_.where(data, {source: 'Domestic'}), 'cost'),
+              'Donor': _.pluck(_.where(data, {source: 'Donor'}), 'cost'),
+              'Household': _.pluck(_.where(data, {source: 'Household'}), 'cost'),
+              'Innovative': _.pluck(_.where(data, {source: 'Innovative'}), 'cost'),
+              'Gap': _.pluck(_.where(data, {source: 'Gap'}), 'cost')
+            },
             types: {
-                gap: 'area',
-                data2: 'area',
-                data3: 'area'
+              'Domestic': 'area',
+              'Donor': 'area', 
+              'Household': 'area',
+              'Innovative': 'area',
+              'Gap': 'area'
                 // 'line', 'spline', 'step', 'area', 'area-step' are also available to stack
             },
-            groups: [['gap', 'data2', 'data3']],
+            groups: [['Domestic', 'Donor', 'Household', 'Innovative', 'Gap']],
           },
           axis: {
             x: {
               type: 'category',
-              categories: ['2015', '2016', '2017', '2018', '2019', '2019'], //pluck values from data,
+              categories: _.uniq(_.pluck(data, 'year')),
               tick: {},
               padding: {
                 left: 0,

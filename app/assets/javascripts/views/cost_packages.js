@@ -46,8 +46,6 @@
       var data = this.collection.toJSON();
       var groupedData = _.groupBy(data, 'package');
 
-      console.log(this.data)
-      debugger
       this.stackChart = new App.View.Chart({
         el: this.el,
         options: {

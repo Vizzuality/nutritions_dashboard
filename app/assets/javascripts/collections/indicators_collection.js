@@ -6,16 +6,15 @@
 
   App.Collection.IndicatorsCollection = App.Collection.CartoCollection.extend({
 
-    scenarioQueryTPL: HandlebarsTemplates['queries/scenario'],
+    scenarioQueryTPL: HandlebarsTemplates['queries/scenario_comparison'],
     costPackagesQueryTPL: HandlebarsTemplates['queries/cost_packages'],
     table: 'nutritions',
 
-    getDataForScenarios: function(mode, group) {
-
-      var query = this.scenarioQueryTPL({
+    getDataForCostPackages: function(mode, group) {
+      var query = this.costPackagesQueryTPL({
         'table': this.table,
         'mode': mode || 'region',
-        'group': group || 'Sub-Saharan Africa'
+        'group': group || 'sub-saharan-africa'
       });
 
       var url = this._urlForQuery(query);
@@ -23,9 +22,8 @@
       return this.fetch({url: url});
     },
 
-    getDataForCostPackages: function(mode, group) {
-
-      var query = this.costPackagesQueryTPL({
+    getDataForScenarios: function(mode, group) {
+      var query = this.scenarioQueryTPL({
         'table': this.table,
         'mode': mode || 'region',
         'group': group || 'sub-saharan-africa'

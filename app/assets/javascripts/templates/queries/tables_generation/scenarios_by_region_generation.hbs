@@ -1,0 +1,9 @@
+{{!-- This query was used to generate scenarios_by_region table from targets_by_year table --}}
+
+WITH region as (SELECT package, target, country, region, values, year, source, scenario 
+FROM targets_by_year 
+where target='Composite' and values is not null order by country, source, year), 
+
+totals as (SELECT package, region, values, year, country, source, scenario FROM region)
+
+SELECT sum(values) as cost, package, region, year, source, scenario FROM totals GROUP BY package, year, region, source, scenario order by region, source, year
