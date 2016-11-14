@@ -1,13 +1,11 @@
 # README
 
-<<<<<<< HEAD
 =======
 ## Nutrition Dashboard
 
 This project will take data collected by [Results for Development](http://www.resultsfordevelopment.org/) about the World Health Organisation's 2025 Nutrition Goals. Through a series of dashboards, you will be able to see how much funding is currently pledged, and how much more funding is needed, to reach these goals, which include increased breastfeeding, reduced anaemia and less stunting for children under 5. You'll be able to slice the data by income groups or regional groups. 
 
 
->>>>>>> d794c273aea886d1cca701b98f38aabe2db486ff
 ## Dependencies
 
 * Ruby 2.3.1

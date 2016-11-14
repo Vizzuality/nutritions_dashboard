@@ -1,0 +1,10 @@
+{{!-- This query was used to generate targets_income_total table from targets_aggregate table --}}
+
+WITH income_group as (SELECT sum_of_package, package, target, country, income_group
+FROM targets_aggregate 
+WHERE scenario='Business As Usual' and sum_of_package is not null and package='Full'),
+
+total_targets as (SELECT sum_of_package, package, target, country, income_group 
+from income_group)
+
+SELECT sum(sum_of_package) as total_per_target, array_agg(country) as countries, package, target, income_group from total_targets group by package, target, income_group order by income_group, target asc
