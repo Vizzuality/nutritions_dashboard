@@ -28,7 +28,7 @@
       var query = this.costPackagesQueryTPL({
         'table': this.table,
         'mode': mode || 'region',
-        'group': group || 'Sub-Saharan Africa'
+        'group': group || 'sub-saharan-africa'
       });
 
       var url = this._urlForQuery(query);

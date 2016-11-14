@@ -39,19 +39,23 @@
     },
 
     render: function() {
-      // console.log(this.collection.toJSON());
       this._drawGraph();
     },
 
     _drawGraph: function() {
+      var data = this.collection.toJSON();
+      var groupedData = _.groupBy(data, 'package');
+
+      console.log(this.data)
+      debugger
       this.stackChart = new App.View.Chart({
         el: this.el,
         options: {
           data: {
-            columns: [
-              ['data1', 30, 200, 100, 400, 30, 200, 100, 400, 500],
-              ['data2', 10, 100, 50, 300, 10, 100, 50, 300, 350]
-            ],
+            json: {
+              'RTS': _.pluck(groupedData.RTS, 'cost'),
+              'Full': _.pluck(groupedData.Full, 'cost')
+            },
             type: 'bar'
           },
           bar: {
@@ -64,7 +68,7 @@
           axis: {
             x: {
               type: 'category',
-              categories: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023'], //pluck values from data,
+              categories: _.uniq(_.pluck(data, 'year')),
               tick: {},
               padding: {
                 left: 0,

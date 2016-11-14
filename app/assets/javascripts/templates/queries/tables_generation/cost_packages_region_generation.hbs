@@ -1,0 +1,9 @@
+{{!-- This query was used to generate cost_packages_region table from targets_by_year table --}}
+
+WITH region as (SELECT package, target, country, region, values, year, source, scenario 
+FROM targets_by_year 
+where target='Composite' and scenario='Global Solidarity' and values is not null order by country, source, year), 
+
+totals as (SELECT package, region, values, year, country FROM region)
+
+SELECT sum(values) as cost, package, region, year, array_agg(country) as countries FROM totals GROUP BY package, year, region order by region, year
