@@ -4,7 +4,7 @@
 
   App.View = App.View || {};
 
-  App.View.CostPackagesView = Backbone.View.extend({
+  App.View.BusinessAsUsualView = Backbone.View.extend({
 
     initialize: function() {
       this.status = new Backbone.Model({});
@@ -33,7 +33,7 @@
         item: this.status.get('item')
       };
 
-      this.collection.getDataForCostPackages().done(function(){
+      this.collection.getDataForScenarios(params).done(function(){
         this.render();
       }.bind(this));
     },
@@ -42,26 +42,44 @@
       this._drawGraph();
     },
 
-    _drawGraph: function() {
+    _parseData: function() {
       var data = this.collection.toJSON();
-      var groupedData = _.groupBy(data, 'package');
+      var dataByScenario = _.groupBy(data, 'scenario');
+
+      for (var i in dataByScenario) {
+        var packages = _.groupBy(dataByScenario[i], 'package');
+        dataByScenario[i] = packages;
+      }
+
+      return dataByScenario;
+    },
+
+    _drawGraph: function() {
+      var data = this._parseData()['Business As Usual']['Full'];
 
       this.stackChart = new App.View.Chart({
         el: this.el,
         options: {
+          color: {
+            pattern: ['#565554', '#2E86AB', '#F6F5AE', '#97F794', '#F24236']
+          },
           data: {
             json: {
-              'RTS': _.pluck(groupedData.RTS, 'cost'),
-              'Full': _.pluck(groupedData.Full, 'cost')
+              'Domestic': _.pluck(_.where(data, {source: 'Domestic'}), 'cost'),
+              'Donor': _.pluck(_.where(data, {source: 'Donor'}), 'cost'),
+              'Household': _.pluck(_.where(data, {source: 'Household'}), 'cost'),
+              'Innovative': _.pluck(_.where(data, {source: 'Innovative'}), 'cost'),
+              'Gap': _.pluck(_.where(data, {source: 'Gap'}), 'cost')
             },
-            type: 'bar'
-          },
-          bar: {
-              width: {
-                  ratio: 0.5 // this makes bar width 50% of length between ticks
-              }
-              // or
-              //width: 100 // this makes bar width 100px
+            types: {
+              'Domestic': 'area',
+              'Donor': 'area',
+              'Household': 'area',
+              'Innovative': 'area',
+              'Gap': 'area'
+                // 'line', 'spline', 'step', 'area', 'area-step' are also available to stack
+            },
+            groups: [['Domestic', 'Donor', 'Household', 'Innovative', 'Gap']],
           },
           axis: {
             x: {

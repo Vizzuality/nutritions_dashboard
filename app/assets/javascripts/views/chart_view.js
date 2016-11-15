@@ -8,7 +8,7 @@
 
     defaults: {
       color: {
-        pattern: ['#c1de11', '#8ac230', '#3f8c3f']
+        pattern: ['#c1de11', '#8ac230', '#3f8c3f', '#fff000', '#fabada']
       }
     },
 

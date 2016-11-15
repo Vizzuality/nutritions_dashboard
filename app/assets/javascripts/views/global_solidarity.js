@@ -4,7 +4,7 @@
 
   App.View = App.View || {};
 
-  App.View.ScenarioComparisionView = Backbone.View.extend({
+  App.View.GlobalSolidarityView = Backbone.View.extend({
 
     initialize: function() {
       this.status = new Backbone.Model({});
@@ -60,6 +60,9 @@
       this.stackChart = new App.View.Chart({
         el: this.el,
         options: {
+          color: {
+            pattern: ['#565554', '#2E86AB', '#F6F5AE', '#97F794', '#F24236']
+          },
           data: {
             json: {
               'Domestic': _.pluck(_.where(data, {source: 'Domestic'}), 'cost'),
@@ -70,7 +73,7 @@
             },
             types: {
               'Domestic': 'area',
-              'Donor': 'area', 
+              'Donor': 'area',
               'Household': 'area',
               'Innovative': 'area',
               'Gap': 'area'
@@ -82,7 +85,8 @@
             x: {
               type: 'category',
               categories: _.uniq(_.pluck(data, 'year')),
-              tick: {},
+              tick: {
+              },
               padding: {
                 left: 0,
                 right: 0
@@ -90,10 +94,18 @@
             },
             y: {
               label: {
-                text: 'USD M$',
+                text: 'USD $',
                 position: 'outer-top'
               },
-              tick: {}
+              tick: {
+                format: function (v, id, i, j) {
+                  if (v > 1000 || v < -1000) {
+                    return d3.format('.3s')(v);
+                  } else {
+                    return d3.round(v, 2);
+                  }
+                }
+              }
             }
           }
         }

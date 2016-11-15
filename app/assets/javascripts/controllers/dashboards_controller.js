@@ -35,13 +35,14 @@
         el: '#costPackagesView'
       });
 
-      this.scenarioComparisionView = new App.View.ScenarioComparisionView({
-        el: '#scenarioComparisonView'
+      this.globalSolidarityView = new App.View.GlobalSolidarityView({
+        el: '#globalSolidarityView'
+      });
+
+      this.businessAsUsualView = new App.View.BusinessAsUsualView({
+        el: '#businessAsUsualView'
       });
     },
-
-
-
 
   });
 })(this.App);
