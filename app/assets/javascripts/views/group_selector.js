@@ -13,14 +13,17 @@
     },
 
     initialize: function() {
-      this.status = new Backbone.Model({
-        mode: 'regions'
-      });
+      this.status = new Backbone.Model();
 
       this.collection = new App.Collection.GroupsCollection();
-      this._fetchData();
-
       this._setListeners();
+    },
+
+    setParams: function(params) {
+      //Atasco recibir params de la url async
+      this.$el.find('.js--group-selector')
+        .val(params.group)
+        .trigger('change')
     },
 
     _setListeners: function() {
@@ -48,7 +51,7 @@
     },
 
     _updateStatusMode: function(mode) {
-      this.status.set(mode)
+      this.status.set(mode);
     },
 
     _triggerSelectedGroup: function() {

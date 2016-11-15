@@ -7,7 +7,7 @@
   App.View.ModeSelectorView = Backbone.View.extend({
 
     events: {
-      'change .js--mode-selector' : '_onclickSetStatus'
+      'change .js--mode-selector' : '_onclickChangeMode'
     },
 
     initialize: function() {
@@ -15,13 +15,23 @@
       this._setListeners();
     },
 
+    setParams: function(obj) {
+      this.$el.find('#'+ obj.mode)
+        .attr('checked', true)
+        .trigger('change');
+    },
+
     _setListeners: function() {
       this.status.on('change:mode', this._updateMode.bind(this));
     },
 
-    _onclickSetStatus: function(e) {
+    _onclickChangeMode: function(e) {
       var mode = $(e.currentTarget).val();
-      this.status.set({ 'mode': mode });
+      this._setStatus({mode: mode});
+    },
+
+    _setStatus: function(obj) {
+      this.status.set(obj);
     },
 
     _updateMode: function() {

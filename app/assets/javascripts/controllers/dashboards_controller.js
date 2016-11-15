@@ -8,18 +8,21 @@
 
     show: function(params) {
       //Init here the views for the dashboard.
-      this.initSelectorsViews();
+      this.initSelectorsViews(params);
       this.initMapViews();
       this.initGraphsViews();
     },
 
-    initSelectorsViews: function() {
+    initSelectorsViews: function(params) {
       this.modeSelector = new App.View.ModeSelectorView({
         el: '#modeSelectorView'
       });
       this.groupSelector = new App.View.GroupSelectorView({
-        el: '#groupSelectorView'
+        el: '#groupSelectorView',
+        params: params
       });
+
+      this.modeSelector.setParams({mode: params[0], group: params[1]]});
     },
 
     initMapViews: function() {
