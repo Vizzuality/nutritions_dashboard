@@ -14,6 +14,12 @@
     },
 
     initSelectorsViews: function() {
+      this.modeSelector = new App.View.ModeSelectorView({
+        el: '#modeSelectorView'
+      });
+      this.groupSelector = new App.View.GroupSelectorView({
+        el: '#groupSelectorView'
+      });
     },
 
     initMapViews: function() {

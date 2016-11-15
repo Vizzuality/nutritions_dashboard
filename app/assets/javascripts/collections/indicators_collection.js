@@ -11,6 +11,18 @@
     costMeetingTargetsQueryTPL: HandlebarsTemplates['queries/cost_meeting_targets'],
     table: 'nutritions',
 
+    getDataForCurrentBurden: function(mode, group) {
+      var query = this.scenarioQueryTPL({
+        'table': this.table,
+        'mode': mode || 'region',
+        'group': group || 'sub-saharan-africa'
+      });
+
+      var url = this._urlForQuery(query);
+
+      return this.fetch({url: url});
+    },
+
     getDataForCostMeetingPackages: function(mode, group) {
       var query = this.costMeetingTargetsQueryTPL({
         'table': this.table,
@@ -36,18 +48,6 @@
     },
 
     getDataForScenarios: function(mode, group) {
-      var query = this.scenarioQueryTPL({
-        'table': this.table,
-        'mode': mode || 'region',
-        'group': group || 'sub-saharan-africa'
-      });
-
-      var url = this._urlForQuery(query);
-
-      return this.fetch({url: url});
-    },
-
-    getDataForCurrentBurden: function(mode, group) {
       var query = this.scenarioQueryTPL({
         'table': this.table,
         'mode': mode || 'region',

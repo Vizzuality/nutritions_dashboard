@@ -4,8 +4,15 @@
       <div id="map"></div>
     </div>
     <div class="l-selectors">
-      <div id="mode-selector"></div>
-      <div id="group-selector"></div>
+      <div id="modeSelectorView">
+        <input type="radio" name="mode" value="regions" class="js--mode-selector" id="modeRegion">
+        <label for="modeRegion">Regions</label>
+        <input type="radio" name="mode" value="income-groups" class="js--mode-selector" id="modeIncomeGroup">
+        <label for="modeIncomeGroup">Income groups</label>
+      </div>
+      <div id="groupSelectorView">
+        <select name="group" id="groupSelector" class="js--group-selector"></select>
+      </div>
     </div>
   </div>
 </div>
