@@ -4,7 +4,7 @@
 
   App.View = App.View || {};
 
-  App.View.CostPackagesView = Backbone.View.extend({
+  App.View.CostPackagesView = App.View.Chart.extend({
 
     initialize: function() {
       this.status = new Backbone.Model({});
@@ -49,6 +49,7 @@
       this.stackChart = new App.View.Chart({
         el: this.el,
         options: {
+          color: this.colors.other,
           data: {
             json: {
               'RTS': _.pluck(groupedData.RTS, 'cost'),

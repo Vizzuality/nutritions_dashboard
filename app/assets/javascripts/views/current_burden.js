@@ -4,7 +4,7 @@
 
   App.View = App.View || {};
 
-  App.View.CurrentBurdenView = Backbone.View.extend({
+  App.View.CurrentBurdenView = App.View.Chart.extend({
 
     initialize: function() {
       this.status = new Backbone.Model({});
@@ -47,6 +47,7 @@
       this.stackChart = new App.View.Chart({
         el: this.el,
         options: {
+          color: this.colors.other,
           data: {
             columns: [
               ['data1', 30, 200, 100, 400]

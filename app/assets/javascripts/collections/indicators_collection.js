@@ -8,7 +8,20 @@
 
     scenarioQueryTPL: HandlebarsTemplates['queries/scenario_comparison'],
     costPackagesQueryTPL: HandlebarsTemplates['queries/cost_packages'],
+    costMeetingTargetsQueryTPL: HandlebarsTemplates['queries/cost_meeting_targets'],
     table: 'nutritions',
+
+    getDataForCostMeetingPackages: function(mode, group) {
+      var query = this.costMeetingTargetsQueryTPL({
+        'table': this.table,
+        'mode': mode || 'region',
+        'group': group || 'sub-saharan-africa'
+      });
+
+      var url = this._urlForQuery(query);
+
+      return this.fetch({url: url});
+    },
 
     getDataForCostPackages: function(mode, group) {
       var query = this.costPackagesQueryTPL({

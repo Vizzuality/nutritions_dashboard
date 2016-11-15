@@ -4,7 +4,7 @@
 
   App.View = App.View || {};
 
-  App.View.GlobalSolidarityView = Backbone.View.extend({
+  App.View.GlobalSolidarityView = App.View.Chart.extend({
 
     initialize: function() {
       this.status = new Backbone.Model({});
@@ -61,7 +61,7 @@
         el: this.el,
         options: {
           color: {
-            pattern: ['#565554', '#2E86AB', '#F6F5AE', '#97F794', '#F24236']
+            pattern: this.colors.source
           },
           data: {
             json: {

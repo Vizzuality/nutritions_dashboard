@@ -1,8 +1,0 @@
-with region as (select sum_of_package, package, target, country, region
-FROM targets_aggregate 
-WHERE scenario='Business As Usual' and sum_of_package is not null and package='Full'),
-
-total_targets as (SELECT sum_of_package, package, target, country, region 
-from region)
-
-SELECT sum(sum_of_package), package, target, region  from total_targets group by package, target, region order by region, target asc

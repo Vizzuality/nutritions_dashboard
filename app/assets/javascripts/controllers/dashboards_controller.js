@@ -7,9 +7,6 @@
   App.Controller.Dashboards = App.Controller.Page.extend({
 
     show: function(params) {
-      console.log('Dashboards#index');
-      console.log(params);
-
       //Init here the views for the dashboard.
       this.initSelectorsViews();
       this.initMapViews();
@@ -23,12 +20,12 @@
     },
 
     initGraphsViews: function() {
-      //Burden View
-      //Meeting targets View
-      //Packages View
-
       this.currentBurdenView = new App.View.CurrentBurdenView({
         el: '#currentBurdenView'
+      });
+
+      this.costMeetingTargetsView = new App.View.CostMeetingTargetsView({
+        el: '#costMeetingPackagesView'
       });
 
       this.costPackagesView = new App.View.CostPackagesView({
