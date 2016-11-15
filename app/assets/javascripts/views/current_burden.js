@@ -8,23 +8,9 @@
 
     initialize: function() {
       this.status = new Backbone.Model({});
-      this.collection = new App.Collection.WorldBankDataCollection();
+      this.collection = new App.Collection.IndicatorsCollection();
 
-      this._addListeners();
-    },
-
-    _addListeners: function() {
-      //Internal
-      // this.status.on('change', this._fetchData);
-      // TEMPORAL - we are not setting values right now.
-      this._fetchData();
-
-      //External
-      App.Events.on('groupSelector:group', this._setStatus)
-    },
-
-    _setStatus: function(params) {
-      this.status.set(params);
+      App.View.CurrentBurdenView.__super__.initialize.apply(this);
     },
 
     _fetchData: function() {
@@ -38,13 +24,8 @@
       }.bind(this));
     },
 
-    render: function() {
-      // console.log(this.collection.toJSON());
-      this._drawGraph();
-    },
-
     _drawGraph: function() {
-      this.stackChart = new App.View.Chart({
+      this.stackChart = new App.View.C3Chart({
         el: this.el,
         options: {
           color: this.colors.other,
@@ -73,7 +54,7 @@
             },
             y: {
               label: {
-                text: 'USD M$',
+                text: 'USD $',
                 position: 'outer-top'
               },
               tick: {}

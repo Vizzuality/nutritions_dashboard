@@ -30,15 +30,26 @@
       }
 
       var opts = settings && settings.options ? settings.options : {};
-      this.options = _.extend({
-        bindto: this.$el.find('.c-chart')[0]
-      }, this.defaults, opts);
 
-      this.render();
+      this._addListeners();
+    },
+
+    _addListeners: function() {
+      //Internal
+      // this.status.on('change', this._fetchData);
+      // TEMPORAL - we are not setting values right now.
+      this._fetchData();
+
+      //External
+      App.Events.on('groupSelector:group', this._setStatus)
+    },
+
+    _setStatus: function(params) {
+      this.status.set(params);
     },
 
     render: function() {
-      this.chart = c3.generate(this.options);
+      this._drawGraph();
     }
 
   });

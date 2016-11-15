@@ -10,21 +10,7 @@
       this.status = new Backbone.Model({});
       this.collection = new App.Collection.IndicatorsCollection();
 
-      this._addListeners();
-    },
-
-    _addListeners: function() {
-      //Internal
-      // this.status.on('change', this._fetchData);
-      // TEMPORAL - we are not setting values right now.
-      this._fetchData();
-
-      //External
-      App.Events.on('groupSelector:group', this._setStatus)
-    },
-
-    _setStatus: function(params) {
-      this.status.set(params);
+      App.View.BusinessAsUsualView.__super__.initialize.apply(this);
     },
 
     _fetchData: function() {
@@ -57,7 +43,7 @@
     _drawGraph: function() {
       var data = this._parseData()['Business As Usual']['Full'];
 
-      this.stackChart = new App.View.Chart({
+      this.stackChart = new App.View.C3Chart({
         el: this.el,
         options: {
           color: {
