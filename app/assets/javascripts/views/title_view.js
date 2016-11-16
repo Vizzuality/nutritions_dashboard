@@ -4,25 +4,9 @@
 
   App.View = App.View || {};
 
-  App.View.Chart = Backbone.View.extend({
+  App.View.TitleView = Backbone.View.extend({
 
-    colors: {
-      targets: {
-        'Anemia': '7C1C05',
-        'Composite': 'CCAB5E',
-        'Exclusive breastfeeding': 'E6850B',
-        'Stunting': '083347',
-        'Wasting': '4E7F8D'
-      },
-      sources: {
-        'Domestic': '#565554',
-        'Donor': '#2E86AB',
-        'Household': '#97F794',
-        'Innovative': '#F6F5AE',
-        'Gap': '#F24236'
-      },
-      other: ['#c1de11', '#8ac230', '#3f8c3f', '#fff000', '#fabada']
-    },
+    template: HandlebarsTemplates['title'],
 
     initialize: function(settings) {
       if (!this.el) {
@@ -30,6 +14,9 @@
       }
 
       var opts = settings && settings.options ? settings.options : {};
+
+      this.status = new Backbone.Model();
+      this.collection = new App.Collection.GroupsCollection();
 
       this._addListeners();
     },
@@ -42,14 +29,24 @@
       App.Events.on('group:selected', this._setStatus.bind(this))
     },
 
+    _fetchData: function() {
+      this.collection.getGroupInfo(this.status.get('mode'), this.status.get('group')).done(function() {
+        this.render();
+      }.bind(this));
+    },
+
     _setStatus: function(params) {
       this.status.set(params);
     },
 
     render: function() {
-      this._drawGraph();
-    }
+      var data = this.collection.toJSON()[0];
 
+      this.$el.html(this.template({
+        title: data.title,
+        description: data.description
+      }))
+    }
   });
 
 })(this.App);

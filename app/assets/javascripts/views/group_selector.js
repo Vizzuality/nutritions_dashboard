@@ -20,10 +20,7 @@
     },
 
     setParams: function(params) {
-      //Atasco recibir params de la url async
-      this.$el.find('.js--group-selector')
-        .val(params.group)
-        .trigger('change')
+      this.status.set(params);
     },
 
     _setListeners: function() {
@@ -55,13 +52,35 @@
     },
 
     _triggerSelectedGroup: function() {
-      App.Events.trigger('group:selected', this.status);
+      App.Events.trigger('group:selected', {
+        mode: this.status.get('mode'),
+        group: this.status.get('group')
+      });
+    },
+
+    _setSelectedGroup: function() {
+      var valueFromParams = this.status.get('group');
+      var $selector = this.$el.find('.js--group-selector');
+      var selectorValue = $selector.val()
+      var $selectorOption = $selector.find('option[value="'+valueFromParams +'"]');
+
+      if ($selectorOption) {
+        if (valueFromParams != selectorValue) {
+          $selectorOption.attr('selected', true);
+          $selector.trigger('change');
+        }
+      } else {
+        $selector.find('option')[0].attr('selected', true);
+        $selector.trigger('change');
+      }
     },
 
     render: function() {
       this.$el.find('.js--group-selector').html(this.template({
         data: this.collection.toJSON()
       }));
+
+      this._setSelectedGroup();
     }
   });
 
