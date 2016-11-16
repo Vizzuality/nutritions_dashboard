@@ -1,1 +1,4 @@
-SELECT distinct(income_group) as val, income_title as name FROM targets_all WHERE income_group not in ('', '0') order by income_group asc
+SELECT distinct(income_group) as val, income_title as name 
+FROM countries 
+WHERE income_group not in ('', '0') 
+ORDER BY income_group asc

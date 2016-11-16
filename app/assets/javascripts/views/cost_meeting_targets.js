@@ -40,6 +40,7 @@
           .padding(1.5);
 
       var svg = d3.select('#costMeetingPackagesView .c-chart')
+          .html('') //Empty c-chart from previous chart.
           .append('svg')
           .attr('width', diameter)
           .attr('height', diameter)
