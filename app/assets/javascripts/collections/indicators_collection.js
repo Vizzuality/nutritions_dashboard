@@ -6,16 +6,18 @@
 
   App.Collection.IndicatorsCollection = App.Collection.CartoCollection.extend({
 
-    scenarioQueryTPL: HandlebarsTemplates['queries/scenario_comparison'],
-    costPackagesQueryTPL: HandlebarsTemplates['queries/cost_packages'],
-    costMeetingTargetsQueryTPL: HandlebarsTemplates['queries/cost_meeting_targets'],
-    table: 'nutritions',
+    queries: {
+      cost_meeting_targets: {
+        region: HandlebarsTemplates['queries/cost_meeting_targets_region'],
+        income_group: HandlebarsTemplates['queries/cost_meeting_targets_income_group']
+      },
+      cost_packages: HandlebarsTemplates['queries/cost_packages']
+      scenario_comparison: HandlebarsTemplates['queries/scenario_comparison']
+    },
 
-    getDataForCurrentBurden: function(mode, group) {
-      var query = this.scenarioQueryTPL({
-        'table': this.table,
-        'mode': mode || 'region',
-        'group': group || 'sub-saharan-africa'
+    getDataForCostMeetingPackages: function(params) {
+      var query = this.queries['cost_meeting_targets'][params.mode]({
+        'group': params.group
       });
 
       var url = this._urlForQuery(query);
@@ -23,11 +25,10 @@
       return this.fetch({url: url});
     },
 
-    getDataForCostMeetingPackages: function(mode, group) {
-      var query = this.costMeetingTargetsQueryTPL({
-        'table': this.table,
-        'mode': mode || 'region',
-        'group': group || 'sub-saharan-africa'
+    getDataForCostPackages: function(params) {
+      var query = this.queries['cost_packages']({
+        mode: params.mode,
+        group: params.group
       });
 
       var url = this._urlForQuery(query);
@@ -35,23 +36,10 @@
       return this.fetch({url: url});
     },
 
-    getDataForCostPackages: function(mode, group) {
-      var query = this.costPackagesQueryTPL({
-        'table': this.table,
-        'mode': mode || 'region',
-        'group': group || 'sub-saharan-africa'
-      });
-
-      var url = this._urlForQuery(query);
-
-      return this.fetch({url: url});
-    },
-
-    getDataForScenarios: function(mode, group) {
-      var query = this.scenarioQueryTPL({
-        'table': this.table,
-        'mode': mode || 'region',
-        'group': group || 'sub-saharan-africa'
+    getDataForScenarios: function(params) {
+      var query = this.queries['scenario_comparison']({
+        mode: params.mode,
+        group: params.group
       });
 
       var url = this._urlForQuery(query);

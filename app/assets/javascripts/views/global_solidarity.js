@@ -16,7 +16,7 @@
     _fetchData: function() {
       var params = {
         mode: this.status.get('mode'),
-        item: this.status.get('item')
+        group: this.status.get('group')
       };
 
       this.collection.getDataForScenarios(params).done(function(){

@@ -13,8 +13,8 @@
 
       var query = this.currentBurdenTPL({
         'table': this.table,
-        'mode': mode || 'region',
-        'group': group || 'Sub-Saharan Africa'
+        'mode': mode,
+        'group': group
       });
 
       var url = this._urlForQuery(query);

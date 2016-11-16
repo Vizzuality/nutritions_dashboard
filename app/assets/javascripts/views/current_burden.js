@@ -16,10 +16,10 @@
     _fetchData: function() {
       var params = {
         mode: this.status.get('mode'),
-        item: this.status.get('item')
+        group: this.status.get('group')
       };
 
-      this.collection.getDataForCurrentBurden().done(function(){
+      this.collection.getDataForCurrentBurden(params).done(function(){
         this.render();
       }.bind(this));
     },

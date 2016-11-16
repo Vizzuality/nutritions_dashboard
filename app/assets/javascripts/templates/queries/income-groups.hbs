@@ -1,4 +1,4 @@
 SELECT distinct(income_group) as val, income_title as name 
 FROM countries 
-WHERE income_group not in ('', '0') 
+WHERE income_group not in ('', '0', 'hic') 
 ORDER BY income_group asc

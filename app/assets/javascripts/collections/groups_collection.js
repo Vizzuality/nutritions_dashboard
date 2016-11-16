@@ -8,11 +8,11 @@
 
     queries: {
       info: {
-        regions: HandlebarsTemplates['queries/region_info'],
-        'income-groups': HandlebarsTemplates['queries/income_group_info']
+        region: HandlebarsTemplates['queries/region_info'],
+        'income_group': HandlebarsTemplates['queries/income_group_info']
       },
-      regions: HandlebarsTemplates['queries/regions'],
-      'income-groups': HandlebarsTemplates['queries/income-groups'],
+      region: HandlebarsTemplates['queries/regions'],
+      'income_group': HandlebarsTemplates['queries/income-groups'],
     },
 
     getGroups: function(mode) {
