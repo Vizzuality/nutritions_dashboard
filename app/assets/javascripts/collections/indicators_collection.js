@@ -7,21 +7,19 @@
   App.Collection.IndicatorsCollection = App.Collection.CartoCollection.extend({
 
     queries: {
-      cost_meeting_targets: {
-        region: HandlebarsTemplates['queries/cost_meeting_targets_region'],
-        income_group: HandlebarsTemplates['queries/cost_meeting_targets_income_group']
-      },
-      cost_packages: HandlebarsTemplates['queries/cost_packages']
+      cost_meeting_targets: HandlebarsTemplates['queries/cost_meeting_targets'],
+      cost_packages: HandlebarsTemplates['queries/cost_packages'],
       scenario_comparison: HandlebarsTemplates['queries/scenario_comparison']
     },
 
     getDataForCostMeetingPackages: function(params) {
-      var query = this.queries['cost_meeting_targets'][params.mode]({
-        'group': params.group
+      var query = this.queries['cost_meeting_targets']({
+        mode: params.mode,
+        group: params.group
       });
 
       var url = this._urlForQuery(query);
-
+      console.log('cost meeting targets', query)
       return this.fetch({url: url});
     },
 
@@ -32,7 +30,7 @@
       });
 
       var url = this._urlForQuery(query);
-
+      console.log('cost packages', query)
       return this.fetch({url: url});
     },
 
@@ -43,7 +41,7 @@
       });
 
       var url = this._urlForQuery(query);
-
+      console.log('scenario_comparison', query)
       return this.fetch({url: url});
     }
 

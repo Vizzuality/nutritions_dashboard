@@ -2,12 +2,11 @@
 
 WITH region as (select sum_of_package, package, target, country, region 
 FROM targets_aggregate 
-WHERE scenario='Business As Usual' and sum_of_package is not null and package='Full'), 
+WHERE scenario='Business As Usual' and package='Full' and sum_of_package is not null and income_group not in('hic')), 
 
-total_targets as (SELECT sum_of_package, package, target, country, region 
-from region) 
+total_targets as (SELECT sum_of_package, target, country, region from region) 
 
-SELECT sum(sum_of_package), package, target, region 
+SELECT sum(sum_of_package), target, region, array_agg(country) as countries
 FROM total_targets 
-GROUP BY package, target, region 
+GROUP BY target, region 
 ORDER BY region, target asc

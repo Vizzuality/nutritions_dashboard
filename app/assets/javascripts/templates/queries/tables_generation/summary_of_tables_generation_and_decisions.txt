@@ -1,0 +1,55 @@
+========================
+====== Nutritions ======
+========================
+
+COST OF MEETING TARGETS 2015-2016
+- Carto table: "cost_meeting_targets_region" or "cost_meeting_targets_income_group"
+- Chart: Bubbles. 
+- Is the summatory of cost of all the sources, by targets along the years. 
+- Decision: Full package instead of RTS package.
+- Column "sum_of_packages" of the original data. that is the sum of "sum(2016-25)"
+- Query to generate table from "targets_aggregate": 
+
+  WITH region as (select sum_of_package, package, target, country, region 
+  FROM targets_aggregate 
+  WHERE scenario='Business As Usual' and sum_of_package is not null and package='Full'), 
+
+  total_targets as (SELECT sum_of_package, package, target, country, region 
+  from region) 
+
+  SELECT sum(sum_of_package), package, target, region 
+  FROM total_targets 
+  GROUP BY package, target, region 
+  ORDER BY region, target asc
+
+
+COST PACKAGES COMPARISON
+- Carto table: "cost_packages_region" or "cost_packages_income_group"
+- Char: Bars.
+- Is the summatory of all the sources for the composite value, by year, by package. 
+- Query to generate table from "targets_by_year":
+
+  WITH region as (SELECT package, target, country, region, values, year, source, scenario 
+  FROM targets_by_year 
+  where target='Composite' and scenario='Global Solidarity' and income_group not in('hic')), 
+
+  totals as (SELECT package, region, values, year, country FROM region)
+
+  SELECT sum(values) as cost, package, region, year, array_agg(country) as countries FROM totals GROUP BY package, year, region order by region, year
+  
+  
+SCENARIO COMPARISON
+- Carto table: "scenario_by_region" or "scenario_by_income_group"
+- Bar: Stacked areas. 
+- Is the composite by source, by year, by scenario and by package. 
+- Decision: Actually drawing the the Full package. 
+- Query to generate from "targets_by_year":
+  
+  WITH region as (SELECT package, target, country, region, values, year, source, scenario 
+  FROM targets_by_year 
+  where target='Composite' and income_group not in('hic')),
+
+  totals as (SELECT package, region, values, year, country, source, scenario FROM region)
+
+  SELECT sum(values) as cost, package, region, year, source, scenario, array_agg(country) as countries FROM totals GROUP BY package, year, region, source, scenario order by region, source, year
+  

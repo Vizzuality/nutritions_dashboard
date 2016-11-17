@@ -2,7 +2,7 @@
 
 WITH income_group as (SELECT package, target, country, income_group, values, year, source, scenario 
 FROM targets_by_year 
-where target='Composite' and scenario='Global Solidarity' and values is not null order by country, source, year), 
+where target='Composite' and scenario='Global Solidarity' and income_group not in('hic')), 
 
 totals as (SELECT package, income_group, values, year, country FROM income_group)
 

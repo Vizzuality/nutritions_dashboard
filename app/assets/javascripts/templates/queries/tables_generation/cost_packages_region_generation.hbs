@@ -2,7 +2,7 @@
 
 WITH region as (SELECT package, target, country, region, values, year, source, scenario 
 FROM targets_by_year 
-where target='Composite' and scenario='Global Solidarity' order by country, source, year), 
+where target='Composite' and scenario='Global Solidarity' and income_group not in('hic')), 
 
 totals as (SELECT package, region, values, year, country FROM region)
 
