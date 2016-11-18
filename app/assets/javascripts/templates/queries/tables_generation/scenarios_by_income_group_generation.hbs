@@ -7,3 +7,14 @@ where target='Composite' and income_group not in('hic')),
 totals as (SELECT package, income_group, values, year, country, source, scenario FROM income_group)
 
 SELECT sum(values) as cost, package, income_group, year, source, scenario, array_agg(country) as countries FROM totals GROUP BY package, year, income_group, source, scenario order by income_group, source, year
+
+
+
+{{!-- new --}}
+WITH income_group as (SELECT package, target, country, income_group, values, year, source, scenario 
+FROM composite_baseline  
+where target='Composite' and income_group not in('hic')),
+
+totals as (SELECT package, income_group, values, year, country, source, scenario FROM income_group)
+
+SELECT sum(values) as cost, package, income_group, year, source, scenario, array_agg(country) as countries FROM totals GROUP BY package, year, income_group, source, scenario order by income_group, source, year
