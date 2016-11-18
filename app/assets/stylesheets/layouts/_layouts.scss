@@ -20,4 +20,17 @@
 }
 
 .l-header {
+  padding: rem(20px) 0;
+
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.l-main {
+  .wrap {
+    padding-top: rem(100px);
+    text-align: center;
+  }
 }

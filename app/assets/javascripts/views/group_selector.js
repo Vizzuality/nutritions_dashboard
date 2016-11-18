@@ -44,7 +44,11 @@
     },
 
     _updateSelectorGroup: function(){
-      this._fetchData();
+      if (this.status.get('mode') !== 'global') {
+        this._fetchData();
+      } else {
+        this.$el.addClass('is-hidden');
+      }
     },
 
     _updateStatusMode: function(mode) {

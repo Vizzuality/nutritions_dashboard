@@ -9,7 +9,8 @@
     queries: {
       info: {
         region: HandlebarsTemplates['queries/region_info'],
-        'income_group': HandlebarsTemplates['queries/income_group_info']
+        'income_group': HandlebarsTemplates['queries/income_group_info'],
+        global: HandlebarsTemplates['queries/global_info']
       },
       region: HandlebarsTemplates['queries/regions'],
       'income_group': HandlebarsTemplates['queries/income-groups'],
