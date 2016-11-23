@@ -25,6 +25,11 @@ This project will take data collected by [Results for Development](http://www.re
 * Start the rails server `rails server` or `rails s`
 * Point your browser to `http://localhost:3000`
 
+## Deploy
+
+This project is hosted in Heroku for now. 
+An automatic deploy has being setted when you push to master. 
+
 
 ## Contributing
 
