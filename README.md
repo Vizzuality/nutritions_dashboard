@@ -16,6 +16,7 @@ This project will take data collected by [Results for Development](http://www.re
 
 * Make sure you have the correct ruby version installed
 * Install the project gems: `bundle install`
+* Create the database: `rake db:create`
 * That is all! 
 
 
