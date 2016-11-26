@@ -8,18 +8,22 @@
 
     colors: {
       targets: {
-        'Anemia': '7C1C05',
-        'Composite': 'CCAB5E',
-        'Exclusive breastfeeding': 'E6850B',
-        'Stunting': '083347',
-        'Wasting': '4E7F8D'
+        'Anemia': '#e0534f',
+        'Composite': '#00a3b7',
+        'Exclusive breastfeeding': '#a1d549',
+        'Stunting': '#db67fa',
+        'Wasting': '#f4bd19'
+      },
+      packages: {
+        'Full': '#93c9d8',
+        'Priority': '#00a2b7'
       },
       sources: {
-        'Domestic': '#565554',
-        'Donor': '#2E86AB',
-        'Household': '#97F794',
-        'Innovative': '#F6F5AE',
-        'Gap': '#F24236'
+        'Domestic': '#b3a691',
+        'Donor': '#ccbea5',
+        'Household': '#e6d6ba',
+        'Innovative': '#f7f0e4',
+        'Gap': '#00a1b7'
       },
       other: ['#c1de11', '#8ac230', '#3f8c3f', '#fff000', '#fabada']
     },

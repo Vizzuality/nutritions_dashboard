@@ -34,10 +34,11 @@
           color: this.colors.other,
           data: {
             json: {
-              'RTS': _.pluck(groupedData.RTS, 'cost'),
+              'Priority': _.pluck(groupedData.RTS, 'cost'),
               'Full': _.pluck(groupedData.Full, 'cost')
             },
-            type: 'bar'
+            type: 'bar',
+            colors: this.colors.packages
           },
           bar: {
               width: {

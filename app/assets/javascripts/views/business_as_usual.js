@@ -66,6 +66,7 @@
                 // 'line', 'spline', 'step', 'area', 'area-step' are also available to stack
             },
             groups: [['Domestic', 'Donor', 'Household', 'Innovative', 'Gap']],
+            colors: this.colors.sources
           },
           axis: {
             x: {

@@ -42,13 +42,10 @@
 
     _drawGraph: function() {
       var data = this._parseData()['Global Solidarity']['Full'];
-
+      
       this.stackChart = new App.View.C3Chart({
         el: this.el,
         options: {
-          color: {
-            pattern: this.colors.source
-          },
           data: {
             json: {
               'Domestic': _.pluck(_.where(data, {source: 'Domestic'}), 'cost'),
@@ -66,6 +63,7 @@
                 // 'line', 'spline', 'step', 'area', 'area-step' are also available to stack
             },
             groups: [['Domestic', 'Donor', 'Household', 'Innovative', 'Gap']],
+            colors: this.colors.sources
           },
           axis: {
             x: {

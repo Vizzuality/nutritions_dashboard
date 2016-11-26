@@ -66,14 +66,34 @@
       //format the text for each bubble
       bubbles.append('text')
           .attr('x', function(d){ return d.x; })
-          .attr('y', function(d){ return d.y + 5; })
+          .attr('y', function(d){ return d.y - 15; })
           .attr('text-anchor', 'middle')
           .text(function(d){ return d['target']; })
           .style({
+            'fill':'#595755',
+            'font-family':'Helvetica Neue, Helvetica, Arial, san-serif',
+            'font-size': '16px',
+            'font-weight': 700,
+            'text-transform': 'uppercase'
+          })
+
+      bubbles.append('text')
+          .attr('x', function(d){ return d.x; })
+          .attr('y', function(d){ return d.y; })
+          .attr('text-anchor', 'middle')
+          .text(function(d){
+            if (d['sum'] > 1000 || d['sum'] < -1000) {
+              return '$' + d3.format('.3s')(d['sum']);
+            } else {
+              return '$' + d3.round(d['sum'], 2);
+            }
+          })
+          .style({
             'fill':'white',
             'font-family':'Helvetica Neue, Helvetica, Arial, san-serif',
-            'font-size': '12px'
-          });
+            'font-size': '15px',
+            'font-weight': 700
+          })
     }
 
   });

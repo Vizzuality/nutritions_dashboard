@@ -8,10 +8,14 @@
     padding-bottom: rem(45px);
     border-bottom: rem(1px) solid $color-3;
 
-    .chart-wrapper, 
-    .text-wrapper {
+    .chart-wrapper {
       display: flex;
       padding-top: rem(55px);
+    }
+
+    .text-wrapper {
+      display: flex;
+      padding-top: rem(14px);
     }
 
     .text {
