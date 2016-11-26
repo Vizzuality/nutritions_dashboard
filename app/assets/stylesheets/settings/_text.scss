@@ -7,11 +7,30 @@
  * color along the project and setted with the apropiate
  * class or it will inherit it from its father.
  */
+.header {
+  font-family: $font-family-2;
+
+  &.-title {
+    font-size: rem(32px);
+    font-weight: 700;
+    line-height: 1.25;
+  }
+}
 
 .text {
   font-family: $font-family-1;
   
-  /*
+  &.-plain {
+    font-size: rem(18px);
+    font-weight: 300;
+    line-height: 1.67;
+  }
+
+}
+
+.text, 
+.header {
+    /*
    * COLORS
    */
   &.-dark {
@@ -20,5 +39,9 @@
 
   &.-light {
     color: $white;
+  }
+
+  &.-highlight {
+    color: $color-1;
   }
 }
