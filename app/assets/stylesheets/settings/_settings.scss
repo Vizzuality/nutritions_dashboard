@@ -1,5 +1,7 @@
 /* FONTS */
-$font-family-1: "HelveticaNeue";
+$font-family-1: "Raleway";
+$font-family-2: "Roboto Slab";
+
 
 /* SCREENS */
 $screen-xs: 320px;
@@ -38,7 +40,6 @@ $light-grey-blue: #93c9d8;
 $black: #222222;
 $white: #ffffff;
 
-
 /* THEME COLORS */
 $color-1: $denim;
 $color-2: $greyish-brown;
@@ -58,19 +59,12 @@ $color-graph-8: $bland;
 $color-graph-9: $stone;
 $color-graph-10: $beige;
 
-
 /* BACKGROUND */
 $color-bg-1: $beige;
 
 
-/* HEADER */
-$header-width: 0px;
-
-/* SLIDER */
-$slider-constant: 10px;
-$slider-constant-open: 80px;
-
-
 /* FONT COLORS */
-$font-color-1: $white;
-$font-color-2: $black;
+$font-color-1: $black;
+$font-color-2: $color-2;
+$font-color-3: $color-1;
+$font-color-3: $white;
