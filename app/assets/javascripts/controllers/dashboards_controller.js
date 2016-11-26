@@ -36,10 +36,9 @@
     },
 
     initGraphsViews: function() {
-      // ***No data for this yet.***
-      // this.currentBurdenView = new App.View.CurrentBurdenView({
-      //   el: '#currentBurdenView'
-      // });
+      this.currentBurdenView = new App.View.CurrentBurdenView({
+        el: '#currentBurdenView'
+      });
 
       this.costMeetingTargetsView = new App.View.CostMeetingTargetsView({
         el: '#costMeetingPackagesView'

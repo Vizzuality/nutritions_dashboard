@@ -25,15 +25,20 @@
     },
 
     _drawGraph: function() {
+      var data = this.collection.toJSON()[0];
+      console.log(data)
       this.stackChart = new App.View.C3Chart({
         el: this.el,
         options: {
-          color: this.colors.other,
           data: {
             columns: [
-              ['data1', 30, 200, 100, 400]
+              ['Anemia', data.anemia],
+              ['Non Exclusive breastfeeding', data.non_ebf],
+              ['Stunting', data.stunting],
+              ['Wasting', data.wasting]
             ],
-            type: 'bar'
+            type: 'bar',
+            colors: this.colors.targets
           },
           bar: {
               width: {
@@ -45,7 +50,7 @@
           axis: {
             x: {
               type: 'category',
-              categories: ['Stunting', 'Wasting', 'Anemia', 'Non-exclusive Breastfeeding'], //pluck values from data,
+              categories: ['Anemia', 'Non Exclusive Breasfeeding', 'Stunting', 'Wasting'],
               tick: {},
               padding: {
                 left: 0,
@@ -54,7 +59,7 @@
             },
             y: {
               label: {
-                text: 'USD $',
+                text: '%',
                 position: 'outer-top'
               },
               tick: {}

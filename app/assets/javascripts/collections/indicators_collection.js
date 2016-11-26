@@ -9,7 +9,18 @@
     queries: {
       cost_meeting_targets: HandlebarsTemplates['queries/cost_meeting_targets'],
       cost_packages: HandlebarsTemplates['queries/cost_packages'],
+      current_burden: HandlebarsTemplates['queries/current_burden'],
       scenario_comparison: HandlebarsTemplates['queries/scenario_comparison']
+    },
+
+    getDataForCurrentBurden: function(params) {
+      var query = this.queries['current_burden']({
+        mode: params.mode,
+        group: params.group
+      });
+
+      var url = this._urlForQuery(query);
+      return this.fetch({url: url});
     },
 
     getDataForCostMeetingPackages: function(params) {
