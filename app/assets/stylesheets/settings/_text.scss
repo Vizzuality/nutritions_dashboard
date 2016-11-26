@@ -25,14 +25,11 @@
     font-weight: 300;
     line-height: 1.67;
   }
-
 }
 
 .text, 
 .header {
-    /*
-   * COLORS
-   */
+  
   &.-dark {
     color: $black;
   }

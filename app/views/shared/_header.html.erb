@@ -1,10 +1,6 @@
 <div class="l-header">
   <div class="wrap">
-    <a href="/">LOGO</a>
-    <ul class="c-navigation">
-      <li><%= link_to 'Regional data', '/dashboards/region/sub-saharan-africa' %></li>
-      <li><%= link_to 'Country data', countries_show_path %></li>
-      <li><%= link_to 'About', about_path %></li>
-    </ul>
+    <a href="/">Investing in Nutrition</a>
+    <%= render 'shared/navigation', className:"-header" %>
   </div>
 </div>

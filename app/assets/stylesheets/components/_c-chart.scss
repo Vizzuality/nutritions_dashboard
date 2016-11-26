@@ -1,9 +1,5 @@
 .c-chart {
   width: 100%;
-  height: 300px;
-  background-color: #ddd;
-
-  .c3 {
-
-  }
+  height: rem(300px);
+  background-color: rgba($white, .3);
 }

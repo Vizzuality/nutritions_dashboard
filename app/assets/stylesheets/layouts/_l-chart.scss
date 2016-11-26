@@ -1,0 +1,53 @@
+.l-chart {
+  
+  .l-current-burden,
+  .l-meeting-targets,
+  .l-cost-packages,
+  .l-scenario-comparison {
+    padding-top: rem(55px);
+    padding-bottom: rem(45px);
+    border-bottom: rem(1px) solid $color-3;
+
+    .chart-wrapper, 
+    .text-wrapper {
+      display: flex;
+      padding-top: rem(55px);
+    }
+
+    .text {
+      width: 50%;
+
+      + & {
+        margin-right: rem(20px);
+      }
+    }
+  }
+}
+
+.l-current-burden {
+
+  .c-chart {
+    width: 50%;
+    margin-right: rem(20px);
+  }
+}
+
+.l-meeting-targets {
+  .text-wrapper {
+    
+  }
+}
+
+.l-scenario-comparison {
+
+  .chart-wrapper {
+    > div {
+      width: 50%;
+
+      + & {
+        margin-right: rem(20px);
+      }
+    }
+  }
+}
+

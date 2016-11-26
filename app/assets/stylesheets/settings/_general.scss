@@ -17,6 +17,7 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
+  background-color: $color-bg-1;
 }
 
 html {
@@ -51,3 +52,4 @@ button {
 .-is-printable {
   display: none;
 }
+
