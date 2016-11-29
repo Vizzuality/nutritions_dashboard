@@ -26,7 +26,7 @@
 
     _drawGraph: function() {
       var data = this.collection.toJSON()[0];
-      console.log(data)
+
       this.stackChart = new App.View.C3Chart({
         el: this.el,
         options: {
