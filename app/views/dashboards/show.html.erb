@@ -28,7 +28,7 @@
 
 <div class="l-chart">
   <div class="wrap">
-    <div class="l-current-burden">    
+    <div class="l-current-burden">
       <h2 class="header -title -highlight">How common are nutritional conditions?</h2>
       <h3>Current burden of nutritional conditions</h3>
       <div id="currentBurdenView" class="chart-wrapper">
@@ -42,7 +42,7 @@
 
 <div class="l-chart">
   <div class="wrap">
-    <div class="l-meeting-targets">    
+    <div class="l-meeting-targets">
       <h2 class="header -title -highlight">How much will it cost [REGION] to achieve the targets global leaders set?</h2>
       <h3>Cost of meeting targets, 2016-2025</h3>
       <div class="text-wrapper">
@@ -59,7 +59,7 @@
 
 <div class="l-chart">
   <div class="wrap">
-    <div class="l-cost-packages">    
+    <div class="l-cost-packages">
       <h2 class="header -title -highlight">In a constrained resource setting, how much would it cost to deliver priority interventions?</h2>
       <h3>Cost of packages comparison</h3>
       <div class="chart-wrapper">
@@ -76,9 +76,15 @@
 
 <div class="l-chart">
   <div class="wrap">
-    <div class="l-scenario-comparison">   
-      <h2 class="header -title -highlight">Scenario Comparison</h2>
-      <div class="chart-wrapper">      
+    <div class="l-scenario-comparison">
+      <div class="title-wrapper">
+        <h2 class="header -title -highlight">Scenario Comparison</h2>
+        <div id="graphModeSwitcher" class="mode-switcher">
+          <button class="btn -is-active -line js--graph-switcher" mode="Full">full package</button>
+          <button class="btn -line js--graph-switcher" mode="RTS">priority package</button>
+        </div>
+      </div>
+      <div class="chart-wrapper">
         <div id="globalSolidarityView">
           <h3>Global Solidarity</h3>
           <div class="c-chart"></div>

@@ -1,5 +1,5 @@
 .l-chart {
-  
+
   .l-current-burden,
   .l-meeting-targets,
   .l-cost-packages,
@@ -18,6 +18,11 @@
       padding-top: rem(14px);
     }
 
+    .title-wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+
     .text {
       width: 50%;
 
@@ -33,12 +38,6 @@
   .c-chart {
     width: 50%;
     margin-right: rem(20px);
-  }
-}
-
-.l-meeting-targets {
-  .text-wrapper {
-    
   }
 }
 

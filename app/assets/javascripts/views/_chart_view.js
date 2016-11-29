@@ -40,7 +40,7 @@
 
     _addListeners: function() {
       //Internal
-      this.status.on('change', this._fetchData.bind(this));
+      this.status.on('change:group', this._fetchData.bind(this));
 
       //External
       App.Events.on('group:selected', this._setStatus.bind(this))

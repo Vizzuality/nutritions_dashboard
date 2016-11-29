@@ -4,13 +4,19 @@
 
   App.View = App.View || {};
 
-  App.View.BusinessAsUsualView = App.View.Chart.extend({
+  App.View.ScenarioComparisonGraphsView = App.View.Chart.extend({
 
-    initialize: function() {
-      this.status = new Backbone.Model({});
+    initialize: function(props) {
+      this.status = new Backbone.Model({
+        graphMode: props.graphMode
+      });
       this.collection = new App.Collection.IndicatorsCollection();
 
-      App.View.BusinessAsUsualView.__super__.initialize.apply(this);
+      this.props = props;
+
+      this._setListeners();
+
+      App.View.ScenarioComparisonGraphsView.__super__.initialize.apply(this);
     },
 
     _fetchData: function() {
@@ -22,6 +28,16 @@
       this.collection.getDataForScenarios(params).done(function(){
         this.render();
       }.bind(this));
+    },
+
+    _setListeners: function() {
+      this.status.on('change:graphMode', this.render.bind(this));
+
+      App.Events.on('graphMode:selected', this._setGraphMode.bind(this));
+    },
+
+    _setGraphMode: function(params) {
+      this.status.set(params)
     },
 
     render: function() {
@@ -41,38 +57,36 @@
     },
 
     _drawGraph: function() {
-      var data = this._parseData()['Business As Usual']['Full'];
+      var data = this._parseData()[this.props.scenario][this.status.get('graphMode')];
 
       this.stackChart = new App.View.C3Chart({
         el: this.el,
         options: {
-          color: {
-            pattern: this.colors.source
-          },
           data: {
             json: {
+              'Gap': _.pluck(_.where(data, {source: 'Gap'}), 'cost'),
               'Domestic': _.pluck(_.where(data, {source: 'Domestic'}), 'cost'),
               'Donor': _.pluck(_.where(data, {source: 'Donor'}), 'cost'),
               'Household': _.pluck(_.where(data, {source: 'Household'}), 'cost'),
-              'Innovative': _.pluck(_.where(data, {source: 'Innovative'}), 'cost'),
-              'Gap': _.pluck(_.where(data, {source: 'Gap'}), 'cost')
+              'Innovative': _.pluck(_.where(data, {source: 'Innovative'}), 'cost')
             },
             types: {
+              'Gap': 'area',
               'Domestic': 'area',
               'Donor': 'area',
               'Household': 'area',
               'Innovative': 'area',
-              'Gap': 'area'
                 // 'line', 'spline', 'step', 'area', 'area-step' are also available to stack
             },
-            groups: [['Domestic', 'Donor', 'Household', 'Innovative', 'Gap']],
+            groups: [['Gap', 'Domestic', 'Donor', 'Household', 'Innovative']],
             colors: this.colors.sources
           },
           axis: {
             x: {
               type: 'category',
               categories: _.uniq(_.pluck(data, 'year')),
-              tick: {},
+              tick: {
+              },
               padding: {
                 left: 0,
                 right: 0
