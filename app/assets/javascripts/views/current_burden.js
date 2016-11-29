@@ -32,10 +32,10 @@
         options: {
           data: {
             columns: [
-              ['Anemia', data.anemia],
-              ['Non Exclusive breastfeeding', data.non_ebf],
-              ['Stunting', data.stunting],
-              ['Wasting', data.wasting]
+              ['Anemia', data.anemia, null, null, null],
+              ['Non Exclusive breastfeeding', null, data.non_ebf, null, null],
+              ['Stunting', null, null, data.stunting, null],
+              ['Wasting', null, null, null, data.wasting]
             ],
             type: 'bar',
             colors: this.colors.targets
