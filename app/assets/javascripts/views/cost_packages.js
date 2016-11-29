@@ -38,6 +38,9 @@
               'Full': _.pluck(groupedData.Full, 'cost')
             },
             type: 'bar',
+            groups: [
+              ['Priority', 'Full']
+            ],
             colors: this.colors.packages
           },
           bar: {

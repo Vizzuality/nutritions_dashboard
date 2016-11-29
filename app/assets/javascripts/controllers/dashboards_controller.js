@@ -36,6 +36,7 @@
     },
 
     initGraphsViews: function() {
+
       this.currentBurdenView = new App.View.CurrentBurdenView({
         el: '#currentBurdenView'
       });
@@ -48,13 +49,7 @@
         el: '#costPackagesView'
       });
 
-      this.globalSolidarityView = new App.View.GlobalSolidarityView({
-        el: '#globalSolidarityView'
-      });
-
-      this.businessAsUsualView = new App.View.BusinessAsUsualView({
-        el: '#businessAsUsualView'
-      });
+      this.ScenarioComparisonView = new App.View.ScenarioComparisonView();
     },
 
   });

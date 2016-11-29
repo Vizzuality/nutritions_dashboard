@@ -64,8 +64,11 @@
               },
               tick: {}
             }
+          },
+          legend: {
+            show: false
           }
-        }
+        },
       });
     }
 
