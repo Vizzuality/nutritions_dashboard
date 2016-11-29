@@ -48,6 +48,7 @@
         this._fetchData();
       } else {
         this.$el.addClass('is-hidden');
+        this.status.set({group: 'global'})
       }
     },
 
@@ -83,6 +84,8 @@
       this.$el.find('.js--group-selector').html(this.template({
         data: this.collection.toJSON()
       }));
+
+      this.$el.removeClass('is-hidden');
 
       this._setSelectedGroup();
     }
