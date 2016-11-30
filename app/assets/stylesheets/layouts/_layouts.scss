@@ -38,3 +38,23 @@
 .l-comments {
   padding: rem(55px) 0 rem(45px);
 }
+
+.l-selectors {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  #modeSelectorView {
+    padding-bottom: rem(20px);
+  }
+}
+
+.l-title {
+  #titleView {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
