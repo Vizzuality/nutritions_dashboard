@@ -34,7 +34,7 @@
       params[1] ? urlParams.group = params[1] : null;
 
       this.modeSelector.setParams({mode: params[0]});
-      this.groupSelector.setParams({urlParams});
+      this.groupSelector.setParams(urlParams);
     },
 
     initMapViews: function() {
