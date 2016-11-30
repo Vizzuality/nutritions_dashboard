@@ -65,6 +65,11 @@
               tick: {}
             }
           },
+          grid: {
+            y: {
+              show: true
+            }
+          },
           legend: {
             show: false
           }
