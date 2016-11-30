@@ -30,10 +30,9 @@
           return [value];
       });
       var data = array.map(function(d){
-        d.value = +d['sum'];
+        d.value = +d['cost'];
         return d;
       });
-      console.log(data);
 
       var diameter = 450, //max size of the bubbles
           color    = this.colors.targets;
@@ -86,10 +85,10 @@
           .attr('y', function(d){ return d.y; })
           .attr('text-anchor', 'middle')
           .text(function(d){
-            if (d['sum'] > 1000 || d['sum'] < -1000) {
-              return '$' + d3.format('.3s')(d['sum']);
+            if (d['cost'] > 1000 || d['cost'] < -1000) {
+              return '$' + d3.format('.3s')(d['cost']);
             } else {
-              return '$' + d3.round(d['sum'], 2);
+              return '$' + d3.round(d['cost'], 2);
             }
           })
           .style({

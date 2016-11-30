@@ -31,8 +31,6 @@
         return d;
       });
 
-      debugger
-
       var diameter = 450, //max size of the bubbles
           color    = this.colors.targets;
 
