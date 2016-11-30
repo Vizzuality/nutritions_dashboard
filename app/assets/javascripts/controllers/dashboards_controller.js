@@ -28,8 +28,13 @@
         el: '#groupSelectorView'
       });
 
+      // This is to avoid setting a group as null and have a double trigger at groupSelector  View.
+      var urlParams = {};
+      params[0] ? urlParams.mode = params[0] : null;
+      params[1] ? urlParams.group = params[1] : null;
+
       this.modeSelector.setParams({mode: params[0]});
-      this.groupSelector.setParams({mode: params[0], group: params[1]});
+      this.groupSelector.setParams({urlParams});
     },
 
     initMapViews: function() {
