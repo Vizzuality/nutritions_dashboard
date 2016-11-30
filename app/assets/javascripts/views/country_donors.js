@@ -4,34 +4,36 @@
 
   App.View = App.View || {};
 
-  App.View.CostMeetingTargetsView = App.View.Chart.extend({
+  App.View.CountryDonorsView = App.View.Chart.extend({
 
     initialize: function() {
       this.status = new Backbone.Model({});
-      this.collection = new App.Collection.IndicatorsCollection();
+      this.model = new App.Model.CountriesModel();
 
-      App.View.CostMeetingTargetsView.__super__.initialize.apply(this);
+      App.View.CountryDonorsView.__super__.initialize.apply(this);
+      this._fetchData().bind(this);
     },
 
     _fetchData: function() {
-      var params = {
-        mode: this.status.get('mode'),
-        group: this.status.get('group')
-      };
-
-      this.collection.getDataForCostMeetingPackages(params).done(function(){
+      // var params = {
+      //   mode: this.status.get('mode'),
+      //   group: this.status.get('group')
+      // };
+      this.model.getDataForCountryDonors().done(function(){
         this.render();
       }.bind(this));
     },
 
     _drawGraph: function() {
       //convert numerical values from strings to numbers
-      var data = this.collection.toJSON().map(function(d){
+      var array = $.map(this.model.toJSON(), function(value, index) {
+          return [value];
+      });
+      var data = array.map(function(d){
         d.value = +d['sum'];
         return d;
       });
-
-      debugger
+      console.log(data);
 
       var diameter = 450, //max size of the bubbles
           color    = this.colors.targets;
@@ -41,7 +43,7 @@
           .size([diameter, diameter])
           .padding(1.5);
 
-      var svg = d3.select('#costMeetingPackagesView .c-chart')
+      var svg = d3.select('#currentCountryDonor .c-chart')
           .html('') //Empty c-chart from previous chart.
           .append('svg')
           .attr('width', diameter)
