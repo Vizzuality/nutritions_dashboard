@@ -26,7 +26,7 @@
       this.status.on('change', this._fetchData.bind(this));
 
       //External
-      App.Events.on('group:selected', this._setStatus.bind(this))
+      App.Events.on('group:selected', this._setStatus.bind(this));
     },
 
     _fetchData: function() {
@@ -45,7 +45,7 @@
       this.$el.html(this.template({
         title: data.title,
         description: data.description
-      }))
+      }));
     }
   });
 
