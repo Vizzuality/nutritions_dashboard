@@ -7,11 +7,11 @@
   App.Controller.Countries = App.Controller.Page.extend({
 
     show: function(params) {
-      //Init here the views for the dashboard. Order matters.
+      //Init here the views for the countries profile. Order matters.
       // this.initTitleView();
       this.initGraphsViews();
       // this.initMapViews();
-      // this.initSelectorsViews(params);
+      this.initSelectorsViews(params);
     },
 
     initTitleView: function() {
@@ -21,22 +21,17 @@
     },
 
     initSelectorsViews: function(params) {
-      this.modeSelector = new App.View.ModeSelectorView({
-        el: '#modeSelectorView'
-      });
-      this.groupSelector = new App.View.GroupSelectorView({
-        el: '#groupSelectorView'
+      this.countrySelector = new App.View.CountrySelectorView({
+        el: '#countrySelectorView'
       });
 
-      this.modeSelector.setParams({mode: params[0]});
-      this.groupSelector.setParams({mode: params[0], group: params[1]});
+      // this.countrySelector.setParams({mode: params[0]});
     },
 
     initMapViews: function() {
     },
 
     initGraphsViews: function() {
-
       this.countryDonorsView = new App.View.CountryDonorsView({
         el: '#currentCountryDonor'
       });
@@ -45,6 +40,5 @@
         el: '#currentCountryGovernment'
       });
     }
-
   });
 })(this.App);

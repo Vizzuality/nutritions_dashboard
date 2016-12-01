@@ -11,12 +11,20 @@
       this.model = new App.Model.CountriesModel();
 
       App.View.CountryDonorsView.__super__.initialize.apply(this);
-      this._fetchData();
+      // this._fetchData();
+    },
+
+    _addListeners: function() {
+      //Internal
+      this.status.on('change:country', this._fetchData.bind(this));
+
+      //External
+      App.Events.on('country:selected', this._setStatus.bind(this))
     },
 
     _fetchData: function() {
       var params = {
-        iso: this.status.get('iso') || 'IND'
+        iso: this.status.get('iso')
       };
 
       this.model.getDataForCountryDonors(params).done(function(){
