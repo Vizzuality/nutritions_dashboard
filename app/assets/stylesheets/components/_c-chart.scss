@@ -1,7 +1,42 @@
 .c-chart {
   width: 100%;
   height: rem(300px);
-  background-color: rgba($white, .3);
+
+  .c3-event-rects {
+    fill-opacity: 1 !important; // Needed to be able to set the bg for the chart.
+  }
+
+  .c3-chart {
+    background-color: rgba($white, .3);
+    fill: rgba($white, .3);
+  }
+
+  .text {
+    font-family: $font-family-2;
+    color: $font-color-1;
+    text-transform: uppercase;
+  }
+
+  path.domain {
+    // Hide y axis.
+    display: none;
+  }
+
+  .tick line {
+    // hide ticks.
+    display: none;
+  }
+
+  .c3-ygrids line {
+    stroke-dasharray: 0 !important;
+    stroke: $color-3;
+    opacity: .5;
+
+    &:first-child {
+      stroke: $black !important;
+      opacity: 1;
+    }
+  }
 
   &.-government {
     height: rem(500px);
