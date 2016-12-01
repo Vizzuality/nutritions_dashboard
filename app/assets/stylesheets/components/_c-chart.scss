@@ -2,4 +2,8 @@
   width: 100%;
   height: rem(300px);
   background-color: rgba($white, .3);
+
+  &.-government {
+    height: rem(500px);
+  }
 }

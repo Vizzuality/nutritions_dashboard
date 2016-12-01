@@ -7,35 +7,23 @@
   App.Model.CountriesModel = App.Model.CartoModel.extend({
 
     queries: {
-      current_spending_donors: {
-        global: HandlebarsTemplates['queries/current_spending_donors'],
-        region: HandlebarsTemplates['queries/cost_meeting_targets'],
-        income_group: HandlebarsTemplates['queries/cost_meeting_targets']
-      },
-      cost_packages: {
-        global: HandlebarsTemplates['queries/cost_packages_global'],
-        region: HandlebarsTemplates['queries/cost_packages'],
-        income_group: HandlebarsTemplates['queries/cost_packages']
-      },
-      current_burden: {
-        global: HandlebarsTemplates['queries/current_burden_global'],
-        region: HandlebarsTemplates['queries/current_burden'],
-        income_group: HandlebarsTemplates['queries/current_burden']
-      },
-      scenario_comparison: {
-        global: HandlebarsTemplates['queries/scenario_comparison_global'],
-        region: HandlebarsTemplates['queries/scenario_comparison'],
-        income_group: HandlebarsTemplates['queries/scenario_comparison']
-      }
+      current_spending_donors: HandlebarsTemplates['queries/current_spending_donors'],
+      current_spending_government: HandlebarsTemplates['queries/current_spending_government']
     },
 
-    getDataForCountryDonors: function() {
-      var query = this.queries['current_spending_donors']['global']({});
+    getDataForCountryDonors: function(params) {
+      var query = this.queries['current_spending_donors']({ iso: params.iso });
+      var url = this._urlForQuery(query);
+
+      return this.fetch({url: url});
+    },
+
+    getDataForCountryGovernment: function(params) {
+      var query = this.queries['current_spending_government']({ iso: params.iso });
       var url = this._urlForQuery(query);
 
       return this.fetch({url: url});
     }
-
   });
 
 })(this.App);

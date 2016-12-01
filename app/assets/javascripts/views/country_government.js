@@ -4,13 +4,13 @@
 
   App.View = App.View || {};
 
-  App.View.CountryDonorsView = App.View.Chart.extend({
+  App.View.CountryGovernmentView = App.View.Chart.extend({
 
     initialize: function() {
       this.status = new Backbone.Model({});
       this.model = new App.Model.CountriesModel();
 
-      App.View.CountryDonorsView.__super__.initialize.apply(this);
+      App.View.CountryGovernmentView.__super__.initialize.apply(this);
       this._fetchData();
     },
 
@@ -19,7 +19,7 @@
         iso: this.status.get('iso') || 'IND'
       };
 
-      this.model.getDataForCountryDonors(params).done(function(){
+      this.model.getDataForCountryGovernment(params).done(function(){
         this.render();
       }.bind(this));
     },
@@ -30,7 +30,7 @@
           return [value];
       });
       var data = array.map(function(d){
-        d.value = +d['cost'];
+        d.value = +d['total_spend'];
         return d;
       });
 
@@ -42,7 +42,7 @@
           .size([diameter, diameter])
           .padding(1.5);
 
-      var svg = d3.select('#currentCountryDonor .c-chart')
+      var svg = d3.select('#currentCountryGovernment .c-chart')
           .html('') //Empty c-chart from previous chart.
           .append('svg')
           .attr('width', diameter)
@@ -54,7 +54,7 @@
 
       //setup the chart
       var bubbles = svg.append('g')
-          .attr('transform', 'translate(0,-70)')
+          .attr('transform', 'translate(0, 0)')
           .selectAll('.bubble')
           .data(nodes)
           .enter();
@@ -64,14 +64,14 @@
           .attr('r', function(d){ return d.r; })
           .attr('cx', function(d){ return d.x; })
           .attr('cy', function(d){ return d.y; })
-          .style('fill', function(d) { return color[d.target]; });
+          .style('fill', function(d) { return color['Composite']; });
 
       //format the text for each bubble
       bubbles.append('text')
           .attr('x', function(d){ return d.x; })
-          .attr('y', function(d){ return d.y - 15; })
+          .attr('y', function(d){ return d.y; })
           .attr('text-anchor', 'middle')
-          .text(function(d){ return d['target']; })
+          .text(function(d){ return '$' + d['total_spend'] + 'M'; })
           .style({
             'fill':'#595755',
             'font-family':'Helvetica Neue, Helvetica, Arial, san-serif',
@@ -82,20 +82,15 @@
 
       bubbles.append('text')
           .attr('x', function(d){ return d.x; })
-          .attr('y', function(d){ return d.y; })
+          .attr('y', function(d){ return d.y - 15; })
           .attr('text-anchor', 'middle')
-          .text(function(d){
-            if (d['cost'] > 1000 || d['cost'] < -1000) {
-              return '$' + d3.format('.3s')(d['cost']);
-            } else {
-              return '$' + d3.round(d['cost'], 2);
-            }
-          })
+          .text(function(d){ return 'Government Expenditure'; })
           .style({
-            'fill':'white',
+            'fill':'#595755',
             'font-family':'Helvetica Neue, Helvetica, Arial, san-serif',
-            'font-size': '15px',
-            'font-weight': 700
+            'font-size': '16px',
+            'font-weight': 700,
+            'text-transform': 'uppercase'
           })
     }
 

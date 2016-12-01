@@ -41,16 +41,10 @@
         el: '#currentCountryDonor'
       });
 
-      // this.costMeetingTargetsView = new App.View.CostMeetingTargetsView({
-      //   el: '#costMeetingPackagesView'
-      // });
-      //
-      // this.costPackagesView = new App.View.CostPackagesView({
-      //   el: '#costPackagesView'
-      // });
-      //
-      // this.ScenarioComparisonView = new App.View.ScenarioComparisonView();
-    },
+      this.countryGovernmentView = new App.View.CountryGovernmentView({
+        el: '#currentCountryGovernment'
+      });
+    }
 
   });
 })(this.App);
