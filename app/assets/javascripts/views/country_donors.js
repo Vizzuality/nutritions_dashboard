@@ -11,12 +11,11 @@
       this.model = new App.Model.CountriesModel();
 
       App.View.CountryDonorsView.__super__.initialize.apply(this);
-      // this._fetchData();
     },
 
     _addListeners: function() {
       //Internal
-      this.status.on('change:country', this._fetchData.bind(this));
+      this.status.on('change:iso', this._fetchData.bind(this));
 
       //External
       App.Events.on('country:selected', this._setStatus.bind(this))

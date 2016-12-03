@@ -11,12 +11,19 @@
       this.model = new App.Model.CountriesModel();
 
       App.View.CountryGovernmentView.__super__.initialize.apply(this);
-      this._fetchData();
+    },
+
+    _addListeners: function() {
+      //Internal
+      this.status.on('change:iso', this._fetchData.bind(this));
+
+      //External
+      App.Events.on('country:selected', this._setStatus.bind(this));
     },
 
     _fetchData: function() {
       var params = {
-        iso: this.status.get('iso') || 'IND'
+        iso: this.status.get('iso')
       };
 
       this.model.getDataForCountryGovernment(params).done(function(){

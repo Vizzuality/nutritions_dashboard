@@ -26,12 +26,12 @@
     },
 
     _setListeners: function() {
-      this.status.on('change:country', this._triggerSelectedCountry.bind(this));
+      this.status.on('change:iso', this._triggerSelectedCountry.bind(this));
     },
 
     _onChangeSetCountry: function() {
-      var country = this.$el.find('.js--country-selector').val();
-      this.status.set({ 'country': country });
+      var iso = this.$el.find('.js--country-selector').val();
+      this.status.set({ 'iso': iso });
     },
 
     _fetchData: function() {
@@ -46,7 +46,7 @@
 
     _triggerSelectedCountry: function() {
       App.Events.trigger('country:selected', {
-        country: this.status.get('country')
+        iso: this.status.get('iso')
       });
     },
 
