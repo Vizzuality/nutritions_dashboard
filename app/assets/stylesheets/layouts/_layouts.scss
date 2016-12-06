@@ -20,11 +20,19 @@
 }
 
 .l-header {
-  padding: rem(20px) 0;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: solid $color-3 1px;
 
-  .wrap {
-    display: flex;
-    justify-content: space-between;
+  .logo {
+    padding-bottom: 10px;
+
+    .icon {
+      width: 140px;
+      height: 30px;
+    }
   }
 }
 
@@ -40,15 +48,7 @@
 }
 
 .l-selectors {
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  #modeSelectorView {
-    padding-bottom: rem(20px);
-  }
+  padding-top: 40px;
 }
 
 .l-title {

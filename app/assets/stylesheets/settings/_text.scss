@@ -7,6 +7,10 @@
  * color along the project and setted with the apropiate
  * class or it will inherit it from its father.
  */
+
+ a {
+   color: inherit;
+ }
 .header {
   font-family: $font-family-2;
 
@@ -19,17 +23,36 @@
 
 .text {
   font-family: $font-family-1;
-  
+
   &.-plain {
     font-size: rem(18px);
     font-weight: 300;
     line-height: 1.67;
   }
+
+  &.-menu {
+    font-size: rem(16px);
+    letter-spacing: 2px;
+    color: $color-2;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    &:hover {
+      color: $color-graph-6;
+    }
+  }
+
+  &.-tabs {
+    font-size: rem(18px);
+    letter-spacing: 0.5px;
+    color: $color-3;
+    font-weight: 900;
+  }
 }
 
-.text, 
+.text,
 .header {
-  
+
   &.-dark {
     color: $black;
   }

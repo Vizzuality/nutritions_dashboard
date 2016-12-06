@@ -1,16 +1,22 @@
 <div class="l-selectors">
-  <div class="wrap">
-    <div class="l-map">
+  <div class="row">
+    <!-- <div class="l-map">
       <div id="map"></div>
-    </div>
-    <div class="l-selectors">
-      <div id="modeSelectorView">
-        <input type="radio" name="mode" value="global" class="js--mode-selector" id="global">
-        <label for="modeGlobal">Global</label>
-        <input type="radio" name="mode" value="region" class="js--mode-selector" id="region">
-        <label for="modeRegion">Regions</label>
-        <input type="radio" name="mode" value="income_group" class="js--mode-selector" id="income_group">
-        <label for="income-groups">Income groups</label>
+    </div> -->
+    <div class="column small-12 medium-8 medium-offset-2 large-4 large-offset-4">
+      <div id="modeSelectorView" class="c-tabs">
+        <div class="tab">
+          <input type="radio" name="mode" value="global" class="js--mode-selector" id="global">
+          <label for="global" class="text -tabs">Global</label>
+        </div>
+        <div class="tab">
+          <input type="radio" name="mode" value="region" class="js--mode-selector" id="region">
+          <label for="region" class="text -tabs">Regions</label>
+        </div>
+        <div class="tab">
+          <input type="radio" name="mode" value="income_group" class="js--mode-selector" id="income_group">
+          <label for="income_group" class="text -tabs">Income groups</label>
+        </div>
       </div>
       <div id="groupSelectorView">
         <select name="group" id="groupSelector" class="js--group-selector"></select>
@@ -110,4 +116,3 @@
     </p>
   </div>
 </div>
-
