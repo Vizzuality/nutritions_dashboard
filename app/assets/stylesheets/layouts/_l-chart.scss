@@ -1,4 +1,6 @@
 .l-chart {
+  padding-top: 40px;
+  margin-top: 40px;
 
   .l-current-burden,
   .l-meeting-targets,
@@ -6,7 +8,7 @@
   .l-scenario-comparison {
     padding-top: rem(55px);
     padding-bottom: rem(45px);
-    border-bottom: rem(1px) solid $color-3;
+    // border-bottom: rem(1px) solid $color-3;
 
     .chart-wrapper {
       display: flex;
@@ -33,14 +35,6 @@
   }
 }
 
-.l-current-burden {
-
-  .c-chart {
-    width: 50%;
-    margin-right: rem(20px);
-  }
-}
-
 .l-scenario-comparison {
 
   .chart-wrapper {
@@ -53,4 +47,3 @@
     }
   }
 }
-

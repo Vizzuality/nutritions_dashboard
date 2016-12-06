@@ -17,7 +17,7 @@
 
       this.collection = new App.Collection.GroupsCollection();
       this._setListeners();
-      this.$el.select2({
+      this.$el.find('select').select2({
         minimumResultsForSearch: Infinity
       });
     },
