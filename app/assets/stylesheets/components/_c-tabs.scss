@@ -2,16 +2,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 3px;
+  margin-bottom: rem(3px);
+  margin-top: rem(30px);
+
+  @media screen and (min-width: $screen-m) {
+    margin-top: rem(50px);
+  }
 
   .tab [type=radio] {
     display: none;
   }
 
   label {
-    padding-bottom: 5px;
-    margin-bottom: -1px;
-    margin: 0 10px;
+    padding-bottom: rem(5px);
+    margin-bottom: rem(-1px);
+    margin: 0 rem(10px);
     cursor: pointer;
   }
 

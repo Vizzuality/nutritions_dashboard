@@ -1,15 +1,50 @@
 .c-chart {
   width: 100%;
   height: rem(300px);
+  margin-bottom: rem(20px);
 
   .c3-event-rects {
-    fill-opacity: 1 !important; // Needed to be able to set the bg for the chart.
+    // fill-opacity: 1 !important; // Needed to be able to set the bg for the chart.
   }
 
   .c3-chart {
     background-color: rgba($white, .3);
     fill: rgba($white, .3);
   }
+
+  .c3-axis {
+    font-size: rem(14px);
+    font-family: $font-family-1;
+    fill: $color-2;
+  }
+
+  .c3-chart-bar {
+    opacity: 0.7 !important;
+  }
+
+  &.-burden {
+
+    .c3-bar-0 {
+      stroke: #e0534f;
+      fill: #e0534f !important;
+    }
+
+    .c3-bar-1 {
+      stroke: #a1d549;
+      fill: #a1d549 !important;
+    }
+
+    .c3-bar-2 {
+      stroke: #db67fa;
+      fill: #db67fa !important;
+    }
+
+    .c3-bar-3 {
+      stroke: #f4bd19;
+      fill: #f4bd19 !important;
+    }
+  }
+
 
   .text {
     font-family: $font-family-2;

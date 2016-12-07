@@ -1,5 +1,5 @@
 .l-header {
-  height: 60px;
+  height: rem(60px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,38 +9,38 @@
 
   @media screen and (min-width: $screen-m) {
     align-items: flex-end;
-    height: 80px;
+    height: rem(80px);
     margin-left: 0;
     margin-right: 0;
   }
 
   .logo {
-    height: 40px;
-    margin-left: 15px;
+    height: rem(40px);
+    margin-left: rem(15px);
 
     @media screen and (min-width: $screen-m) {
-      margin-bottom: 10px;
+      margin-bottom: rem(10px);
       margin-left: 0;
     }
 
     .icon {
-      width: 160px;
-      height: 40px;
+      width: rem(160px);
+      height: rem(40px);
     }
   }
 
   .mobile {
     display: block;
-    margin-right: 20px;
-    height: 20px;
+    margin-right: rem(20px);
+    height: rem(20px);
 
     @media screen and (min-width: $screen-m) {
       display: none;
     }
 
     .icon {
-      width: 20px;
-      height: 20px;
+      width: rem(20px);
+      height: rem(20px);
     }
 
     .-close {
@@ -68,13 +68,71 @@
 }
 
 .l-map {
-  padding: 40px 0;
+  padding: rem(20px) 0 0;
+
+  @media screen and (min-width: $screen-m) {
+    padding: rem(40px) 0 0;
+  }
 }
 
 .l-title {
   border-top: solid 1px $color-3;
-  padding-top: 40px;
-  margin-top: 40px;
+  padding-top: rem(25px);
+  margin-top: rem(40px);
+
+  @media screen and (min-width: $screen-m) {
+    padding-top: rem(40px);
+  }
+
+  h2 {
+    padding-bottom: rem(20px);
+  }
+
+  h3 {
+    margin-bottom: 10px;
+  }
+
+  .two-column {
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+  }
+}
+
+.l-footer {
+  background: rgba($color-3, 0.3);
+  padding: rem(50px) 0;
+  margin-top: rem(60px);
+
+  @media screen and (min-width: $screen-m) {
+    padding: rem(100px) 0;
+  }
+
+  .c-navigation {
+    justify-content: center;
+    margin-bottom: rem(20px);
+    padding-top: 0;
+
+    @media screen and (min-width: $screen-m) {
+      margin-bottom: rem(60px);
+    }
+
+    li {
+      margin: 0 rem(10px);
+
+      @media screen and (min-width: $screen-m) {
+        margin: 0 rem(20px);
+      }
+    }
+
+    li.-active, li:hover {
+      border-bottom: none;
+    }
+  }
+}
+
+.l-chart {
+  margin-left: -35px;
 }
 
 .l-main {
@@ -86,10 +144,6 @@
 
 .l-comments {
   padding: rem(55px) 0 rem(45px);
-}
-
-.l-selectors {
-  padding-top: 40px;
 }
 
 .l-title {
