@@ -43,10 +43,14 @@
   }
 
   &.-tabs {
-    font-size: rem(18px);
+    font-size: rem(16px);
     letter-spacing: 0.5px;
     color: $color-3;
     font-weight: 900;
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(18px);
+    }
   }
 }
 

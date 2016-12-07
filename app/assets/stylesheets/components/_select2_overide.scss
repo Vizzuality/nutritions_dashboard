@@ -62,7 +62,6 @@
   }
 
   .select2-results__option {
-    text-transform: uppercase;
     font-size: 12px;
     font-weight: 500;
     padding: 6px 10px;
@@ -108,7 +107,7 @@
     }
 
     .select2-selection__rendered {
-      text-transform: uppercase;
+      text-transform: none;
       padding: 0;
       font-weight: 700;
 			line-height: 65px;
@@ -170,25 +169,25 @@
     color: $color-2;
 
     &::-webkit-input-placeholder {
-       text-transform: uppercase;
+       text-transform: none;
        font-weight: 500;
        color: $color-2;
     }
 
     &:-moz-placeholder {
-       text-transform: uppercase;
+       text-transform: none;
        font-weight: 500;
        color: $color-2;
     }
 
     &::-moz-placeholder {
-       text-transform: uppercase;
+       text-transform: none;
        font-weight: 500;
        color: $color-2;
     }
 
     &:-ms-input-placeholder {
-       text-transform: uppercase;
+       text-transform: none;
        font-weight: 500;
        color: $color-2;
     }
@@ -232,7 +231,7 @@
       max-width: 180px;
       text-overflow: ellipsis;
       overflow: hidden;
-      text-transform: uppercase;
+      text-transform: none;
       font-weight: 500;
 
       .select2-selection__choice__remove {
