@@ -40,6 +40,8 @@
 .select2-container--default {
   .select2-results {
     > .select2-results__options {
+			max-height: 300px;
+
       &::-webkit-scrollbar {
           width: 10px;
       }
@@ -62,9 +64,14 @@
   }
 
   .select2-results__option {
-    font-size: 12px;
-    font-weight: 500;
-    padding: 6px 10px;
+    font-size: 21px;
+    font-weight: 700;
+    padding: 6px 15px;
+		color: rgba(129, 120, 107, 0.5);
+
+		@media screen and (min-width: $screen-m) {
+			font-size: 32px;
+		}
 	}
 
 	.select2-results__option[aria-selected=true] {
@@ -72,8 +79,8 @@
 	}
 
   .select2-results__option--highlighted[aria-selected] {
-		background: rgba($color-3, .2);
-    color: $color-2;
+		background: none;
+    color: rgba(129, 120, 107, 1);
 	}
 
   .select2-selection .select2-selection--single {
@@ -96,10 +103,10 @@
       content: ' ';
       display: block;
       position: absolute;
-      top: 25px;
-      right: 20px;
-      width: 7px;
-      height: 7px;
+      top: 22px;
+      right: 25px;
+      width: 10px;
+      height: 10px;
       transform: rotate(45deg);
       border-width: 2px;
       border-color: transparent #81786b #81786b transparent;
@@ -112,9 +119,13 @@
       font-weight: 700;
 			line-height: 65px;
 			height: 60px;
-      font-size: 32px;
+      font-size: 21px;
       font-family: $font-family-2;
       color: #81786b;
+
+			@media screen and (min-width: $screen-m) {
+				font-size: 32px;
+			}
 
       .select2-selection__choice {
         display: inline-block;
@@ -163,10 +174,14 @@
 	}
 
   .select2-search--inline .select2-search__field {
-    height: 32px;
+    height: 26px;
     margin: 0;
     font-weight: 500;
     color: $color-2;
+
+		@media screen and (min-width: $screen-m) {
+			font-size: 32px;
+		}
 
     &::-webkit-input-placeholder {
        text-transform: none;
@@ -282,7 +297,6 @@
 
 .select2-dropdown {
   border: none;
-  // box-shadow: ;
 }
 
 .select2-container-active {
@@ -325,11 +339,15 @@
 
 .select2-container--open {
 	.select2-dropdown--below {
-		background: white;
+		background: #faf3e9;
+		border: solid 1px #b8ac9c;
+		border-top: 0;
 	}
 
 	.select2-dropdown--above {
-		background: white;
+		background: #faf3e9;
+		border: solid 1px #b8ac9c;
+		border-bottom: 0;
 	}
 }
 
