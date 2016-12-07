@@ -15,8 +15,11 @@
     },
 
     initTitleView: function() {
-      this.title = new App.View.TitleView({
-        el: '#titleView'
+      this.title = new App.View.MapTitleView({
+        el: '#mapTitleView'
+      })
+      this.title = new App.View.ChartTitleView({
+        el: '#chartTitleView'
       })
     },
 

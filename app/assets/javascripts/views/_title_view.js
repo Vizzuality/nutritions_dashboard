@@ -6,8 +6,6 @@
 
   App.View.TitleView = Backbone.View.extend({
 
-    template: HandlebarsTemplates['title'],
-
     initialize: function(settings) {
       if (!this.el) {
         return;
@@ -37,16 +35,8 @@
 
     _setStatus: function(params) {
       this.status.set(params);
-    },
-
-    render: function() {
-      var data = this.collection.toJSON()[0];
-
-      this.$el.html(this.template({
-        // title: data.title,
-        description: data.description
-      }));
     }
+
   });
 
 })(this.App);
