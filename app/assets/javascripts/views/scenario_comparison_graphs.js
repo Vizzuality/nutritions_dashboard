@@ -81,6 +81,9 @@
             groups: [['Gap', 'Domestic', 'Donor', 'Household', 'Innovative']],
             colors: this.colors.sources
           },
+          interaction: {
+            enabled: false
+          },
           axis: {
             x: {
               type: 'category',
