@@ -1,0 +1,22 @@
+.c-mobile-menu {
+  display: none;
+  position: absolute;
+  top: rem(59px);
+  left: 0;
+  right: 0;
+  background: rgba($color-bg-1, 1);
+  border-bottom: solid 1px $color-3;
+  cursor: pointer;
+
+  &.-is-open {
+    display: flex;
+    transition: all 0.3s ease-in 0.2s;
+    // transform: translatey(100%);
+  }
+
+  .icon {
+    width: rem(15px);
+    height: rem(15px);
+    fill: $white;
+  }
+}
