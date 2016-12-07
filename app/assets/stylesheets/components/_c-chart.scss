@@ -3,10 +3,6 @@
   height: rem(300px);
   margin-bottom: rem(20px);
 
-  .c3-event-rects {
-    // fill-opacity: 1 !important; // Needed to be able to set the bg for the chart.
-  }
-
   .c3-chart {
     background-color: rgba($white, .3);
     fill: rgba($white, .3);
