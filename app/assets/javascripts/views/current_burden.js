@@ -32,13 +32,13 @@
         options: {
           data: {
             columns: [
-              ['Anemia', data.anemia, null, null, null],
-              ['Non Exclusive breastfeeding', null, data.non_ebf, null, null],
-              ['Stunting', null, null, data.stunting, null],
-              ['Wasting', null, null, null, data.wasting]
+              ['All', data.anemia, data.non_ebf, data.stunting, data.wasting],
+              // ['Non Exclusive breastfeeding', null, data.non_ebf, null, null],
+              // ['Stunting', null, null, data.stunting, null],
+              // ['Wasting', null, null, null, data.wasting]
             ],
             type: 'bar',
-            colors: this.colors.targets
+            // colors: this.colors.targets
           },
           bar: {
               width: {
@@ -46,6 +46,9 @@
               }
               // or
               //width: 100 // this makes bar width 100px
+          },
+          interaction: {
+            enabled: false
           },
           axis: {
             x: {
@@ -62,7 +65,11 @@
                 text: '%',
                 position: 'outer-top'
               },
-              tick: {}
+              tick: {},
+              padding: {
+                left: 0,
+                right: 0
+              }
             }
           },
           grid: {

@@ -19,6 +19,9 @@
       this._setListeners();
 
       this._fetchData();
+      this.$el.find('select').select2({
+        minimumResultsForSearch: Infinity
+      });
     },
 
     setParams: function(params) {

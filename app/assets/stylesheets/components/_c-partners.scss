@@ -1,0 +1,14 @@
+.c-partners {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (min-width: $screen-m) {
+    flex-direction: row;
+  }
+
+  li {
+    margin-bottom: 20px;
+  }
+}

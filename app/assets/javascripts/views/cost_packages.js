@@ -50,6 +50,9 @@
               // or
               //width: 100 // this makes bar width 100px
           },
+          interaction: {
+            enabled: false
+          },
           axis: {
             x: {
               type: 'category',

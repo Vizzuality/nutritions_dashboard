@@ -1,0 +1,31 @@
+.c-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: rem(3px);
+  margin-top: rem(30px);
+
+  @media screen and (min-width: $screen-m) {
+    margin-top: rem(50px);
+  }
+
+  .tab [type=radio] {
+    display: none;
+  }
+
+  label {
+    padding-bottom: rem(5px);
+    margin-bottom: rem(-1px);
+    margin: 0 rem(10px);
+    cursor: pointer;
+  }
+
+  [type=radio]:checked ~ label {
+    border-bottom: 2px solid $color-2;
+    z-index: 2;
+    color: $color-graph-6;
+  }
+  [type=radio]:checked ~ label ~ .content {
+    z-index: 1;
+  }
+}

@@ -1,60 +1,136 @@
-.wrap,
-%wrap {
-  position: relative;
-  width: 100%;
-  max-width: rem($grid-max-width);
-  margin: 0 auto;
-  padding: 0 rem($wrap-padding-mobile);
-
-  @media screen and (min-width: $screen-s) {
-    padding: 0 rem($wrap-padding-tablet);
-  }
-
-  @media screen and (min-width: 768px) {
-    padding: 0 rem($wrap-padding-desktop);
-  }
-
-  @media screen and (min-width: $screen-xl) {
-    padding: 0 rem($wrap-padding-desktop-xl);
-  }
-}
-
 .l-header {
-  padding: rem(20px) 0;
-
-  .wrap {
-    display: flex;
-    justify-content: space-between;
-  }
-}
-
-.l-main {
-  .wrap {
-    padding-top: rem(100px);
-    text-align: center;
-  }
-}
-
-.l-comments {
-  padding: rem(55px) 0 rem(45px);
-}
-
-.l-selectors {
-  height: 100px;
+  height: rem(60px);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  border-bottom: solid $color-3 1px;
+  margin-left: -0.625rem;
+  margin-right: -0.625rem;
 
-  #modeSelectorView {
-    padding-bottom: rem(20px);
+  @media screen and (min-width: $screen-m) {
+    align-items: flex-end;
+    height: rem(80px);
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .logo {
+    height: rem(40px);
+    margin-left: rem(15px);
+
+    @media screen and (min-width: $screen-m) {
+      margin-bottom: rem(10px);
+      margin-left: 0;
+    }
+
+    .icon {
+      width: rem(160px);
+      height: rem(40px);
+    }
+  }
+
+  .mobile {
+    display: block;
+    margin-right: rem(20px);
+    height: rem(20px);
+
+    @media screen and (min-width: $screen-m) {
+      display: none;
+    }
+
+    .icon {
+      width: rem(20px);
+      height: rem(20px);
+    }
+
+    .-close {
+      display: none;
+    }
+
+    &.-is-open {
+      .-open {
+        display: none;
+      }
+
+      .-close {
+        display: block;
+      }
+    }
+  }
+
+  .desktop {
+    display: none;
+
+    @media screen and (min-width: $screen-m) {
+      display: flex;
+    }
+  }
+}
+
+.l-map {
+  padding: rem(20px) 0 0;
+
+  @media screen and (min-width: $screen-m) {
+    padding: rem(40px) 0 0;
   }
 }
 
 .l-title {
-  #titleView {
-    width: 80%;
-    margin: 0 auto;
-    text-align: center;
+  border-top: solid 1px $color-3;
+  padding-top: rem(25px);
+  margin-top: rem(40px);
+
+  @media screen and (min-width: $screen-m) {
+    padding-top: rem(40px);
   }
+
+  h2 {
+    padding-bottom: rem(20px);
+  }
+
+  h3 {
+    margin-bottom: 10px;
+  }
+
+  .two-column {
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+  }
+}
+
+.l-footer {
+  background: rgba($color-3, 0.3);
+  padding: rem(50px) 0;
+  margin-top: rem(60px);
+
+  @media screen and (min-width: $screen-m) {
+    padding: rem(100px) 0;
+  }
+
+  .c-navigation {
+    justify-content: center;
+    margin-bottom: rem(20px);
+    padding-top: 0;
+
+    @media screen and (min-width: $screen-m) {
+      margin-bottom: rem(60px);
+    }
+
+    li {
+      margin: 0 rem(10px);
+
+      @media screen and (min-width: $screen-m) {
+        margin: 0 rem(20px);
+      }
+    }
+
+    li.-active, li:hover {
+      border-bottom: none;
+    }
+  }
+}
+
+.l-chart {
+  margin-left: -35px;
 }

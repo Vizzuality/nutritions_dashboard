@@ -45,7 +45,6 @@
      * @param  {Object} params
      */
     updateParams: function(params) {
-      debugger
       this.params.clear().set(params, { silent: true });
       this.updateUrl();
     },

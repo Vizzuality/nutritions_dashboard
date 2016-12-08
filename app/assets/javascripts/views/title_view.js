@@ -43,7 +43,7 @@
       var data = this.collection.toJSON()[0];
 
       this.$el.html(this.template({
-        title: data.title,
+        // title: data.title,
         description: data.description
       }));
     }

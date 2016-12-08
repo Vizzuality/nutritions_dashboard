@@ -23,7 +23,9 @@
 
   App.Controller.Page = Controller.extend({
 
-    initialize: function() {},
+    initialize: function() {
+      var mobileMenuView = new App.View.MobileMenu();
+    },
 
     /**
      * Instance common and global view here
