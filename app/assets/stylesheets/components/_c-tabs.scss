@@ -18,12 +18,14 @@
     margin-bottom: rem(-1px);
     margin: 0 rem(10px);
     cursor: pointer;
+    font-weight: 500;
   }
 
   [type=radio]:checked ~ label {
     border-bottom: 2px solid $color-2;
     z-index: 2;
     color: $color-graph-6;
+    font-weight: 900;
   }
   [type=radio]:checked ~ label ~ .content {
     z-index: 1;

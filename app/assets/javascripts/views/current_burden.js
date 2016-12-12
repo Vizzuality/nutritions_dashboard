@@ -42,7 +42,7 @@
           },
           bar: {
               width: {
-                  ratio: 0.7 // this makes bar width 50% of length between ticks
+                  ratio: 0.6 // this makes bar width 50% of length between ticks
               }
               // or
               //width: 100 // this makes bar width 100px
@@ -54,7 +54,9 @@
             x: {
               type: 'category',
               categories: ['Anemia', 'Non Exclusive Breasfeeding', 'Stunting', 'Wasting'],
-              tick: {},
+              tick: {
+                fit: true
+              },
               padding: {
                 left: 0,
                 right: 0
