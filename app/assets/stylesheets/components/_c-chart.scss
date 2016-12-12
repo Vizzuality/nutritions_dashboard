@@ -19,7 +19,19 @@
   }
 
   .c3-chart-bar {
-    opacity: 0.7 !important;
+    opacity: .8 !important;
+  }
+
+  .c3-area {
+    opacity: .7 !important;
+  }
+
+  .c3-line {
+    opacity: 0 !important;
+  }
+
+  .c3-circles {
+    opacity: 0 !important;
   }
 
   &.-burden {
@@ -48,7 +60,7 @@
 
   .text {
     font-family: $font-family-2;
-    color: $font-color-1;
+    color: $color-2;
     text-transform: uppercase;
   }
 
