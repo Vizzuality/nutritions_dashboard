@@ -56,6 +56,10 @@
         el: '#costMeetingPackagesView'
       });
 
+      this.costMeetingTargetsCompositeView = new App.View.CostMeetingTargetsCompositeView({
+        el: '#costMeetingPackagesCompositeView'
+      });
+
       this.costPackagesView = new App.View.CostPackagesView({
         el: '#costPackagesView'
       });

@@ -64,6 +64,13 @@
     text-transform: uppercase;
   }
 
+  .bubble-text {
+    font-size: 16px;
+    font-family: $font-family-1;
+    fill: $white;
+    font-weight: 700;
+  }
+
   path.domain {
     // Hide y axis.
     display: none;

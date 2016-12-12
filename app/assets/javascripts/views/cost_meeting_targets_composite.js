@@ -4,13 +4,13 @@
 
   App.View = App.View || {};
 
-  App.View.CostMeetingTargetsView = App.View.Chart.extend({
+  App.View.CostMeetingTargetsCompositeView = App.View.Chart.extend({
 
     initialize: function() {
       this.status = new Backbone.Model({});
       this.collection = new App.Collection.IndicatorsCollection();
 
-      App.View.CostMeetingTargetsView.__super__.initialize.apply(this);
+      App.View.CostMeetingTargetsCompositeView.__super__.initialize.apply(this);
     },
 
     _fetchData: function() {
@@ -19,7 +19,7 @@
         group: this.status.get('group')
       };
 
-      this.collection.getDataForCostMeetingPackages(params).done(function(){
+      this.collection.getDataForCostMeetingPackagesComposite(params).done(function(){
         this.render();
       }.bind(this));
     },
@@ -39,9 +39,11 @@
           .size([diameter, diameter])
           .padding(1.5);
 
-      var svg = d3.select('#costMeetingPackagesView .c-chart')
+      var svg = d3.select('#costMeetingPackagesCompositeView .c-chart')
           .html('') //Empty c-chart from previous chart.
           .append('svg')
+          // .attr('width', diameter)
+          // .attr('height', diameter)
           .attr('viewBox', '0 0 ' + diameter + ' ' + diameter)
           .attr('preserveAspectRatio', "xMidYMid meet")
           .attr('class', 'bubble');
@@ -68,7 +70,6 @@
           .attr('x', function(d){ return d.x; })
           .attr('y', function(d){ return d.y - 15; })
           .attr('text-anchor', 'middle')
-          .attr('class', 'bubble-text')
           .text(function(d){ return d['target']; })
           .style({
             'fill':'#ffffff',
