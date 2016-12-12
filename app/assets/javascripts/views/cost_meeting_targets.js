@@ -31,7 +31,7 @@
         return d;
       });
 
-      var diameter = 450, //max size of the bubbles
+      var diameter = 850, //max size of the bubbles
           color    = this.colors.targets;
 
       var bubble = d3.layout.pack()

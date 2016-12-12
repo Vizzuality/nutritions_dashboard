@@ -1,6 +1,6 @@
 .c-chart {
   width: 100%;
-  height: rem(300px);
+  // height: rem(300px);
   margin-bottom: rem(20px);
 
   .c3-chart {
@@ -9,9 +9,13 @@
   }
 
   .c3-axis {
-    font-size: rem(14px);
+    font-size: rem(10px);
     font-family: $font-family-1;
     fill: $color-2;
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(14px);
+    }
   }
 
   .c3-chart-bar {
