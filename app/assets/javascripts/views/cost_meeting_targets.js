@@ -31,8 +31,12 @@
         return d;
       });
 
-      var diameter = 540, //max size of the bubbles
-          color    = this.colors.targets;
+      var diameter = 1080, //max size of the bubbles
+          color    = this.colors.targets,
+          screenWidth = $(document).width(),
+          scale    = screenWidth <= 768 ? 1.2 : 0.8,
+          svgWidth = screenWidth <= 768 ? 768 : 1080,
+          svgHeight = screenWidth <= 768 ? 1580 : 580;
 
       var bubble = d3.layout.pack()
           .sort(null)
@@ -42,7 +46,7 @@
       var svg = d3.select('#costMeetingPackagesView .c-chart')
           .html('') //Empty c-chart from previous chart.
           .append('svg')
-          .attr('viewBox', '0 0 ' + diameter + ' ' + diameter)
+          .attr('viewBox', '0 0 ' + svgWidth + ' ' + svgHeight)
           .attr('preserveAspectRatio', "xMidYMid meet")
           .attr('class', 'bubble');
 
@@ -54,46 +58,50 @@
           .attr('transform', 'translate(0,0)')
           .selectAll('.bubble')
           .data(nodes)
-          .enter();
+          .enter()
+          .append("g")
+          .attr("transform", function(d, i) {
+             var x = d.x * scale;
+             var y = (d.y * scale) - 100;
+             // Set d.x and d.y here so that other elements can use it. d is
+             // expected to be an object here.
+             if ( d['target'] === 'Composite' ) {
+               if ( screenWidth <= 768 ) {
+                 x = svgWidth/2;
+                 y = svgHeight - d.r*scale - 50;
+               } else {
+                 x += 170;
+                 y -= 120;
+               }
+               return "translate(" + x + "," + y + ")";
+             } else {
+               return "translate(" + x + "," + y + ")";
+             }
+         });
 
       //create the bubbles
       bubbles.append('circle')
-          .attr('r', function(d){ return d.r; })
-          .attr('cx', function(d){ return d.x; })
-          .attr('cy', function(d){ return d.y; })
+          .attr('r', function(d){ return d.r * scale; })
           .style('fill', function(d) { return color[d.target]; });
 
       //format the text for each bubble
       bubbles.append('text')
-          .attr('x', function(d){ return d.x; })
-          .attr('y', function(d){
-            if ( d['target'] === 'Exclusive breastfeeding' ) {
-              return d.y - 15;
-            } else {
-              return d.y - 9;
-            }
-          })
           .attr('text-anchor', 'middle')
           .attr('class', 'bubble-text')
           .html(function(d){
+            // return d['target'];
             if (d['sum'] > 1000 || d['sum'] < -1000) {
               var sum = '$' + d3.format('.3s')(d['sum']);
             } else {
               var sum = '$' + d3.round(d['sum'], 2);
             }
             if ( d['target'] === 'Exclusive breastfeeding' ) {
-              var text = '<tspan x="' + d.x + 'px">Exclusive</tspan><tspan x="' + d.x + 'px" dy="20">breastfeeding</tspan><tspan x="' + d.x + 'px" dy="20">' + sum + '<tspan>';
+              var text = '<tspan dy="-10">EVB</tspan><tspan x="0" dy="25">' + sum + '<tspan>';
               return text;
             } else {
-              var text = '<tspan x="' + d.x + 'px">' + d['target'] + '</tspan><tspan x="' + d.x + 'px" dy="20">' + sum + '<tspan>';
+              var text = '<tspan dy="-10">' + d['target'] + '</tspan><tspan x="0" dy="25">' + sum + '<tspan>';
               return text;
             }
-          })
-          .style({
-            'fill':'#ffffff',
-            'font-family':'museo-sans',
-            'font-size': '16px',
-            'font-weight': 700,
           })
     }
 

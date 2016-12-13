@@ -12,11 +12,6 @@
         region: HandlebarsTemplates['queries/cost_meeting_targets'],
         income_group: HandlebarsTemplates['queries/cost_meeting_targets']
       },
-      cost_meeting_targets_composite: {
-        global: HandlebarsTemplates['queries/cost_meeting_targets_composite_global'],
-        region: HandlebarsTemplates['queries/cost_meeting_targets_composite'],
-        income_group: HandlebarsTemplates['queries/cost_meeting_targets_composite']
-      },
       cost_packages: {
         global: HandlebarsTemplates['queries/cost_packages_global'],
         region: HandlebarsTemplates['queries/cost_packages'],
@@ -46,16 +41,6 @@
 
     getDataForCostMeetingPackages: function(params) {
       var query = this.queries['cost_meeting_targets'][params.mode]({
-        mode: params.mode,
-        group: params.group
-      });
-
-      var url = this._urlForQuery(query);
-      return this.fetch({url: url});
-    },
-
-    getDataForCostMeetingPackagesComposite: function(params) {
-      var query = this.queries['cost_meeting_targets_composite'][params.mode]({
         mode: params.mode,
         group: params.group
       });
