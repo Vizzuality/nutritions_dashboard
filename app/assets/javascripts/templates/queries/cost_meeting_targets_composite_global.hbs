@@ -1,2 +1,1 @@
-SELECT sum(sum) as sum, target 
-FROM cost_meeting_targets_region group by target
+SELECT sum(sum) as sum, target FROM cost_meeting_targets_region where target='Composite' group by target

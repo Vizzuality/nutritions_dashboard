@@ -66,33 +66,34 @@
       //format the text for each bubble
       bubbles.append('text')
           .attr('x', function(d){ return d.x; })
-          .attr('y', function(d){ return d.y - 15; })
+          .attr('y', function(d){
+            if ( d['target'] === 'Exclusive breastfeeding' ) {
+              return d.y - 15;
+            } else {
+              return d.y - 9;
+            }
+          })
           .attr('text-anchor', 'middle')
           .attr('class', 'bubble-text')
-          .text(function(d){ return d['target']; })
+          .html(function(d){
+            if (d['sum'] > 1000 || d['sum'] < -1000) {
+              var sum = '$' + d3.format('.3s')(d['sum']);
+            } else {
+              var sum = '$' + d3.round(d['sum'], 2);
+            }
+            if ( d['target'] === 'Exclusive breastfeeding' ) {
+              var text = '<tspan x="' + d.x + 'px">Exclusive</tspan><tspan x="' + d.x + 'px" dy="20">breastfeeding</tspan><tspan x="' + d.x + 'px" dy="20">' + sum + '<tspan>';
+              return text;
+            } else {
+              var text = '<tspan x="' + d.x + 'px">' + d['target'] + '</tspan><tspan x="' + d.x + 'px" dy="20">' + sum + '<tspan>';
+              return text;
+            }
+          })
           .style({
             'fill':'#ffffff',
             'font-family':'museo-sans',
             'font-size': '16px',
             'font-weight': 700,
-          })
-
-      bubbles.append('text')
-          .attr('x', function(d){ return d.x; })
-          .attr('y', function(d){ return d.y; })
-          .attr('text-anchor', 'middle')
-          .text(function(d){
-            if (d['sum'] > 1000 || d['sum'] < -1000) {
-              return '$' + d3.format('.3s')(d['sum']);
-            } else {
-              return '$' + d3.round(d['sum'], 2);
-            }
-          })
-          .style({
-            'fill':'white',
-            'font-family':'Helvetica Neue, Helvetica, Arial, san-serif',
-            'font-size': '15px',
-            'font-weight': 700
           })
     }
 
