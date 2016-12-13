@@ -6,6 +6,8 @@
   border-bottom: solid $color-3 1px;
   margin-left: -0.625rem;
   margin-right: -0.625rem;
+  z-index: 10;
+  position: relative;
 
   @media screen and (min-width: $screen-m) {
     align-items: flex-end;

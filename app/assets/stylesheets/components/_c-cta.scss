@@ -1,0 +1,19 @@
+.c-cta {
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: rem(-60px);
+
+  @media screen and (min-width: $screen-m) {
+    max-width: rem(700px);
+    margin-top: rem(-80px);
+  }
+
+  .accordion {
+    position: absolute;
+    bottom: rem(30px);
+    z-index: 10;
+  }
+}
