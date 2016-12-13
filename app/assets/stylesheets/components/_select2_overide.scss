@@ -4,7 +4,7 @@
   width: 100%;
 
 	.select2-choice {
-		border: 1px solid $color-3;
+		border: 1px solid $color-2;
 		height: 60px;
 		border-radius: 0;
 		font-family: inherit;
@@ -14,7 +14,7 @@
 		background-image: none;
 
     div {
-			border-left: 1px solid $color-3;
+			border-left: 1px solid $color-2;
 			border-radius: 0 4px 4px 0;
 			background-clip: padding-box;
 		}
@@ -32,7 +32,7 @@
 	}
 
 	&.select2-drop-above .select2-choice {
-		border-bottom-color: $color-3;
+		border-bottom-color: $color-2;
 		border-radius: 0;
 	}
 }

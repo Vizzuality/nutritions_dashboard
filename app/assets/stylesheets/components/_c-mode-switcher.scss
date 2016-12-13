@@ -1,4 +1,10 @@
 .c-mode-switcher {
-  float: right;
-  margin-bottom: 20px;
+  margin-top: rem(20px);
+  width: 100%;
+
+  @media screen and (min-width: $screen-m) {
+    margin-top: 0;
+    max-width: 340px;
+    margin-left: 30px;
+  }
 }
