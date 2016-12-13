@@ -6,7 +6,7 @@
 
   App.View.MobileMenu = Backbone.View.extend({
 
-    el: 'body',
+    el: '.l-header',
 
     events: {
       'click .js-btn-mobile-menu' : 'onClickChangeStatus',
@@ -33,9 +33,6 @@
 
     toggleMenuPanel: function() {
       var hidden = !!this.status.get('hidden');
-
-      this.$('html').toggleClass('-menu-open', !hidden);
-      this.$('body').toggleClass('-menu-open', !hidden);
       this.$('.c-mobile-menu').toggleClass('-is-open', !hidden);
       this.$('.mobile').toggleClass('-is-open', !hidden);
     }

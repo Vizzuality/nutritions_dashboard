@@ -38,4 +38,28 @@
       }
     }
   }
+
+  &.-transparent {
+    .text {
+      color: $white;
+    }
+
+    li {
+      &.-active{
+        color: $color-graph-6;
+
+        @media screen and (min-width: $screen-m) {
+          border-bottom: solid $white 2px;
+        }
+      }
+
+      &:hover{
+        color: $color-graph-6;
+
+        @media screen and (min-width: $screen-m) {
+          border-bottom: solid $white 2px;
+        }
+      }
+    }
+  }
 }
