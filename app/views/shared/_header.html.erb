@@ -1,6 +1,6 @@
 <div class="row">
   <div class="columns small-12">
-    <div class="l-header <%= "-transparent" if controller_name == 'welcome' || controller_name == 'about' %>">
+    <div class="l-header <%= className %>">
       <div class="logo">
         <a href="/">
           <svg class="icon"><use xlink:href="#icon-logo"></use></svg>
@@ -8,14 +8,22 @@
         </a>
       </div>
       <div class="desktop">
-        <%= render 'shared/navigation' %>
+        <ul class="c-navigation <%= className %>">
+          <li class="text -menu <%= "-active" if controller_name == 'dashboards' %>"><%= link_to 'Regional data', '/dashboards/global' %></li>
+          <li class="text -menu <%= "-active" if controller_name == 'countries' %>"><%= link_to 'Current Funding', countries_show_path %></li>
+          <li class="text -menu <%= "-active" if controller_name == 'about' %>"><%= link_to 'About', about_path %></li>
+        </ul>
       </div>
       <div class="js-btn-mobile-menu mobile">
         <svg class="icon -open"><use xlink:href="#icon-menu"></use></svg>
         <svg class="icon -close"><use xlink:href="#icon-close"></use></svg>
       </div>
-      <div class="c-mobile-menu">
-        <%= render 'shared/navigation' %>
+      <div class="c-mobile-menu <%= className %>">
+        <ul class="c-navigation <%= className %>">
+          <li class="text -menu <%= "-active" if controller_name == 'dashboards' %>"><%= link_to 'Regional data', '/dashboards/global' %></li>
+          <li class="text -menu <%= "-active" if controller_name == 'countries' %>"><%= link_to 'Current Funding', countries_show_path %></li>
+          <li class="text -menu <%= "-active" if controller_name == 'about' %>"><%= link_to 'About', about_path %></li>
+        </ul>
       </div>
     </div>
   </div>

@@ -1,7 +1,11 @@
 <div class="l-footer">
   <div class="row">
     <div class="column small-12">
-      <%= render 'shared/navigation', className: "-footer" %>
+      <ul class="c-navigation">
+        <li class="text -menu <%= "-active" if controller_name == 'dashboards' %>"><%= link_to 'Regional data', '/dashboards/global' %></li>
+        <li class="text -menu <%= "-active" if controller_name == 'countries' %>"><%= link_to 'Current Funding', countries_show_path %></li>
+        <li class="text -menu <%= "-active" if controller_name == 'about' %>"><%= link_to 'About', about_path %></li>
+      </ul>
       <ul class="c-partners">
         <li>
           <a href="">

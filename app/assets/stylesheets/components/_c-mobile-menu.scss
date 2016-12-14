@@ -4,10 +4,10 @@
   top: rem(59px);
   left: 0;
   right: 0;
-  background: rgba($color-bg-1, 1);
   border-bottom: solid 1px $color-2;
   cursor: pointer;
   z-index: 10;
+  background: rgba($color-bg-1, 1);
 
   &.-is-open {
     display: flex;
@@ -18,5 +18,10 @@
     width: rem(15px);
     height: rem(15px);
     fill: $white;
+  }
+
+  &.-transparent {
+    top: 0;
+    background: rgba(#1C8E93, 0.9);
   }
 }
