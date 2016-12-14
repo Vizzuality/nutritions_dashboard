@@ -1,6 +1,7 @@
 .l-content-large {
   position: relative;
-  background-size: contain;
+  background-position-y: bottom;
+  background-repeat: repeat-x;
 
   .overlay {
     position: absolute;
@@ -14,7 +15,7 @@
 
   &.-image {
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
   }
 
