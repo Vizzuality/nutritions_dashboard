@@ -40,15 +40,20 @@
   }
 
   &.-title {
-    font-size: rem(32px);
+    font-size: rem(28px);
     font-weight: 700;
     line-height: 1.25;
     font-family: $font-family-2;
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(32px);
+    }
   }
 
   &.-subtitle {
     font-size: 18px;
     font-weight: 900;
+    padding: rem(10px) 0;
   }
 
   &.-cta-title {
@@ -58,7 +63,7 @@
     line-height: 1;
     letter-spacing: -0.7px;
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: $screen-l) {
       font-size: rem(70px);
     }
   }
@@ -69,9 +74,13 @@
 
   &.-accordion {
     color: $white;
-    font-size: 32px;
+    font-size: 28px;
     font-family: $font-family-2;
     text-decoration: underline;
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(32px);
+    }
   }
 
   &.-light {

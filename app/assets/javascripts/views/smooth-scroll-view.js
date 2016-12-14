@@ -20,7 +20,7 @@
         if (target.length) {
           $('html, body').animate({
             scrollTop: target.offset().top
-          }, 700);
+          }, 500);
           return false;
         }
       }

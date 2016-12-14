@@ -4,17 +4,17 @@
   padding-bottom: rem(50px);
 
   @media screen and (min-width: $screen-m) {
-    padding-bottom: rem(100px);
+    padding-bottom: rem(80px);
   }
 
   .c-navigation {
     justify-content: center;
     padding-bottom: rem(20px);
-    padding-top: rem(50px);
+    padding-top: rem(40px);
 
     @media screen and (min-width: $screen-m) {
       padding-bottom: rem(60px);
-      padding-top: rem(100px);
+      padding-top: rem(80px);
     }
 
     li {
