@@ -1,14 +1,15 @@
 .c-cta {
-  height: 600px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin-top: rem(-60px);
+  margin: rem(30px) 0 rem(30px);
 
   @media screen and (min-width: $screen-m) {
     max-width: rem(700px);
-    margin-top: rem(-80px);
+    margin: rem(-60px) 0 0;
+    min-height: rem(600px);
   }
 
   .accordion {

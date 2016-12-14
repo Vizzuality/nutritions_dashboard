@@ -53,10 +53,14 @@
 
   &.-cta-title {
     font-family: $font-family-2;
-    font-size: rem(70px);
+    font-size: rem(50px);
     font-weight: 900;
     line-height: 1;
     letter-spacing: -0.7px;
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(70px);
+    }
   }
 
   &.-cta-text {
