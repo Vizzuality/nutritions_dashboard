@@ -4,6 +4,10 @@
     max-width: 100%;
     height: rem(70px);
     margin: 0 0 rem(10px);
+
+    &.-days {
+      max-width: rem(150px);
+    }
   }
 
   .two-column {
@@ -16,7 +20,7 @@
   }
 
   h2 {
-    margin-bottom: 20px;
+    margin-bottom: rem(20px);
   }
 
   &.-first {
@@ -29,10 +33,10 @@
 
   &.-last, .last {
     border-bottom: solid $color-3 1px;
-    padding-bottom: 20px;
+    padding-bottom: rem(20px);
 
     @media screen and (min-width: $screen-m) {
-      padding-bottom: 40px;
+      padding-bottom: rem(40px);
     }
   }
 }
