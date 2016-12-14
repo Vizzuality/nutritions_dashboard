@@ -81,6 +81,9 @@
             groups: [['Gap', 'Domestic', 'Donor', 'Household', 'Innovative']],
             colors: this.colors.sources
           },
+          interaction: {
+            enabled: false
+          },
           axis: {
             x: {
               type: 'category',
@@ -90,22 +93,21 @@
               padding: {
                 left: 0,
                 right: 0
-              }
+              },
+              height: 60,
             },
             y: {
-              label: {
-                text: 'USD $',
-                position: 'outer-top'
-              },
               tick: {
                 format: function (v, id, i, j) {
                   if (v > 1000 || v < -1000) {
-                    return d3.format('.3s')(v);
+                    var num = d3.format('.2s')(v);
+                    return '$' + num;
                   } else {
                     return d3.round(v, 2);
                   }
                 }
-              }
+              },
+              count: 6
             }
           },
           grid: {

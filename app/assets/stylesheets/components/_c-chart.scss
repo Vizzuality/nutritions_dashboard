@@ -1,6 +1,6 @@
 .c-chart {
   width: 100%;
-  height: rem(300px);
+  // height: rem(300px);
   margin-bottom: rem(20px);
 
   .c3-chart {
@@ -9,13 +9,29 @@
   }
 
   .c3-axis {
-    font-size: rem(14px);
+    font-size: rem(10px);
     font-family: $font-family-1;
     fill: $color-2;
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(14px);
+    }
   }
 
   .c3-chart-bar {
-    opacity: 0.7 !important;
+    opacity: .8 !important;
+  }
+
+  .c3-area {
+    opacity: .7 !important;
+  }
+
+  .c3-line {
+    opacity: 0 !important;
+  }
+
+  .c3-circles {
+    opacity: 0 !important;
   }
 
   &.-burden {
@@ -42,10 +58,21 @@
   }
 
 
-  .text {
-    font-family: $font-family-2;
-    color: $font-color-1;
-    text-transform: uppercase;
+  .c3-legend-item {
+    font-family: $font-family-1;
+    color: $color-3;
+    // text-transform: uppercase;
+  }
+
+  .bubble-text {
+    font-size: 22px;
+    font-family: $font-family-1;
+    fill: $white;
+    font-weight: 700;
+
+    @media screen and (min-width: $screen-m) {
+      font-size: 16px;
+    }
   }
 
   path.domain {

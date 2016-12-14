@@ -1,24 +1,34 @@
 .btn {
-  padding: rem(12px) rem(60px);
+  padding: rem(8px);
   text-transform: uppercase;
   line-height: rem(30px);
   font-size: rem(16px);
   font-weight: 700;
+  width: 49%;
+  border-radius: 0;
+
+  @media screen and (min-width: $screen-m) {
+    width: 160px;
+  }
 
   &.-line {
-    color: $color-3;
-    border: rem(1px) solid $color-3;
+    color: $color-2;
+    border: rem(1px) solid $color-2;
   }
 
   &.-solid,
   &.-is-active {
     color: $color-bg-1;
-    border: rem(1px) solid $color-3;
-    background-color: $color-3;
+    border: rem(1px) solid $color-2;
+    background-color: $color-2;
   }
 
 
   & + & {
-    margin-left: rem(20px);
+    margin-left: 0.5%;
+
+    @media screen and (min-width: $screen-m) {
+      margin-left: rem(15px);
+    }
   }
 }

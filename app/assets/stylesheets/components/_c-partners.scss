@@ -1,7 +1,8 @@
 .c-partners {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
   @media screen and (min-width: $screen-m) {
@@ -9,6 +10,13 @@
   }
 
   li {
-    margin-bottom: 20px;
+    margin-bottom: rem(20px);
+    padding: 0 rem(15px);
+    max-width: 200px;
+
+    .icon {
+      width: 100%;
+      max-height: rem(40px);
+    }
   }
 }

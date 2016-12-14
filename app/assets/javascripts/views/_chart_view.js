@@ -16,14 +16,14 @@
       },
       packages: {
         'Full': '#93c9d8',
-        'Priority': '#00a2b7'
+        'Priority': '#00a3b7'
       },
       sources: {
         'Domestic': '#b3a691',
         'Donor': '#ccbea5',
         'Household': '#e6d6ba',
-        'Innovative': '#f7f0e4',
-        'Gap': '#00a1b7'
+        'Innovative': '#ded8cd',
+        'Gap': '#00a3b7'
       },
       other: ['#c1de11', '#8ac230', '#3f8c3f', '#fff000', '#fabada']
     },

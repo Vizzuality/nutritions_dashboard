@@ -31,6 +31,9 @@
       this.stackChart = new App.View.C3Chart({
         el: this.el,
         options: {
+          padding: {
+            top: 10
+          },
           color: this.colors.other,
           data: {
             json: {
@@ -45,7 +48,7 @@
           },
           bar: {
               width: {
-                  ratio: 0.5 // this makes bar width 50% of length between ticks
+                  ratio: 0.6 // this makes bar width 50% of length between ticks
               }
               // or
               //width: 100 // this makes bar width 100px
@@ -61,21 +64,20 @@
               padding: {
                 left: 0,
                 right: 0
-              }
+              },
+              height: 40,
             },
             y: {
-              label: {
-                text: 'USD $',
-                position: 'outer-top'
-              },
               tick: {
                 format: function (v, id, i, j) {
                   if (v > 1000 || v < -1000) {
-                    return d3.format('.3s')(v);
+                    var num = d3.format('.2s')(v);
+                    return '$' + num;
                   } else {
                     return d3.round(v, 2);
                   }
-                }
+                },
+                count: 6
               }
             }
           },

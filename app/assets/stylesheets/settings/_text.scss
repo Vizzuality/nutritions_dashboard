@@ -13,6 +13,7 @@
  }
 .header {
   font-family: $font-family-2;
+  color: $color-2;
 
   &.-title {
     font-size: rem(32px);
@@ -23,17 +24,13 @@
 
 .text {
   font-family: $font-family-1;
-
-  &.-plain {
-    font-size: rem(18px);
-    font-weight: 300;
-    line-height: 1.67;
-  }
+  color: $color-2;
+  font-weight: 500;
+  line-height: 1.67;
 
   &.-menu {
     font-size: rem(16px);
     letter-spacing: 2px;
-    color: $color-2;
     text-transform: uppercase;
     font-weight: 700;
 
@@ -45,27 +42,16 @@
   &.-tabs {
     font-size: rem(16px);
     letter-spacing: 0.5px;
-    color: $color-3;
-    font-weight: 900;
+    font-weight: 500;
 
     @media screen and (min-width: $screen-m) {
       font-size: rem(18px);
     }
   }
-}
 
-.text,
-.header {
-
-  &.-dark {
-    color: $black;
-  }
-
-  &.-light {
-    color: $white;
-  }
-
-  &.-highlight {
-    color: $color-1;
+  &.-subtitle {
+    color: $color-2;
+    font-size: 18px;
+    font-weight: 900;
   }
 }
