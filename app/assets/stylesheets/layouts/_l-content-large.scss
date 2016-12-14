@@ -1,0 +1,55 @@
+.l-content-large {
+  position: relative;
+  background-size: contain;
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 1;
+  }
+
+  &.-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &.-home {
+    background-image: image-url('bg-home.jpg');
+  }
+
+  &.-about {
+    background-image: image-url('bg-about.jpg');
+  }
+
+  &.-stunting {
+    background-image: image-url('grain@2x.png');
+  }
+
+  &.-wasting {
+    background-image: image-url('grain@2x.png');
+  }
+
+  &.-anemia {
+    background-image: image-url('grain@2x.png');
+  }
+
+  &.-breastfeeding {
+    background-image: image-url('grain@2x.png');
+  }
+
+  .smooth-scroll {
+    display: flex;
+    justify-content: center;
+    padding-bottom: rem(20px);
+
+    .icon {
+      width: 25px;
+      height: 50px;
+    }
+  }
+}

@@ -8,6 +8,7 @@
 
     index: function() {
       console.log('Welcome#index');
+      this.smoothScroll = new App.View.SmoothScrollView({});
     }
 
   });

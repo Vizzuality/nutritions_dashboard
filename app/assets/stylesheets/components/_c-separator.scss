@@ -1,0 +1,12 @@
+.c-separator {
+  display: block;
+  height: rem(1px);
+  border: 0;
+  border-top: rem(1px) solid $color-3;
+  margin: rem(20px) 0;
+  padding: 0;
+
+  @media screen and (min-width: $screen-m) {
+    margin: rem(40px) 0;
+  }
+}

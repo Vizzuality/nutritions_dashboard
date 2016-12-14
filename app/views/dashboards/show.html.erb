@@ -1,3 +1,5 @@
+<%= render 'shared/header', className: '-normal' %>
+
 <div class="l-selectors">
   <div class="row">
 
@@ -26,9 +28,7 @@
 <div class="l-map">
   <div class="row">
     <div class="columns small-12 medium-6">
-      <div id="map" class="c-map">
-        <img src="<%= image_url('map-temp.png') %>"/>
-      </div>
+      <div id="map" class="c-map"></div>
     </div>
     <div class="columns small-12 medium-6">
       <div id="mapTitleView"></div>
@@ -39,10 +39,9 @@
 
 <div class="row">
   <div class="columns small-12">
-    <div class="l-title">
-      <h2 class="header -title -highlight">How common are nutritional conditions?</h2>
-      <h3>Prevalence of nutritional conditions</h3>
-    </div>
+    <hr class="c-separator"/>
+    <h2 class="text -title">How common are nutritional conditions?</h2>
+    <h3 class="text -subtitle">Prevalence of nutritional conditions</h3>
   </div>
   <div class="columns small-12 medium-6">
     <div id="currentBurdenView" class="l-chart">
@@ -56,9 +55,8 @@
 
 <div class="row">
   <div class="columns small-12">
-    <div class="l-title">
-      <h2 id="chartTitleView" class="header -title -highlight">How much will it cost [REGION] to achieve the targets global leaders set?</h2>
-    </div>
+    <hr class="c-separator"/>
+    <h2 id="chartTitleView" class="text -title">How much will it cost [REGION] to achieve the targets global leaders set?</h2>
   </div>
   <div class="column small-12 medium-6">
     <p class="text">Achieving all four of the WHA targets in Latin America & the Caribbean will cost $3 billion over 10 years, on top of current investments.</p>
@@ -67,9 +65,7 @@
     <p class="text">Note that because some interventions help achieve more than one target, the cost of meeting all four targets is less than the sum of meeting the four targets individually.</p>
   </div>
   <div class="columns small-12">
-    <div class="l-subtitle">
-      <h3 class="text -subtitle">Cost of meeting targets on top of current spending, 2016-2025</h3>
-    </div>
+    <h3 class="text -subtitle">Cost of meeting targets on top of current spending, 2016-2025</h3>
   </div>
   <div class="columns small-12 medium-12">
     <div id="costMeetingPackagesView" class="l-chart">
@@ -81,10 +77,9 @@
 
 <div class="row">
   <div class="columns small-12">
-    <div class="l-title">
-      <h2 class="header -title -highlight">Under constrained resources, how much would it cost to deliver priority interventions?</h2>
-      <h3>Cost of packages comparison</h3>
-    </div>
+    <hr class="c-separator"/>
+    <h2 class="text -title">Under constrained resources, how much would it cost to deliver priority interventions?</h2>
+    <h3 class="text -subtitle">Cost of packages comparison</h3>
     <div id="costPackagesView" class="l-chart">
       <div class="c-chart"></div>
     </div>
@@ -97,12 +92,10 @@
   </div>
 </div>
 
-
 <div class="row">
   <div class="columns small-12">
-    <div class="l-title">
-      <h2 class="header -title -highlight">How can the funding be mobilized?</h2>
-    </div>
+    <hr class="c-separator"/>
+    <h2 class="text -title">How can the funding be mobilized?</h2>
     <div class="l-switcher">
       <h3 class="text -subtitle">Financing the targets through Global Solidarity vs. Business as Usual</h3>
       <div id="graphModeSwitcher" class="c-mode-switcher">
@@ -127,8 +120,9 @@
 
 <div class="row">
   <div class="columns small-12">
-    <div class="l-title" id="additionalInfoView">
-      <p class="text two-column">
+    <div class="l-column-text">
+      <hr class="c-separator"/>
+      <p id="additionalInfoView" class="text two-column">
         If [region] and others worldwide do their part, the results could be tremendous: 3.7 million child lives saved, at least 65 million fewer stunted children, 265 million fewer women suffering from anemia than in 2015, and 91 million children treated for severe wasting. In a resource-constrained environment, the smaller package of priority interventions could save about 2.2 million lives, and -- together with anticipated progress in food availability and diversity, women's health and education, and investments in water and sanitation -- could result in 50 million fewer children stunted in 2025 compared to 2015. It would also result in 91 million children treated for severe wasting.
       </p>
     </div>
