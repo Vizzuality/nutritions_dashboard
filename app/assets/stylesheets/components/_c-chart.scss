@@ -65,13 +65,13 @@
   }
 
   .bubble-text {
-    font-size: 22px;
+    font-size: rem(22px);
     font-family: $font-family-1;
     fill: $white;
     font-weight: 700;
 
     @media screen and (min-width: $screen-m) {
-      font-size: 16px;
+      font-size: rem(16px);
     }
   }
 

@@ -1,18 +1,26 @@
 .l-chart {
 
   &#currentBurdenView {
-    margin-left: -10px;
+    margin-left: rem(-10px);
+
+    @media screen and (min-width: $screen-m) {
+      margin-left: rem(-5px);
+    }
 
     @media screen and (min-width: $screen-l + 1px) {
-      margin-left: -40px;
+      margin-left: rem(-40px);
     }
   }
 
   &#costPackagesView{
-    margin-left: -15px;
+    margin-left: rem(-15px);
+
+    @media screen and (min-width: $screen-m) {
+      margin-left: rem(-5px);
+    }
 
     @media screen and (min-width: $screen-l + 1px) {
-      margin-left: -50px;
+      margin-left: rem(-50px);
     }
   }
 
@@ -25,14 +33,18 @@
   }
 
   &#businessAsUsualView{
-    margin-left: -15px;
+    margin-left: rem(-15px);
+
+    @media screen and (min-width: $screen-m) {
+      margin-left: rem(-5px);
+    }
 
     @media screen and (min-width: $screen-l + 1px) {
-      margin-left: -50px;
+      margin-left: rem(-50px);
     }
   }
 
   &#globalSolidarityView{
-    margin-left: -15px;
+    margin-left: rem(-15px);
   }
 }
