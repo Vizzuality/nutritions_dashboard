@@ -1,5 +1,40 @@
 .c-accordion {
-  position: relative;
-  padding-bottom: rem(20px);
-  z-index: 10;
+  padding-bottom: rem(10px);
+
+  input{
+    display: none;
+  }
+
+  label {
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+
+    &.-open {
+      margin-top: -80px;
+    }
+  }
+
+  .accordion-content {
+    width: 100%;
+    overflow: hidden;
+    height: 0;
+    position: relative;
+    z-index: 10;
+    transition:
+      height 0.1s ease-in-out,
+  }
+
+  input:checked ~ label {
+    visibility: hidden;
+  }
+
+  input:checked ~ .accordion-content{
+    transition:
+    height 0.5s ease-in-out,
+  }
+
+  input:checked ~ .accordion-content{
+    height: rem(600px);
+  }
 }
