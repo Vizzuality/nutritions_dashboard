@@ -4,10 +4,9 @@
 
   App.Controller = App.Controller || {};
 
-  App.Controller.Welcome = App.Controller.Page.extend({
+  App.Controller.About = App.Controller.Page.extend({
 
     index: function() {
-      console.log('Welcome#index');
     }
 
   });

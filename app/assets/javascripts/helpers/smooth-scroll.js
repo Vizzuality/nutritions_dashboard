@@ -2,9 +2,9 @@
 
   'use strict';
 
-  App.View = App.View || {};
+  App.Helper = App.Helper || {};
 
-  App.View.SmoothScrollView = Backbone.View.extend({
+  App.Helper.SmoothScrollView = Backbone.View.extend({
 
     el: '.smooth-scroll',
 
