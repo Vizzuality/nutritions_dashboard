@@ -6,6 +6,12 @@
 
   App.View.CostMeetingTargetsView = App.View.Chart.extend({
 
+    defaults: {
+      diameter: 1080,
+      padding: 1.5,
+      threshold: 1000
+    },
+
     initialize: function() {
       this.status = new Backbone.Model({});
       this.collection = new App.Collection.IndicatorsCollection();
@@ -31,17 +37,16 @@
         return d;
       });
 
-      var diameter = 1080, //max size of the bubbles
-          color    = this.colors.targets,
+      var color = this.colors.targets,
           screenWidth = $(document).width(),
-          scale    = screenWidth <= 768 ? 1.2 : 0.8,
+          scale = screenWidth <= 768 ? 1.2 : 0.8,
           svgWidth = screenWidth <= 768 ? 768 : 1080,
           svgHeight = screenWidth <= 768 ? 1580 : 580;
 
       var bubble = d3.layout.pack()
           .sort(null)
-          .size([diameter, diameter])
-          .padding(1.5);
+          .size([this.defaults.diameter, this.defaults.diameter])
+          .padding(this.defaults.padding);
 
       var svg = d3.select('#costMeetingPackagesView .c-chart')
           .html('') //Empty c-chart from previous chart.
@@ -90,7 +95,7 @@
           .attr('class', 'bubble-text')
           .html(function(d){
             // return d['target'];
-            if (d['sum'] > 1000 || d['sum'] < -1000) {
+            if (d['sum'] > this.defaults.threshold || d['sum'] < -this.defaults.threshold) {
               var sum = '$' + d3.format('.3s')(d['sum']);
             } else {
               var sum = '$' + d3.round(d['sum'], 2);
@@ -102,7 +107,7 @@
               var text = '<tspan dy="-10">' + d['target'] + '</tspan><tspan x="0" dy="25">' + sum + '<tspan>';
               return text;
             }
-          })
+          }.bind(this))
     }
 
   });
