@@ -39,7 +39,7 @@
 
       var color = this.colors.targets,
           screenWidth = $(document).width(),
-          scale = screenWidth <= 768 ? 1.2 : 0.8,
+          scale = screenWidth <= 768 ? 1.2 : 0.75,
           svgWidth = screenWidth <= 768 ? 768 : 1080,
           svgHeight = screenWidth <= 768 ? 1580 : 580;
 
