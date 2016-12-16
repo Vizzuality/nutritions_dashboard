@@ -6,14 +6,22 @@
 
   App.View.MapTitleView = App.View.TitleView.extend({
 
-    template: HandlebarsTemplates['map_title'],
+    template_map: HandlebarsTemplates['map_title'],
+    template_global: HandlebarsTemplates['map_title_global'],
 
     render: function() {
+      debugger
       var data = this.collection.toJSON()[0];
 
-      this.$el.html(this.template({
-        description: data.description
-      }));
+      if ( this.status.get('mode') === 'global' ) {
+        this.$el.html(this.template_global({
+          description: data.description
+        }));
+      } else {
+        this.$el.html(this.template_map({
+          description: data.description
+        }));
+      }
     }
   });
 
