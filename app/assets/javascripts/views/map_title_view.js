@@ -18,7 +18,8 @@
         }));
       } else {
         this.$el.html(this.template_map({
-          description: data.description
+          description: data.description,
+          class: data.region ? data.region : data.income_group
         }));
       }
     }

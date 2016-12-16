@@ -1,3 +1,72 @@
 .c-map {
   margin-bottom: rem(20px);
+  width: 100%;
+  height: rem(130px);
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  @media screen and (min-width: $screen-m) {
+    height: rem(180px);
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: $screen-l) {
+    height: rem(220px);
+  }
+
+  //regions
+
+  &.east-asia-pacific {
+    background-image: image_url('regions/east-asia@2x.png');
+  }
+
+  &.europe-central-asia {
+    background-image: image_url('regions/europe&central-asia@2x.png');
+  }
+
+  &.latin-america-caribbean {
+    background-image: image_url('regions/latin-america&caribean@2x.png');
+  }
+
+  &.middle-east-north-africa {
+    background-image: image_url('regions/middle-east&north-africa@2x.png');
+  }
+
+  &.sub-saharan-africa {
+    background-image: image_url('regions/sub-saharan-africa@2x.png');
+  }
+
+  &.south-asia {
+    background-image: image_url('regions/south-asia@2x.png');
+  }
+
+  //income groups
+
+  &.lic {
+    background-image: image_url('income-groups/lower@2x.png');
+  }
+
+  &.lmic {
+    background-image: image_url('income-groups/lower-middle@2x.png');
+  }
+
+  &.umic {
+    background-image: image_url('income-groups/upper-middle@2x.png');
+  }
+
+  //cache images for selection changes
+
+  &:after {
+      // Images cache
+      position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
+      content: image-url('regions/east-asia@2x.png')
+               image-url('regions/europe&central-asia@2x.png')
+               image-url('regions/latin-america&caribean@2x.png')
+               image-url('regions/middle-east&north-africa@2x.png')
+               image-url('regions/sub-saharan-africa@2x.png')
+               image-url('regions/south-asia@2x.png')
+               image-url('income-groups/lower@2x.png')
+               image-url('income-groups/lower-middle@2x.png')
+               image-url('income-groups/upper-middle@2x.png');
+    }
 }
