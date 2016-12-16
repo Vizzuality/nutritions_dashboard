@@ -10,7 +10,6 @@
     template_global: HandlebarsTemplates['map_title_global'],
 
     render: function() {
-      debugger
       var data = this.collection.toJSON()[0];
 
       if ( this.status.get('mode') === 'global' ) {
