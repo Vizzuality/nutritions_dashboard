@@ -8,6 +8,9 @@
 
     index: function() {
       console.log('Welcome#index');
+      this.map = new App.View.MapHomeView({
+        el: '#homeMap'
+      });
     }
 
   });

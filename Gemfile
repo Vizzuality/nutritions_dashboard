@@ -50,7 +50,6 @@ gem 'handlebars_assets'
 gem 'leaflet-rails'
 gem 'select2-rails'
 
-
 source 'https://rails-assets.org' do
   gem 'rails-assets-normalize-css'
   gem 'rails-assets-underscore'

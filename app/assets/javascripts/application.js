@@ -21,7 +21,6 @@
 //= require c3
 //= require select2
 //= require leaflet.js
-
 //= require_self
 
 //= require_tree ./templates
@@ -48,4 +47,3 @@
   };
 
 }).call(this);
-
