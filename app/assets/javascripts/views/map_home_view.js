@@ -79,19 +79,21 @@
       this.map.updateChoropleth(parsedData);
     },
 
-    _setBucket: function(sum) {
-      var offset = minMax[0];
-      var bucket = '';
-      if 
-
+    _setBucket: function(sum, minMax) {
+      var value = sum - minMax[0];
+      var bucketNum = Object.keys(this.defaults.buckets).length
+      var bucket = ( value * bucketNum ) / ( minMax[1] - minMax[0] );
+      var bucketFloor = ~~bucket;
+      return "bc" + bucketFloor;
     },
 
     _getMinMax: function(data) {
-      var minMax = [0, 0];
+      var minMax = [data[0].sum, data[0].sum];
       for ( var i = 0; i < data.length; i++ ) {
         if ( data[i].sum > minMax[1] ) {
           minMax[1] = data[i].sum;
-        } else {
+        }
+        if ( data[i].sum < minMax[0] && data[i].sum !== 0 ) {
           minMax[0] = data[i].sum;
         }
       }
@@ -103,10 +105,10 @@
       var minMax = this._getMinMax(data);
       _.each(data, function(country) {
         summedData[country.iso_code] = {
-          fillKey: this._setBucket(country.sum),
+          fillKey: this._setBucket(country.sum, minMax),
           numberofThings: country.sum
         }
-      });
+      }.bind(this));
       return summedData;
     }
 
