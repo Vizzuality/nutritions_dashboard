@@ -6,6 +6,19 @@
 
   App.View.MapHomeView = Backbone.View.extend({
 
+    defaults: {
+      buckets: {
+        bc1: '#e54935',
+        bc2: '#ffa16f',
+        bc3: '#ffe6a0',
+        bc4: '#fffecc',
+        bc5: '#ccebc7',
+        bc6: '#66c7bf',
+        bc7: '#00a3b7',
+        defaultFill: 'rgba(216, 216, 216,0.5)'
+      }
+    },
+
     initialize: function() {
       if (!this.el) {
         return;
@@ -27,21 +40,17 @@
       var target = this.status.get('target');
 
       this.collection.getTotalByCountry(target).done(function(){
-        this._drawMap();
+        this._updateMap();
       }.bind(this));
     },
 
     _drawMap: function() {
-      var data = this.collection.toJSON();
-      console.log(data);
-      var map = new Datamap({
+      this.map = new Datamap({
         scope: 'world',
         element: document.getElementById(this.el.id),
         projection: 'robinson',
         height: 600,
-        fills: {
-          defaultFill: 'rgba(216, 216, 216,0.5)',
-        },
+        fills: this.defaults.buckets,
         geographyConfig: {
           dataUrl: null, //if not null, datamaps will fetch the map JSON (currently only supports topojson)
           hideAntarctica: true,
@@ -59,19 +68,46 @@
           // highlightBorderWidth: 2,
           // highlightBorderOpacity: 1
         },
-        data: {
-          BRA: {fillKey: 'exporter' },
-          CHN: {fillKey: 'importer' },
-          DEU: {fillKey: 'importer' },
-          FRA: {fillKey: 'importer' },
-          SPN: {fillKey: 'importer' },
-          THA: {fillKey: 'importer' },
-          JPN: {fillKey: 'importer' },
-          GBR: {fillKey: 'importer' },
-          KOR: {fillKey: 'importer' },
-          VNM: {fillKey: 'importer' },
-        }
+        data: {},
       })
+    },
+
+    _updateMap: function() {
+      var data = this.collection.toJSON();
+      var parsedData = this._parseData(data);
+      console.log(parsedData);
+      this.map.updateChoropleth(parsedData);
+    },
+
+    _setBucket: function(sum) {
+      var offset = minMax[0];
+      var bucket = '';
+      if 
+
+    },
+
+    _getMinMax: function(data) {
+      var minMax = [0, 0];
+      for ( var i = 0; i < data.length; i++ ) {
+        if ( data[i].sum > minMax[1] ) {
+          minMax[1] = data[i].sum;
+        } else {
+          minMax[0] = data[i].sum;
+        }
+      }
+      return minMax;
+    },
+
+    _parseData: function(data) {
+      var summedData = {};
+      var minMax = this._getMinMax(data);
+      _.each(data, function(country) {
+        summedData[country.iso_code] = {
+          fillKey: this._setBucket(country.sum),
+          numberofThings: country.sum
+        }
+      });
+      return summedData;
     }
 
   });
