@@ -8,7 +8,7 @@
 
     queries: {
       // total_spent: HandlebarsTemplates['queries/total_spent'],
-      total_by_country: HandlebarsTemplates['queries/total_by_country']
+      prevalence_by_country: HandlebarsTemplates['queries/prevalence_by_country']
     },
 
     // getTotalSpent: function() {
@@ -19,9 +19,9 @@
     // },
 
     getTotalByCountry: function(target) {
-      var query = this.queries['total_by_country']({target: target});
+      var query = this.queries['prevalence_by_country']({target: target});
       var url = this._urlForQuery(query);
-      
+
       return this.fetch({url: url});
     },
 
