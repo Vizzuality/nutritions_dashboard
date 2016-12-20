@@ -7,16 +7,30 @@
   App.View.MapHomeView = Backbone.View.extend({
 
     defaults: {
-      buckets: {
-        bc1: '#e54935',
-        bc2: '#ffa16f',
-        bc3: '#ffe6a0',
-        bc4: '#fffecc',
-        bc5: '#ccebc7',
-        bc6: '#66c7bf',
-        bc7: '#00a3b7',
-        defaultFill: 'rgba(216, 216, 216,0.5)'
-      }
+      map: {
+        scope: 'world',
+        element: document.getElementById(this.el.id),
+        projection: 'robinson',
+        height: 600,
+        fills: {
+          defaultFill: 'rgba(216, 216, 216,0.5)',
+          bc1: '#e54935',
+          bc2: '#ffa16f',
+          bc3: '#ffe6a0',
+          bc4: '#fffecc',
+          bc5: '#ccebc7',
+          bc6: '#66c7bf',
+          bc7: '#00a3b7'
+        },
+        geographyConfig: {
+          dataUrl: null
+          hideAntarctica: true,
+          borderWidth: 0,
+          highlightOnHover: false,
+          popupOnHover: false,
+        },
+        data: {},
+      },
     },
 
     initialize: function() {
@@ -45,31 +59,7 @@
     },
 
     _drawMap: function() {
-      this.map = new Datamap({
-        scope: 'world',
-        element: document.getElementById(this.el.id),
-        projection: 'robinson',
-        height: 600,
-        fills: this.defaults.buckets,
-        geographyConfig: {
-          dataUrl: null, //if not null, datamaps will fetch the map JSON (currently only supports topojson)
-          hideAntarctica: true,
-          borderWidth: 0,
-          highlightOnHover: false,
-          popupOnHover: false,
-          // borderOpacity: 1,
-          // popupTemplate: function(geography, data) { //this function should just return a string
-          //   return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong></div>';
-          // },
-          // popupOnHover: true, //disable the popup while hovering
-          // highlightOnHover: true,
-          // highlightFillColor: '#FC8D59',
-          // highlightBorderColor: 'rgba(250, 15, 160, 0.2)',
-          // highlightBorderWidth: 2,
-          // highlightBorderOpacity: 1
-        },
-        data: {},
-      })
+      this.map = new Datamap(this.defaults.map);
     },
 
     _updateMap: function() {
@@ -81,7 +71,7 @@
 
     _setBucket: function(sum, minMax) {
       var value = sum - minMax[0];
-      var bucketNum = Object.keys(this.defaults.buckets).length
+      var bucketNum = Object.keys(this.defaults.map.fills).length
       var bucket = ( value * bucketNum ) / ( minMax[1] - minMax[0] );
       var bucketFloor = ~~bucket;
       return "bc" + bucketFloor;
