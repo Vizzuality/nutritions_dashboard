@@ -97,6 +97,7 @@
             // return d['target'];
             if (d['sum'] > this.defaults.threshold || d['sum'] < -this.defaults.threshold) {
               var sum = '$' + d3.format('.3s')(d['sum']);
+              sum = sum.replace("G", "B");
             } else {
               var sum = '$' + d3.round(d['sum'], 2);
             }

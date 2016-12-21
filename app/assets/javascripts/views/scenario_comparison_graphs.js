@@ -101,6 +101,7 @@
                 format: function (v, id, i, j) {
                   if (v > 1000 || v < -1000) {
                     var num = d3.format('.2s')(v);
+                    num = num.replace("G", "B");
                     return '$' + num;
                   } else {
                     return d3.round(v, 2);
