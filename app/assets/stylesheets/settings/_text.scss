@@ -12,6 +12,12 @@
    color: inherit;
  }
 
+ p {
+   a {
+     font-weight: 900;
+   }
+ }
+
 .text {
   font-family: $font-family-1;
   color: $color-2;
