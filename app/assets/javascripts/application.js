@@ -19,6 +19,7 @@
 //= require backbone/backbone
 //= require d3
 //= require c3
+//= require topojson
 //= require select2
 //= require leaflet.js
 //= require_self
