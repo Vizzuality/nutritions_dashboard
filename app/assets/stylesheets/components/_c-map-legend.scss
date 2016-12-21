@@ -1,6 +1,14 @@
 .c-map-legend {
   width: 100%;
 
+  h4 {
+    margin: rem(10px) 0 rem(5px);
+
+    @media screen and (min-width: $screen-m) {
+      margin: 0;
+    }
+  }
+
   .buckets {
     display: flex;
     flex-direction: row;
@@ -15,6 +23,10 @@
         display: block;
         height: rem(10px);
         width: 100%;
+        margin-bottom: rem(5px);
+        @media screen and (min-width: $screen-m) {
+          margin: 0;
+        }
       }
 
       .default {

@@ -76,7 +76,6 @@
         scope: 'world',
         element: document.getElementById('map-container'),
         projection: 'robinson',
-        height: 580,
         responsive: true,
         fills: this.defaults.buckets,
         geographyConfig: {

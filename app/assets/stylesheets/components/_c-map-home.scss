@@ -1,5 +1,17 @@
 .c-map-home {
   width: 105%;
+  height: rem(180px);
   margin-left: -10%;
-  margin-bottom: -50px;
+
+  @media screen and (min-width: $screen-s) {
+    height: rem(220px);
+  }
+
+  @media screen and (min-width: $screen-m) {
+    height: rem(450px);
+  }
+
+  @media screen and (min-width: $screen-l) {
+    height: rem(550px);
+  }
 }
