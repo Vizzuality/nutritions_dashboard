@@ -1,1 +1,0 @@
-SELECT sum(cost), iso_code FROM current_spenditure_donors WHERE package='Full' and scenario='Global Solidarity' and ( source='Donor' or source='Domestic' ) and cost is not null and target='{{target}}' group by iso_code order by iso_code
