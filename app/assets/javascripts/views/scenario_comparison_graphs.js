@@ -64,21 +64,21 @@
         options: {
           data: {
             json: {
-              'Gap': _.pluck(_.where(data, {source: 'Gap'}), 'cost'),
+              'Household': _.pluck(_.where(data, {source: 'Household'}), 'cost'),
+              'Innovative': _.pluck(_.where(data, {source: 'Innovative'}), 'cost'),
               'Domestic': _.pluck(_.where(data, {source: 'Domestic'}), 'cost'),
               'Donor': _.pluck(_.where(data, {source: 'Donor'}), 'cost'),
-              'Household': _.pluck(_.where(data, {source: 'Household'}), 'cost'),
-              'Innovative': _.pluck(_.where(data, {source: 'Innovative'}), 'cost')
+              'Gap': _.pluck(_.where(data, {source: 'Gap'}), 'cost'),
             },
             types: {
-              'Gap': 'area',
+              'Household': 'step',
+              'Innovative': 'area',
               'Domestic': 'area',
               'Donor': 'area',
-              'Household': 'area',
-              'Innovative': 'area',
+              'Gap': 'area',
                 // 'line', 'spline', 'step', 'area', 'area-step' are also available to stack
             },
-            groups: [['Gap', 'Domestic', 'Donor', 'Household', 'Innovative']],
+            groups: [['Household', 'Innovative','Domestic', 'Donor', 'Gap']],
             colors: this.colors.sources
           },
           interaction: {

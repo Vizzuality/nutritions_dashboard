@@ -64,18 +64,19 @@
               height: 60
             },
             y: {
+              min: 0,
+              max: 101,
+              padding: {top: 0, bottom: 0},
               tick: {
                 format: function (d) { return d + '%'; },
+                values: [0, 20, 40, 60, 80, 100],
+                count: 6
               },
-              padding: {
-                left: 0,
-                right: 0
-              }
             }
           },
           grid: {
             y: {
-              show: true
+              show: true,
             }
           },
           legend: {
