@@ -15,6 +15,10 @@
  p {
    a {
      font-weight: 900;
+
+     &:hover {
+       color: $color-3;
+     }
    }
  }
 
