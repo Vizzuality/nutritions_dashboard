@@ -110,8 +110,6 @@
       var summedData = {};
       _.each(data, function(country) {
         var sum = country['per_' + this.status.get('target')];
-        if ( country.iso_code === 'ZAF' ) {
-        }
         summedData[country.iso_code] = {
           fillKey: this._setBucket(sum),
           numberofThings: country.sum
