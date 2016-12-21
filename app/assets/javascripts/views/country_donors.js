@@ -111,7 +111,7 @@
               var sum = '$' + d3.round(d['cost'], 2);
             }
             if ( d['target'] === 'Exclusive breastfeeding' ) {
-              var text = '<tspan dy="-10">EVB</tspan><tspan x="0" dy="25">' + sum + '<tspan>';
+              var text = '<tspan dy="-10">EBF</tspan><tspan x="0" dy="25">' + sum + '<tspan>';
               return text;
             } else {
               var text = '<tspan dy="-10">' + d['target'] + '</tspan><tspan x="0" dy="25">' + sum + '<tspan>';
