@@ -16,7 +16,11 @@
         bc6: '#66c7bf',
         bc7: '#00a3b7',
         defaultFill: 'rgba(216, 216, 216,0.5)'
-      }
+      },
+    },
+
+    events: {
+      'change .js--target-selector' : '_onChangeSetTarget'
     },
 
     initialize: function() {
@@ -24,17 +28,21 @@
         return;
       }
       this.status = new Backbone.Model({
-        target: 'ebf',
+        target: 'stunting',
       });
       this.collection = new App.Collection.CurrentStatusCollection({});
       this._cached();
       this._initMap();
+      this.$el.find('select').select2({
+        minimumResultsForSearch: Infinity
+      });
       this._setListeners();
       App.View.MapHomeView.__super__.initialize.apply(this);
     },
 
     _setListeners: function() {
       $(window).on('resize', this._resizeMap.bind(this));
+      this.status.on('change:target', this._triggerSelectedTarget.bind(this));
     },
 
     _initMap: function() {
@@ -54,12 +62,21 @@
       }.bind(this));
     },
 
+    _onChangeSetTarget: function() {
+      var target = this.$el.find('.js--target-selector').val();
+      this.status.set({ 'target': target });
+    },
+
+    _triggerSelectedTarget: function() {
+      this._fetchData();
+    },
+
     _drawMap: function() {
       this.map = new Datamap({
         scope: 'world',
-        element: document.getElementById(this.el.id),
+        element: document.getElementById('map-container'),
         projection: 'robinson',
-        height: 600,
+        height: 580,
         responsive: true,
         fills: this.defaults.buckets,
         geographyConfig: {

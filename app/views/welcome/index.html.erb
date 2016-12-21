@@ -23,10 +23,36 @@
 <div id="map-section" class="l-map">
   <div class="row">
     <div class="columns small-12">
-      <h2 class="text -title">Current Status for Global Nutrition</h2>
-      <div id="homeMap" class="c-map-home"></div>
-      <div id="groupSelectorView">
-        <select name="group" id="groupSelector" class="js--group-selector"></select>
+      <h2 class="text -title">Current Status in Global Nutrition</h2>
+      <div id="homeMapView">
+        <div id="map-container" class="c-map-home"></div>
+        <div class="row">
+          <div class="columns small-12 medium-4">
+            <div id="targetSelectorView">
+              <select name="target" id="targetSelector" class="js--target-selector">
+                <option value="stunting">Stunting</option>
+                <option value="wasting">Wasting</option>
+                <option value="anaemia">Anaemia</option>
+                <option value="ebf">Breastfeeding</option>
+              </select>
+            </div>
+          </div>
+          <div class="columns small-12 medium-8">
+            <div id="mapLegendView" class="c-map-legend">
+              <h4 class="text">% of financing already met</h4>
+              <div class="buckets">
+                <div class="bucket text"><span class="bc1"></span><10</div>
+                <div class="bucket text"><span class="bc2"></span>10-25</div>
+                <div class="bucket text"><span class="bc3"></span>25-50</div>
+                <div class="bucket text"><span class="bc4"></span>50-75</div>
+                <div class="bucket text"><span class="bc5"></span>75-85</div>
+                <div class="bucket text"><span class="bc6"></span>85-95</div>
+                <div class="bucket text"><span class="bc7"></span>>95</div>
+                <div class="bucket text"><span class="default"></span>no data</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <hr class="c-separator"/>
     </div>

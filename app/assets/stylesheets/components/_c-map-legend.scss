@@ -1,0 +1,47 @@
+.c-map-legend {
+  width: 100%;
+
+  .buckets {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .bucket {
+      width: 100%;
+      text-align: center;
+
+      span {
+        display: block;
+        height: rem(10px);
+        width: 100%;
+      }
+
+      .default {
+        background-color: rgba(#d8d8d8, 0.5);
+        margin-left: rem(5px);
+      }
+      .bc1 {
+        background-color: #e54935;
+      }
+      .bc2 {
+        background-color: #ffa16f;
+      }
+      .bc3 {
+        background-color: #ffe6a0;
+      }
+      .bc4 {
+        background-color: #fffecc;
+      }
+      .bc5 {
+        background-color: #ccebc7;
+      }
+      .bc6 {
+        background-color: #66c7bf;
+      }
+      .bc7 {
+        background-color: #00a3b7;
+      }
+    }
+  }
+}
