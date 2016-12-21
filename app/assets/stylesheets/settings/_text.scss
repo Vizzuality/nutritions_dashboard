@@ -95,6 +95,15 @@
     }
   }
 
+  &.-legend {
+    font-size: rem(11px);
+    font-weight: 700;
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(16px);
+    }
+  }
+
   &.-light {
     color: $white;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);

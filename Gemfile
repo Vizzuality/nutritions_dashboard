@@ -50,7 +50,6 @@ gem 'handlebars_assets'
 gem 'leaflet-rails'
 gem 'select2-rails'
 
-
 source 'https://rails-assets.org' do
   gem 'rails-assets-normalize-css'
   gem 'rails-assets-underscore'
@@ -58,4 +57,5 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-URIjs'
   gem 'rails-assets-d3', '~> 3.5.17'
   gem 'rails-assets-c3', '0.4.11'
+  gem 'rails-assets-topojson'
 end
