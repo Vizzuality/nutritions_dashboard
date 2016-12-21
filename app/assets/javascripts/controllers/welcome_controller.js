@@ -7,7 +7,9 @@
   App.Controller.Welcome = App.Controller.Page.extend({
 
     index: function() {
-      console.log('Welcome#index');
+      this.map = new App.View.MapHomeView({
+        el: '#homeMapView'
+      });
     }
 
   });

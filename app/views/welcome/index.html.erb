@@ -1,3 +1,6 @@
+<script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
+<script src="http://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
+
 <div class="l-content-large -home -image">
   <%= render 'shared/header', class_name: '-transparent' %>
   <div class="row">
@@ -18,8 +21,37 @@
 <div id="map-section" class="l-map">
   <div class="row">
     <div class="columns small-12">
-      <h2 class="text -title">Current Status for Global Nutrition</h2>
-      <div id="map"></div>
+      <h2 class="text -title">Current Status in Global Nutrition</h2>
+      <div id="homeMapView">
+        <div id="map-container" class="c-map-home"></div>
+        <div class="row">
+          <div class="columns small-12 medium-4">
+            <div id="targetSelectorView">
+              <select name="target" id="targetSelector" class="js--target-selector">
+                <option value="stunting">Stunting</option>
+                <option value="wasting">Wasting</option>
+                <option value="anaemia">Anaemia</option>
+                <option value="ebf">Breastfeeding</option>
+              </select>
+            </div>
+          </div>
+          <div class="columns small-12 medium-8">
+            <div id="mapLegendView" class="c-map-legend">
+              <h4 class="text -legend">Prevalence of nutritional conditions (%)</h4>
+              <div class="buckets text -legend">
+                <div class="bucket"><span class="bc1"></span><15</div>
+                <div class="bucket"><span class="bc2"></span>15-30</div>
+                <div class="bucket"><span class="bc3"></span>30-45</div>
+                <div class="bucket"><span class="bc4"></span>45-60</div>
+                <div class="bucket"><span class="bc5"></span>60-75</div>
+                <div class="bucket"><span class="bc6"></span>75-90</div>
+                <div class="bucket"><span class="bc7"></span>>90</div>
+                <div class="bucket"><span class="default"></span>no data</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <hr class="c-separator"/>
     </div>
   </div>
