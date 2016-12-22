@@ -97,7 +97,6 @@
     },
 
     _resizeMap: function() {
-      console.log('resizing');
       this.map.resize();
     },
 

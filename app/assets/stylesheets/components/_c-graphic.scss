@@ -4,18 +4,23 @@
   position: relative;
 
   img {
+    max-height: 500px;
+    padding-top: rem(20px);
+    text-align: center;
+    margin: auto;
+
     @media screen and (min-width: $screen-m) {
-      bottom: rem(-130px);
+      bottom: -18%;
       position: absolute;
     }
   }
 
   &.-wasting img {
-    bottom: rem(-115px);
+    bottom: rem(-65px);
   }
 
   &.-breastfeeding img {
-    bottom: rem(-115px);
+    bottom: rem(-65px);
   }
 }
 
