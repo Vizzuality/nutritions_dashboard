@@ -87,8 +87,10 @@
           axis: {
             x: {
               type: 'category',
-              categories: _.uniq(_.pluck(data, 'year')),
-              tick: {},
+              categories: [2015, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+              tick: {
+                // values: [2015, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+              },
               padding: {
                 left: 0,
                 right: 0
