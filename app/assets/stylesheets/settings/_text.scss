@@ -12,6 +12,16 @@
    color: inherit;
  }
 
+ p {
+   a {
+     font-weight: 900;
+
+     &:hover {
+       color: $color-3;
+     }
+   }
+ }
+
 .text {
   font-family: $font-family-1;
   color: $color-2;

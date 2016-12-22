@@ -2,33 +2,34 @@
   <div class="row">
     <div class="column small-12">
       <ul class="c-navigation">
-        <li class="text -menu <%= "-active" if controller_name == 'dashboards' %>"><%= link_to 'Regional data', '/dashboards/global' %></li>
+        <li class="text -menu <%= "-active" if controller_name == 'welcome' %>"><%= link_to 'Home', '/' %></li>
+        <li class="text -menu <%= "-active" if controller_name == 'dashboards' %>"><%= link_to 'Cost data', '/dashboards/global' %></li>
         <li class="text -menu <%= "-active" if controller_name == 'countries' %>"><%= link_to 'Current Funding', countries_show_path %></li>
         <li class="text -menu <%= "-active" if controller_name == 'about' %>"><%= link_to 'About', about_path %></li>
       </ul>
       <ul class="c-partners">
         <li>
-          <a href="">
+          <a href="http://www.worldbank.org/" target="_blank">
             <svg class="icon"><use xlink:href="#icon-world-bank"></use></svg>
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="http://www.r4d.org/" target="_blank">
             <svg class="icon"><use xlink:href="#icon-logo"></use></svg>
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="http://www.gatesfoundation.org/" target="_blank">
             <svg class="icon"><use xlink:href="#icon-gates-foundation"></use></svg>
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="https://ciff.org/" target="_blank">
             <svg class="icon"><use xlink:href="#icon-ciff"></use></svg>
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="http://thousanddays.org/" target="_blank">
             <svg class="icon"><use xlink:href="#icon-days"></use></svg>
           </a>
         </li>
