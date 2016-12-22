@@ -1,0 +1,36 @@
+.c-graphic {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  img {
+    @media screen and (min-width: $screen-m) {
+      bottom: rem(-130px);
+      position: absolute;
+    }
+  }
+
+  &.-wasting img {
+    bottom: rem(-115px);
+  }
+
+  &.-breastfeeding img {
+    bottom: rem(-115px);
+  }
+}
+
+.reorder {
+  @media screen and (max-width: $screen-s) {
+    .graphic {
+      order: 1
+    }
+
+    .text {
+      order: 2
+    }
+
+    .accordion {
+      order: 3
+    }
+  }
+}
