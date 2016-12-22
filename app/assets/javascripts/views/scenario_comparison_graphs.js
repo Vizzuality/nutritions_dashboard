@@ -76,7 +76,6 @@
               'Domestic': 'area',
               'Donor': 'area',
               'Gap': 'area',
-                // 'line', 'spline', 'step', 'area', 'area-step' are also available to stack
             },
             groups: [['Household', 'Innovative','Domestic', 'Donor', 'Gap']],
             colors: this.colors.sources,

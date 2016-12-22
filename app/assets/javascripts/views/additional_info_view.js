@@ -13,6 +13,8 @@
       var title;
       if ( data.group_name === 'global' ) {
         title = 'the world';
+      } else if ( data.title.indexOf('countries') !== -1 ) {
+        title = 'the ' + data.title;
       } else {
         title = 'the ' + data.title + ' region';
       }
