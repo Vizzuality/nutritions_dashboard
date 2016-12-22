@@ -88,8 +88,7 @@
             x: {
               type: 'category',
               categories: _.uniq(_.pluck(data, 'year')),
-              tick: {
-              },
+              tick: {},
               padding: {
                 left: 0,
                 right: 0
