@@ -71,7 +71,7 @@
               'Gap': _.pluck(_.where(data, {source: 'Gap'}), 'cost'),
             },
             types: {
-              'Household': 'step',
+              'Household': 'area',
               'Innovative': 'area',
               'Domestic': 'area',
               'Donor': 'area',
@@ -79,7 +79,8 @@
                 // 'line', 'spline', 'step', 'area', 'area-step' are also available to stack
             },
             groups: [['Household', 'Innovative','Domestic', 'Donor', 'Gap']],
-            colors: this.colors.sources
+            colors: this.colors.sources,
+            order: false
           },
           interaction: {
             enabled: false
