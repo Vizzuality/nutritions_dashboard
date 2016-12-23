@@ -15,7 +15,6 @@
   }
 
   &.-image {
-    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
   }
@@ -30,7 +29,7 @@
   }
 
   &.-about {
-    background-image: image-url('bg-about.jpg');
+    background-image: image-url('bg-about.png');
   }
 
   &.-stunting {
