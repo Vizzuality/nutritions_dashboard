@@ -24,6 +24,9 @@
       this.info = new App.View.AdditionalInfoView({
         el: '#additionalInfoView'
       })
+      this.cost = new App.View.CostTitleView({
+        el: '#costTitleView'
+      })
     },
 
     initSelectorsViews: function(params) {
