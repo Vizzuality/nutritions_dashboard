@@ -57,5 +57,4 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-URIjs'
   gem 'rails-assets-d3', '~> 3.5.17'
   gem 'rails-assets-c3', '0.4.11'
-  gem 'rails-assets-topojson'
 end

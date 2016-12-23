@@ -16,10 +16,9 @@
 //= require URIjs
 //= require handlebars
 //= require underscore/underscore
-//= require backbone/backbone
 //= require d3
+//= require backbone/backbone
 //= require c3
-//= require topojson
 //= require select2
 //= require leaflet.js
 //= require_self
