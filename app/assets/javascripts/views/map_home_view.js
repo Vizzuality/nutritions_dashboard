@@ -8,13 +8,13 @@
 
     defaults: {
       buckets: {
-        bc1: '#e54935',
-        bc2: '#ffa16f',
-        bc3: '#ffe6a0',
+        bc1: '#00a3b7',
+        bc2: '#66c7bf',
+        bc3: '#ccebc7',
         bc4: '#fffecc',
-        bc5: '#ccebc7',
-        bc6: '#66c7bf',
-        bc7: '#00a3b7',
+        bc5: '#ffe6a0',
+        bc6: '#ffa16f',
+        bc7: '#e54935',
         defaultFill: 'rgba(216, 216, 216,0.5)'
       },
     },
