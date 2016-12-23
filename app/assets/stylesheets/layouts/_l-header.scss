@@ -17,12 +17,12 @@
   }
 
   .logo {
-    height: rem(40px);
+    height: rem(22px);
     margin-left: rem(15px);
 
     @media screen and (min-width: $screen-m) {
-      margin-bottom: rem(10px);
       margin-left: 0;
+      height: rem(40px);
     }
 
     .icon {
@@ -80,11 +80,18 @@
       fill: #faf3e9;
     }
 
-    .logo .icon {
-      display: none;
+    .logo {
 
-      &.-white {
-        display: flex;
+      a {
+        color: $white;
+      }
+
+      .icon {
+        display: none;
+
+        &.-white {
+          display: flex;
+        }
       }
     }
   }
