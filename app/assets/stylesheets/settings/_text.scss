@@ -114,8 +114,21 @@
   }
 
   &.-footnote {
-    font-size: 12px;
-    margin-top: 20px;
+    font-size: rem(12px);
+    margin-top: rem(20px);
+  }
+
+  &.-logo {
+    font-family: $font-family-2;
+    font-size: rem(14px);
+    text-transform: uppercase;
+    letter-spacing: rem(2px);
+    font-weight: 300;
+    color: $white;
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(16px);
+    }
   }
 
   &.-light {
