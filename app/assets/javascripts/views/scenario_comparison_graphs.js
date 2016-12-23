@@ -63,11 +63,11 @@
         el: this.el,
         options: {
           data: {
-            json: {
-              'Household': _.pluck(_.where(data, {source: 'Household'}), 'cost'),
-              'Innovative': _.pluck(_.where(data, {source: 'Innovative'}), 'cost'),
-              'Domestic': _.pluck(_.where(data, {source: 'Domestic'}), 'cost'),
+            json: {      
               'Donor': _.pluck(_.where(data, {source: 'Donor'}), 'cost'),
+              'Domestic': _.pluck(_.where(data, {source: 'Domestic'}), 'cost'),
+              'Innovative': _.pluck(_.where(data, {source: 'Innovative'}), 'cost'),
+              'Household': _.pluck(_.where(data, {source: 'Household'}), 'cost'),
               'Gap': _.pluck(_.where(data, {source: 'Gap'}), 'cost'),
             },
             types: {
