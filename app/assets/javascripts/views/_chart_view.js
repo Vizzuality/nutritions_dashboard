@@ -22,8 +22,8 @@
       sources: {
         'Gap': '#00a3b7',
         'Household': '#9C9080',
-        'Innovative': '#D4CCC1',
-        'Domestic': '#EEE6DC',
+        'Innovative': '#EEE6DC',
+        'Domestic': '#D4CCC1',
         'Donor': '#e6d6ba'
       },
       other: ['#c1de11', '#8ac230', '#3f8c3f', '#fff000', '#fabada']
