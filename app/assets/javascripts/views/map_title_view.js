@@ -11,7 +11,6 @@
 
     render: function() {
       var data = this.collection.toJSON()[0];
-
       if ( this.status.get('mode') === 'global' ) {
         this.$el.html(this.template_global({
           description: data.description
