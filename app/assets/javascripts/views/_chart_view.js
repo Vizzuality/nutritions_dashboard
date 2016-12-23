@@ -11,6 +11,7 @@
         'Anemia': '#e0534f',
         'Composite': '#00a3b7',
         'Non Exclusive breastfeeding': '#a1d549',
+        'EBF': '#a1d549',
         'Stunting': '#db67fa',
         'Wasting': '#f4bd19'
       },
@@ -19,10 +20,10 @@
         'Priority': '#00a3b7'
       },
       sources: {
-        'Domestic': '#b3a691',
-        'Donor': '#ccbea5',
         'Household': '#e6d6ba',
-        'Innovative': '#ded8cd',
+        'Innovative': '#EEE6DC',
+        'Domestic': '#D4CCC1',
+        'Donor': '#9C9080',
         'Gap': '#00a3b7'
       },
       other: ['#c1de11', '#8ac230', '#3f8c3f', '#fff000', '#fabada']

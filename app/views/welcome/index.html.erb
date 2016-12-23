@@ -4,7 +4,7 @@
     <div class="columns small-12 medium-7">
       <div class="c-cta">
         <h1 class="text -cta-title-header -light"><i>Investing in Nutrition</i></h1>
-        <p class="text -cta-text -light">Malnutrition kills millions of children every year and robs millions more of the opportunity to reach their full potential. In 2012, world leaders committed to reaching six global nutrition targets by 2025. This is achievable, but world leaders must act now to fulfill their promises and save millions of lives.</p>
+        <p class="text -cta-text -light">Malnutrition kills millions of children every year and robs millions more of the opportunity to reach their full potential. In 2012, world leaders committed to reaching <a href="http://www.who.int/nutrition/global-target-2025/en/" target="_blank">six global nutrition targets</a> by 2025. This is achievable, but world leaders must act now to fulfill their promises and save millions of lives.</p>
       </div>
     </div>
   </div>
@@ -18,28 +18,59 @@
 <div id="map-section" class="l-map">
   <div class="row">
     <div class="columns small-12">
-      <h2 class="text -title">Current Status for Global Nutrition</h2>
-      <div id="map"></div>
+      <h2 class="text -title">Current Status in Global Nutrition</h2>
+      <div id="homeMapView">
+        <div id="map-container" class="c-map-home"></div>
+        <div class="row">
+          <div class="columns small-12 medium-4">
+            <div id="targetSelectorView">
+              <select name="target" id="targetSelector" class="js--target-selector">
+                <option value="stunting">Stunting</option>
+                <option value="wasting">Wasting</option>
+                <option value="anaemia">Anaemia</option>
+                <option value="ebf">Non EBF</option>
+              </select>
+            </div>
+          </div>
+          <div class="columns small-12 medium-8">
+            <div id="mapLegendView" class="c-map-legend">
+              <h4 class="text -legend">Percentage of people affected (%)</h4>
+              <div class="buckets text -legend">
+                <div class="bucket"><span class="bc1"></span><15</div>
+                <div class="bucket"><span class="bc2"></span>15-30</div>
+                <div class="bucket"><span class="bc3"></span>30-45</div>
+                <div class="bucket"><span class="bc4"></span>45-60</div>
+                <div class="bucket"><span class="bc5"></span>60-75</div>
+                <div class="bucket"><span class="bc6"></span>75-90</div>
+                <div class="bucket"><span class="bc7"></span>>90</div>
+                <div class="bucket"><span class="default"></span>no data</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <hr class="c-separator"/>
     </div>
   </div>
 </div>
 
 <div class="l-content-large -stunting">
-  <div class="row">
-    <div class="columns small-12 medium-5">
-      <div class="c-graphic"></div>
-    </div>
-    <div class="columns small-12 medium-7">
+  <div class="row reorder">
+    <div class="columns small-12 medium-7 text">
       <div class="c-cta">
         <h1 class="text -cta-title">Stunting</h1>
         <p class="text -cta-text">Stunting is the largely irreversible outcome of chronic undernutrition and affects one in four children under the age of five. Stunted children have weaker immune systems, making them more susceptible to death and disease and diminishing their cognitive capacity, which impacts their ability to learn in school and earn higher incomes later in life.</p>
       </div>
     </div>
-    <div class="columns small-12">
+    <div class="columns small-12 medium-5 graphic">
+      <div class="c-graphic -stunting">
+        <img src="<%= asset_path('illustrations/01_02_Stunting_Grow.png') %>"/>
+      </div>
+    </div>
+    <div class="columns small-12 accordion">
       <div class="c-accordion">
         <input id="ac-stunting" name="accordion-stunting" type="checkbox" />
-        <label class="text -accordion -open columns small-12 medium-7 medium-offset-5" for="ac-stunting">See why it matters</label>
+        <label class="text -accordion -open" for="ac-stunting">See why it matters</label>
         <div class="accordion-content">
           <div class="columns small-12 medium-7">
             <div class="c-cta">
@@ -47,7 +78,6 @@
               <p class="text -cta-text">Globally, 50 million children under the age of five are wasted, and wasting accounts for 2 million child deaths every year. Wasting occurs when children lose weight rapidly because of diets which do not meet their nutritional needs. Wasted children are more likely to die of infectious diseases like diarrhea, pneumonia, and measles. Wasting also increases the risk of stunting, impaired cognitive development, and non-communicable diseases in adulthood</p>
             </div>
           </div>
-          <label class="text -accordion -close" for="ac-stunting">Hide</label>
         </div>
       </div>
     </div>
@@ -55,17 +85,22 @@
 </div>
 
 <div class="l-content-large -wasting">
-  <div class="row">
-    <div class="columns small-12 medium-7">
+  <div class="row reorder">
+    <div class="columns small-12 medium-5 graphic">
+      <div class="c-graphic -wasting">
+        <img src="<%= asset_path('illustrations/03_01_Wasted_Brain.png') %>"/>
+      </div>
+    </div>
+    <div class="columns small-12 medium-7 text">
       <div class="c-cta">
         <h1 class="text -cta-title">Wasting</h1>
         <p class="text -cta-text">Globally, 50 million children under the age of five are wasted, and wasting accounts for 2 million child deaths every year. Wasting occurs when children lose weight rapidly because of diets which do not meet their nutritional needs. Wasted children are more likely to die of infectious diseases like diarrhea, pneumonia, and measles. Wasting also increases the risk of stunting, impaired cognitive development, and non-communicable diseases in adulthood</p>
       </div>
     </div>
-    <div class="columns small-12">
+    <div class="columns small-12 accordion">
       <div class="c-accordion">
         <input id="ac-wasting" name="accordion-wasting" type="checkbox" />
-        <label class="text -accordion -open columns small-12 medium-7" for="ac-wasting">See why it matters</label>
+        <label class="text -accordion -open columns small-12 medium-7 medium-offset-5" for="ac-wasting">See why it matters</label>
         <div class="accordion-content">
           <div class="columns small-12 medium-7">
             <div class="c-cta">
@@ -73,31 +108,29 @@
               <p class="text -cta-text">Globally, 50 million children under the age of five are wasted, and wasting accounts for 2 million child deaths every year. Wasting occurs when children lose weight rapidly because of diets which do not meet their nutritional needs. Wasted children are more likely to die of infectious diseases like diarrhea, pneumonia, and measles. Wasting also increases the risk of stunting, impaired cognitive development, and non-communicable diseases in adulthood</p>
             </div>
           </div>
-          <label class="text -accordion -close" for="ac-wasting">Hide</label>
         </div>
       </div>
     </div>
   </div>
-  <div class="columns small-12 medium-5">
-    <div class="c-graphic"></div>
-  </div>
 </div>
 
 <div class="l-content-large -anemia">
-  <div class="row">
-    <div class="columns small-12 medium-5">
-      <div class="c-graphic"></div>
-    </div>
-    <div class="columns small-12 medium-7">
+  <div class="row reorder">
+    <div class="columns small-12 medium-7 text">
       <div class="c-cta">
         <h1 class="text -cta-title">Anemia</h1>
         <p class="text -cta-text">Anemia affects half a billion women of reproductive age worldwide, impairing their health and economic productivity. An indicator of poor nutrition, anemia is a condition in which the ability of the blood to transport oxygen around the body is impaired. In pregnant women, anemia can lead to maternal death and can have serious health consequences for infants, including stillbirth, prematurity, and low birth weight.</p>
       </div>
     </div>
-    <div class="columns small-12">
+    <div class="columns small-12 medium-5 graphic">
+      <div class="c-graphic -anemia">
+        <img src="<%= asset_path('illustrations/02_02_Anemia_Woman.png') %>"/>
+      </div>
+    </div>
+    <div class="columns small-12 accordion">
       <div class="c-accordion">
         <input id="ac-anemia" name="accordion-anemia" type="checkbox" />
-        <label class="text -accordion -open columns small-12 medium-7 medium-offset-5" for="ac-anemia">See why it matters</label>
+        <label class="text -accordion -open" for="ac-anemia">See why it matters</label>
         <div class="accordion-content">
           <div class="columns small-12 medium-7">
             <div class="c-cta">
@@ -105,7 +138,6 @@
               <p class="text -cta-text">Globally, 50 million children under the age of five are wasted, and wasting accounts for 2 million child deaths every year. Wasting occurs when children lose weight rapidly because of diets which do not meet their nutritional needs. Wasted children are more likely to die of infectious diseases like diarrhea, pneumonia, and measles. Wasting also increases the risk of stunting, impaired cognitive development, and non-communicable diseases in adulthood</p>
             </div>
           </div>
-          <label class="text -accordion -close" for="ac-anemia">Hide</label>
         </div>
       </div>
     </div>
@@ -113,17 +145,22 @@
 </div>
 
 <div class="l-content-large -breastfeeding">
-  <div class="row">
-    <div class="columns small-12 medium-7">
+  <div class="row reorder">
+    <div class="columns small-12 medium-5">
+      <div class="c-graphic -breastfeeding">
+        <img src="<%= asset_path('illustrations/04_01_Breastfeeding_Woman&Child.png') %>"/>
+      </div>
+    </div>
+    <div class="columns small-12 medium-7 text">
       <div class="c-cta">
         <h1 class="text -cta-title">Exclusive breastfeeding</h1>
         <p class="text -cta-text">Exclusive breastfeeding — defined as the practice of only giving an infant breast-milk for the 6 months of life — is a cornerstone of child survival and child health. It boosts a child’s immune system, protects against diseases, increases intelligence, and promotes healthy growth. With the potential to save as many as 823,000 lives per year, exclusive breastfeeding has the single largest potential impact on child survival of any preventive intervention.</p>
       </div>
     </div>
-    <div class="columns small-12">
+    <div class="columns small-12 accordion">
       <div class="c-accordion">
         <input id="ac-breastfeeding" name="accordion-breastfeeding" type="checkbox" />
-        <label class="text -accordion -open columns small-12 medium-7" for="ac-breastfeeding">See why it matters</label>
+        <label class="text -accordion -open columns small-12 medium-7 medium-offset-5" for="ac-breastfeeding">See why it matters</label>
         <div class="accordion-content">
           <div class="columns small-12 medium-7">
             <div class="c-cta">
@@ -131,12 +168,8 @@
               <p class="text -cta-text">Globally, 50 million children under the age of five are wasted, and wasting accounts for 2 million child deaths every year. Wasting occurs when children lose weight rapidly because of diets which do not meet their nutritional needs. Wasted children are more likely to die of infectious diseases like diarrhea, pneumonia, and measles. Wasting also increases the risk of stunting, impaired cognitive development, and non-communicable diseases in adulthood</p>
             </div>
           </div>
-          <label class="text -accordion -close" for="ac-breastfeeding">Hide</label>
         </div>
       </div>
-    </div>
-    <div class="columns small-12 medium-5">
-      <div class="c-graphic"></div>
     </div>
   </div>
 </div>

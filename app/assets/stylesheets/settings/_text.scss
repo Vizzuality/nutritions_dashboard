@@ -12,6 +12,16 @@
    color: inherit;
  }
 
+ p {
+   a {
+     font-weight: 900;
+
+     &:hover {
+       color: $color-3;
+     }
+   }
+ }
+
 .text {
   font-family: $font-family-1;
   color: $color-2;
@@ -85,13 +95,38 @@
   }
 
   &.-accordion {
-    color: $white;
     font-size: 28px;
     font-family: $font-family-2;
     text-decoration: underline;
 
     @media screen and (min-width: $screen-m) {
       font-size: rem(32px);
+    }
+  }
+
+  &.-legend {
+    font-size: rem(11px);
+    font-weight: 700;
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(16px);
+    }
+  }
+
+  &.-footnote {
+    font-size: rem(12px);
+    margin-top: rem(20px);
+  }
+
+  &.-logo {
+    font-family: $font-family-2;
+    font-size: rem(14px);
+    text-transform: uppercase;
+    letter-spacing: rem(2px);
+    font-weight: 300;
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(16px);
     }
   }
 

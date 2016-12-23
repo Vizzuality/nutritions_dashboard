@@ -1,0 +1,59 @@
+.c-map-legend {
+  width: 100%;
+
+  h4 {
+    margin: rem(10px) 0 rem(5px);
+
+    @media screen and (min-width: $screen-m) {
+      margin: 0;
+    }
+  }
+
+  .buckets {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .bucket {
+      width: 100%;
+      text-align: center;
+
+      span {
+        display: block;
+        height: rem(10px);
+        width: 100%;
+        margin-bottom: rem(5px);
+        @media screen and (min-width: $screen-m) {
+          margin: 0;
+        }
+      }
+
+      .default {
+        background-color: rgba(#d8d8d8, 0.5);
+        margin-left: rem(5px);
+      }
+      .bc1 {
+        background-color: #00a3b7;
+      }
+      .bc2 {
+        background-color: #66c7bf;
+      }
+      .bc3 {
+        background-color: #ccebc7;
+      }
+      .bc4 {
+        background-color: #fffecc;
+      }
+      .bc5 {
+        background-color: #ffe6a0;
+      }
+      .bc6 {
+        background-color: #ffa16f;
+      }
+      .bc7 {
+        background-color: #e54935;
+      }
+    }
+  }
+}

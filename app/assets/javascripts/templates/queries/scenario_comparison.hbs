@@ -1,3 +1,1 @@
-SELECT cost, package, scenario, source, year 
-FROM scenario_comp_{{mode}} 
-WHERE {{mode}}='{{group}}'
+SELECT cost, package, scenario, source, year FROM scenario_comp_{{mode}} WHERE {{mode}}='{{group}}' order by year, source

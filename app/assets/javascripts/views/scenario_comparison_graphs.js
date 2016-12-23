@@ -64,22 +64,22 @@
         options: {
           data: {
             json: {
-              'Gap': _.pluck(_.where(data, {source: 'Gap'}), 'cost'),
+              'Household': _.pluck(_.where(data, {source: 'Household'}), 'cost'),
+              'Innovative': _.pluck(_.where(data, {source: 'Innovative'}), 'cost'),
               'Domestic': _.pluck(_.where(data, {source: 'Domestic'}), 'cost'),
               'Donor': _.pluck(_.where(data, {source: 'Donor'}), 'cost'),
-              'Household': _.pluck(_.where(data, {source: 'Household'}), 'cost'),
-              'Innovative': _.pluck(_.where(data, {source: 'Innovative'}), 'cost')
+              'Gap': _.pluck(_.where(data, {source: 'Gap'}), 'cost'),
             },
             types: {
-              'Gap': 'area',
-              'Domestic': 'area',
-              'Donor': 'area',
               'Household': 'area',
               'Innovative': 'area',
-                // 'line', 'spline', 'step', 'area', 'area-step' are also available to stack
+              'Domestic': 'area',
+              'Donor': 'area',
+              'Gap': 'area',
             },
-            groups: [['Gap', 'Domestic', 'Donor', 'Household', 'Innovative']],
-            colors: this.colors.sources
+            groups: [['Household', 'Innovative','Domestic', 'Donor', 'Gap']],
+            colors: this.colors.sources,
+            order: false
           },
           interaction: {
             enabled: false
@@ -87,8 +87,9 @@
           axis: {
             x: {
               type: 'category',
-              categories: _.uniq(_.pluck(data, 'year')),
+              categories: [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
               tick: {
+                fit: true
               },
               padding: {
                 left: 0,
@@ -101,6 +102,7 @@
                 format: function (v, id, i, j) {
                   if (v > 1000 || v < -1000) {
                     var num = d3.format('.2s')(v);
+                    num = num.replace("G", "B");
                     return '$' + num;
                   } else {
                     return d3.round(v, 2);

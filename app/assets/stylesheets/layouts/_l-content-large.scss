@@ -2,6 +2,7 @@
   position: relative;
   background-position-y: bottom;
   background-repeat: repeat-x;
+  min-height: rem(600px);
 
   .overlay {
     position: absolute;
@@ -20,7 +21,12 @@
   }
 
   &.-home {
-    background-image: image-url('bg-home.jpg');
+    background-image: image-url('bg-home.png');
+    min-height: rem(500px);
+
+    @media screen and (min-width: $screen-m) {
+      min-height: rem(700px);
+    }
   }
 
   &.-about {
@@ -28,25 +34,29 @@
   }
 
   &.-stunting {
-    background-image: image-url('grain@2x.png');
+    background-image: image-url('causes/closed/stunting.png');
   }
 
   &.-wasting {
-    background-image: image-url('grain@2x.png');
+    background-image: image-url('causes/closed/wasting.png');
   }
 
   &.-anemia {
-    background-image: image-url('grain@2x.png');
+    background-image: image-url('causes/closed/anemia.png');
   }
 
   &.-breastfeeding {
-    background-image: image-url('grain@2x.png');
+    background-image: image-url('causes/closed/breastfeeding.png');
   }
 
   .smooth-scroll {
     display: flex;
     justify-content: center;
     padding-bottom: rem(20px);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 
     .icon {
       width: rem(25px);

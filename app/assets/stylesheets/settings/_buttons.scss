@@ -4,12 +4,8 @@
   line-height: rem(30px);
   font-size: rem(16px);
   font-weight: 700;
-  width: 49%;
+  width: 100%;
   border-radius: 0;
-
-  @media screen and (min-width: $screen-m) {
-    width: 160px;
-  }
 
   &.-line {
     color: $color-2;
