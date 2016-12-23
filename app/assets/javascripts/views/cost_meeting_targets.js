@@ -87,7 +87,7 @@
       //create the bubbles
       bubbles.append('circle')
           .attr('r', function(d){ return d.r * scale; })
-          .style('fill', function(d) { console.log(d); return color[d.target]; });
+          .style('fill', function(d) { return color[d.target]; });
 
       //format the text for each bubble
       bubbles.append('text')
