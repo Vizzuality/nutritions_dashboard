@@ -15,7 +15,8 @@
     initialize: function() {
       this.status = new Backbone.Model({});
       this.collection = new App.Collection.IndicatorsCollection();
-
+      this.listenTo(this.collection, 'request', this.ajaxStart); //start fetching
+      this.listenTo(this.collection, 'sync', this.ajaxComplete); //finish fetching
       App.View.CostMeetingTargetsView.__super__.initialize.apply(this);
     },
 

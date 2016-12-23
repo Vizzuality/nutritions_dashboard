@@ -39,12 +39,22 @@
       this._addListeners();
     },
 
+    ajaxStart: function(){
+        $('.c-ajax-loader').fadeIn({duration:100});
+        $('.l-content-sync').addClass('-loading');
+    },
+
+    ajaxComplete: function(){
+        $('.c-ajax-loader').fadeOut({duration:100});
+        $('.l-content-sync').removeClass('-loading');
+    },
+
     _addListeners: function() {
       //Internal
       this.status.on('change:group', this._fetchData.bind(this));
 
       //External
-      App.Events.on('group:selected', this._setStatus.bind(this))
+      App.Events.on('group:selected', this._setStatus.bind(this));
     },
 
     _setStatus: function(params) {
