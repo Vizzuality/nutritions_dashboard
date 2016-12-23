@@ -59,7 +59,7 @@
           axis: {
             x: {
               type: 'category',
-              categories: [2016, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+              categories: [16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
               tick: {},
               padding: {
                 left: 0,
