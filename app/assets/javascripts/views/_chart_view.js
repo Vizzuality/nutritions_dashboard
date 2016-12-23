@@ -11,6 +11,7 @@
         'Anemia': '#e0534f',
         'Composite': '#00a3b7',
         'Non Exclusive breastfeeding': '#a1d549',
+        'EBF': '#a1d549',
         'Stunting': '#db67fa',
         'Wasting': '#f4bd19'
       },
