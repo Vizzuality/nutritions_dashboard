@@ -73,6 +73,10 @@
     line-height: 1;
     letter-spacing: -0.7px;
 
+    a {
+      text-decoration: underline;
+    }
+
     @media screen and (min-width: $screen-l) {
       font-size: rem(52px);
     }
