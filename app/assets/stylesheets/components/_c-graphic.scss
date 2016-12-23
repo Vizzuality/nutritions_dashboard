@@ -8,19 +8,45 @@
     padding-top: rem(20px);
     text-align: center;
     margin: auto;
+    padding-left: rem(15px);
+    padding-right: rem(15px);
 
-    @media screen and (min-width: $screen-m) {
-      bottom: -18%;
+    @media screen and (min-width: $screen-m + 1px) {
       position: absolute;
     }
   }
 
+  &.-stunting img {
+    right: 0;
+
+    @media screen and (min-width: $screen-m + 1px) {
+      bottom: rem(-210px);
+      position: absolute;
+    }
+
+    @media screen and (min-width: $screen-l + 1px) {
+      bottom: rem(-240px);
+    }
+  }
+
   &.-wasting img {
-    bottom: rem(-65px);
+    @media screen and (min-width: $screen-l + 1px) {
+      bottom: rem(-170px);
+    }
+  }
+
+  &.-anemia img {
+    @media screen and (min-width: $screen-m + 1px) {
+      bottom: rem(-160px);
+    }
   }
 
   &.-breastfeeding img {
-    bottom: rem(-65px);
+
+    @media screen and (min-width: $screen-l + 1px) {
+      bottom: rem(-170px);
+    }
+
   }
 }
 

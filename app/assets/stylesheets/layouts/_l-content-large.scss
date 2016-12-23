@@ -2,6 +2,7 @@
   position: relative;
   background-position-y: bottom;
   background-repeat: repeat-x;
+  min-height: rem(600px);
 
   .overlay {
     position: absolute;
