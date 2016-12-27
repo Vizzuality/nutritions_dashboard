@@ -41,7 +41,6 @@
     _onChangeSetCountry: function() {
       var country = this.$el.find('.js--country-selector').val();
       var data = this.countryData;
-      console.log(country.length)
       var keys = Object.keys(data)
       if ( country.length > 1 ) {
         _.each(keys, function(iso){
@@ -67,7 +66,6 @@
     },
 
     _updateMap: function(data) {
-      console.log(data);
       this.map.updateChoropleth(data, {reset: true});
     },
 
