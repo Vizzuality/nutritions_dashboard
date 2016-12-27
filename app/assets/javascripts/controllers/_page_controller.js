@@ -26,7 +26,6 @@
     initialize: function() {
       var mobileMenuView = new App.View.MobileMenu();
       var smoothScroll = new App.Helper.SmoothScrollView({});
-      var ajaxLoader = new App.Helper.AjaxLoaderView({});
     },
 
     /**

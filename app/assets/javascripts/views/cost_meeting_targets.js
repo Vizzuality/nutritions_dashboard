@@ -20,14 +20,14 @@
     },
 
     _fetchData: function() {
-      this.ajaxStart('costGoalsView');
+      this.ajaxStart('#costGoalsSection');
       var params = {
         mode: this.status.get('mode'),
         group: this.status.get('group')
       };
 
       this.collection.getDataForCostMeetingPackages(params).done(function(){
-        this.ajaxComplete('costGoalsView');
+        this.ajaxComplete('#costGoalsSection');
         this.render();
       }.bind(this));
     },

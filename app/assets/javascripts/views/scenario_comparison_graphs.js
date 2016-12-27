@@ -20,7 +20,7 @@
     },
 
     _fetchData: function() {
-      this.ajaxStart('fullPrioritySection');
+      this.ajaxStart('#fullPrioritySection');
       var params = {
         mode: this.status.get('mode'),
         group: this.status.get('group')
@@ -28,7 +28,7 @@
 
       this.collection.getDataForScenarios(params).done(function(){
         this.render();
-        this.ajaxComplete('fullPrioritySection');
+        this.ajaxComplete('#fullPrioritySection');
       }.bind(this));
     },
 

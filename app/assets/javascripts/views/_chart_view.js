@@ -39,12 +39,12 @@
       this._addListeners();
     },
 
-    ajaxStart: function(){
-        $('.l-ajax-loader').addClass('-loading');
+    ajaxStart: function(view){
+        $(view).addClass('-loading');
     },
 
-    ajaxComplete: function(){
-        $('.l-ajax-loader').removeClass('-loading');
+    ajaxComplete: function(view){
+        $(view).removeClass('-loading');
     },
 
     _addListeners: function() {

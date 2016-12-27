@@ -14,7 +14,7 @@
     },
 
     _fetchData: function() {
-      this.ajaxStart('packageComparisonSection');
+      this.ajaxStart('#packageComparisonSection');
       var params = {
         mode: this.status.get('mode'),
         group: this.status.get('group')
@@ -22,7 +22,7 @@
 
       this.collection.getDataForCostPackages(params).done(function(){
         this.render();
-        this.ajaxComplete('packageComparisonSection');
+        this.ajaxComplete('#packageComparisonSection');
       }.bind(this));
     },
 
