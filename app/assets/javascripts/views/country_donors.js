@@ -6,12 +6,6 @@
 
   App.View.CountryDonorsView = App.View.Chart.extend({
 
-    defaults: {
-      diameter: 1080,
-      padding: 1.5,
-      threshold: 1000
-    },
-
     initialize: function() {
       this.status = new Backbone.Model({});
       this.model = new App.Model.CountriesModel();
@@ -37,87 +31,73 @@
       }.bind(this));
     },
 
+    _parseData: function() {
+      var parsedData = {};
+      var data = this.model.toJSON();
+      _.each(data, function(target) {
+        parsedData[target.target.toLowerCase()] = target.cost
+      });
+      return parsedData;
+    },
+
     _drawGraph: function() {
-      //convert numerical values from strings to numbers
-      var array = $.map(this.model.toJSON(), function(value, index) {
-          return [value];
-      });
-      var data = array.map(function(d){
-        d.value = +d['cost'];
-        return d;
-      });
+      var data = this._parseData();
 
-      var color = this.colors.targets,
-          screenWidth = $(document).width(),
-          scale = screenWidth <= 768 ? 1.2 : 0.8,
-          svgWidth = screenWidth <= 768 ? 768 : 1080,
-          svgHeight = screenWidth <= 768 ? 1580 : 580;
-
-      var bubble = d3.layout.pack()
-          .sort(null)
-          .size([this.defaults.diameter, this.defaults.diameter])
-          .padding(this.defaults.padding);
-
-      var svg = d3.select('#currentCountryDonor .c-chart')
-          .html('') //Empty c-chart from previous chart.
-          .append('svg')
-          .attr('viewBox', '0 0 ' + svgWidth + ' ' + svgHeight)
-          .attr('preserveAspectRatio', "xMidYMid meet")
-          .attr('class', 'bubble');
-
-      //bubbles needs very specific format, convert data to this.
-      var nodes = bubble.nodes({children:data}).filter(function(d) { return !d.children; });
-
-      //setup the chart
-      var bubbles = svg.append('g')
-          .attr('transform', 'translate(0,0)')
-          .selectAll('.bubble')
-          .data(nodes)
-          .enter()
-          .append("g")
-          .attr("transform", function(d, i) {
-             var x = d.x * scale;
-             var y = (d.y * scale) - 100;
-             // Set d.x and d.y here so that other elements can use it. d is
-             // expected to be an object here.
-             if ( d['target'] === 'Composite' ) {
-               if ( screenWidth <= 768 ) {
-                 x = svgWidth/2;
-                 y = svgHeight - d.r*scale - 50;
-               } else {
-                 x += 170;
-                 y -= 120;
-               }
-               return "translate(" + x + "," + y + ")";
-             } else {
-               return "translate(" + x + "," + y + ")";
-             }
-         });
-
-      //create the bubbles
-      bubbles.append('circle')
-          .attr('r', function(d){ return d.r * scale; })
-          .style('fill', function(d) { return color[d.target]; });
-
-      //format the text for each bubble
-      bubbles.append('text')
-          .attr('text-anchor', 'middle')
-          .attr('class', 'bubble-text')
-          .html(function(d){
-            // return d['target'];
-            if (d['cost'] > this.defaults.threshold || d['cost'] < -this.defaults.threshold) {
-              var sum = '$' + d3.format('.3s')(d['cost']);
-            } else {
-              var sum = '$' + d3.round(d['cost'], 2);
+      this.stackChart = new App.View.C3Chart({
+        el: this.el,
+        options: {
+          data: {
+            columns: [
+              ['All', data.anemia, data['exclusive breastfeeding'], data.stunting, data.wasting],
+            ],
+            type: 'bar',
+          },
+          bar: {
+              width: {
+                  ratio: 0.6
+              }
+          },
+          interaction: {
+            enabled: false
+          },
+          axis: {
+            x: {
+              type: 'category',
+              categories: ['Anemia', 'Non EBF', 'Stunting', 'Wasting'],
+              tick: {
+                fit: true
+              },
+              padding: {
+                left: 0,
+                right: 0
+              },
+              height: 60
+            },
+            y: {
+              tick: {
+                format: function (v, id, i, j) {
+                  if (v > 1000 || v < -1000) {
+                    var num = '$' + d3.format('.3s')(v);
+                    num = num.replace("G", "B");
+                    return num;
+                  } else {
+                    return d3.round(v, 2);
+                  }
+                },
+                count: 6
+              }
             }
-            if ( d['target'] === 'Exclusive breastfeeding' ) {
-              var text = '<tspan dy="-10">EBF</tspan><tspan x="0" dy="25">' + sum + '<tspan>';
-              return text;
-            } else {
-              var text = '<tspan dy="-10">' + d['target'] + '</tspan><tspan x="0" dy="25">' + sum + '<tspan>';
-              return text;
+          },
+          grid: {
+            y: {
+              show: true,
             }
-          }.bind(this))
+          },
+          legend: {
+            show: false
+          }
+        },
+      });
     }
 
   });
