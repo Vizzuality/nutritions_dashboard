@@ -40,15 +40,22 @@
 
     _onChangeSetCountry: function() {
       var country = this.$el.find('.js--country-selector').val();
-      var data = {};
-      if ( country === '' ) {
-        data = this.countryData;
+      var data = this.countryData;
+      console.log(country.length)
+      var keys = Object.keys(data)
+      if ( country.length > 1 ) {
+        _.each(keys, function(iso){
+          if ( country === iso ) {
+            data[iso].fillKey = 'active'
+          } else {
+            data[iso].fillKey = 'defaultFill'
+          }
+        })
       } else {
-        data[country] = {
-          fillKey: 'active'
-        }
+        _.each(keys, function(iso){
+          data[iso].fillKey = 'active'
+        })
       }
-      data = null;
       this._updateMap(data);
     },
 
