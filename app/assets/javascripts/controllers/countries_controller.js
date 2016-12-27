@@ -9,9 +9,16 @@
     show: function(params) {
       //Init here the views for the countries profile. Order matters.
       // this.initTitleView();
+      this.initMapView();
       this.initGraphsViews();
       // this.initMapViews();
       this.initSelectorsViews(params);
+    },
+
+    initMapView: function() {
+      this.map = new App.View.MapHomeView({
+        el: '#countryMapView'
+      });
     },
 
     initTitleView: function() {
