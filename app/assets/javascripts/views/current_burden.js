@@ -14,6 +14,7 @@
     },
 
     _fetchData: function() {
+      this.ajaxStart('commonNutritionView');
       var params = {
         mode: this.status.get('mode'),
         group: this.status.get('group')
@@ -21,6 +22,7 @@
 
       this.collection.getDataForCurrentBurden(params).done(function(){
         this.render();
+        this.ajaxComplete('commonNutritionView');
       }.bind(this));
     },
 

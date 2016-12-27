@@ -18,7 +18,7 @@
       } else {
         title = 'the ' + data.title + ' region';
       }
-      this.$el.html(this.template({
+      this.$el.find('.text').html(this.template({
         title: title
       }));
     }

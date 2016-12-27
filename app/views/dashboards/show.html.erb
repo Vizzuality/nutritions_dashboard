@@ -25,11 +25,20 @@
   </div>
 </div>
 
-<div class="l-content-sync">
-  <div class="c-ajax-loader"></div>
+<section id="mapTitleView" class="l-ajax-loader l-map">
+  <div class="spinner"></div>
+  <div class="row">
+    <div class="columns small-12 medium-6">
+      <div id="map" class="c-map-regions"></div>
+    </div>
+    <div class="columns small-12 medium-6">
+      <p class="text">{{description}}</p>
+    </div>
+  </div>
+</section>
 
-  <div id="mapTitleView" class="l-map"></div>
-
+<section id="commonNutritionSection" class="l-ajax-loader">
+  <div class="spinner"></div>
   <div class="row">
     <div class="columns small-12">
       <hr class="c-separator"/>
@@ -37,7 +46,7 @@
       <h3 class="text -subtitle">Prevalence of nutritional conditions</h3>
     </div>
     <div class="columns small-12 medium-6">
-      <div id="currentBurdenView" class="l-chart sync">
+      <div id="currentBurdenView" class="l-chart">
         <div class="c-chart -burden"></div>
       </div>
     </div>
@@ -45,7 +54,10 @@
       <p class="text">Stunting, wasting, anemia, and non-exclusive breastfeeding are common indicators of malnutrition. In this chart, stunting and wasting are shown as a percentage of children under 5, anemia as a percentage of women of reproductive age, and non-exclusive breastfeeding as a percentage of infants in their first 6 months.</p>
     </div>
   </div>
+</section>
 
+<section id="costGoalsSection" class="l-ajax-loader">
+  <div class="spinner"></div>
   <div class="row">
     <div class="columns small-12">
       <hr class="c-separator"/>
@@ -61,18 +73,21 @@
       <h3 class="text -subtitle">Cost of meeting targets on top of current spending, 2016-2025</h3>
     </div>
     <div class="columns small-12 medium-12">
-      <div id="costMeetingPackagesView" class="l-chart sync">
+      <div id="costMeetingPackagesView" class="l-chart">
         <div class="c-chart"></div>
       </div>
     </div>
   </div>
+</section>
 
+<section id="packageComparisonSection" class="l-ajax-loader">
+  <div class="spinner"></div>
   <div class="row">
     <div class="columns small-12">
       <hr class="c-separator"/>
       <h2 class="text -title">Under constrained resources, how much would it cost to deliver priority interventions?</h2>
       <h3 class="text -subtitle">Cost of packages comparison</h3>
-      <div id="costPackagesView" class="l-chart sync">
+      <div id="costPackagesView" class="l-chart">
         <div class="c-chart"></div>
       </div>
     </div>
@@ -83,7 +98,10 @@
       <p class="text">Scaling up this priority package would cost less than scaling up a package of all interventions needed reach the WHA targets. However, the targets would not be achieved under this low-cost scale-up scenario.</p>
     </div>
   </div>
+</section>
 
+<section id="fullPrioritySection" class="l-ajax-loader">
+  <div class="spinner"></div>
   <div class="row">
     <div class="columns small-12">
       <hr class="c-separator"/>
@@ -108,13 +126,13 @@
       </div>
     </div>
     <div class="columns small-12 medium-6">
-      <div id="businessAsUsualView" class="l-chart sync">
+      <div id="businessAsUsualView" class="l-chart">
         <div class="c-chart"></div>
       </div>
       <p class="text">Under a <b>Business as Usual</b> scenario, there will be a substantial funding gap and the targets will not be achieved. Mobilizing the resources needed to accelerate progress against malnutrition will require that donors, countries, innovative financing mechanisms, businesses, and consumers act in solidarity. </p>
     </div>
     <div class="columns small-12 medium-6">
-      <div id="globalSolidarityView" class="l-chart sync -secondary">
+      <div id="globalSolidarityView" class="l-chart -secondary">
         <div class="c-chart"></div>
       </div>
       <p class="text">In the <b>Global Solidarity</b> scenario, donor spending scales up rapidly during the next five years, while domestic spending steadily grows. Then, from 2020 to 2025, domestic financing accelerates, and donors begin to scale back in support of country ownership over nutrition programming.</p>
@@ -123,16 +141,18 @@
       <p class="text -footnote">*Current spending is maintained across the ten year period. Annual figures represent total contributions by source, including projected levels of current spending as well as additional financing needs to scale-up the interventions.</p>
     </div>
   </div>
+</section>
 
+<section id="additionalInfoView" class="l-ajax-loader">
+  <div class="spinner"></div>
   <div class="row">
     <div class="columns small-12">
       <div class="l-content -last">
         <hr class="c-separator"/>
-        <p id="additionalInfoView" class="text two-column">
+        <p class="text two-column">
           If [region] and others worldwide do their part, the results could be tremendous: 3.7 million child lives saved, at least 65 million fewer stunted children, 265 million fewer women suffering from anemia than in 2015, and 91 million children treated for severe wasting. In a resource-constrained environment, the smaller package of priority interventions could save about 2.2 million lives, and -- together with anticipated progress in food availability and diversity, women's health and education, and investments in water and sanitation -- could result in 50 million fewer children stunted in 2025 compared to 2015. It would also result in 91 million children treated for severe wasting.
         </p>
       </div>
     </div>
   </div>
-
-</div>
+</section>

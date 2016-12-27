@@ -11,12 +11,14 @@
 
     render: function() {
       var data = this.collection.toJSON()[0];
+      var region = data.region ? data.region : data.income_group;
+      this.$el.find('#map').removeClass().addClass('c-map-regions ' + region );
       if ( this.status.get('mode') === 'global' ) {
-        this.$el.html(this.template_global({
+        this.$el.find('.text').html(this.template_global({
           description: data.description
         }));
       } else {
-        this.$el.html(this.template_map({
+        this.$el.find('.text').html(this.template_map({
           description: data.description,
           class: data.region ? data.region : data.income_group
         }));

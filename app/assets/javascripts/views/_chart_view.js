@@ -40,13 +40,11 @@
     },
 
     ajaxStart: function(){
-        $('.c-ajax-loader').fadeIn({duration:100});
-        $('.l-content-sync').addClass('-loading');
+        $('.l-ajax-loader').addClass('-loading');
     },
 
     ajaxComplete: function(){
-        $('.c-ajax-loader').fadeOut({duration:100});
-        $('.l-content-sync').removeClass('-loading');
+        $('.l-ajax-loader').removeClass('-loading');
     },
 
     _addListeners: function() {
