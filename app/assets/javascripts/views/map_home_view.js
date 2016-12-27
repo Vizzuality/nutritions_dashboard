@@ -32,7 +32,8 @@
       });
       this.collection = new App.Collection.CurrentStatusCollection({});
       this._cached();
-      this._initMap();
+      this._drawMap();
+      this._fetchData();
       this.$el.find('select').select2({
         minimumResultsForSearch: Infinity
       });
@@ -81,6 +82,12 @@
         }
       }.bind(this));
       return summedData;
+    },
+
+    _updateMap: function() {
+      var data = this.collection.toJSON();
+      var parsedData = this._parseData(data);
+      this.map.updateChoropleth(parsedData, {reset: true});
     }
 
   });

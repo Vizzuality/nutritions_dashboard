@@ -14,58 +14,64 @@
     },
 
     events: {
-      'change .js--target-selector' : '_onChangeSetCountry'
+      'change .js--country-selector' : '_onChangeSetCountry'
     },
 
     initialize: function() {
       if (!this.el) {
         return;
       }
-      this.status = new Backbone.Model({
-        country: '',
-      });
-      this.collection = new App.Collection.CountriesCollection({});
-      this._cached();
-      this._initMap();
-      this.$el.find('select').select2({
-        minimumResultsForSearch: Infinity
-      });
+
+      this.collection = new App.Collection.CountriesCollection();
+
+      this._drawMap();
       this._setListeners();
+      this._fetchData();
       App.View.MapCountriesView.__super__.initialize.apply(this);
     },
 
     _setListeners: function() {
       $(window).on('resize', this._resizeMap.bind(this));
-      this.status.on('change:country', this._triggerSelectedCountry.bind(this));
     },
 
-    _fetchData: function() {
-      var country = this.status.get('country');
-
-      this.collection.getTotalByCountry(country).done(function(){
-        this._updateMap();
-      }.bind(this));
+    _cached: function() {
+      this.countryData = this._parseData(this.collection.toJSON());
     },
 
     _onChangeSetCountry: function() {
       var country = this.$el.find('.js--country-selector').val();
-      this.status.set({ 'country': country });
+      var data = {};
+      if ( country === '' ) {
+        data = this.countryData;
+      } else {
+        data[country] = {
+          fillKey: 'active'
+        }
+      }
+      data = null;
+      this._updateMap(data);
     },
 
-    _triggerSelectedTarget: function() {
-      this._fetchData();
+    _fetchData: function() {
+      this.collection.getCountries().done(function(){
+        this._cached();
+        this._updateMap(this.countryData);
+      }.bind(this));
+    },
+
+    _updateMap: function(data) {
+      console.log(data);
+      this.map.updateChoropleth(data, {reset: true});
     },
 
     _parseData: function(data) {
-      var summedData = {};
+      var parsedData = {};
       _.each(data, function(country) {
-        var sum = country['per_' + this.status.get('country')];
-        summedData[country.iso_code] = {
-          fillKey: this._setBucket(sum),
-          numberofThings: country.sum
+        parsedData[country.iso_code] = {
+          fillKey: 'active'
         }
       }.bind(this));
-      return summedData;
+      return parsedData;
     }
 
   });

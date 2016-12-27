@@ -16,7 +16,7 @@
     },
 
     initMapView: function() {
-      this.map = new App.View.MapHomeView({
+      this.map = new App.View.MapCountriesView({
         el: '#countryMapView'
       });
     },

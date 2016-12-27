@@ -6,11 +6,6 @@
 
   App.View.D3Map = Backbone.View.extend({
 
-    _initMap: function() {
-      this._drawMap();
-      this._fetchData();
-    },
-
     _drawMap: function() {
       this.map = new Datamap({
         scope: 'world',
@@ -32,16 +27,9 @@
       })
     },
 
-    _updateMap: function() {
-      var data = this.collection.toJSON();
-      var parsedData = this._parseData(data);
-      this.map.updateChoropleth(parsedData);
-    },
-
     _resizeMap: function() {
       this.map.resize();
     },
-
 
     remove: function() {
       $(window).off('resize', this._resizeMap.bind(this));
