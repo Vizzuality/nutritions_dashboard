@@ -9,9 +9,16 @@
     show: function(params) {
       //Init here the views for the countries profile. Order matters.
       // this.initTitleView();
+      this.initMapView();
       this.initGraphsViews();
       // this.initMapViews();
       this.initSelectorsViews(params);
+    },
+
+    initMapView: function() {
+      this.map = new App.View.MapCountriesView({
+        el: '#countryMapView'
+      });
     },
 
     initTitleView: function() {
@@ -32,10 +39,6 @@
     },
 
     initGraphsViews: function() {
-      console.log('Hi Ed, some notes here!!!')
-      // We need to fix the scale of the bubbles. Now, as we are rendering gov and donor data separately, they have different scale.
-      // We can solve this in two different ways: Adjusting the scale in d3, you can ask Gerardo or we can merge  all the data in one object and draw all at a time.
-      // Chat also with Juan Carlos to see what he thinks about having the data in two parts or everything together.
 
       this.countryDonorsView = new App.View.CountryDonorsView({
         el: '#currentCountryDonor'

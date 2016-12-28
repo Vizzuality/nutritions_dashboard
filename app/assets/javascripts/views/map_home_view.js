@@ -4,7 +4,7 @@
 
   App.View = App.View || {};
 
-  App.View.MapHomeView = Backbone.View.extend({
+  App.View.MapHomeView = App.View.D3Map.extend({
 
     defaults: {
       buckets: {
@@ -32,7 +32,8 @@
       });
       this.collection = new App.Collection.CurrentStatusCollection({});
       this._cached();
-      this._initMap();
+      this._drawMap();
+      this._fetchData();
       this.$el.find('select').select2({
         minimumResultsForSearch: Infinity
       });
@@ -43,11 +44,6 @@
     _setListeners: function() {
       $(window).on('resize', this._resizeMap.bind(this));
       this.status.on('change:target', this._triggerSelectedTarget.bind(this));
-    },
-
-    _initMap: function() {
-      this._drawMap();
-      this._fetchData();
     },
 
     _cached: function() {
@@ -71,35 +67,6 @@
       this._fetchData();
     },
 
-    _drawMap: function() {
-      this.map = new Datamap({
-        scope: 'world',
-        element: document.getElementById('map-container'),
-        projection: 'robinson',
-        responsive: true,
-        fills: this.defaults.buckets,
-        geographyConfig: {
-          dataUrl: null,
-          hideAntarctica: true,
-          hideHawaiiAndAlaska: true,
-          borderWidth: 0,
-          highlightOnHover: false,
-          popupOnHover: false,
-        },
-        data: {},
-      })
-    },
-
-    _updateMap: function() {
-      var data = this.collection.toJSON();
-      var parsedData = this._parseData(data);
-      this.map.updateChoropleth(parsedData);
-    },
-
-    _resizeMap: function() {
-      this.map.resize();
-    },
-
     _setBucket: function(sum) {;
       var bucket = ~~(( sum * (this.bucketNum - 1) ) / 100) + 1;
       return "bc" + bucket;
@@ -117,9 +84,10 @@
       return summedData;
     },
 
-    remove: function() {
-      $(window).off('resize', this._resizeMap.bind(this));
-      Backbone.View.prototype.remove.apply(this, arguments);
+    _updateMap: function() {
+      var data = this.collection.toJSON();
+      var parsedData = this._parseData(data);
+      this.map.updateChoropleth(parsedData, {reset: true});
     }
 
   });

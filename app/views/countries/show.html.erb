@@ -1,10 +1,15 @@
 <%= render 'shared/header', class_name: '-normal' %>
 
-<div class="l-selectors">
+<div id="map-section" class="l-map">
   <div class="row">
-    <div class="column small-12 medium-8 medium-offset-2 large-6 large-offset-3">
-      <div id="countrySelectorView">
-        <select name="group" id="groupSelector" class="js--country-selector"></select>
+    <div class="columns small-12">
+      <div id="countryMapView">
+        <div class="columns small-12 medium-6 medium-offset-3">
+          <div id="countrySelectorView">
+            <select name="group" id="groupSelector" class="js--country-selector"></select>
+          </div>
+        </div>
+        <div id="map-container" class="c-map-home"></div>
       </div>
     </div>
   </div>
