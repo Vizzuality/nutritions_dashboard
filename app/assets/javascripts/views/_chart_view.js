@@ -43,12 +43,20 @@
       this._addListeners();
     },
 
+    ajaxStart: function(view){
+        $(view).addClass('-loading');
+    },
+
+    ajaxComplete: function(view){
+        $(view).removeClass('-loading');
+    },
+
     _addListeners: function() {
       //Internal
       this.status.on('change:group', this._fetchData.bind(this));
 
       //External
-      App.Events.on('group:selected', this._setStatus.bind(this))
+      App.Events.on('group:selected', this._setStatus.bind(this));
     },
 
     _setStatus: function(params) {

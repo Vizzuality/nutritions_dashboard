@@ -27,9 +27,19 @@
       App.Events.on('group:selected', this._setStatus.bind(this));
     },
 
+    ajaxStart: function(view){
+        $(view).addClass('-loading');
+    },
+
+    ajaxComplete: function(view){
+        $(view).removeClass('-loading');
+    },
+
     _fetchData: function() {
+      this.ajaxStart('.title-section');
       this.collection.getGroupInfo(this.status.get('mode'), this.status.get('group')).done(function() {
         this.render();
+        this.ajaxComplete('.title-section');
       }.bind(this));
     },
 
