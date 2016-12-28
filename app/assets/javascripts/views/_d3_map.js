@@ -22,7 +22,11 @@
           borderColor: '#faf3e9',
           highlightOnHover: false,
           popupOnHover: false,
-        },
+            popupTemplate: function(geography, data) { //this function should just return a string
+            return '<div class="text -map"><strong>' + geography.properties.name + '</strong></div>';
+          },
+          popupOnHover: true, //disable the popup while hovering
+          },
         data: {},
       })
     },
