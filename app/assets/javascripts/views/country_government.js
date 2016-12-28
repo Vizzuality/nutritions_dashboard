@@ -32,6 +32,7 @@
     },
 
     _drawGraph: function() {
+
       //convert numerical values from strings to numbers
       var array = $.map(this.model.toJSON(), function(value, index) {
           return [value];
