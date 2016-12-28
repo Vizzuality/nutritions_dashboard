@@ -134,6 +134,11 @@
     }
   }
 
+  &.-map {
+    background: $white;
+    padding: rem(5px) rem(10px);
+  }
+
   &.-light {
     color: $white;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);

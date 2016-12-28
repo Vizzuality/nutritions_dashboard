@@ -87,13 +87,12 @@
 
     _onClickSetCountry: function(datamap) {
       this.map.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
-        console.log(geography)
         if ( this.countryData[geography.id] ) {
-          console.log('triggered');
           this._onChangeSetCountry(geography.id);
           App.Events.trigger('country:selected', {
             iso: geography.id
           });
+          // App.View.CountrySelectorView.status.set({ 'iso': geography.id });
           this._setSelectedCountry(geography.id);
         }
       }.bind(this));
@@ -102,10 +101,11 @@
     _setSelectedCountry: function(iso) {
       var $selector = this.$el.find('.js--country-selector');
       var selectorValue = $selector.val()
-      var $selectorOption = $selector.find('option[value="'+iso +'"]');
+      var $selectorOption = $selector.find('option[value="'+ iso +'"]');
 
       if ($selectorOption) {
         if (iso != selectorValue) {
+          $selector.find('option').attr('selected', false);
           $selectorOption.attr('selected', true);
           $selector.trigger('change');
         }
