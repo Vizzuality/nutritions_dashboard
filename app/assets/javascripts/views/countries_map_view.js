@@ -88,7 +88,6 @@
     _onClickSetCountry: function(datamap) {
       this.map.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
         if ( this.countryData[geography.id] ) {
-          console.log(geography)
           this._onChangeSetCountry(geography.id);
           App.Events.trigger('country:selected', {
             iso: geography.id
