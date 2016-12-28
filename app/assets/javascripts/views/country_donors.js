@@ -84,7 +84,7 @@
                     return d3.round(v, 2);
                   }
                 },
-                count: 6
+                // count: 6
               }
             }
           },

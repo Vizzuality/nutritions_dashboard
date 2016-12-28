@@ -19,6 +19,10 @@
         'Full': '#93c9d8',
         'Priority': '#00a3b7'
       },
+      funding: {
+        'Donor': '#93c9d8',
+        'Gov': '#00a3b7'
+      },
       sources: {
         'Gap': '#00a3b7',
         'Household': '#9C9080',
