@@ -91,8 +91,15 @@
     _setBucket: function(sum) {;
       var bucket = ~~(( sum * (7 - 1) ) / 100) + 1;
       var target = this.status.get('target');
-      console.log(target + "bc" + bucket)
       return target + "bc" + bucket;
+    },
+
+    _paintLegend: function() {
+      var bucketList = $('#mapLegendView').find('.bucket span');
+      _.each(bucketList, function(bucket, index) {
+        var color = this.defaults.buckets[this.status.get('target') + 'bc' + (index + 1)];
+        $(bucket).attr('style', 'background-color:' + color );
+      }.bind(this));
     },
 
     _parseData: function(data) {
@@ -111,7 +118,10 @@
       var data = this.collection.toJSON();
       var parsedData = this._parseData(data);
       this.map.updateChoropleth(parsedData, {reset: true});
+      this._paintLegend();
     }
+
+
 
   });
 
