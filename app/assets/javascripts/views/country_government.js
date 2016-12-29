@@ -47,8 +47,8 @@
           color: this.colors.funding,
           data: {
             columns: [
-              ['Gov', data[0].cost, 0, data[0].cost],
-              ['Donor', 0, data[0].total_spend*1000000, data[0].total_spend*1000000]
+              ['Gov', data[0].total_spend*1000000, 0, data[0].total_spend*1000000],
+              ['Donor', 0, data[0].cost, data[0].cost]
             ],
             type: 'bar',
             groups: [
