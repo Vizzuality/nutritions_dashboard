@@ -51,10 +51,12 @@
     },
 
     _fetchData: function() {
+      this.ajaxStart('#map-section');
       var target = this.status.get('target');
 
       this.collection.getTotalByCountry(target).done(function(){
         this._updateMap();
+        this.ajaxComplete('#map-section');
       }.bind(this));
     },
 

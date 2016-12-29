@@ -60,4 +60,17 @@
       margin-left: rem(-40px);
     }
   }
+
+  &#currentCountryGovernment {
+    margin-top: rem(22px);
+    margin-left: rem(-20px);
+
+    @media screen and (min-width: $screen-m) {
+      margin-left: rem(-5px);
+    }
+
+    @media screen and (min-width: $screen-l + 1px) {
+      margin-left: rem(-40px);
+    }
+  }
 }
