@@ -22,12 +22,14 @@
     },
 
     _fetchData: function() {
+      this.ajaxStart('#currentCountryGovernment');
       var params = {
         iso: this.status.get('iso')
       };
 
       this.model.getDataForCountryGovernment(params).done(function(){
         this.render();
+        this.ajaxComplete('#currentCountryGovernment');
       }.bind(this));
     },
 

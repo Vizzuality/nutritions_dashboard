@@ -27,8 +27,8 @@
       };
 
       this.collection.getDataForCostMeetingPackages(params).done(function(){
-        this.ajaxComplete('#costGoalsSection');
         this.render();
+        this.ajaxComplete('#costGoalsSection');
       }.bind(this));
     },
 

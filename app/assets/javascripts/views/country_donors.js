@@ -22,12 +22,14 @@
     },
 
     _fetchData: function() {
+      this.ajaxStart('#currentCountryDonor');
       var params = {
         iso: this.status.get('iso')
       };
 
       this.model.getDataForCountryDonors(params).done(function(){
         this.render();
+        this.ajaxComplete('#currentCountryDonor');
       }.bind(this));
     },
 
