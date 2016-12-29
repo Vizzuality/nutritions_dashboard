@@ -8,13 +8,34 @@
 
     defaults: {
       buckets: {
-        bc1: '#00a3b7',
-        bc2: '#66c7bf',
-        bc3: '#ccebc7',
-        bc4: '#fffecc',
-        bc5: '#ffe6a0',
-        bc6: '#ffa16f',
-        bc7: '#e54935',
+        stuntingbc1: '#410241',
+        stuntingbc2: '#7f1280',
+        stuntingbc3: '#b135b1',
+        stuntingbc4: '#c766c7',
+        stuntingbc5: '#e87ce8',
+        stuntingbc6: '#f4b1f4',
+        stuntingbc7: '#fde2fd',
+        wastingbc1: '#836207',
+        wastingbc2: '#ad830c',
+        wastingbc3: '#cc9d18',
+        wastingbc4: '#e8b833',
+        wastingbc5: '#f9d15e',
+        wastingbc6: '#f9e5ac',
+        wastingbc7: '#fbfad6',
+        anaemiabc1: '#6a1207',
+        anaemiabc2: '#ad1e0c',
+        anaemiabc3: '#e12911',
+        anaemiabc4: '#f16250',
+        anaemiabc5: '#f69589',
+        anaemiabc6: '#fbc0b7',
+        anaemiabc7: '#fdedea',
+        ebfbc1: '#004235',
+        ebfbc2: '#0d6300',
+        ebfbc3: '#339423',
+        ebfbc4: '#68b85a',
+        ebfbc5: '#8ed681',
+        ebfbc6: '#bbebb3',
+        ebfbc7: '#e9f6e7',
         defaultFill: 'rgba(216, 216, 216,0.5)'
       },
     },
@@ -68,8 +89,10 @@
     },
 
     _setBucket: function(sum) {;
-      var bucket = ~~(( sum * (this.bucketNum - 1) ) / 100) + 1;
-      return "bc" + bucket;
+      var bucket = ~~(( sum * (7 - 1) ) / 100) + 1;
+      var target = this.status.get('target');
+      console.log(target + "bc" + bucket)
+      return target + "bc" + bucket;
     },
 
     _parseData: function(data) {
