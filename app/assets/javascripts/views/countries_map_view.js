@@ -42,6 +42,17 @@
 
     _cached: function() {
       this.countryData = this._parseData(this.collection.toJSON());
+      Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+};
+
+// Get the size of an object
+var size = Object.size(this.countryData);
+      console.log(size)
     },
 
     _onChangeSetCountry: function(iso) {
@@ -88,7 +99,6 @@
     _onClickSetCountry: function(datamap) {
       this.map.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
         if ( this.countryData[geography.id] ) {
-          console.log(geography)
           this._onChangeSetCountry(geography.id);
           App.Events.trigger('country:selected', {
             iso: geography.id

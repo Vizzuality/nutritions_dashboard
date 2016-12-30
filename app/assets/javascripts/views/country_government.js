@@ -33,6 +33,7 @@
 
     _drawGraph: function() {
 
+
       //convert numerical values from strings to numbers
       var array = $.map(this.model.toJSON(), function(value, index) {
           return [value];
@@ -41,7 +42,7 @@
         d.value = +d['total_spend'];
         return d;
       });
-
+      
       var diameter = 450, //max size of the bubbles
           color    = this.colors.targets;
 
