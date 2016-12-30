@@ -70,7 +70,6 @@
       var currentSpent = scaledData.year_2015,
           milestone = scaledData.year_2016;
 
-      console.log(scaledData);
       //Create the SVG Viewport
       var svgContainer = d3.select("#fundingProgressView").append("svg")
         .attr('viewBox', '0 0 ' + width + ' ' + height)
@@ -114,11 +113,6 @@
 
       _.each(scaledData, function(year, index) {
         var thisYear = index.replace('year_', '');
-        // svgContainer.append("text")
-        //   .text("currently spent")
-        //   .attr("x", year + 20)
-        //   .attr("y", 20)
-        //   .attr("class", "text -funding");
 
         if ( thisYear > 2015 && thisYear <= 2020 || thisYear === "2025" ) {
           svgContainer.append("path")
