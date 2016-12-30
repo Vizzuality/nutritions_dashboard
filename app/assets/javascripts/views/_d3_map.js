@@ -35,6 +35,14 @@
       this.map.resize();
     },
 
+    ajaxStart: function(view){
+        $(view).addClass('-loading');
+    },
+
+    ajaxComplete: function(view){
+        $(view).removeClass('-loading');
+    },
+
     remove: function() {
       $(window).off('resize', this._resizeMap.bind(this));
       Backbone.View.prototype.remove.apply(this, arguments);

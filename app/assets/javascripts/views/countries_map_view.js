@@ -65,9 +65,11 @@
     },
 
     _fetchData: function() {
+      this.ajaxStart('#map-section');
       this.collection.getCountries().done(function(){
         this._cached();
         this._updateMap(this.countryData);
+        this.ajaxComplete('#map-section');
       }.bind(this));
     },
 
@@ -88,7 +90,6 @@
     _onClickSetCountry: function(datamap) {
       this.map.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
         if ( this.countryData[geography.id] ) {
-          console.log(geography)
           this._onChangeSetCountry(geography.id);
           App.Events.trigger('country:selected', {
             iso: geography.id

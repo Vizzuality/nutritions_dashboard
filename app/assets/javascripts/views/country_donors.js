@@ -22,12 +22,14 @@
     },
 
     _fetchData: function() {
+      this.ajaxStart('#currentCountryDonor');
       var params = {
         iso: this.status.get('iso')
       };
 
       this.model.getDataForCountryDonors(params).done(function(){
         this.render();
+        this.ajaxComplete('#currentCountryDonor');
       }.bind(this));
     },
 
@@ -46,6 +48,9 @@
       this.stackChart = new App.View.C3Chart({
         el: this.el,
         options: {
+          padding: {
+            top: 10
+          },
           data: {
             columns: [
               ['All', data.anemia, data['exclusive breastfeeding'], data.stunting, data.wasting],
@@ -84,7 +89,7 @@
                     return d3.round(v, 2);
                   }
                 },
-                // count: 6
+                count: 6
               }
             }
           },

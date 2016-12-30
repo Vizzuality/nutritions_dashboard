@@ -23,6 +23,15 @@
     margin-bottom: rem(20px);
   }
 
+  &.-top {
+    border-top: solid $color-3 1px;
+    padding-top: rem(20px);
+
+    @media screen and (min-width: $screen-m) {
+      padding-top: rem(30px);
+    }
+  }
+
   &.-first {
     margin-top: rem(25px);
 
@@ -36,7 +45,7 @@
     padding-bottom: rem(20px);
 
     @media screen and (min-width: $screen-m) {
-      padding-bottom: rem(40px);
+      padding-bottom: rem(30px);
     }
   }
 }
