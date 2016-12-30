@@ -22,12 +22,14 @@
     },
 
     _fetchData: function() {
+      this.ajaxStart('#currentCountryGovernment');
       var params = {
         iso: this.status.get('iso')
       };
 
       this.model.getDataForCountryGovernment(params).done(function(){
         this.render();
+        this.ajaxComplete('#currentCountryGovernment');
       }.bind(this));
     },
 
@@ -35,72 +37,73 @@
 
 
       //convert numerical values from strings to numbers
-      var array = $.map(this.model.toJSON(), function(value, index) {
-          return [value];
+      var data = this.model.toJSON();
+
+      this.stackChart = new App.View.C3Chart({
+        el: this.el,
+        options: {
+          padding: {
+            top: 10
+          },
+          color: this.colors.funding,
+          data: {
+            columns: [
+              ['Gov', data[0].total_spend*1000000, 0, data[0].total_spend*1000000],
+              ['Donor', 0, data[0].cost, data[0].cost]
+            ],
+            type: 'bar',
+            groups: [
+              ['Gov', 'Donor']
+            ],
+            colors: this.colors.funding,
+            order: false
+          },
+          bar: {
+              width: {
+                  ratio: 0.4 // this makes bar width 50% of length between ticks
+              }
+              // or
+              //width: 100 // this makes bar width 100px
+          },
+          interaction: {
+            enabled: false
+          },
+          axis: {
+            x: {
+              type: 'category',
+              categories: ['Gov.', 'Donors', 'Gov + Donors'],
+              tick: {},
+              padding: {
+                left: 0,
+                right: 0
+              },
+              height: 40,
+            },
+            y: {
+              tick: {
+                format: function (v, id, i, j) {
+                  if (v > 1000 || v < -1000) {
+                    var num = '$' + d3.format('.3s')(v);
+                    num = num.replace("G", "B");
+                    return num;
+                  } else {
+                    return d3.round(v, 2);
+                  }
+                },
+                count: 6
+              }
+            }
+          },
+          grid: {
+            y: {
+              show: true
+            }
+          },
+          legend: {
+            hide: true
+          }
+        }
       });
-      var data = array.map(function(d){
-        d.value = +d['total_spend'];
-        return d;
-      });
-      
-      var diameter = 450, //max size of the bubbles
-          color    = this.colors.targets;
-
-      var bubble = d3.layout.pack()
-          .sort(null)
-          .size([diameter, diameter])
-          .padding(1.5);
-
-      var svg = d3.select('#currentCountryGovernment .c-chart')
-          .html('') //Empty c-chart from previous chart.
-          .append('svg')
-          .attr('width', diameter)
-          .attr('height', diameter)
-          .attr('class', 'bubble');
-
-      //bubbles needs very specific format, convert data to this.
-      var nodes = bubble.nodes({children:data}).filter(function(d) { return !d.children; });
-
-      //setup the chart
-      var bubbles = svg.append('g')
-          .attr('transform', 'translate(0, 0)')
-          .selectAll('.bubble')
-          .data(nodes)
-          .enter();
-
-      //create the bubbles
-      bubbles.append('circle')
-          .attr('r', function(d){ return d.r; })
-          .attr('cx', function(d){ return d.x; })
-          .attr('cy', function(d){ return d.y; })
-          .style('fill', function(d) { return color['Composite']; });
-
-      //format the text for each bubble
-      bubbles.append('text')
-          .attr('x', function(d){ return d.x; })
-          .attr('y', function(d){ return d.y; })
-          .attr('text-anchor', 'middle')
-          .text(function(d){ return '$' + d['total_spend'] + 'M'; })
-          .style({
-            'fill':'#595755',
-            'font-family':'Helvetica Neue, Helvetica, Arial, san-serif',
-            'font-size': '16px',
-            'font-weight': 700,
-            'text-transform': 'uppercase'
-          })
-
-      bubbles.append('text')
-          .attr('x', function(d){ return d.x; })
-          .attr('y', function(d){ return d.y - 15; })
-          .attr('text-anchor', 'middle')
-          .text(function(d){ return 'Government Expenditure'; })
-          .style({
-            'fill':'#595755',
-            'font-family':'Helvetica Neue, Helvetica, Arial, san-serif',
-            'font-size': '16px',
-            'font-weight': 700,
-            'text-transform': 'uppercase'
-          })
     }
 
   });

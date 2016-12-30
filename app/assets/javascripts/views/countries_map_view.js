@@ -76,9 +76,11 @@ var size = Object.size(this.countryData);
     },
 
     _fetchData: function() {
+      this.ajaxStart('#map-section');
       this.collection.getCountries().done(function(){
         this._cached();
         this._updateMap(this.countryData);
+        this.ajaxComplete('#map-section');
       }.bind(this));
     },
 
