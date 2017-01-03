@@ -55,7 +55,7 @@
           yMin = 100,
           height = 100,
           width = 1080,
-          padding = 20,
+          padding = 30,
           xMax = this._round(data.year_2025);
 
       var scaledData = {};
@@ -98,17 +98,17 @@
         .call(xAxis);
 
       svgContainer.append("rect")
-        .attr("x", 20)
+        .attr("x", 0)
         .attr("y", 70)
         .attr("width", width)
-        .attr("height", 3)
+        .attr("height", 1)
         .attr("class", "base-axis");
 
       svgContainer.append("rect")
-        .attr("x", 20)
+        .attr("x", 0)
         .attr("y", 70)
         .attr("width", currentSpent)
-        .attr("height", 3)
+        .attr("height", 1)
         .attr("class", "current-axis");
 
       _.each(scaledData, function(year, index) {
@@ -139,12 +139,12 @@
 
       svgContainer.append("text")
         .text("currently spent")
-        .attr("x", currentSpent + 20)
+        .attr("x", currentSpent)
         .attr("y", 20)
         .attr("class", "text -funding");
 
       svgContainer.append("path")
-        .attr("transform", function(d) { return "translate(" + (currentSpent + 25) + "," + 60 + ")"; })
+        .attr("transform", function(d) { return "translate(" + (currentSpent + 5) + "," + 60 + ")"; })
         .attr("d", d3.svg.symbol().type("triangle-down").size( function(d) { return 25 }))
         .attr("class", "triangle");
 
@@ -154,7 +154,7 @@
           text = text.replace("G", "B");
           return text;
         })
-        .attr("x", currentSpent + 20)
+        .attr("x", currentSpent)
         .attr("y", 45)
         .attr("class", "text -figure");
     }
