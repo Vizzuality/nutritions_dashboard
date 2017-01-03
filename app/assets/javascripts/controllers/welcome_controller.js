@@ -12,7 +12,7 @@
       });
 
       this.progress = new App.View.FundingProgressView({
-        el: '#FundingProgressView'
+        el: '#homeMapView'
       });
     }
 

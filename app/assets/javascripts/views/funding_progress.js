@@ -6,6 +6,10 @@
 
   App.View.FundingProgressView = App.View.Chart.extend({
 
+    events: {
+      'change .js--target-selector' : '_onChangeSetTarget'
+    },
+
     initialize: function() {
       this.status = new Backbone.Model({
         target: 'stunting'
@@ -19,7 +23,6 @@
     },
 
     _fetchData: function() {
-      // this.ajaxStart('#costGoalsSection');
       var params = {
         target: this.status.get('target')
       };
@@ -30,12 +33,14 @@
     },
 
     _addListeners: function() {
-      //External
-      App.Events.on('target:change', this._setStatus.bind(this));
+      this.status.on('change:target', this._fetchData.bind(this));
     },
 
-    _setStatus: function(params) {
-      this.status.set(params);
+    _onChangeSetTarget: function() {
+      var target = this.$el.find('.js--target-selector').val();
+      this.status.set({ 'target': target });
+      console.log(this.status.get('target'));
+
     },
 
     _round: function(num) {
@@ -55,23 +60,30 @@
           yMin = 100,
           height = 100,
           width = 1080,
-          padding = 30,
-          xMax = this._round(data.year_2025);
+          padding = 20,
+          xMax = this._round(data.total);
 
       var scaledData = {};
       _.each(data, function (value, index){
         if ( index.indexOf("year_") !== -1 ) {
-          // debugger
-          scaledData[index] = this._scaleValue(value, width, xMax);
-          index++
+          var year = index.replace('year_', '');
+          scaledData[year] = this._scaleValue(value, width, xMax) - 5;
         }
       }.bind(this));
+      var compData = {};
+      var comp = 0;
+      _.each(scaledData, function(value, index) {
+        compData[index] = value + comp;
+        comp = compData[index];
+      })
 
-      var currentSpent = scaledData.year_2015,
-          milestone = scaledData.year_2016;
+      var currentSpent = scaledData['2015'],
+          milestone = scaledData['2016'];
 
       //Create the SVG Viewport
-      var svgContainer = d3.select("#fundingProgressView").append("svg")
+      var svgContainer = d3.select("#fundingProgressView")
+        .html('')
+        .append("svg")
         .attr('viewBox', '0 0 ' + width + ' ' + height)
         .attr('preserveAspectRatio', "xMidYMid meet")
 
@@ -85,7 +97,7 @@
         .scale(xScale)
         .tickPadding(10)
         .tickFormat(function(d){
-          var text = '$' + d3.format('.3s')(d);
+          var text = '$' + d3.format('.2s')(d);
           text = text.replace("G", "B");
           return text;
         });
@@ -111,10 +123,9 @@
         .attr("height", 1)
         .attr("class", "current-axis");
 
-      _.each(scaledData, function(year, index) {
-        var thisYear = index.replace('year_', '');
-
-        if ( thisYear > 2015 && thisYear <= 2020 || thisYear === "2025" ) {
+      // plot mile stones
+      _.each(compData, function(year, index) {
+        if ( index >= 2018 ) {
           svgContainer.append("path")
           .attr("transform", function(d) { return "translate(" + (year + 25) + "," + 60 + ")"; }.bind(this))
           .attr("d", d3.svg.symbol().type("triangle-down").size( function(d) { return 25 }))
@@ -122,16 +133,16 @@
 
           svgContainer.append("text")
           .text(function(d){
-            var text = thisYear;
+            var text = index;
             return text;
           }.bind(this))
-          .attr("x", year + 20)
+          .attr("x", year + 1)
           .attr("y", 40)
           .attr("class", "text -milestone");
 
           svgContainer.append("text")
           .text('milestone')
-          .attr("x", year + 20)
+          .attr("x", year - 26)
           .attr("y", 52)
           .attr("class", "text -milestone");
         }

@@ -57,9 +57,13 @@
 
       //External
       App.Events.on('group:selected', this._setStatus.bind(this));
+
+      //External
+      App.Events.on('target:selected', this._setStatus.bind(this));
     },
 
     _setStatus: function(params) {
+      debugger
       this.status.set(params);
     },
 
