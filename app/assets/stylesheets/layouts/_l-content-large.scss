@@ -22,7 +22,7 @@
 
   &.-home {
     background-image: image-url('bg-home.png');
-    min-height: rem(500px);
+    min-height: rem(580px);
 
     @media screen and (min-width: $screen-m) {
       min-height: rem(700px);

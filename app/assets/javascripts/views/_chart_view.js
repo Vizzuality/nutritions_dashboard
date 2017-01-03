@@ -63,7 +63,6 @@
     },
 
     _setStatus: function(params) {
-      debugger
       this.status.set(params);
     },
 

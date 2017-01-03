@@ -39,8 +39,6 @@
     _onChangeSetTarget: function() {
       var target = this.$el.find('.js--target-selector').val();
       this.status.set({ 'target': target });
-      console.log(this.status.get('target'));
-
     },
 
     _round: function(num) {
