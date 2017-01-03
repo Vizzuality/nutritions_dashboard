@@ -53,11 +53,12 @@
 
     _drawGraph: function() {
       var data = this.model.toJSON()[0],
+          screenWidth = $(document).width(),
           xMin = 0,
           yMax = 0,
           yMin = 100,
           height = 100,
-          width = 1080,
+          width = screenWidth >= 768 ? 1080 : 500,
           padding = 20,
           xMax = this._round(data.total);
 
@@ -121,35 +122,46 @@
         .attr("height", 1)
         .attr("class", "current-axis");
 
+      this._plotMilestones = function(year, index){
+        var yearTextOffset = screenWidth >= 768 ? year + 1 : year - 8;
+        var milestoneTextOffset = screenWidth >= 768 ? year - 26 : year - 43;
+        svgContainer.append("path")
+        .attr("transform", function(d) { return "translate(" + (year + 25) + "," + 60 + ")"; }.bind(this))
+        .attr("d", d3.svg.symbol().type("triangle-down").size( function(d) { return 25 }))
+        .attr("class", "triangle");
+
+        svgContainer.append("text")
+        .text(function(d){
+          var text = index;
+          return text;
+        }.bind(this))
+        .attr("x", yearTextOffset)
+        .attr("y", 40)
+        .attr('preserveAspectRatio', 'none')
+        .attr("class", "text -milestone");
+
+        svgContainer.append("text")
+        .text('milestone')
+        .attr("x", milestoneTextOffset)
+        .attr("y", 52)
+        .attr('preserveAspectRatio', 'none')
+        .attr("class", "text -milestone");
+      }
+
       // plot mile stones
       _.each(compData, function(year, index) {
-        if ( index >= 2018 ) {
-          svgContainer.append("path")
-          .attr("transform", function(d) { return "translate(" + (year + 25) + "," + 60 + ")"; }.bind(this))
-          .attr("d", d3.svg.symbol().type("triangle-down").size( function(d) { return 25 }))
-          .attr("class", "triangle");
-
-          svgContainer.append("text")
-          .text(function(d){
-            var text = index;
-            return text;
-          }.bind(this))
-          .attr("x", year + 1)
-          .attr("y", 40)
-          .attr("class", "text -milestone");
-
-          svgContainer.append("text")
-          .text('milestone')
-          .attr("x", year - 26)
-          .attr("y", 52)
-          .attr("class", "text -milestone");
+        if ( index >= 2018 && screenWidth >= 768 ) {
+          this._plotMilestones(year, index);
+        } else if ( index === "2020" || index === "2025" ) {
+          this._plotMilestones(year, index);
         }
-      });
+      }.bind(this));
 
       svgContainer.append("text")
         .text("currently spent")
         .attr("x", currentSpent)
         .attr("y", 20)
+        .attr('preserveAspectRatio', 'none')
         .attr("class", "text -funding");
 
       svgContainer.append("path")
@@ -165,6 +177,7 @@
         })
         .attr("x", currentSpent)
         .attr("y", 45)
+        .attr('preserveAspectRatio', 'none')
         .attr("class", "text -figure");
     }
 

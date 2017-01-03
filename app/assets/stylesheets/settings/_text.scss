@@ -153,8 +153,12 @@
   }
 
   &.-milestone {
-    font-size: 12px;
+    font-size: 16px;
     fill: rgba(#81786b, 0.5);
+
+    @media screen and (min-width: $screen-m) {
+      font-size: 12px;
+    }
   }
 
   &.-light {
