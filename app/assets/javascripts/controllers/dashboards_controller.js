@@ -12,6 +12,7 @@
       this.initGraphsViews();
       this.initMapViews();
       this.initSelectorsViews(params);
+      this.initModalViews();
     },
 
     initTitleView: function() {
@@ -47,6 +48,10 @@
     },
 
     initMapViews: function() {
+    },
+
+    initModalViews: function() {
+      this.modalInfo = new App.View.ModalInfoView({});
     },
 
     initGraphsViews: function() {
