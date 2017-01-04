@@ -4,6 +4,7 @@
   height: rem(130px);
   background-size: contain;
   background-repeat: no-repeat;
+  background-image: image_url('global@2x.png');
 
   @media screen and (min-width: $screen-m) {
     height: rem(180px);

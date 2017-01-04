@@ -1,0 +1,28 @@
+.c-funding-progress {
+   margin-top: 20px;
+   margin-bottom: -20px;
+
+  .domain {
+    fill: none;
+  }
+
+  .axis {
+    fill: #d8d8d8;
+  }
+
+  .base-axis {
+    fill: none;
+    stroke: #d8d8d8;
+    stroke-width: 10px;
+  }
+
+  .current-axis {
+    fill: none;
+    stroke: #81786b;
+    stroke-width: 10px;
+  }
+
+  .triangle {
+    fill: #81786b;
+  }
+}
