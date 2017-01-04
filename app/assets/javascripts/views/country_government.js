@@ -35,6 +35,7 @@
 
     _drawGraph: function() {
 
+
       //convert numerical values from strings to numbers
       var data = this.model.toJSON();
 
@@ -103,8 +104,6 @@
           }
         }
       });
-
-
     }
 
   });
