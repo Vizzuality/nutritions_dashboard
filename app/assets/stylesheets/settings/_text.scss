@@ -165,6 +165,37 @@
     text-decoration: underline;
   }
 
+  &.-impact-num {
+    color: #000000;
+    opacity: 0.6;
+    font-size: rem(30px);
+    font-family: $font-family-2;
+    font-weight: 700;
+    line-height: 1.03;
+
+    &.-bright {
+      opacity: 1;
+    }
+  }
+
+  &.-impact {
+    color: #000000;
+    opacity: 0.6;
+    font-size: rem(32px);
+    font-family: $font-family-2;
+    font-weight: 300;
+    line-height: 1.03;
+
+    &.-bright {
+      opacity: 1;
+    }
+  }
+
+  &.-pill {
+    color: #ab4fab;
+    font-weight: 700;
+  }
+
   &.-light {
     color: $white;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);

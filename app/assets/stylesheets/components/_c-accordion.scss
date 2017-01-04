@@ -1,5 +1,5 @@
 .c-accordion {
-  padding-bottom: rem(10px);
+  // padding-bottom: rem(10px);
 
   input{
     display: none;
@@ -9,10 +9,15 @@
     position: relative;
     z-index: 10;
     cursor: pointer;
-
-    &.-open {
-      margin-top: -80px;
-    }
+    max-width: 67.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    padding-left: 10px;
   }
 
   .accordion-content {
@@ -28,12 +33,48 @@
       max-width: rem(230px);
     }
 
-    .img-title {
+    .info-box {
       display: flex;
-      flex-direction: row;
       justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: rem(30px);
+
+      @media screen and (min-width: $screen-l) {
+        height: 300px;
+      }
+
+      &.-tall {
+        align-items: flex-end;
+        flex-direction: row;
+      }
+
+      &.-small {
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      h3 {
+        margin-top: rem(20px);
+      }
+
+      img {
+        align-self: center;
+      }
+    }
+
+    p {
+      margin-top: rem(30px);
+    }
+  }
+
+  .impact-section {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: rem(30px) 0 rem(20px);
+
+    &.-stunting {
+      background-color: #ab4fab;
     }
   }
 
@@ -47,6 +88,32 @@
   }
 
   input:checked ~ .accordion-content{
-    height: rem(600px);
+    height: rem(940px);
+  }
+
+  .icon {
+    width: rem(30px);
+    height: rem(27px);
+    margin-left: rem(10px);
+
+    &.-light {
+      fill: $white;
+    }
+  }
+
+  .border {
+    border-left: solid 2px rgba(0, 0, 0, 0.4);
+    padding-left: 20px;
+    margin-left: -20px;
+  }
+
+  .pill {
+    background-color: rgba(72, 32, 70, 0.5);
+    border-radius: 25px;
+    max-width: 250px;
+    text-align: center;
+    padding: rem(3px) 0;
+    margin: auto;
+    margin-top: 10px;
   }
 }
