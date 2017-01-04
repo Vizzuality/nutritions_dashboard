@@ -23,7 +23,8 @@
           class: data.region ? data.region : data.income_group
         }));
       }
-    }
+    },
+
   });
 
 })(this.App);

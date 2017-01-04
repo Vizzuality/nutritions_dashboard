@@ -51,7 +51,7 @@
     },
 
     initModalViews: function() {
-      this.interventionsModalView = new App.View.InterventionsModalView({});
+      this.modalInfo = new App.View.ModalInfoView({});
     },
 
     initGraphsViews: function() {

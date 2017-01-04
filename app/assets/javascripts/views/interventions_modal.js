@@ -1,17 +1,16 @@
-
 (function(App) {
 
   'use strict';
 
   App.View = App.View || {};
 
-  App.View.InterventionsModalView = App.Helper.Modal.extend({
+  App.View.ModalInfoView = App.Helper.Modal.extend({
 
-    id: 'interventions-modal',
+    id: 'info-modal',
 
     className: 'c-modal',
 
-    template: HandlebarsTemplates['interventions-modal'],
+    template: HandlebarsTemplates['modal-window'],
 
     events: function(){
       return _.extend({}, App.Helper.Modal.prototype.events,{
@@ -35,11 +34,11 @@
     },
 
     listeners: function() {
-      App.Events.on('Interventions:toggle', this.toggle.bind(this));
+      App.Events.on('Info:toggle', this.toggle.bind(this));
     },
 
     render: function() {
-      this.$el.html(this.template({}));
+      this.$el.html(HandlebarsTemplates['modal_window']);
     }
 
   });

@@ -151,8 +151,11 @@
   &.-info {
     max-width: rem(688px);
     max-height: rem(688px);
-    width: 80%;
-    height: 80%;
+
+    @media (min-width: $screen-m){
+      width: 80%;
+      height: 80%;
+    }
 
     .modal-wrapper {
       @media (min-width: $screen-m){
@@ -165,9 +168,10 @@
 
       ul {
         list-style: none;
-        padding-left: 40px;
+        padding-left: 20px;
         margin: 0;
         margin-bottom: 40px;
+        margin-top: 20px;
 
         li {
           margin-bottom: 10px;
