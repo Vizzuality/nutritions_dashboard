@@ -82,7 +82,6 @@
     },
 
     toggle: function() {
-      console.log('success');
       var hidden = this.model.get('hidden');
       this.model.set('hidden', !hidden);
     },
