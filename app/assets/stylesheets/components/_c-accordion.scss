@@ -22,7 +22,19 @@
     position: relative;
     z-index: 10;
     transition:
-      height 0.1s ease-in-out,
+      height 0.1s ease-in-out;
+
+    img {
+      max-width: rem(230px);
+    }
+
+    .img-title {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: rem(30px);
+    }
   }
 
   input:checked ~ label {
