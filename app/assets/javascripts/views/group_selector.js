@@ -85,7 +85,6 @@
     },
 
     _pushStateToUrl: function() {
-      console.log(window.location.host);
       if ( this.status.get('mode') === 'global' ) {
         var href = '/dashboards/' + this.status.get('mode');
       } else {

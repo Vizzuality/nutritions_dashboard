@@ -90,11 +90,7 @@
     _onClickSetCountry: function(datamap) {
       this.map.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
         if ( this.countryData[geography.id] ) {
-          this._onChangeSetCountry(geography.id);
-          App.Events.trigger('country:selected', {
-            iso: geography.id
-          });
-          $("select").val(geography.id).trigger("change");
+          this.pushState(geography.id);
         }
       }.bind(this));
     }

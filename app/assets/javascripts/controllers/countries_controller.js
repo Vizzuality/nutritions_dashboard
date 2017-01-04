@@ -31,11 +31,6 @@
       this.countrySelector = new App.View.CountrySelectorView({
         el: '#countrySelectorView'
       });
-
-      // this.countrySelector.setParams({mode: params[0]});
-    },
-
-    initMapViews: function() {
     },
 
     initGraphsViews: function() {
