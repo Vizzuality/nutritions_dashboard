@@ -17,7 +17,6 @@
       this.model = new App.Model.FundingProgressModel();
 
       this._fetchData();
-      this._addListeners();
 
       App.View.FundingProgressView.__super__.initialize.apply(this);
     },
@@ -33,7 +32,7 @@
     },
 
     _addListeners: function() {
-      this.status.on('change:target', this._fetchData.bind(this));
+      this.listenTo(this.status, 'change:target', this._fetchData.bind(this));
     },
 
     _onChangeSetTarget: function() {
