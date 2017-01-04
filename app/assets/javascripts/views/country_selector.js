@@ -76,20 +76,19 @@
       history.pushState({}, '', href);
     },
 
-    _pullStateFromUrl: function(val) {
-      console.log(val);
+    _pullStateFromUrl: function() {
+      var urlParams = location.pathname.split('/')[2];
+      if ( urlParams ) {
+        var $selector = this.$el.find('.js--country-selector');
+        $selector.val(urlParams).trigger('change');
+      }
     },
 
     render: function() {
       this.$el.find('.js--country-selector').html(this.template({
         data: this.collection.toJSON()
       }));
-      var urlParams = location.pathname.split('/')[2];
-      if ( urlParams ) {
-        console.log(urlParams);
-        var $selector = this.$el.find('.js--country-selector');
-        $selector.val(urlParams).trigger('change');
-      }
+      this._pullStateFromUrl();
     }
   });
 
