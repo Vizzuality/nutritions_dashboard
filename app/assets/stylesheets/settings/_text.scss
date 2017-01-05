@@ -165,35 +165,33 @@
     text-decoration: underline;
   }
 
-  &.-impact-num {
-    color: #000000;
-    opacity: 0.6;
-    font-size: rem(30px);
-    font-family: $font-family-2;
-    font-weight: 700;
-    line-height: 1.03;
-
-    &.-bright {
-      opacity: 1;
-    }
-  }
-
   &.-impact {
+    font-family: $font-family-2;
+    line-height: 1.03;
     color: #000000;
     opacity: 0.6;
-    font-size: rem(32px);
-    font-family: $font-family-2;
-    font-weight: 300;
-    line-height: 1.03;
 
-    &.-bright {
+    &.-num {
+      font-size: rem(30px);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    &.-strap {
+      font-size: rem(32px);
+      font-weight: 300;
+    }
+
+    &.-white {
+      color: #ffffff;
       opacity: 1;
     }
-  }
 
-  &.-pill {
-    color: #ab4fab;
-    font-weight: 700;
+    &.-sub {
+      font-size: rem(18px);
+      opacity: 0.4;
+      font-weight: 500;
+    }
   }
 
   &.-light {
