@@ -20,31 +20,27 @@
     right: 0;
 
     @media screen and (min-width: $screen-m + 1px) {
-      bottom: rem(-210px);
+      top: rem(110px);
       position: absolute;
-    }
-
-    @media screen and (min-width: $screen-l + 1px) {
-      bottom: rem(-240px);
     }
   }
 
   &.-wasting img {
     @media screen and (min-width: $screen-l + 1px) {
-      bottom: rem(-170px);
+      top: rem(140px);
     }
   }
 
   &.-anemia img {
     @media screen and (min-width: $screen-m + 1px) {
-      bottom: rem(-160px);
+      top: rem(110px);
     }
   }
 
   &.-breastfeeding img {
 
     @media screen and (min-width: $screen-l + 1px) {
-      bottom: rem(-170px);
+      top: rem(100px);
     }
 
   }
