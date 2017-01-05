@@ -64,6 +64,7 @@
         mode: this.status.get('mode'),
         group: this.status.get('group')
       });
+      this._pushStateToUrl();
     },
 
     _setSelectedGroup: function() {
@@ -81,6 +82,15 @@
         $selector.find('option')[0].attr('selected', true);
         $selector.trigger('change');
       }
+    },
+
+    _pushStateToUrl: function() {
+      if ( this.status.get('mode') === 'global' ) {
+        var href = '/dashboards/' + this.status.get('mode');
+      } else {
+        var href = '/dashboards/' + this.status.get('mode') + '/' + this.status.get('group');
+      }
+      history.pushState({}, '', href);
     },
 
     render: function() {

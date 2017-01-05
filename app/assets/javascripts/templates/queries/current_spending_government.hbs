@@ -1,2 +1,1 @@
-SELECT * FROM domestic_government_funding 
-WHERE iso_code='{{iso}}'
+SELECT c.iso_code, c.cost, d.total_spend FROM current_spenditure_donors c join domestic_government_funding d ON c.iso_code = d.iso_code WHERE c.package='Full' and c.scenario='Global Solidarity' and c.source='Donor' and c.cost is not null and c.iso_code='{{iso}}' and c.target='Composite'

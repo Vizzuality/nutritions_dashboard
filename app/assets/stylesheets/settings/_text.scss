@@ -15,6 +15,7 @@
  p {
    a {
      font-weight: 900;
+     text-decoration: underline;
 
      &:hover {
        color: $color-3;
@@ -132,6 +133,36 @@
     @media screen and (min-width: $screen-m) {
       font-size: rem(16px);
     }
+  }
+
+  &.-map {
+    background: $white;
+    padding: rem(5px) rem(10px);
+  }
+
+  &.-funding {
+    font-size: 16px;
+    fill: rgba(#81786b, 0.5);
+  }
+
+  &.-figure {
+    font-size: 24px;
+    text-transform: uppercase;
+    fill: #81786b;
+    font-weight: 500;
+  }
+
+  &.-milestone {
+    font-size: 16px;
+    fill: rgba(#81786b, 0.5);
+
+    @media screen and (min-width: $screen-m) {
+      font-size: 12px;
+    }
+  }
+
+  &.-button {
+    text-decoration: underline;
   }
 
   &.-light {

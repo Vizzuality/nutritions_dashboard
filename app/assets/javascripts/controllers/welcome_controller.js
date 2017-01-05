@@ -10,6 +10,10 @@
       this.map = new App.View.MapHomeView({
         el: '#homeMapView'
       });
+
+      this.progress = new App.View.FundingProgressView({
+        el: '#homeMapView'
+      });
     }
 
   });

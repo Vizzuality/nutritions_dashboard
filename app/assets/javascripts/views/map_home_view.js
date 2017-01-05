@@ -4,17 +4,38 @@
 
   App.View = App.View || {};
 
-  App.View.MapHomeView = Backbone.View.extend({
+  App.View.MapHomeView = App.View.D3Map.extend({
 
     defaults: {
       buckets: {
-        bc1: '#00a3b7',
-        bc2: '#66c7bf',
-        bc3: '#ccebc7',
-        bc4: '#fffecc',
-        bc5: '#ffe6a0',
-        bc6: '#ffa16f',
-        bc7: '#e54935',
+        stuntingbc1: '#fde2fd',
+        stuntingbc2: '#f4b1f4',
+        stuntingbc3: '#e87ce8',
+        stuntingbc4: '#c766c7',
+        stuntingbc5: '#b135b1',
+        stuntingbc6: '#7f1280',
+        stuntingbc7: '#410241',
+        wastingbc1: '#fbfad6',
+        wastingbc2: '#f9e5ac',
+        wastingbc3: '#f9d15e',
+        wastingbc4: '#e8b833',
+        wastingbc5: '#cc9d18',
+        wastingbc6: '#ad830c',
+        wastingbc7: '#836207',
+        anaemiabc1: '#fdedea',
+        anaemiabc2: '#fbc0b7',
+        anaemiabc3: '#f69589',
+        anaemiabc4: '#f16250',
+        anaemiabc5: '#e12911',
+        anaemiabc6: '#ad1e0c',
+        anaemiabc7: '#6a1207',
+        ebfbc1: '#e9f6e7',
+        ebfbc2: '#bbebb3',
+        ebfbc3: '#8ed681',
+        ebfbc4: '#68b85a',
+        ebfbc5: '#339423',
+        ebfbc6: '#0d6300',
+        ebfbc7: '#004235',
         defaultFill: 'rgba(216, 216, 216,0.5)'
       },
     },
@@ -32,7 +53,8 @@
       });
       this.collection = new App.Collection.CurrentStatusCollection({});
       this._cached();
-      this._initMap();
+      this._drawMap();
+      this._fetchData();
       this.$el.find('select').select2({
         minimumResultsForSearch: Infinity
       });
@@ -45,20 +67,17 @@
       this.status.on('change:target', this._triggerSelectedTarget.bind(this));
     },
 
-    _initMap: function() {
-      this._drawMap();
-      this._fetchData();
-    },
-
     _cached: function() {
       this.bucketNum = Object.keys(this.defaults.buckets).length;
     },
 
     _fetchData: function() {
+      this.ajaxStart('#map-section');
       var target = this.status.get('target');
 
       this.collection.getTotalByCountry(target).done(function(){
         this._updateMap();
+        this.ajaxComplete('#map-section');
       }.bind(this));
     },
 
@@ -71,38 +90,18 @@
       this._fetchData();
     },
 
-    _drawMap: function() {
-      this.map = new Datamap({
-        scope: 'world',
-        element: document.getElementById('map-container'),
-        projection: 'robinson',
-        responsive: true,
-        fills: this.defaults.buckets,
-        geographyConfig: {
-          dataUrl: null,
-          hideAntarctica: true,
-          hideHawaiiAndAlaska: true,
-          borderWidth: 0,
-          highlightOnHover: false,
-          popupOnHover: false,
-        },
-        data: {},
-      })
-    },
-
-    _updateMap: function() {
-      var data = this.collection.toJSON();
-      var parsedData = this._parseData(data);
-      this.map.updateChoropleth(parsedData);
-    },
-
-    _resizeMap: function() {
-      this.map.resize();
-    },
-
     _setBucket: function(sum) {;
-      var bucket = ~~(( sum * (this.bucketNum - 1) ) / 100) + 1;
-      return "bc" + bucket;
+      var bucket = ~~(( sum * (7 - 1) ) / 100) + 1;
+      var target = this.status.get('target');
+      return target + "bc" + bucket;
+    },
+
+    _paintLegend: function() {
+      var bucketList = $('#mapLegendView').find('.bucket span');
+      _.each(bucketList, function(bucket, index) {
+        var color = this.defaults.buckets[this.status.get('target') + 'bc' + (index + 1)];
+        $(bucket).attr('style', 'background-color:' + color );
+      }.bind(this));
     },
 
     _parseData: function(data) {
@@ -117,10 +116,14 @@
       return summedData;
     },
 
-    remove: function() {
-      $(window).off('resize', this._resizeMap.bind(this));
-      Backbone.View.prototype.remove.apply(this, arguments);
+    _updateMap: function() {
+      var data = this.collection.toJSON();
+      var parsedData = this._parseData(data);
+      this.map.updateChoropleth(parsedData, {reset: true});
+      this._paintLegend();
     }
+
+
 
   });
 

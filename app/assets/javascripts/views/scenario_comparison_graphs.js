@@ -20,6 +20,7 @@
     },
 
     _fetchData: function() {
+      this.ajaxStart('#fullPrioritySection');
       var params = {
         mode: this.status.get('mode'),
         group: this.status.get('group')
@@ -27,6 +28,7 @@
 
       this.collection.getDataForScenarios(params).done(function(){
         this.render();
+        this.ajaxComplete('#fullPrioritySection');
       }.bind(this));
     },
 
@@ -63,7 +65,7 @@
         el: this.el,
         options: {
           data: {
-            json: {      
+            json: {
               'Donor': _.pluck(_.where(data, {source: 'Donor'}), 'cost'),
               'Domestic': _.pluck(_.where(data, {source: 'Domestic'}), 'cost'),
               'Innovative': _.pluck(_.where(data, {source: 'Innovative'}), 'cost'),

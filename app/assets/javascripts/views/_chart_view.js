@@ -19,6 +19,10 @@
         'Full': '#93c9d8',
         'Priority': '#00a3b7'
       },
+      funding: {
+        'Donor': '#93c9d8',
+        'Gov': '#00a3b7'
+      },
       sources: {
         'Gap': '#00a3b7',
         'Household': '#9C9080',
@@ -39,12 +43,20 @@
       this._addListeners();
     },
 
+    ajaxStart: function(view){
+        $(view).addClass('-loading');
+    },
+
+    ajaxComplete: function(view){
+        $(view).removeClass('-loading');
+    },
+
     _addListeners: function() {
       //Internal
       this.status.on('change:group', this._fetchData.bind(this));
 
       //External
-      App.Events.on('group:selected', this._setStatus.bind(this))
+      App.Events.on('group:selected', this._setStatus.bind(this));
     },
 
     _setStatus: function(params) {
