@@ -46,7 +46,6 @@
       }
 
       .title {
-        margin-bottom: rem(30px);
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -64,6 +63,10 @@
           background-position: bottom;
         }
       }
+
+      p {
+        margin-top: rem(30px);
+      }
     }
 
     .image-box {
@@ -79,39 +82,39 @@
       background-size: contain;
 
       &.-stunting-1 {
-        background-image: image-url('illustrations/01_01_Stunting_Starving.png');
+        background-image: image-url('illustrations/stunting_starving.png');
         width: 230px;
         height: 300px;
       }
 
       &.-stunting-2 {
-        background-image: image-url('illustrations/01_03_Stunting_Student.png');
+        background-image: image-url('illustrations/stunting_student.png');
         width: rem(270px);
         height: rem(300px);
       }
 
       &.-wasting-1 {
-        background-image: image-url('illustrations/01_01_Stunting_Starving.png');
+        background-image: image-url('illustrations/wasted_hospital.png');
         width: 230px;
         height: 300px;
       }
 
-      &.-wasting-2 {
-        background-image: image-url('illustrations/01_03_Stunting_Student.png');
-        width: rem(270px);
-        height: rem(300px);
-      }
-
       &.-anaemia-1 {
-        background-image: image-url('illustrations/02_01_Anemia_Laboratory.png');
+        background-image: image-url('illustrations/anaemia_lab.png');
         width: 300px;
         height: 300px;
       }
 
       &.-anaemia-2 {
-        background-image: image-url('illustrations/02_04_Anemia_Medicaments.png');
+        background-image: image-url('illustrations/anaemia_medi.png');
         width: rem(270px);
         height: rem(340px);
+      }
+
+      &.-breastfeeding-1 {
+        background-image: image-url('illustrations/breastfeeding_learn.png');
+        width: 230px;
+        height: 300px;
       }
     }
   }
@@ -122,13 +125,14 @@
     right: 0;
     bottom: 0;
     padding: rem(30px) 0;
+    margin-top: rem(40px);
 
     &.-stunting {
       background-color: #ab4fab;
     }
 
     &.-wasting {
-      background-color: #ab4fab;
+      background-color: #F4BD19;
     }
 
     &.-anaemia {
@@ -177,7 +181,7 @@
     }
 
     &.-wasting {
-      color: #86db90;
+      color: #F4BD19;
     }
 
     &.-anaemia {
