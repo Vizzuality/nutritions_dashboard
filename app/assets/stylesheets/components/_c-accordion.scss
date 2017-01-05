@@ -9,22 +9,6 @@
     position: relative;
     z-index: 10;
     cursor: pointer;
-    max-width: 67.5rem;
-    margin-left: auto;
-    margin-right: auto;
-    display: -ms-flexbox;
-    display: -webkit-box;
-    display: flex;
-    -ms-flex-flow: row wrap;
-    flex-flow: row wrap;
-    padding-left: 10px;
-
-    &.-right {
-
-      @media screen and (min-width: $screen-m) {
-        margin-left: 41.66667%;
-      }
-    }
   }
 
   .accordion-content {
@@ -57,6 +41,10 @@
         align-items: flex-start;
         justify-content: center;
         flex-direction: column;
+      }
+
+      &.-offset {
+        padding-top: rem(150px);
       }
 
       h3 {
