@@ -51,6 +51,7 @@
       App.Events.trigger('country:selected', {
         iso: this.status.get('iso')
       });
+      this._pushStateToUrl();
     },
 
     _setSelectedGroup: function() {
@@ -70,12 +71,24 @@
       }
     },
 
+    _pushStateToUrl: function() {
+      var href = '/countries/' + this.status.get('iso');
+      history.pushState({}, '', href);
+    },
+
+    _pullStateFromUrl: function() {
+      var urlParams = location.pathname.split('/')[2];
+      if ( urlParams ) {
+        var $selector = this.$el.find('.js--country-selector');
+        $selector.val(urlParams).trigger('change');
+      }
+    },
+
     render: function() {
       this.$el.find('.js--country-selector').html(this.template({
         data: this.collection.toJSON()
       }));
-
-      // this._setSelectedGroup();
+      this._pullStateFromUrl();
     }
   });
 

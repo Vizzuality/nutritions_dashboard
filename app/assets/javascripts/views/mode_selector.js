@@ -36,7 +36,8 @@
 
     _updateMode: function() {
       App.Events.trigger('mode:selected', { mode: this.status.get('mode') });
-    }
+    },
+
   });
 
 })(this.App);
