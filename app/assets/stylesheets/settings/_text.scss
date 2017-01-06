@@ -172,14 +172,22 @@
     opacity: 0.6;
 
     &.-num {
-      font-size: rem(30px);
+      font-size: rem(24px);
       font-weight: 700;
       margin-bottom: 10px;
+
+      @media screen and (min-width: $screen-m) {
+        font-size: rem(30px);
+      }
     }
 
     &.-strap {
-      font-size: rem(32px);
+      font-size: rem(26px);
       font-weight: 300;
+
+      @media screen and (min-width: $screen-m) {
+        font-size: rem(32px);
+      }
     }
 
     &.-white {
@@ -188,9 +196,13 @@
     }
 
     &.-sub {
-      font-size: rem(18px);
+      font-size: rem(14px);
       opacity: 0.4;
       font-weight: 500;
+
+      @media screen and (min-width: $screen-m) {
+        font-size: rem(18px);
+      }
     }
   }
 

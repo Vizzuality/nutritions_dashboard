@@ -19,7 +19,7 @@
   &.-stunting img {
     right: 0;
 
-    @media screen and (min-width: $screen-m + 1px) {
+    @media screen and (min-width: $screen-l + 1px) {
       top: rem(110px);
       position: absolute;
     }
