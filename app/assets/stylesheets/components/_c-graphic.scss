@@ -3,50 +3,42 @@
   height: 100%;
   position: relative;
 
-  img {
-    max-height: 500px;
-    padding-top: rem(20px);
-    text-align: center;
-    margin: auto;
-    padding-left: rem(15px);
-    padding-right: rem(15px);
+  .image {
+    width: 100%;
+    height: 100%;
+    position: relative;;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: rem(30px);
+    height: rem(300px);
 
-    @media screen and (min-width: $screen-m + 1px) {
+    @media screen and (min-width: $screen-m) {
       position: absolute;
-    }
-  }
-
-  &.-stunting img {
-    right: 0;
-
-    @media screen and (min-width: $screen-m + 1px) {
-      bottom: rem(-210px);
-      position: absolute;
+      margin-top: 0;
+      top: rem(150px);
+      height: rem(450px);
     }
 
-    @media screen and (min-width: $screen-l + 1px) {
-      bottom: rem(-240px);
-    }
-  }
+    &.-stunting {
+      background-image: image_url('illustrations/stunting_grow.png');
 
-  &.-wasting img {
-    @media screen and (min-width: $screen-l + 1px) {
-      bottom: rem(-170px);
-    }
-  }
-
-  &.-anemia img {
-    @media screen and (min-width: $screen-m + 1px) {
-      bottom: rem(-160px);
-    }
-  }
-
-  &.-breastfeeding img {
-
-    @media screen and (min-width: $screen-l + 1px) {
-      bottom: rem(-170px);
+      @media screen and (min-width: $screen-m) {
+        top: rem(160px);
+      }
     }
 
+    &.-wasting {
+      background-image: image_url('illustrations/wasted_brain.png');
+    }
+
+    &.-anaemia {
+      background-image: image_url('illustrations/anaemia_woman.png');
+    }
+
+    &.-breastfeeding {
+      background-image: image_url('illustrations/breastfeeding_woman_child.png');
+    }
   }
 }
 

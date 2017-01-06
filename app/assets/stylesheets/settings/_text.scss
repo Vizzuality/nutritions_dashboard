@@ -165,6 +165,47 @@
     text-decoration: underline;
   }
 
+  &.-impact {
+    font-family: $font-family-2;
+    line-height: 1.03;
+    color: #000000;
+    opacity: 0.6;
+
+    &.-num {
+      font-size: rem(24px);
+      font-weight: 700;
+      margin-bottom: 10px;
+
+      @media screen and (min-width: $screen-m) {
+        font-size: rem(30px);
+      }
+    }
+
+    &.-strap {
+      font-size: rem(26px);
+      font-weight: 300;
+
+      @media screen and (min-width: $screen-m) {
+        font-size: rem(32px);
+      }
+    }
+
+    &.-white {
+      color: #ffffff;
+      opacity: 1;
+    }
+
+    &.-sub {
+      font-size: rem(14px);
+      opacity: 0.4;
+      font-weight: 500;
+
+      @media screen and (min-width: $screen-m) {
+        font-size: rem(18px);
+      }
+    }
+  }
+
   &.-light {
     color: $white;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
