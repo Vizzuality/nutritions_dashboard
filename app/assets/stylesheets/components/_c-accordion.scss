@@ -1,5 +1,5 @@
 .c-accordion {
-  padding-bottom: rem(10px);
+  // padding-bottom: rem(10px);
 
   input{
     display: none;
@@ -9,20 +9,6 @@
     position: relative;
     z-index: 10;
     cursor: pointer;
-
-    &.-open {
-      margin-top: -80px;
-    }
-  }
-
-  .accordion-content {
-    width: 100%;
-    overflow: hidden;
-    height: 0;
-    position: relative;
-    z-index: 10;
-    transition:
-      height 0.1s ease-in-out,
   }
 
   input:checked ~ label {
@@ -35,6 +21,224 @@
   }
 
   input:checked ~ .accordion-content{
-    height: rem(600px);
+    height: 100%;
+  }
+
+  .accordion-content {
+    width: 100%;
+    overflow: hidden;
+    height: 0;
+    position: relative;
+    z-index: 10;
+    transition:
+      height 0.1s ease-in-out;
+
+    .info-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-direction: column;
+      padding-right: rem(50px);
+      margin-bottom: rem(30px);
+
+      @media screen and (min-width: $screen-l) {
+        margin-bottom: 0;
+      }
+
+      &.-lower {
+        justify-content: center;
+
+        @media screen and (min-width: $screen-l) {
+          height: rem(400px);
+        }
+      }
+
+      .title {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;;
+        align-items: flex-start;
+
+        @media screen and (min-width: $screen-m) {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: flex-end;
+        }
+
+        &.-tall {
+          @media screen and (min-width: $screen-l) {
+            height: rem(250px);
+          }
+        }
+
+        &.-short {
+          @media screen and (min-width: $screen-l) {
+            height: rem(150px);
+          }
+        }
+
+        .image {
+          background-position: bottom;
+        }
+      }
+
+      p {
+        @media screen and (min-width: $screen-m) {
+          margin-top: rem(30px);
+        }
+      }
+    }
+
+    .image-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    .image {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      margin: rem(20px) 0;
+
+      &.-stunting-1 {
+        background-image: image-url('illustrations/stunting_starving.png');
+        width: 100%;
+        height: 300px;
+
+        @media screen and (min-width: $screen-m) {
+          width: 230px;
+        }
+      }
+
+      &.-stunting-2 {
+        background-image: image-url('illustrations/stunting_student.png');
+        width: rem(270px);
+        height: rem(300px);
+      }
+
+      &.-wasting-1 {
+        background-image: image-url('illustrations/wasted_hospital.png');
+        width: 230px;
+        height: 300px;
+      }
+
+      &.-anaemia-1 {
+        background-image: image-url('illustrations/anaemia_lab.png');
+        width: 300px;
+        height: 220px;
+      }
+
+      &.-anaemia-2 {
+        background-image: image-url('illustrations/anaemia_medi.png');
+        width: rem(270px);
+        height: rem(340px);
+      }
+
+      &.-breastfeeding-1 {
+        background-image: image-url('illustrations/breastfeeding_learn.png');
+        width: 230px;
+        height: 300px;
+      }
+    }
+  }
+
+  .impact-section {
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 0 rem(30px);
+    margin-top: rem(40px);
+
+    @media screen and (min-width: $screen-m) {
+      padding: rem(30px) 0;
+    }
+
+    &.-stunting {
+      background-color: #ab4fab;
+    }
+
+    &.-wasting {
+      background-color: #F4BD19;
+    }
+
+    &.-anaemia {
+      background-color: #e54935;
+    }
+
+    &.-breastfeeding {
+      background-color: #86db90;
+    }
+
+    .sub {
+      border-top: solid 1px rgba(0, 0, 0, 0.2);
+      padding-top: rem(10px);
+      margin-top: rem(5px);
+
+      @media screen and (min-width: $screen-m) {
+        margin-top: rem(25px);
+      }
+    }
+
+    .-num {
+      margin-top: rem(20px);
+
+      @media screen and (min-width: $screen-m) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .icon {
+    width: rem(30px);
+    height: rem(27px);
+    margin-left: rem(10px);
+
+    &.-light {
+      fill: $white;
+    }
+  }
+
+  .border {
+    margin-left: 0;
+
+    @media screen and (min-width: $screen-m) {
+      border-left: solid 2px rgba(0, 0, 0, 0.4);
+      padding-left: rem(20px);
+      margin-left: rem(-20px);
+    }
+  }
+
+  .pill {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: rem(25px);
+    text-align: center;
+    padding: rem(3px) 0;
+    margin: auto;
+    margin-top: rem(10px);
+    font-weight: 700;
+    font-size: rem(16px);
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(22px);
+    }
+
+    &.-stunting {
+      color: #ab4fab;
+    }
+
+    &.-wasting {
+      color: #F4BD19;
+    }
+
+    &.-anaemia {
+      color: #e54935;
+    }
+
+    &.-breastfeeding {
+      color: #86db90;
+    }
   }
 }
