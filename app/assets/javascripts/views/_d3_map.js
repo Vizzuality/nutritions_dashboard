@@ -25,9 +25,11 @@
             popupTemplate: function(geography, data) { //this function should just return a string
             // var sum = (data.sum) ? data.sum + '%' : '';
             if ( data ) {
-              return '<div class="text -map"><strong>' + geography.properties.name + '</strong><p>' + data.sum + '%</p></div>';
-            } else {
-              return '<div class="text -map"><strong>' + geography.properties.name + '</strong></div>';
+              if ( data.sum ) {
+                return '<div class="text -map"><strong>' + geography.properties.name + '</strong><p>' + data.sum + '%</p></div>';
+              } else {
+                return '<div class="text -map"><strong>' + geography.properties.name + '</strong></div>';
+              }
             }
           },
           popupOnHover: true, //disable the popup while hovering
