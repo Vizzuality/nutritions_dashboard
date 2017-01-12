@@ -16,10 +16,15 @@
    a {
      font-weight: 900;
      text-decoration: underline;
+     color: #5b564e;
 
      &:hover {
-       color: $color-3;
+       color: $color-2;
      }
+   }
+
+   b {
+     color: #5b564e;
    }
  }
 
