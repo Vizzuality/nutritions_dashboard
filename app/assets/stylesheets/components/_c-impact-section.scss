@@ -15,7 +15,7 @@
     }
 
     .-wasting & {
-      background-color: #e54935;
+      background-color: #F4BD19;
       background-image: image-url('causes/closed/wasting.png');
     }
 
@@ -34,12 +34,13 @@
     padding: rem(30px) 0;
     padding-left: 1000px;
     margin-left: -1000px;
+    height: 100%;
     background-color: rgba(0,0,0,.1);
   }
 
   .results {
     @media screen and (min-width: $screen-m) {
-      padding-top: rem(30px);
+      padding: rem(30px) 0;
     }
   }
 
@@ -59,10 +60,6 @@
     .-breastfeeding & {
       background-color: #86db90;
     }
-  }
-
-  .result {
-    height: 100%;
   }
 
   .sub {
