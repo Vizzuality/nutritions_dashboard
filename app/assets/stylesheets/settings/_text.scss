@@ -171,6 +171,10 @@
     color: #000000;
     opacity: 0.6;
 
+    & + .-num {
+      margin-top: rem(20px);
+    }
+
     &.-num {
       font-size: rem(24px);
       font-weight: 700;
