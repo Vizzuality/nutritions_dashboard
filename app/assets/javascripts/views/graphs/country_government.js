@@ -6,6 +6,11 @@
 
   App.View.CountryGovernmentView = App.View.Chart.extend({
 
+    templates: {
+      domestic: HandlebarsTemplates['current_funding_domestic'],
+      foreign: HandlebarsTemplates['current_funding_domestic_null']
+    },
+
     initialize: function() {
       this.status = new Backbone.Model({});
       this.model = new App.Model.CountriesModel();
@@ -33,12 +38,35 @@
       }.bind(this));
     },
 
+    _formatNum: function(num) {
+      if (num > 1000 || num < -1000) {
+        var num = '$' + d3.format('.3s')(num);
+        num = num.replace("G", "B");
+        return num;
+      } else {
+        return d3.round(num, 2);
+      }
+    },
+
+    _drawText: function(data) {
+      if ( data[0].cost === null ) {
+        this.$el.find('#governmentFundingText').html(this.templates.foreign({
+          donor: this._formatNum(data[0].cost),
+          country: data[0].country
+        }));
+      } else {
+        this.$el.find('#governmentFundingText').html(this.templates.domestic({
+          donor: this._formatNum(data[0].cost),
+          gov: this._formatNum(data[0].total_spend*1000000),
+          total: this._formatNum(data[0].cost + data[0].total_spend*1000000),
+          country: data[0].country
+        }));
+      }
+    },
+
     _drawGraph: function() {
-
-
-      //convert numerical values from strings to numbers
       var data = this.model.toJSON();
-
+      this._drawText(data);
       this.stackChart = new App.View.C3Chart({
         el: this.el,
         options: {

@@ -351,7 +351,6 @@
 	}
 }
 
-
 .select2-dropdown-open .select2-choice {
 	box-shadow: none;
 	border-bottom-left-radius: 0;
@@ -361,5 +360,23 @@
 		background: transparent;
 		border-left: none;
 		filter: none;
+	}
+}
+
+
+.plain {
+	width: 100%;
+	display: inline-block;
+
+	@media screen and (min-width: $screen-m) {
+		width: 220px;
+	}
+
+	.select2-container {
+		margin-top: 10px;
+
+		@media screen and (min-width: $screen-m) {
+			margin-top: -10px;
+		}
 	}
 }

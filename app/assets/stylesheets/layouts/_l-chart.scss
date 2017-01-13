@@ -49,20 +49,30 @@
   }
 
   &#currentCountryDonor {
-    margin-top: rem(20px);
-    margin-left: rem(-20px);
 
-    @media screen and (min-width: $screen-m) {
-      margin-left: rem(-5px);
-    }
+    .c-chart {
+      margin-top: rem(20px);
+      margin-left: rem(-20px);
 
-    @media screen and (min-width: $screen-l + 1px) {
-      margin-left: rem(-40px);
+      @media screen and (min-width: $screen-m) {
+        margin-left: rem(-5px);
+      }
+
+      @media screen and (min-width: $screen-l + 1px) {
+        margin-left: rem(-40px);
+      }
     }
   }
 
   &#currentCountryGovernment {
-    margin-top: rem(20px);
-    margin-left: rem(-15px);
+
+    .c-chart {
+      margin-top: rem(44px);
+      margin-left: rem(-15px);
+    }
+
+    .-offset {
+      margin-bottom: rem(40px);
+    }
   }
 }
