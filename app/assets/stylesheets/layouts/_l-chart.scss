@@ -67,7 +67,7 @@
   &#currentCountryGovernment {
 
     .c-chart {
-      margin-top: rem(44px);
+      margin-top: rem(20px);
       margin-left: rem(-15px);
     }
 
@@ -75,10 +75,7 @@
       margin-bottom: rem(40px);
     }
 
-    .placeholder {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .c-placeholder {
       min-height: rem(300px);
     }
   }

@@ -50,6 +50,7 @@
     },
 
     _drawText: function(data) {
+      $('.placeholder').css('display', 'block');
       if ( data[0].total_spend === null ) {
         this.$el.find('#governmentFundingText').html(this.templates.foreign({
           donor: this._formatNum(data[0].cost),
