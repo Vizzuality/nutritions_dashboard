@@ -22,8 +22,8 @@
     },
 
     initTitleView: function() {
-      this.title = new App.View.TitleView({
-        el: '#titleView'
+      this.donorText = new App.View.CurrentDonorFundingTextView({
+        el: '#currentDonorFundingText'
       })
     },
 

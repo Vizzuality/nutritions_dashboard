@@ -27,7 +27,6 @@
 //= require_tree ./helpers/
 //= require_tree ./models/
 //= require_tree ./collections/
-//= require_tree ./views/shared/
 //= require_tree ./views/maps/
 //= require_tree ./views/graphs/
 //= require_tree ./views/modals/
