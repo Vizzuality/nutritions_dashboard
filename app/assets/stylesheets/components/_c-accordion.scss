@@ -82,6 +82,12 @@
           }
         }
 
+        &.-medium {
+          @media screen and (min-width: $screen-l) {
+            height: rem(210px);
+          }
+        }
+
         &.-short {
           @media screen and (min-width: $screen-l) {
             height: rem(150px);
