@@ -74,5 +74,12 @@
     .-offset {
       margin-bottom: rem(40px);
     }
+
+    .placeholder {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: rem(300px);
+    }
   }
 }
