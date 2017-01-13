@@ -28,6 +28,13 @@
    }
  }
 
+ p.-light {
+  a {
+    color: $white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+ }
+
 .text {
   font-family: $font-family-1;
   color: $color-2;
