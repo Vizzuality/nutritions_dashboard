@@ -28,3 +28,12 @@
     }
   }
 }
+
+.btn-close-detail {
+  display: block;
+  width: 100%;
+  padding: rem(10px) 0;
+  text-align: center;
+  color: $white;
+  text-transform: uppercase;
+}

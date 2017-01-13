@@ -176,6 +176,10 @@
     color: #000000;
     opacity: 0.6;
 
+    & + .-num {
+      margin-top: rem(20px);
+    }
+
     &.-num {
       font-size: rem(24px);
       font-weight: 700;
@@ -193,6 +197,12 @@
       @media screen and (min-width: $screen-m) {
         font-size: rem(32px);
       }
+    }
+
+    &.-action {
+      position: relative;
+      font-size: 16px;
+      margin-bottom: 5px;
     }
 
     &.-white {

@@ -49,6 +49,14 @@
     background-image: image-url('causes/closed/breastfeeding.png');
   }
 
+  &.-others {
+    border-bottom: 1px solid rgba($color-3, .3);
+
+    @media screen and (min-width: $screen-m) {
+      min-height: rem(400px);
+    }
+  }
+
   .smooth-scroll {
     display: flex;
     justify-content: center;
