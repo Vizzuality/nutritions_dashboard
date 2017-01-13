@@ -42,6 +42,10 @@
 
       @media screen and (min-width: $screen-l) {
         margin-bottom: 0;
+
+        &.-aligned {
+          margin-top: rem(-60px);
+        }
       }
 
       &.-lower {
@@ -49,6 +53,14 @@
 
         @media screen and (min-width: $screen-l) {
           height: rem(400px);
+        }
+      }
+
+      &.-medium {
+        justify-content: center;
+
+        @media screen and (min-width: $screen-l) {
+          height: rem(200px);
         }
       }
 
@@ -93,6 +105,12 @@
       justify-content: center;
       align-items: center;
       height: 100%;
+
+      @media screen and (min-width: $screen-m) {
+        &.-extra-space-hack {
+          padding-top: rem(120px);
+        }
+      }
     }
 
     .image {
@@ -119,6 +137,12 @@
 
       &.-wasting-1 {
         background-image: image-url('illustrations/wasted_hospital.png');
+        width: 230px;
+        height: 100px;
+      }
+
+      &.-wasting-2 {
+        background-image: image-url('illustrations/wasted_hospital_child.png');
         width: 230px;
         height: 300px;
       }
