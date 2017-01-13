@@ -10,7 +10,7 @@
     background-repeat: repeat-x;
 
     .-stunting & {
-      background-color: #ab4fab;
+      background-color: #d56cd5;
       background-image: image-url('causes/closed/stunting.png');
     }
 
@@ -20,7 +20,7 @@
     }
 
     .-anemia & {
-      background-color: #e54935;
+      background-color: #f35743;
       background-image: image-url('causes/closed/anemia.png');
     }
 
@@ -46,7 +46,7 @@
 
   .handler {
     .-stunting & {
-      background-color: #ab4fab;
+      background-color: #d56cd5;
     }
 
     .-wasting  &{
@@ -54,7 +54,7 @@
     }
 
     .-anemia  &{
-      background-color: #e54935;
+      background-color: #f35743;
     }
 
     .-breastfeeding & {
@@ -94,7 +94,7 @@
     }
 
     &.-stunting {
-      color: #ab4fab;
+      color: #d56cd5;
     }
 
     &.-wasting {
@@ -102,7 +102,7 @@
     }
 
     &.-anaemia {
-      color: #e54935;
+      color: #f35743;
     }
 
     &.-breastfeeding {

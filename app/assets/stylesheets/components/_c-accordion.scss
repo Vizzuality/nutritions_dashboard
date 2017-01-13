@@ -186,4 +186,12 @@
       margin-left: rem(-20px);
     }
   }
+
+  .-title {
+    @media screen and (min-width: $screen-m) {
+      &.-aligned-breestfeeding {
+        margin-top: rem(-40px);
+      }
+    }
+  }
 }
