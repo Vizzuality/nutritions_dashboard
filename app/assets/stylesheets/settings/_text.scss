@@ -16,11 +16,23 @@
    a {
      font-weight: 900;
      text-decoration: underline;
+     color: #5b564e;
 
      &:hover {
-       color: $color-3;
+       color: $color-2;
      }
    }
+
+   b {
+     color: #5b564e;
+   }
+ }
+
+ p.-light {
+  a {
+    color: $white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
  }
 
 .text {
@@ -171,6 +183,10 @@
     color: #000000;
     opacity: 0.6;
 
+    & + .-num {
+      margin-top: rem(20px);
+    }
+
     &.-num {
       font-size: rem(24px);
       font-weight: 700;
@@ -188,6 +204,12 @@
       @media screen and (min-width: $screen-m) {
         font-size: rem(32px);
       }
+    }
+
+    &.-action {
+      position: relative;
+      font-size: 16px;
+      margin-bottom: 5px;
     }
 
     &.-white {

@@ -4,40 +4,39 @@
 
   App.View = App.View || {};
 
-  App.View.CountryGovernmentView = App.View.Chart.extend({
+  App.View.CostPackagesView = App.View.Chart.extend({
 
     initialize: function() {
       this.status = new Backbone.Model({});
-      this.model = new App.Model.CountriesModel();
+      this.collection = new App.Collection.IndicatorsCollection();
 
-      App.View.CountryGovernmentView.__super__.initialize.apply(this);
-    },
-
-    _addListeners: function() {
-      //Internal
-      this.status.on('change:iso', this._fetchData.bind(this));
-
-      //External
-      App.Events.on('country:selected', this._setStatus.bind(this));
+      App.View.CostPackagesView.__super__.initialize.apply(this);
     },
 
     _fetchData: function() {
-      this.ajaxStart('#currentCountryGovernment');
+      this.ajaxStart('#packageComparisonSection');
       var params = {
-        iso: this.status.get('iso')
+        mode: this.status.get('mode'),
+        group: this.status.get('group')
       };
 
-      this.model.getDataForCountryGovernment(params).done(function(){
+      this.collection.getDataForCostPackages(params).done(function(){
         this.render();
-        this.ajaxComplete('#currentCountryGovernment');
+        this.ajaxComplete('#packageComparisonSection');
       }.bind(this));
     },
 
+    _parseData: function(data) {
+      for ( var i = 0; i < data.Full.length; i++ ) {
+        data.Full[i].cost = data.Full[i].cost - data.RTS[i].cost;
+      }
+      return data;
+    },
+
     _drawGraph: function() {
-
-
-      //convert numerical values from strings to numbers
-      var data = this.model.toJSON();
+      var data = this.collection.toJSON();
+      var groupedData = _.groupBy(data, 'package');
+      var parsedData = this._parseData(groupedData);
 
       this.stackChart = new App.View.C3Chart({
         el: this.el,
@@ -45,22 +44,21 @@
           padding: {
             top: 10
           },
-          color: this.colors.funding,
+          color: this.colors.other,
           data: {
-            columns: [
-              ['Gov', data[0].total_spend*1000000, 0, data[0].total_spend*1000000],
-              ['Donor', 0, data[0].cost, data[0].cost]
-            ],
+            json: {
+              'Priority': _.pluck(parsedData.RTS, 'cost'),
+              'Full': _.pluck(parsedData.Full, 'cost')
+            },
             type: 'bar',
             groups: [
-              ['Gov', 'Donor']
+              ['Priority', 'Full']
             ],
-            colors: this.colors.funding,
-            order: false
+            colors: this.colors.packages
           },
           bar: {
               width: {
-                  ratio: 0.4 // this makes bar width 50% of length between ticks
+                  ratio: 0.6 // this makes bar width 50% of length between ticks
               }
               // or
               //width: 100 // this makes bar width 100px
@@ -71,7 +69,7 @@
           axis: {
             x: {
               type: 'category',
-              categories: ['Gov.', 'Donors', 'Gov + Donors'],
+              categories: ["'16", "'17", "'18", "'19", "'20", "'21", "'22", "'23", "'24", "'25"],
               tick: {},
               padding: {
                 left: 0,
@@ -98,9 +96,6 @@
             y: {
               show: true
             }
-          },
-          legend: {
-            hide: true
           }
         }
       });

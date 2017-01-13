@@ -26,8 +26,8 @@
       this.collection = new App.Collection.CountriesCollection();
 
       this._drawMap();
-      this._setListeners();
       this._fetchData();
+      this._setListeners();
       App.View.MapCountriesView.__super__.initialize.apply(this);
     },
 

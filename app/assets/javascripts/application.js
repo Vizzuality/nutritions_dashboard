@@ -27,7 +27,11 @@
 //= require_tree ./helpers/
 //= require_tree ./models/
 //= require_tree ./collections/
-//= require_tree ./views/
+//= require_tree ./views/maps/
+//= require_tree ./views/graphs/
+//= require_tree ./views/modals/
+//= require_tree ./views/selectors/
+//= require_tree ./views/texts/
 //= require_tree ./controllers/
 
 //= require router

@@ -48,4 +48,8 @@
       padding-bottom: rem(30px);
     }
   }
+
+  &.placeholder {
+    display: none;
+  }
 }
