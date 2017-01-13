@@ -49,7 +49,7 @@
     },
 
     _drawText: function(data) {
-      if ( data[0].cost > 0 ) {
+      if ( data[0].cost === null ) {
         this.$el.find('#governmentFundingText').html(this.templates.foreign({
           donor: this._formatNum(data[0].cost),
           country: data[0].country
