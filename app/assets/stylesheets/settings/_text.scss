@@ -228,6 +228,18 @@
     }
   }
 
+  &.-goal-sub {
+    font-family: $font-family-2;
+    font-weight: 300;
+    font-size: rem(26px);
+    line-height: 1.31;
+    color: $color-2;
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(32px);
+    }
+  }
+
   &.-light {
     color: $white;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);

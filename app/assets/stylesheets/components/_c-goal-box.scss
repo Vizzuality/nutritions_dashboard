@@ -1,0 +1,24 @@
+.c-goal-box {
+  border-radius: 2px;
+	background-color: rgba(213, 204, 189, 0.4);
+	border: solid 1px #d5ccbd;
+  padding: rem(35px);
+  margin-bottom: rem(30px);
+
+  .strapline {
+    border-top: solid 1px $color-2;
+    padding-top: rem(20px);
+    margin-top: rem(30px);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    .icon {
+      width: rem(50px);
+      height: rem(45px);
+      margin-right: rem(20px);
+      fill: $color-2;
+    }
+  }
+}
