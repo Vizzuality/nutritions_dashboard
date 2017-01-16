@@ -73,6 +73,21 @@
     }
   }
 
+  &.-title-map {
+    font-size: rem(20px);
+    font-weight: 700;
+    line-height: 1.25;
+    font-family: $font-family-2;
+
+    @media screen and (min-width: $screen-xs + 1px) {
+      font-size: rem(24px);
+    }
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(28px);
+    }
+  }
+
   &.-subtitle {
     font-size: 18px;
     font-weight: 900;
