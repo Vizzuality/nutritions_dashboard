@@ -243,15 +243,14 @@
     }
   }
 
-  &.-goal-sub {
+  &.-goal-title {
+    font-size: rem(21px);
+    font-weight: 700;
+    line-height: 1.25;
     font-family: $font-family-2;
-    font-weight: 300;
-    font-size: rem(26px);
-    line-height: 1.31;
-    color: $color-2;
 
     @media screen and (min-width: $screen-m) {
-      font-size: rem(32px);
+      font-size: rem(28px);
     }
   }
 
