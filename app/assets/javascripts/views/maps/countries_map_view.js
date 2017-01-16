@@ -9,7 +9,6 @@
     defaults: {
       buckets: {
         active: '#009da7',
-        data: '#13bddb',
         dormant: '#93c9d8',
         defaultFill: 'rgba(216, 216, 216,0.5)'
       },
@@ -54,8 +53,6 @@
           // debugger
           if ( country === iso ) {
             data[iso].fillKey = 'active'
-          } else if ( data[iso].gov === true ) {
-            data[iso].fillKey = 'data'
           } else {
             data[iso].fillKey = 'dormant'
           }
@@ -84,18 +81,10 @@
     _parseData: function(data) {
       var parsedData = {};
       _.each(data, function(country) {
-        if ( country.total_spend === null ) {
-          parsedData[country.iso_code] = {
-            fillKey: 'dormant',
-            gov: false,
-            name: country.country
-          }
-        } else {
-          parsedData[country.iso_code] = {
-            fillKey: 'data',
-            gov: true,
-            name: country.country
-          }
+        parsedData[country.iso_code] = {
+          fillKey: 'dormant',
+          gov: true,
+          name: country.country
         }
       }.bind(this));
       return parsedData;
