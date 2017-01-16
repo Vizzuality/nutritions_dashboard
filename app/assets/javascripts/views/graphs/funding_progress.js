@@ -59,7 +59,7 @@
           height = 100,
           width = screenWidth >= 768 ? 1080 : 500,
           padding = 20,
-          xMax = this._round(data.total);
+          xMax = this.status.get('target') === 'wasting' ? 16000000000 : this._round(data.total);
 
       var scaledData = {};
       _.each(data, function (value, index){
