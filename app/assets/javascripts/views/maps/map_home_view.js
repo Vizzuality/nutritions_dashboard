@@ -110,7 +110,8 @@
         var sum = country['per_' + this.status.get('target')] !== null ? country['per_' + this.status.get('target')] : 0;
         summedData[country.iso_code] = {
           fillKey: this._setBucket(sum),
-          sum: sum
+          sum: sum,
+          name: country.country
         }
       }.bind(this));
       return summedData;
@@ -122,8 +123,6 @@
       this.map.updateChoropleth(parsedData, {reset: true});
       this._paintLegend();
     }
-
-
 
   });
 

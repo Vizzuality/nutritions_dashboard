@@ -2,4 +2,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+
+  .image {
+    width: rem(250px);
+    height: rem(135px);
+    background-image: image_url('empty_state@2x.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .text {
+    margin-top: rem(20px);
+    text-align: center;
+  }
 }

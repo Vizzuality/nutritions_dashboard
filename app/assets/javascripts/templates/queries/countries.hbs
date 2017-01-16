@@ -1,1 +1,1 @@
-SELECT distinct(country), iso_code FROM current_spenditure_donors ORDER BY country
+with a as (SELECT c.iso_code, c.cost, d.total_spend, c.package, c.scenario, c.source, c.target, c.country FROM current_spenditure_donors c full join domestic_government_funding d ON c.iso_code = d.iso_code) SELECT * FROM a WHERE a.package='Full' and a.scenario='Global Solidarity' and a.source='Donor' and a.cost is not null and a.target='Composite' ORDER BY a.country
