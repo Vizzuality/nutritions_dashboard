@@ -1,6 +1,11 @@
 .c-share-menu {
   position: relative;
   margin-top: rem(15px);
+  display: none;
+
+  @media screen and (min-width: $screen-m) {
+    display: block;
+  }
 
   .links {
     display: flex;

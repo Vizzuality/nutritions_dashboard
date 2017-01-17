@@ -8,6 +8,7 @@
   margin-right: -0.625rem;
   z-index: 10;
   position: relative;
+  background-color: $beige;
 
   @media screen and (min-width: $screen-m) {
     align-items: flex-end;
@@ -75,6 +76,7 @@
 
   &.-transparent {
     border-bottom: solid $white 1px;
+    background-color: transparent;
 
     .icon {
       fill: #faf3e9;
