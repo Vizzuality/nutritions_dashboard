@@ -35,9 +35,9 @@
       var hidden = !!this.status.get('hidden');
       this.$('.c-mobile-menu').toggleClass('-is-open', !hidden);
       this.$('.mobile').toggleClass('-is-open', !hidden);
-      if (this.$el.hasClass('-transparent')) {
-        this.$el.toggleClass('-transparent', hidden);
-      }
+      // if (this.$el.hasClass('-transparent')) {
+      //   this.$el.toggleClass('-transparent', hidden);
+      // }
     }
   });
 
