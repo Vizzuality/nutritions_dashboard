@@ -13,6 +13,7 @@
     background-image: image_url('loader.gif');
     background-position: center;
     background-repeat: no-repeat;
+    z-index: 1000;
   }
 
   &.-loading {

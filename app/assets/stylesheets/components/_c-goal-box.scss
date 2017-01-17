@@ -1,0 +1,38 @@
+.c-goal-box {
+  border-radius: 2px;
+	background-color: rgba(213, 204, 189, 0.4);
+	border: solid 1px #d5ccbd;
+  padding: rem(20px) rem(20px);
+  margin-bottom: rem(30px);
+
+  @media screen and (min-width: $screen-m) {
+    padding: rem(50px) rem(90px);
+  }
+
+  .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: rem(20px);
+
+    @media screen and (min-width: $screen-m) {
+      justify-content: center;
+      align-items: center;
+    }
+
+    &.-first {
+      @media screen and (min-width: $screen-m) {
+        border-right: solid 1px $color-3;
+        margin-bottom: rem(40px);
+      }
+    }
+  }
+
+  .icon {
+    width: 50px;
+    height: 45px;
+    margin-right: rem(20px);
+    fill: $color-2;
+  }
+}
