@@ -27,6 +27,12 @@
       fill: $color-2;
       width: rem(18px);
       height: rem(18px);
+      vertical-align: middle;
+      margin-top: -2px;
+    }
+
+    span {
+      vertical-align: middle;
     }
   }
 

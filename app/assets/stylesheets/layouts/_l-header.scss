@@ -7,7 +7,7 @@
   margin-left: -0.625rem;
   margin-right: -0.625rem;
   z-index: 10;
-  position: relative;
+  // position: relative;
   background-color: $beige;
 
   @media screen and (min-width: $screen-m) {
@@ -94,6 +94,21 @@
         &.-white {
           display: flex;
         }
+      }
+    }
+  }
+
+  &.-is-open {
+    background-color: $beige;
+
+    .icon {
+      fill: $color-2;
+    }
+
+    .logo {
+
+      a {
+        color: $color-2;
       }
     }
   }
