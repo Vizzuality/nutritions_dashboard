@@ -42,6 +42,19 @@
       margin-left: 25%;
     }
 
+    #countrySelectorView {
+      .select2-container {
+        width: 100% !important;
+        margin-left: 50%;
+      }
+    }
+
+    #governmentFundingText {
+      .-offset {
+        margin-bottom: 35px;
+      }
+    }
+
     .c-map-regions {
       content: image_url('global@2x.png');
       // display: inline-block;
