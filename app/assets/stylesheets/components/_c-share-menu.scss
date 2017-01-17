@@ -1,0 +1,27 @@
+.c-share-menu {
+  position: relative;
+  margin-top: rem(15px);
+
+  .links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    li {
+      margin-left: rem(15px);
+      padding-left: rem(15px);
+      cursor: pointer;
+      border-left: solid 1px $white;
+    }
+
+    li:first-child {
+      border-left: none;
+    }
+
+    .icon {
+      fill: $white;
+      width: rem(15px);
+      height: rem(15px);
+    }
+  }
+}
