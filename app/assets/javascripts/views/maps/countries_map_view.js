@@ -50,6 +50,7 @@
       var keys = Object.keys(data)
       if ( country.length > 1 ) {
         _.each(keys, function(iso){
+          // debugger
           if ( country === iso ) {
             data[iso].fillKey = 'active'
           } else {
@@ -81,7 +82,9 @@
       var parsedData = {};
       _.each(data, function(country) {
         parsedData[country.iso_code] = {
-          fillKey: 'active'
+          fillKey: 'dormant',
+          gov: true,
+          name: country.country
         }
       }.bind(this));
       return parsedData;

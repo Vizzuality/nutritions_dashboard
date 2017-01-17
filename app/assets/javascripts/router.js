@@ -16,7 +16,7 @@
     routes: {
       '': 'Welcome#index',
       'dashboards(/:mode)(/:id)': 'Dashboards#show',
-      'countries(/:id)': 'Countries#show',
+      'countries(/)(:id)': 'Countries#show',
       'about': 'About#index',
       // Here you have an example
       // 'countries': 'Countries#index',

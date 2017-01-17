@@ -72,7 +72,9 @@
     }
 
     .-offset {
-      margin-bottom: rem(40px);
+      @media screen and (min-width: $screen-m) {
+        margin-bottom: rem(40px);
+      }
     }
 
     .c-placeholder {
