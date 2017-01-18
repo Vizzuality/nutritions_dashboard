@@ -1,13 +1,21 @@
+.print {
+  display: none;
+}
+
 @media print {
   @page {
     size: A4;
-    // margin: 0;
   }
 
   html, body {
-    width: 300mm;
-    margin: 0px 0px 0px 0px; 
-    // height: 297mm;
+    width: 210mm;
+
+
+    // basic print styles
+
+    .print {
+      display: inline-block;
+    }
 
     .no-print {
       display: none;
@@ -17,40 +25,18 @@
       page-break-after: always;
     }
 
-    .print:last-child {
-      page-break-after: auto;
+    a {
+      text-decoration: none;
     }
 
-    .offset-print {
-      margin-left: 30px;
-    }
 
-    .columns {
-      width: 50%;
-    }
+    // select2 styles remove
 
-    .row {
-      padding: 0;
-      margin: 0;
-      width: 100%;
-    }
-
-    .medium-6 {
-      flex: inherit;
-    }
-
-    .print-70 {
-      width: 70%;
-      flex: inherit;
-    }
-
-    .print-30 {
-      width: 30%;
-      flex: inherit;
-    }
-
-    .c-mode-switcher {
-      margin-top: 0;
+    #countrySelectorView {
+      .select2-container {
+        width: 100% !important;
+        margin-left: 50%;
+      }
     }
 
     .select2-container {
@@ -71,20 +57,53 @@
       text-align: center;
     }
 
-    .js--graph-switcher {
-      display: none;
-      width: 100%;
 
-      &.-is-active {
-        display: block;
+    // switcher
+
+    .c-mode-switcher {
+      margin-top: 0;
+
+      .row {
+        margin: 0;
+      }
+
+      .columns {
+        width: 100%;
+
+        &.small-6 {
+          width: 100%;
+          flex: inherit;
+        }
+      }
+
+      .js--graph-switcher {
+        display: none;
+        width: 100%;
+
+        &.-is-active {
+          display: block;
+        }
       }
     }
 
-    #countrySelectorView {
-      .select2-container {
-        width: 100% !important;
-        margin-left: 50%;
-      }
+
+    // graphs views
+
+    .c-chart {
+      margin-bottom: 0;
+    }
+
+    #currentBurdenView, #businessAsUsualView, #globalSolidarityView, #currentCountryDonor .c-chart, #currentCountryGovernment .c-chart {
+      width: 80%;
+      margin-left: 10% !important;
+    }
+
+    #currentBurdenView {
+      margin-bottom: rem(-20px);
+    }
+
+    #costMeetingPackagesView {
+      margin-left: 6% !important;
     }
 
     #governmentFundingText {
@@ -95,21 +114,27 @@
 
     #costPackagesViewPrint {
       .c-chart {
-      display: block !important;
-    }}
+        display: block !important;
+      }
+    }
 
     #costPackagesView {
       display: none;
     }
 
+    #currentCountryDonor {
+      .c-chart {
+        margin-left: 10% !important;
+      }
+    }
+
+
+    // map view
+
     .c-map-regions {
       content: image_url('global@2x.png');
-      // display: inline-block;
-      // width: 40%;
-      // float: left;
-      height: 45mm;
-
-      //regions
+      height: 70mm;
+      margin-left: -50px;
 
       &.east-asia-pacific {
         content: image_url('regions/east-asia@2x.png');
@@ -150,26 +175,39 @@
       }
     }
 
+    // countries map
 
-    .l-chart, .c-chart {
-      margin-left: 0;
-      margin-bottom: 0;
-
-      &.-burden {
-        margin-bottom: -40px;
+    #countryMapView {
+      .c-map-home {
+        display: none;
       }
     }
 
-    .c-separator {
-      margin: 20px 0;
+    #countryMapViewPrint {
+      .c-map-home {
+        width: 210mm;
+        display: block;
+      }
     }
 
-    // #currentBurdenView {
-    //   width: 50%;
-    // }
-    //
-    // #costMeetingPackagesView{
-    //
-    // }
+    .c-map-home-print {
+      width: 80
+    }
+
+    // layout fixes
+
+    .l-content.-last, .l-content .last {
+      border-bottom: 0;
+    }
+
+    .columns {
+      width: 50%;
+    }
+
+    .row {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
   }
 }
