@@ -12,10 +12,17 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <!-- datamaps -->
-    <script src="https://d3js.org/d3.geo.projection.v0.min.js"></script>
-    <script src="https://d3js.org/topojson.v1.min.js"></script>
-    <script src="https://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
+    <!-- for Facebook -->
+    <meta property="og:title" content="Investing in Nutrition" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="" />
+
+    <!-- for Twitter -->
+    <meta name="twitter:title" content="" />
+    <meta property="twitter:image" content="" />
+    <meta name="twitter:description" content="" />
+    <meta property="twitter:url" content="" />
 
     <!-- favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
@@ -27,6 +34,11 @@
 
     <!-- SVG icons -->
     <%= render 'shared/icons' %>
+
+    <!-- datamaps -->
+    <script src="https://d3js.org/d3.geo.projection.v0.min.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
 
   </head>
 
