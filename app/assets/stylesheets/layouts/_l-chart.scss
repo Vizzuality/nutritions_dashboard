@@ -25,10 +25,11 @@
   }
 
   &#costPackagesViewPrint{
+    margin-left: rem(-20px);
+    width: 210mm;
     .c-chart {
       display: none;
-      width: 100%;
-      margin-left: -20px;
+      width: 210mm;
     }
   }
 

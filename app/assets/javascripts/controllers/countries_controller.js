@@ -8,10 +8,8 @@
 
     show: function(params) {
       //Init here the views for the countries profile. Order matters.
-      // this.initTitleView();
       this.initMapView();
       this.initGraphsViews();
-      // this.initMapViews();
       this.initSelectorsViews(params);
     },
 
@@ -19,12 +17,6 @@
       this.map = new App.View.MapCountriesView({
         el: '#countryMapView'
       });
-    },
-
-    initTitleView: function() {
-      this.donorText = new App.View.CurrentDonorFundingTextView({
-        el: '#currentDonorFundingText'
-      })
     },
 
     initSelectorsViews: function(params) {

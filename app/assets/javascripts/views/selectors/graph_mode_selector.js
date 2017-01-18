@@ -29,6 +29,8 @@
       $('.js--graph-switcher').removeClass('-is-active');
       $(e.currentTarget).addClass('-is-active');
 
+      $('.switch-text').html('(' + $(e.currentTarget).html() + ')');
+
       this._setStatus({graphMode: mode});
     },
 
