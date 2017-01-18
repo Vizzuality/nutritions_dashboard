@@ -7,6 +7,10 @@
     width: 300mm !important;
     height: 99%;
 
+    .no-print {
+      display: none;
+    }
+
     .print-break {
       page-break-after: always;
     }
@@ -33,13 +37,45 @@
       flex: inherit;
     }
 
-    .l-footer, .l-header, .mobile, #graphModeSwitcher {
-      display: none;
+    .print-70 {
+      width: 70%;
+      flex: inherit;
+    }
+
+    .print-30 {
+      width: 30%;
+      flex: inherit;
+    }
+
+    .c-mode-switcher {
+      margin-top: 0;
     }
 
     .select2-container {
       width: 50% !important;
       margin-left: 25%;
+    }
+
+    .select2-container--default .select2-selection--single {
+      border: 0;
+      padding: 0;
+
+      &:after {
+        display: none;
+      }
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+      text-align: center;
+    }
+
+    .js--graph-switcher {
+      display: none;
+      width: 100%;
+
+      &.-is-active {
+        display: block;
+      }
     }
 
     #countrySelectorView {
