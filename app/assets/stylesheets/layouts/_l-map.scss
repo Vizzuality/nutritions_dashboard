@@ -21,6 +21,11 @@
     bottom: 0;
     left: 0;
     right: 0;
+    opacity: 0;
+
+    @media screen and (min-width: $screen-m) {
+      display: flex
+    }
 
     .icon {
       width: rem(25px);

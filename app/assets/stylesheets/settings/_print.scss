@@ -1,0 +1,128 @@
+@media print {
+  @page {
+    size: A4 portrait;
+  }
+
+  body {
+    width: 300mm !important;
+    height: 99%;
+
+    .print-break {
+      page-break-after: always;
+    }
+
+    .print:last-child {
+      page-break-after: auto;
+    }
+
+    .offset-print {
+      margin-left: 30px;
+    }
+
+    .columns {
+      width: 50%;
+    }
+
+    .row {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+
+    .medium-6 {
+      flex: inherit;
+    }
+
+    .l-footer, .l-header, .mobile, #graphModeSwitcher {
+      display: none;
+    }
+
+    .select2-container {
+      width: 50% !important;
+      margin-left: 25%;
+    }
+
+    #countrySelectorView {
+      .select2-container {
+        width: 100% !important;
+        margin-left: 50%;
+      }
+    }
+
+    #governmentFundingText {
+      .-offset {
+        margin-bottom: 35px;
+      }
+    }
+
+    .c-map-regions {
+      content: image_url('global@2x.png');
+      // display: inline-block;
+      // width: 40%;
+      // float: left;
+      height: 45mm;
+
+      //regions
+
+      &.east-asia-pacific {
+        content: image_url('regions/east-asia@2x.png');
+      }
+
+      &.europe-central-asia {
+        content: image_url('regions/europe&central-asia@2x.png');
+      }
+
+      &.latin-america-caribbean {
+        content: image_url('regions/latin-america&caribean@2x.png');
+      }
+
+      &.middle-east-north-africa {
+        content: image_url('regions/middle-east&north-africa@2x.png');
+      }
+
+      &.sub-saharan-africa {
+        content: image_url('regions/sub-saharan-africa@2x.png');
+      }
+
+      &.south-asia {
+        content: image_url('regions/south-asia@2x.png');
+      }
+
+      //income groups
+
+      &.lic {
+        content: image_url('income-groups/lower@2x.png');
+      }
+
+      &.lmic {
+        content: image_url('income-groups/lower-middle@2x.png');
+      }
+
+      &.umic {
+        content: image_url('income-groups/upper-middle@2x.png');
+      }
+    }
+
+
+    .l-chart, .c-chart {
+      margin-left: 0;
+      margin-bottom: 0;
+
+      &.-burden {
+        margin-bottom: -40px;
+      }
+    }
+
+    .c-separator {
+      margin: 20px 0;
+    }
+
+    // #currentBurdenView {
+    //   width: 50%;
+    // }
+    //
+    // #costMeetingPackagesView{
+    //
+    // }
+  }
+}

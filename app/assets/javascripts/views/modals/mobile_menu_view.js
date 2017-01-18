@@ -35,6 +35,9 @@
       var hidden = !!this.status.get('hidden');
       this.$('.c-mobile-menu').toggleClass('-is-open', !hidden);
       this.$('.mobile').toggleClass('-is-open', !hidden);
+      $('.l-header').toggleClass('-is-open', !hidden);
+      $('html').toggleClass('-fixed', !hidden);
+      $('body').toggleClass('-fixed', !hidden);
     }
   });
 
