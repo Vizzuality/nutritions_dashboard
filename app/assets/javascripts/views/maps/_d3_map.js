@@ -20,19 +20,27 @@
           borderWidth: .3,
           borderOpacity: 1,
           borderColor: '#faf3e9',
-          highlightOnHover: false,
+          highlightOnHover: true,
           popupOnHover: false,
-            popupTemplate: function(geography, data) {
-            if ( data ) {
-              if ( data.sum ) {
-                return '<div class="text -map"><strong>' + data.name + '</strong><p>' + data.sum + '%</p></div>';
-              } else {
-                return '<div class="text -map"><strong>' + data.name + '</strong></div>';
-              }
+          popupTemplate: function(geography, data) {
+          if ( data ) {
+            if ( data.sum ) {
+              return '<div class="text -map"><strong>' + data.name + '</strong><p>' + data.sum + '%</p></div>';
+            } else {
+              return '<div class="text -map"><strong>' + data.name + '</strong></div>';
             }
+          }
           },
-          popupOnHover: true, //disable the popup while hovering
+          popupOnHover: true,
+          highlightFillColor: function(geo) {
+            if ( $(this).data("info") ) {
+              return '#009da7'
+            }
+            return 'rgba(216, 216, 216,0.5)'
           },
+          highlightBorderColor: '#faf3e9',
+          highlightBorderWidth: .3,
+        },
         data: {},
       })
     },
