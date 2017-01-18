@@ -99,4 +99,13 @@
   &.-government {
     height: rem(500px);
   }
+
+  &.-print-half {
+    width: 135mm;
+  }
+
+  &.-print-full {
+    width: 270mm;
+
+  }
 }

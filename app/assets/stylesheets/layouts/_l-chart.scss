@@ -24,6 +24,14 @@
     }
   }
 
+  &#costPackagesViewPrint{
+    .c-chart {
+      display: none;
+      width: 100%;
+      margin-left: -20px;
+    }
+  }
+
   &#costMeetingPackagesView{
     margin: rem(-10px) 0 rem(-40px);
 

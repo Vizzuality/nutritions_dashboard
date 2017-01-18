@@ -1,11 +1,13 @@
 @media print {
   @page {
-    size: A4 portrait;
+    size: A4;
+    // margin: 0;
   }
 
-  body {
-    width: 300mm !important;
-    height: 99%;
+  html, body {
+    width: 300mm;
+    margin: 0px 0px 0px 0px; 
+    // height: 297mm;
 
     .no-print {
       display: none;
@@ -89,6 +91,15 @@
       .-offset {
         margin-bottom: 35px;
       }
+    }
+
+    #costPackagesViewPrint {
+      .c-chart {
+      display: block !important;
+    }}
+
+    #costPackagesView {
+      display: none;
     }
 
     .c-map-regions {
