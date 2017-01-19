@@ -20,13 +20,12 @@
   }
 
   input:checked ~ .accordion-content{
-    height: 100%;
+    display: block;
   }
 
   .accordion-content {
     width: 100%;
     overflow: hidden;
-    height: 0;
     position: relative;
     z-index: 10;
     transition:

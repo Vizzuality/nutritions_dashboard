@@ -14,6 +14,22 @@
       this.progress = new App.View.FundingProgressView({
         el: '#homeMapView'
       });
+
+      this.stunting = new App.View.AccordionView({
+        el: '.-stunting'
+      });
+
+      this.wasting = new App.View.AccordionView({
+        el: '.-wasting'
+      });
+
+      this.anemia = new App.View.AccordionView({
+        el: '.-anemia'
+      });
+
+      this.breastfeeding = new App.View.AccordionView({
+        el: '.-breastfeeding'
+      })
     }
 
   });
