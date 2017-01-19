@@ -68,6 +68,10 @@
         el: '#costPackagesView'
       });
 
+      this.costPackagesViewPrint = new App.View.CostPackagesView({
+        el: '#costPackagesViewPrint'
+      });
+
       this.ScenarioComparisonView = new App.View.ScenarioComparisonView();
     },
 
