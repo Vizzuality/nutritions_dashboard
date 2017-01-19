@@ -70,4 +70,8 @@
                image-url('income-groups/lower-middle@2x.png')
                image-url('income-groups/upper-middle@2x.png');
     }
+
+  .is-being-hovered {
+    stroke-width: 2;
+  }
 }
