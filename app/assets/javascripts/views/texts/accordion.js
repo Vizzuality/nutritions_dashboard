@@ -15,8 +15,8 @@
       if (!this.el) {
         return;
       }
-      var opts = settings && settings.options ? settings.options : {};
 
+      this.settings = settings;
       this._cache();
       this._setHeightofDiv();
     },
@@ -27,19 +27,20 @@
     },
 
     _setHeightofDiv: function() {
-      this.height = this.content.outerHeight(true);
-      this.content.css('height', 0);
+      this.height = this.content.outerHeight();
+      this.content.css('height', this.height);
+      this.content.addClass('-no-height');
     },
 
     _onClickGrowHeight: function() {
-      this.content.animate({height:this.height},300);
+      this.content.removeClass('-no-height');
     },
 
     _onClickCloseHeight: function() {
-      this.content.animate({height:0},300);
+      this.content.addClass('-no-height');
       $('html,body').animate({
          scrollTop: this.$el.offset().top
-      }, 500);
+      }, 300);
     },
 
   });

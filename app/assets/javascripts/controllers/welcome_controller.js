@@ -16,19 +16,23 @@
       });
 
       this.stunting = new App.View.AccordionView({
-        el: '.-stunting'
+        el: '.-stunting',
+        offset: 28
       });
 
       this.wasting = new App.View.AccordionView({
-        el: '.-wasting'
+        el: '.-wasting',
+        offset: 0
       });
 
       this.anemia = new App.View.AccordionView({
-        el: '.-anemia'
+        el: '.-anemia',
+        offset: 0
       });
 
       this.breastfeeding = new App.View.AccordionView({
-        el: '.-breastfeeding'
+        el: '.-breastfeeding',
+        offset: 28
       })
     }
 

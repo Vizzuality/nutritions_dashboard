@@ -10,26 +10,18 @@
     cursor: pointer;
   }
 
-  input:checked ~ label {
-    visibility: hidden;
-  }
-
-  input:checked ~ .accordion-content{
-    transition:
-    height 0.5s ease-in-out,
-  }
-
-  input:checked ~ .accordion-content{
-    display: block;
-  }
-
   .accordion-content {
     width: 100%;
     overflow: hidden;
+    height: 100%;
     position: relative;
     z-index: 10;
     transition:
-      height 0.1s ease-in-out;
+      height 0.5s ease-in-out;
+
+    &.-no-height {
+      height: 0 !important;
+    }
 
     .info-box {
       display: flex;
