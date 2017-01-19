@@ -53,7 +53,7 @@
               //width: 100 // this makes bar width 100px
           },
           interaction: {
-            enabled: true
+            enabled: false
           },
           axis: {
             x: {

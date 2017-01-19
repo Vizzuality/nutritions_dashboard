@@ -1,7 +1,11 @@
 .c-countries-map-legend {
-  float: right;
-  margin-bottom: rem(20px);
-  margin-top: -85px;
+
+  @media screen and (min-width: $screen-m) {
+    float: right;
+    margin-bottom: rem(20px);
+    margin-top: -85px;
+  }
+
   .color-code {
     display: inline-block;
     width: 10px;
