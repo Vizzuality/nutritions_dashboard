@@ -51,7 +51,6 @@
       var keys = Object.keys(data)
       if ( country.length > 1 ) {
         _.each(keys, function(iso){
-          // debugger
           if ( country === iso ) {
             data[iso].fillKey = 'active';
           } else if ( data[iso].gov ) {
@@ -83,7 +82,6 @@
 
     _parseData: function(data) {
       var parsedData = {};
-      console.log(data);
       _.each(data, function(country) {
         if ( country.total_spend === null ) {
           parsedData[country.iso_code] = {
