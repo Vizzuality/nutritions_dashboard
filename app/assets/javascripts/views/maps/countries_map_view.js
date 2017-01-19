@@ -9,6 +9,7 @@
     defaults: {
       buckets: {
         active: '#009da7',
+        gov: '#8eddf9',
         dormant: '#93c9d8',
         defaultFill: 'rgba(216, 216, 216,0.5)'
       },
@@ -52,9 +53,11 @@
         _.each(keys, function(iso){
           // debugger
           if ( country === iso ) {
-            data[iso].fillKey = 'active'
+            data[iso].fillKey = 'active';
+          } else if ( data[iso].gov ) {
+            data[iso].fillKey = 'gov';
           } else {
-            data[iso].fillKey = 'dormant'
+            data[iso].fillKey = 'dormant';
           }
         })
       } else {
@@ -80,11 +83,20 @@
 
     _parseData: function(data) {
       var parsedData = {};
+      console.log(data);
       _.each(data, function(country) {
-        parsedData[country.iso_code] = {
-          fillKey: 'dormant',
-          gov: true,
-          name: country.country
+        if ( country.total_spend === null ) {
+          parsedData[country.iso_code] = {
+            fillKey: 'dormant',
+            gov: false,
+            name: country.country
+          }
+        } else {
+          parsedData[country.iso_code] = {
+            fillKey: 'gov',
+            gov: true,
+            name: country.country
+          }
         }
       }.bind(this));
       return parsedData;
