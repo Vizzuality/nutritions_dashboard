@@ -14,7 +14,7 @@
 
  p {
    a {
-     font-weight: 900;
+     font-weight: 700;
      text-decoration: underline;
      color: #5b564e;
 
@@ -189,7 +189,13 @@
   }
 
   &.-button {
+    font-weight: 700;
     text-decoration: underline;
+    color: #5b564e;
+
+    &:hover {
+      color: $color-2;
+    }
   }
 
   &.-impact {
