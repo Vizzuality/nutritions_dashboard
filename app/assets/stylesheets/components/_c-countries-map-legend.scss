@@ -1,0 +1,18 @@
+.c-countries-map-legend {
+  float: right;
+  margin-bottom: rem(20px);
+  margin-top: -85px;
+  .color-code {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+
+    &.-only-donor {
+      background-color: rgba(156, 144, 128, .6);
+    }
+
+    &.-donor-gov {
+      background-color: rgba(156, 144, 128, .8);
+    }
+  }
+}

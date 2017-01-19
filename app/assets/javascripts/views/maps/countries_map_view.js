@@ -6,14 +6,12 @@
 
   App.View.MapCountriesView = App.View.D3Map.extend({
 
-    // Beige soft: rgb(212, 204, 193)
-
     defaults: {
       buckets: {
         active: '#009da7',
-        gov: '#8eddf9',
-        dormant: '#93c9d8',
-        defaultFill: 'rgba(216, 216, 216,0.5)'
+        gov: 'rgba(156, 144, 128, .8)',
+        dormant: 'rgba(156, 144, 128, .6)',
+        defaultFill: 'rgba(216, 216, 216, 0.5)'
       },
     },
 
@@ -54,7 +52,6 @@
 
       if ( country.length > 1 ) {
         _.each(keys, function(iso){
-
           if ( country === iso ) {
             data[iso].fillKey = 'active';
           } else if ( data[iso].gov ) {

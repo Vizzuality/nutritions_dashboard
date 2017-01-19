@@ -33,7 +33,7 @@
           }
         },
         data: {},
-      })
+      });
     },
 
     _resizeMap: function() {
