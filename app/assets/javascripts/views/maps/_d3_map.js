@@ -20,13 +20,7 @@
           borderWidth: .3,
           borderOpacity: 1,
           borderColor: '#faf3e9',
-          highlightBorderColor: '#faf3e9',
-          highlightBorderWidth: function(geo, data) {
-            return ($(this).data("info")) ? 2 : 0.3;
-          },
-          highlightFillColor: function(geo, data) {
-            return ($(this).data("info")) ? 'rgb(0, 163, 183)' : 'rgba(216, 216, 216, 0.5)';
-          },
+          highlightOnHover: false,
           popupOnHover: true,
           popupTemplate: function(geo, data) {
             if ( data ) {

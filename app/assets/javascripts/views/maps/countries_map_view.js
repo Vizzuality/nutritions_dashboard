@@ -6,6 +6,8 @@
 
   App.View.MapCountriesView = App.View.D3Map.extend({
 
+    // Beige soft: rgb(212, 204, 193)
+
     defaults: {
       buckets: {
         active: '#009da7',
@@ -52,6 +54,7 @@
 
       if ( country.length > 1 ) {
         _.each(keys, function(iso){
+
           if ( country === iso ) {
             data[iso].fillKey = 'active';
           } else if ( data[iso].gov ) {
@@ -101,7 +104,7 @@
       return parsedData;
     },
 
-    _onClickSetCountry: function(datamap) {
+    _onClickSetCountry: function() {
       this.map.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
         if ( this.countryData[geography.id] ) {
           this._onChangeSetCountry(geography.id);
