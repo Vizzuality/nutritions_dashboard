@@ -20,7 +20,7 @@
           borderWidth: .3,
           borderOpacity: 1,
           borderColor: '#faf3e9',
-          highlightOnHover: false,
+          highlightOnHover: true,
           popupOnHover: false,
           popupTemplate: function(geography, data) {
           if ( data ) {
