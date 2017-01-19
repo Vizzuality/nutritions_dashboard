@@ -52,6 +52,7 @@
         iso: this.status.get('iso')
       });
       this._pushStateToUrl();
+      $('.smooth-scroll').css('opacity', '1');
     },
 
     _setSelectedGroup: function() {

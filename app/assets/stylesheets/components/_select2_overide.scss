@@ -341,13 +341,15 @@
 	.select2-dropdown--below {
 		background: #faf3e9;
 		border: solid 1px #b8ac9c;
-		border-top: 0;
+		// border-top: 0;
+		margin-top: -1px;
 	}
 
 	.select2-dropdown--above {
 		background: #faf3e9;
 		border: solid 1px #b8ac9c;
-		border-bottom: 0;
+		// border-bottom: 0;
+		margin-bottom: -1px;
 	}
 }
 
@@ -365,18 +367,49 @@
 
 
 .plain {
-	width: 100%;
+	width: rem(145px);
 	display: inline-block;
 
+	@media screen and (min-width: $screen-xs + 1px) {
+		width: rem(165px);
+	}
+
 	@media screen and (min-width: $screen-m) {
-		width: 220px;
+		width: rem(180px);
 	}
 
 	.select2-container {
-		margin-top: 10px;
+		margin-top: rem(-5px);
+		min-width: rem(145px);
+	}
+
+	.select2-container--default .select2-selection--single {
+		border: 0;
+		border-width: 0;
+		text-decoration: underline;
+		padding-left: rem(5px);
+		padding-right: 0;
+		height: rem(40px);
+	}
+
+	.select2-container--default .select2-selection--single:after {
+		right: rem(40px);
+		top: rem(18px);
+		width: rem(7px);
+		height: rem(7px);
+	}
+
+	.select2-container--default .select2-selection--single .select2-selection__rendered {
+		font-size: rem(20px);
+		height: rem(40px);
+		line-height: rem(46px);
+
+		@media screen and (min-width: $screen-xs + 1px) {
+			font-size: rem(24px);
+		}
 
 		@media screen and (min-width: $screen-m) {
-			margin-top: -10px;
+			font-size: rem(28px);
 		}
 	}
 }

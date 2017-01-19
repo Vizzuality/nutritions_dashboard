@@ -24,6 +24,15 @@
     }
   }
 
+  &#costPackagesViewPrint{
+    margin-left: rem(-20px);
+    width: 210mm;
+    .c-chart {
+      display: none;
+      width: 210mm;
+    }
+  }
+
   &#costMeetingPackagesView{
     margin: rem(-10px) 0 rem(-40px);
 
@@ -72,7 +81,9 @@
     }
 
     .-offset {
-      margin-bottom: rem(40px);
+      @media screen and (min-width: $screen-m) {
+        margin-bottom: rem(40px);
+      }
     }
 
     .c-placeholder {

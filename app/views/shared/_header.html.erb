@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row no-print">
   <div class="columns small-12">
     <div class="l-header <%= class_name %>">
       <div class="logo">
@@ -22,6 +22,11 @@
           <li class="text -menu <%= "-active" if controller_name == 'dashboards' %>"><%= link_to 'Financing Needs', '/dashboards/global' %></li>
           <li class="text -menu <%= "-active" if controller_name == 'countries' %>"><%= link_to 'Current Funding', countries_show_path %></li>
           <li class="text -menu <%= "-active" if controller_name == 'about' %>"><%= link_to 'About', about_path %></li>
+        </ul>
+        <ul class="c-navigation -dark">
+          <li class="text -menu js-btn-action" data-action="Share:toggle">Share</li>
+          <li class="text -menu">Download</li>
+          <li class="text -menu">Print</li>
         </ul>
       </div>
     </div>

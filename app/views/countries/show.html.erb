@@ -1,4 +1,5 @@
 <%= render 'shared/header', class_name: '-normal' %>
+<%= render 'shared/share_menu', class_name: '-normal' %>
 
 <div id="map-section" class="l-map l-ajax-loader">
   <div class="spinner"></div>
@@ -13,13 +14,17 @@
         <div id="map-container" class="c-map-home"></div>
       </div>
     </div>
+    <div class="smooth-scroll">
+      <a href="#data-section" class="js-btn-smooth-scroll">
+        <svg class="icon"><use xlink:href="#icon-scroll"></use></svg>
+      </a>
+    </div>
   </div>
 </div>
 
 <div class="row">
   <div class="columns small-12">
-    <div class="l-content -top placeholder"></div>
-    <!-- <h4 class="c-placeholder text -title">Select a country...</h4> -->
+    <div id="data-section" class="l-content -top placeholder"></div>
   </div>
   <div class="columns small-12 medium-6">
     <div id="currentCountryDonor" class="l-chart l-ajax-loader">
