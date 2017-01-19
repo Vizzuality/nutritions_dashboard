@@ -21,8 +21,8 @@
           borderOpacity: 1,
           borderColor: '#faf3e9',
           highlightOnHover: false,
-          popupOnHover: false,
-            popupTemplate: function(geography, data) {
+          popupOnHover: true,
+          popupTemplate: function(geo, data) {
             if ( data ) {
               if ( data.sum ) {
                 return '<div class="text -map"><strong>' + data.name + '</strong><p>' + data.sum + '%</p></div>';
@@ -30,11 +30,10 @@
                 return '<div class="text -map"><strong>' + data.name + '</strong></div>';
               }
             }
-          },
-          popupOnHover: true, //disable the popup while hovering
-          },
+          }
+        },
         data: {},
-      })
+      });
     },
 
     _resizeMap: function() {
@@ -42,11 +41,11 @@
     },
 
     ajaxStart: function(view){
-        $(view).addClass('-loading');
+      $(view).addClass('-loading');
     },
 
     ajaxComplete: function(view){
-        $(view).removeClass('-loading');
+      $(view).removeClass('-loading');
     },
 
     remove: function() {

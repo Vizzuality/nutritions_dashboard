@@ -264,6 +264,11 @@
     font-size: rem(14px);
   }
 
+  &.-legend {
+    font-size: rem(14px);
+    font-weight: 500;
+  }
+
   &.-light {
     color: $white;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
