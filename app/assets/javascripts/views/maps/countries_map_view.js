@@ -48,7 +48,8 @@
     _onChangeSetCountry: function(iso) {
       var country = iso.length === 3 ? iso : this.$el.find('.js--country-selector').val();
       var data = this.countryData;
-      var keys = Object.keys(data)
+      var keys = Object.keys(data);
+
       if ( country.length > 1 ) {
         _.each(keys, function(iso){
           if ( country === iso ) {

@@ -20,26 +20,23 @@
           borderWidth: .3,
           borderOpacity: 1,
           borderColor: '#faf3e9',
-          highlightOnHover: true,
-          popupOnHover: false,
-          popupTemplate: function(geography, data) {
-          if ( data ) {
-            if ( data.sum ) {
-              return '<div class="text -map"><strong>' + data.name + '</strong><p>' + data.sum + '%</p></div>';
-            } else {
-              return '<div class="text -map"><strong>' + data.name + '</strong></div>';
-            }
-          }
+          highlightBorderColor: '#faf3e9',
+          highlightBorderWidth: function(geo, data) {
+            return ($(this).data("info")) ? 2 : 0.3;
+          },
+          highlightFillColor: function(geo, data) {
+            return ($(this).data("info")) ? 'rgb(0, 163, 183)' : 'rgba(216, 216, 216, 0.5)';
           },
           popupOnHover: true,
-          highlightFillColor: function(geo) {
-            if ( $(this).data("info") ) {
-              return '#009da7'
+          popupTemplate: function(geo, data) {
+            if ( data ) {
+              if ( data.sum ) {
+                return '<div class="text -map"><strong>' + data.name + '</strong><p>' + data.sum + '%</p></div>';
+              } else {
+                return '<div class="text -map"><strong>' + data.name + '</strong></div>';
+              }
             }
-            return 'rgba(216, 216, 216,0.5)'
-          },
-          highlightBorderColor: '#faf3e9',
-          highlightBorderWidth: .3,
+          }
         },
         data: {},
       })
@@ -50,11 +47,11 @@
     },
 
     ajaxStart: function(view){
-        $(view).addClass('-loading');
+      $(view).addClass('-loading');
     },
 
     ajaxComplete: function(view){
-        $(view).removeClass('-loading');
+      $(view).removeClass('-loading');
     },
 
     remove: function() {
