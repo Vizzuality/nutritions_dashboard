@@ -75,6 +75,15 @@
     }
   }
 
+  .c3-tooltip-name--All {
+    .name {
+      display: none !important;
+    }
+    .value {
+      float: left;
+    }
+  }
+
   path.domain {
     // Hide y axis.
     display: none;

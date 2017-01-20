@@ -265,8 +265,12 @@
   }
 
   &.-legend {
-    font-size: rem(14px);
+    font-size: rem(10px);
     font-weight: 500;
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(14px);
+    }
   }
 
   &.-light {
