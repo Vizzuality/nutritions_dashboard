@@ -84,7 +84,7 @@
             order: false
           },
           interaction: {
-            enabled: false
+            enabled: true
           },
           axis: {
             x: {
