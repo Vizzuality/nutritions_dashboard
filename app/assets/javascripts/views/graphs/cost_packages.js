@@ -26,17 +26,9 @@
       }.bind(this));
     },
 
-    _parseData: function(data) {
-      for ( var i = 0; i < data.Full.length; i++ ) {
-        data.Full[i].cost = data.Full[i].cost - data.RTS[i].cost;
-      }
-      return data;
-    },
-
     _drawGraph: function() {
       var data = this.collection.toJSON();
       var groupedData = _.groupBy(data, 'package');
-      var parsedData = this._parseData(groupedData);
 
       this.stackChart = new App.View.C3Chart({
         el: this.el,
@@ -47,13 +39,10 @@
           color: this.colors.other,
           data: {
             json: {
-              'Priority': _.pluck(parsedData.RTS, 'cost'),
-              'Full': _.pluck(parsedData.Full, 'cost')
+              'Priority': _.pluck(groupedData.RTS, 'cost'),
+              'Full': _.pluck(groupedData.Full, 'cost')
             },
             type: 'bar',
-            groups: [
-              ['Priority', 'Full']
-            ],
             colors: this.colors.packages
           },
           bar: {

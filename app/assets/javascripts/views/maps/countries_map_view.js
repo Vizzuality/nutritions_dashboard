@@ -9,8 +9,9 @@
     defaults: {
       buckets: {
         active: '#009da7',
-        dormant: '#93c9d8',
-        defaultFill: 'rgba(216, 216, 216,0.5)'
+        gov: 'rgba(156, 144, 128, .8)',
+        dormant: 'rgba(156, 144, 128, .6)',
+        defaultFill: 'rgba(216, 216, 216, 0.5)'
       },
     },
 
@@ -49,14 +50,16 @@
     _onChangeSetCountry: function(iso) {
       var country = iso.length === 3 ? iso : this.$el.find('.js--country-selector').val();
       var data = this.countryData;
-      var keys = Object.keys(data)
+      var keys = Object.keys(data);
+
       if ( country.length > 1 ) {
         _.each(keys, function(iso){
-          // debugger
           if ( country === iso ) {
-            data[iso].fillKey = 'active'
+            data[iso].fillKey = 'active';
+          } else if ( data[iso].gov ) {
+            data[iso].fillKey = 'gov';
           } else {
-            data[iso].fillKey = 'dormant'
+            data[iso].fillKey = 'dormant';
           }
         })
       } else {
@@ -83,16 +86,24 @@
     _parseData: function(data) {
       var parsedData = {};
       _.each(data, function(country) {
-        parsedData[country.iso_code] = {
-          fillKey: 'dormant',
-          gov: true,
-          name: country.country
+        if ( country.total_spend === null ) {
+          parsedData[country.iso_code] = {
+            fillKey: 'dormant',
+            gov: false,
+            name: country.country
+          }
+        } else {
+          parsedData[country.iso_code] = {
+            fillKey: 'gov',
+            gov: true,
+            name: country.country
+          }
         }
       }.bind(this));
       return parsedData;
     },
 
-    _onClickSetCountry: function(datamap) {
+    _onClickSetCountry: function() {
       this.map.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
         if ( this.countryData[geography.id] ) {
           this._onChangeSetCountry(geography.id);
