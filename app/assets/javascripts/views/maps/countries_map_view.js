@@ -43,8 +43,6 @@
 
     _cached: function() {
       this.countryData = this._parseData(this.collection.toJSON());
-      this.screenWidth = $(window).width();
-      this.screenHeight = $(window).height();
     },
 
     _onChangeSetCountry: function(iso) {
@@ -113,12 +111,6 @@
           $("select").val(geography.id).trigger("change");
         }
       }.bind(this));
-    },
-
-    _fitMapToScreen: function() {
-      if ( this.screenWidth > 800 && this.screenWidth < 1024 ) {
-        // this.$el 
-      }
     }
 
   });
