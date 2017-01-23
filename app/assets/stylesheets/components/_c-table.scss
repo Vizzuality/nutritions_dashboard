@@ -1,0 +1,64 @@
+.c-table {
+  margin: 1em 0;
+  min-width: 300px; // adjust to your needs
+
+  tr {
+    border-top: 1px solid rgba($color-3, 0.3);
+    border-bottom: 1px solid rgba($color-3, 0.3);
+
+    &:first-child {
+      border-top: 0;
+    }
+  }
+
+  th {
+    display: none; // for accessibility, use a visually hidden method here instead! Thanks, reddit!
+  }
+
+  td {
+    display: block;
+
+    &:first-child {
+      padding-top: .5em;
+    }
+    &:last-child {
+      padding-bottom: .5em;
+    }
+
+    &:before {
+      content: attr(data-th)": "; // who knew you could do this? The internet, that's who.
+      font-weight: bold;
+      width: 6.5em; // magic number :( adjust according to your own content
+      display: inline-block;
+      // end options
+
+      @media (min-width: $screen-m) {
+        display: none;
+      }
+    }
+  }
+
+  th, td {
+    text-align: left;
+
+    @media (min-width: $screen-m) {
+      display: table-cell;
+      padding: .25em .5em;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+  }
+
+  .icon {
+    width: rem(10px);
+    height: rem(10px);
+    fill: $color-3;
+  }
+}
