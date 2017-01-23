@@ -3,12 +3,8 @@
   min-width: 300px; // adjust to your needs
 
   tr {
-    border-top: 1px solid rgba($color-3, 0.3);
+    // border-top: 1px solid rgba($color-3, 0.3);
     border-bottom: 1px solid rgba($color-3, 0.3);
-
-    &:first-child {
-      border-top: 0;
-    }
   }
 
   th {
