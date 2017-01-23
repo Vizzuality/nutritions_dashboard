@@ -114,6 +114,11 @@
               count: 6
             }
           },
+          legend: {
+            item: {
+              onclick: function () {}
+            }
+          },
           grid: {
             y: {
               show: true
