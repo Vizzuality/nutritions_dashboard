@@ -53,6 +53,8 @@
       var svg = d3.select('#costMeetingPackagesView .c-chart')
           .html('') //Empty c-chart from previous chart.
           .append('svg')
+          .attr('width', '100%')
+          .attr('height', '100%')
           .attr('viewBox', '0 0 ' + svgWidth + ' ' + svgHeight)
           .attr('preserveAspectRatio', "xMidYMid meet")
           .attr('class', 'bubble');
