@@ -26,9 +26,33 @@
       }.bind(this));
     },
 
+    _round: function(num) {
+      var len = (num + '').length;
+      var fac = Math.pow(10, len - 1);
+      var max = Math.ceil(num / fac) * fac;
+      var offset = 0;
+      if ( max % 3 > 0 ) {
+        offset = ( 3 - (max % 3) ) * fac;
+      }
+      return max + offset;
+    },
+
+    _createTicks: function(array) {
+      var max = Math.max.apply(null, array);
+      max = this._round(max);
+      var scale = [0];
+      var prev = 0;
+      for ( var i = 1; i < 6; i++ ) {
+        scale[i] = prev + max / 6;
+        prev = scale[i];
+      }
+      return scale;
+    },
+
     _drawGraph: function() {
       var data = this.collection.toJSON();
       var groupedData = _.groupBy(data, 'package');
+      var ticks = this._createTicks(_.pluck(groupedData.Full, 'cost'));
 
       this.stackChart = new App.View.C3Chart({
         el: this.el,
@@ -68,17 +92,43 @@
             },
             y: {
               tick: {
+                values: ticks,
                 format: function (v, id, i, j) {
                   if (v > 1000 || v < -1000) {
-                    var num = '$' + d3.format('.3s')(v);
+                    if ( ('' + ticks[1]).length === ('' + ticks[2]).length ) {
+                      var num = '$' + d3.format('.1s')(v);
+                    } else {
+                      var num = '$' + d3.format('.2s')(v);
+                    }
                     num = num.replace("G", "B");
                     return num;
                   } else {
                     return d3.round(v, 2);
                   }
                 },
-                count: 6
               }
+            }
+          },
+          tooltip: {
+            format: {
+              value: function (v) {
+                if (v > 1000 || v < -1000) {
+                  // debugger
+                  // var num = d3.format('.3s')(v);
+                  // var scale = num.substr(4,4);
+                  // var fig = Math.floor(num.substr(0,3));
+                  var num = '$' + d3.format('.3s')(v);
+                  num = num.replace("G", "B");
+                  return num;
+                } else {
+                  return d3.round(v, 2);
+                }
+              }
+            }
+          },
+          legend: {
+            item: {
+              onclick: function () {}
             }
           },
           grid: {
