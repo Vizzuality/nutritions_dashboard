@@ -1,6 +1,5 @@
 .c-table {
   margin: 1em 0;
-  min-width: 300px; // adjust to your needs
 
   tr {
     // border-top: 1px solid rgba($color-3, 0.3);
@@ -25,8 +24,6 @@
       content: attr(data-th)": "; // who knew you could do this? The internet, that's who.
       font-weight: bold;
       width: 6.5em; // magic number :( adjust according to your own content
-      display: inline-block;
-      // end options
 
       @media (min-width: $screen-m) {
         display: none;
