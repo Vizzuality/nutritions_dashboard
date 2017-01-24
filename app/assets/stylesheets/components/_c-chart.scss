@@ -1,6 +1,5 @@
 .c-chart {
   width: 100%;
-  // min-height: rem(300px);
   margin-bottom: rem(20px);
 
   .c3-chart {
@@ -72,6 +71,15 @@
 
     @media screen and (min-width: $screen-m) {
       font-size: rem(16px);
+    }
+  }
+
+  .c3-tooltip-name--All {
+    .name {
+      display: none !important;
+    }
+    .value {
+      float: left;
     }
   }
 

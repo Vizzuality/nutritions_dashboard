@@ -84,7 +84,7 @@
             order: false
           },
           interaction: {
-            enabled: false
+            enabled: true
           },
           axis: {
             x: {
@@ -112,6 +112,11 @@
                 }
               },
               count: 6
+            }
+          },
+          legend: {
+            item: {
+              onclick: function () {}
             }
           },
           grid: {

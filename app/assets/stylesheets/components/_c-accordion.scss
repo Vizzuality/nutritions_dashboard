@@ -10,27 +10,18 @@
     cursor: pointer;
   }
 
-  input:checked ~ label {
-    visibility: hidden;
-  }
-
-  input:checked ~ .accordion-content{
-    transition:
-    height 0.5s ease-in-out,
-  }
-
-  input:checked ~ .accordion-content{
-    height: 100%;
-  }
-
   .accordion-content {
     width: 100%;
     overflow: hidden;
-    height: 0;
+    height: 100%;
     position: relative;
     z-index: 10;
     transition:
-      height 0.1s ease-in-out;
+      height 0.5s ease-in-out;
+
+    &.-no-height {
+      height: 0 !important;
+    }
 
     .info-box {
       display: flex;
@@ -69,6 +60,7 @@
         flex-direction: column;
         justify-content: flex-start;;
         align-items: flex-start;
+        width: 100%;
 
         @media screen and (min-width: $screen-m) {
           flex-direction: row;
