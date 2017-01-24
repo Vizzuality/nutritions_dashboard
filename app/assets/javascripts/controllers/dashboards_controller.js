@@ -11,8 +11,8 @@
       this.initTitleView();
       this.initGraphsViews();
       this.initMapViews();
-      this.initSelectorsViews(params);
       this.initModalViews();
+      this.initSelectorsViews(params);
     },
 
     initTitleView: function() {
@@ -45,6 +45,7 @@
 
       this.modeSelector.setParams({mode: params[0]});
       this.groupSelector.setParams(urlParams);
+      this.downloadData.setStatus(urlParams);
     },
 
     initMapViews: function() {
@@ -53,7 +54,7 @@
     initModalViews: function() {
       this.modalInfo = new App.View.ModalInfoView({});
       this.downloadData = new App.View.DownloadDataView({
-        collection: 'current_funding'
+        collection: new App.Collection.IndicatorsCollection()
       });
     },
 

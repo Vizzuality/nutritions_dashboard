@@ -67,6 +67,19 @@
 
       var url = this._urlForQuery(query);
       return this.fetch({url: url});
+    },
+
+    getCSV: function(params) {
+      var links = {};
+      params.graphs.map(function(graph) {
+        var query = this.queries[graph][params.mode]({
+          mode: params.mode,
+          group: params.group
+        });
+        var url = this._urlForQuery(query) + '&format=CSV&filename=' + graph + '_' + params.mode + '_' + params.group;
+        links[graph] = url;
+      }.bind(this));
+      return links;
     }
 
   });

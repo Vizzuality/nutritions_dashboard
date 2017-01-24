@@ -72,6 +72,7 @@
       this.ajaxStart('#map-section');
       this.collection.getCountries().done(function(){
         this._cached();
+        this._drawMap();
         this._updateMap(this.countryData);
         this._pullStateFromUrl();
         this.ajaxComplete('#map-section');
