@@ -83,6 +83,17 @@
           },
           legend: {
             show: false
+          },
+          tooltip: {
+            format: {
+              value: function(v) {
+                if (v % 1 != 0) {
+                  return v.toFixed(2) + '%'
+                } else {
+                  return v + '%'
+                }
+              }
+            }
           }
         },
       });
