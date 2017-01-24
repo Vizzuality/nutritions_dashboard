@@ -30,10 +30,10 @@
         collection: new App.Model.CountriesModel(),
         trigger: 'iso',
         graphs: [{
-          name: 'Current burden',
+          name: 'Breakdown of current donor funding',
           key: 'current_spending_donors'
         }, {
-          name: 'Cost of meeting targets',
+          name: 'Current Funding',
           key: 'current_spending_government'
         }],
         selectors: ['iso']
