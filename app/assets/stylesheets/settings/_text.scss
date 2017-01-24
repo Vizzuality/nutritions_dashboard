@@ -40,12 +40,14 @@
   color: $color-2;
   font-weight: 500;
   line-height: 1.67;
+  width: 100%;
 
   &.-menu {
     font-size: rem(16px);
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 700;
+    width: auto;
 
     &:hover {
       color: $color-graph-6;
@@ -253,6 +255,7 @@
     font-size: rem(21px);
     font-weight: 700;
     line-height: 1.25;
+    width: auto;
     font-family: $font-family-2;
 
     @media screen and (min-width: $screen-m) {
