@@ -46,7 +46,6 @@
     },
 
     _getQueries: function() {
-      console.log('hola');
       var selectors = {};
       this.settings.selectors.map(function(selector) {
         selectors[selector] = this.status.get(selector);
