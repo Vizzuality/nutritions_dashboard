@@ -28,6 +28,7 @@
       var smoothScroll = new App.Helper.SmoothScrollView({});
       var actionClick = new App.Helper.ActionClick({});
       var shareModal = new App.View.ShareModalView({});
+      var dataDownload = new App.View.DownloadDataView({});
     },
 
     /**
