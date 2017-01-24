@@ -20,6 +20,7 @@
       this.constructor.__super__.initialize.apply(this);
 
       // Options
+      this.settings = settings;
       var opts = settings && settings.options ? settings.options : {};
       this.options = _.extend({}, this.defaults, opts);
 
@@ -33,9 +34,10 @@
 
     listeners: function() {
       App.Events.on('Data:toggle', this.toggle.bind(this));
-      this.status.on('change:group', this._getQueries.bind(this));
+      this.status.on('change:' + this.settings.trigger + '', this._getQueries.bind(this));
 
       //External
+      App.Events.on('country:selected', this.setStatus.bind(this));
       App.Events.on('group:selected', this.setStatus.bind(this));
     },
 
@@ -44,10 +46,14 @@
     },
 
     _getQueries: function() {
+      console.log('hola');
+      var selectors = {};
+      this.settings.selectors.map(function(selector) {
+        selectors[selector] = this.status.get(selector);
+      }.bind(this));
       this.queries = this.collection.getCSV({
-        mode: this.status.get('mode'),
-        group: this.status.get('group'),
-        graphs: ['current_burden', 'cost_meeting_targets', 'cost_packages', 'scenario_comparison']
+        selectors: selectors,
+        graphs: this.settings.graphs
       });
       this._setLinks();
     },
@@ -55,10 +61,7 @@
     _setLinks: function() {
       this.modalWindow = this.$el.find('.c-download');
       this.modalWindow.html(HandlebarsTemplates['download_links']({
-        current_burden: this.queries.current_burden,
-        cost_meeting_targets: this.queries.cost_meeting_targets,
-        cost_packages: this.queries.cost_packages,
-        scenario_comparison: this.queries.scenario_comparison
+        data: this.queries
       }));
     },
 

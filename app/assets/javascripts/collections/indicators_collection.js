@@ -72,12 +72,14 @@
     getCSV: function(params) {
       var links = {};
       params.graphs.map(function(graph) {
-        var query = this.queries[graph][params.mode]({
-          mode: params.mode,
-          group: params.group
+        links[graph.key] = {};
+        var query = this.queries[graph.key][params.selectors.mode]({
+          mode: params.selectors.mode,
+          group: params.selectors.group
         });
-        var url = this._urlForQuery(query) + '&format=CSV&filename=' + graph + '_' + params.mode + '_' + params.group;
-        links[graph] = url;
+        var url = this._urlForQuery(query) + '&format=CSV&filename=' + graph.key + '_' + params.selectors.mode + '_' + params.selectors.group;
+        links[graph.key]['link'] = url;
+        links[graph.key]['name'] = graph.name;
       }.bind(this));
       return links;
     }

@@ -54,7 +54,22 @@
     initModalViews: function() {
       this.modalInfo = new App.View.ModalInfoView({});
       this.downloadData = new App.View.DownloadDataView({
-        collection: new App.Collection.IndicatorsCollection()
+        collection: new App.Collection.IndicatorsCollection(),
+        trigger: 'group',
+        graphs: [{
+          name: 'Current burden',
+          key: 'current_burden'
+        }, {
+          name: 'Cost of meeting targets',
+          key: 'cost_meeting_targets'
+        }, {
+          name: 'Cost of packages',
+          key: 'cost_packages'
+        }, {
+          name: 'Scenario Comparison',
+          key: 'scenario_comparison'
+        }],
+        selectors: ['mode', 'group']
       });
     },
 
