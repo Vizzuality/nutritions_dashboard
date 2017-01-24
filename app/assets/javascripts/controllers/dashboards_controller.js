@@ -52,6 +52,9 @@
 
     initModalViews: function() {
       this.modalInfo = new App.View.ModalInfoView({});
+      this.downloadData = new App.View.DownloadDataView({
+        collection: 'current_funding'
+      });
     },
 
     initGraphsViews: function() {

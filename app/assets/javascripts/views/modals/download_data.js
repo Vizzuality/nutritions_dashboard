@@ -23,6 +23,7 @@
       var opts = settings && settings.options ? settings.options : {};
       this.options = _.extend({}, this.defaults, opts);
 
+      this.collection = this.options.collection || App.Collection.IndicatorsCollection;
       // Render and add it to body
       this.render();
       this.$body.append(this.el);

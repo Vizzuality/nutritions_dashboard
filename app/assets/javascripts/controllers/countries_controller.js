@@ -7,7 +7,6 @@
   App.Controller.Countries = App.Controller.Page.extend({
 
     show: function(params) {
-      //Init here the views for the countries profile. Order matters.
       this.initMapView();
       this.initGraphsViews();
       this.initSelectorsViews(params);

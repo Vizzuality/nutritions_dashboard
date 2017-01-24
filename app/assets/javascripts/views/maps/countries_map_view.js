@@ -73,6 +73,7 @@
       this.collection.getCountries().done(function(){
         this._cached();
         this._updateMap(this.countryData);
+        this._pullStateFromUrl();
         this.ajaxComplete('#map-section');
       }.bind(this));
     },
@@ -111,6 +112,16 @@
           $("select").val(geography.id).trigger("change");
         }
       }.bind(this));
+    },
+
+    _pullStateFromUrl: function() {
+      var urlParams = location.pathname.split('/')[2];
+      if ( urlParams ) {
+        this._onChangeSetCountry(urlParams);
+        App.Events.trigger('country:selected', {
+          iso: urlParams
+        });
+      }
     }
 
   });
