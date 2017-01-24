@@ -61,6 +61,7 @@
       //   if ( !isNaN(value) )
       //   sum += value;
       // });
+
       var sum = this._formatNum(data.composite);
       this.$el.find('#currentDonorFundingText').html(this.template({
         sum: sum,

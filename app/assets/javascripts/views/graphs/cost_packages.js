@@ -52,7 +52,8 @@
     _drawGraph: function() {
       var data = this.collection.toJSON();
       var groupedData = _.groupBy(data, 'package');
-      var ticks = this._createTicks(_.pluck(groupedData.Full, 'cost'));
+      // TODO: Fix this ASAP
+      var ticks = this.status.get('group') === 'east-asia-pacific' ? this._createTicks(_.pluck(groupedData.Full, 'cost')).slice(0, 5) : this._createTicks(_.pluck(groupedData.Full, 'cost'));
 
       this.stackChart = new App.View.C3Chart({
         el: this.el,
@@ -70,11 +71,9 @@
             colors: this.colors.packages
           },
           bar: {
-              width: {
-                  ratio: 0.6 // this makes bar width 50% of length between ticks
-              }
-              // or
-              //width: 100 // this makes bar width 100px
+            width: {
+              ratio: 0.6 // this makes bar width 50% of length between ticks
+            }
           },
           interaction: {
             enabled: true
@@ -113,10 +112,6 @@
             format: {
               value: function (v) {
                 if (v > 1000 || v < -1000) {
-                  // debugger
-                  // var num = d3.format('.3s')(v);
-                  // var scale = num.substr(4,4);
-                  // var fig = Math.floor(num.substr(0,3));
                   var num = '$' + d3.format('.3s')(v);
                   num = num.replace("G", "B");
                   return num;
