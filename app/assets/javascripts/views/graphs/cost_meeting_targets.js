@@ -43,7 +43,9 @@
           screenWidth = $(document).width(),
           scale = screenWidth <= 768 ? 1.2 : 0.75,
           svgWidth = screenWidth <= 768 ? 768 : 1080,
-          svgHeight = screenWidth <= 768 ? 1580 : 580;
+          svgHeight = screenWidth <= 768 ? 1580 : 580,
+          svgFixedWidth = $(window).width() >= 1080 ? '1080' : '100%',
+          svgFixedheight = $(window).width() >= 1080 ? '560' : '100%';
 
       var bubble = d3.layout.pack()
           .sort(null)
@@ -53,6 +55,8 @@
       var svg = d3.select('#costMeetingPackagesView .c-chart')
           .html('') //Empty c-chart from previous chart.
           .append('svg')
+          .attr('width', svgFixedWidth)
+          .attr('height', svgFixedheight)
           .attr('viewBox', '0 0 ' + svgWidth + ' ' + svgHeight)
           .attr('preserveAspectRatio', "xMidYMid meet")
           .attr('class', 'bubble');

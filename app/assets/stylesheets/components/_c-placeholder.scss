@@ -3,6 +3,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  min-height: 220px;
+  height: 300px;
 
   .image {
     width: rem(160px);
