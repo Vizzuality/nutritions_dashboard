@@ -2,7 +2,11 @@
   position: relative;
   background-position-y: bottom;
   background-repeat: repeat-x;
-  min-height: rem(600px);
+  padding: rem(20px) 0 0;
+
+  @media screen and (min-width: $screen-m) {
+    padding: rem(50px) 0;
+  }
 
   .overlay {
     position: absolute;
@@ -22,6 +26,7 @@
 
   &.-home {
     background-image: image-url('bg-home.png');
+    padding-top: 0;
     min-height: rem(580px);
 
     @media screen and (min-width: $screen-m) {
@@ -34,19 +39,39 @@
   }
 
   &.-stunting {
-    background-image: image-url('causes/closed/stunting.png');
+    // background-image: image-url('causes/closed/stunting.png');
+    border-bottom: 0.0625rem solid #a99c89;
+
+    @media screen and (min-width: $screen-m) {
+      border: 0;
+    }
   }
 
   &.-wasting {
-    background-image: image-url('causes/closed/wasting.png');
+    // background-image: image-url('causes/closed/wasting.png');
+    border-bottom: 0.0625rem solid #a99c89;
+
+    @media screen and (min-width: $screen-m) {
+      border: 0;
+    }
   }
 
   &.-anemia {
-    background-image: image-url('causes/closed/anemia.png');
+    // background-image: image-url('causes/closed/anemia.png');
+    border-bottom: 0.0625rem solid #a99c89;
+
+    @media screen and (min-width: $screen-m) {
+      border: 0;
+    }
   }
 
   &.-breastfeeding {
-    background-image: image-url('causes/closed/breastfeeding.png');
+    // background-image: image-url('causes/closed/breastfeeding.png');
+    border-bottom: 0.0625rem solid #a99c89;
+
+    @media screen and (min-width: $screen-m) {
+      border: 0;
+    }
   }
 
   &.-others {

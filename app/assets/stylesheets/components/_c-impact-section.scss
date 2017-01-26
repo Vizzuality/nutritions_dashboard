@@ -31,17 +31,27 @@
     padding: rem(30px) 0;
     padding-left: 1000px;
     margin-left: -1000px;
+    padding-right: 1000px;
+    margin-right: -1000px;
     height: 100%;
     background-color: rgba(0,0,0,.1);
+
+    @media screen and (min-width: $screen-m) {
+      padding-right: 0;
+      margin-right: 0;
+    }
   }
 
   .results {
+    padding-bottom: rem(20px);
+
     @media screen and (min-width: $screen-m) {
       padding: rem(30px) 0;
     }
   }
 
   .handler {
+    box-shadow: 0 -3px 4px rgba($black, .1);
     .-stunting & {
       background-color: #d56cd5;
     }
