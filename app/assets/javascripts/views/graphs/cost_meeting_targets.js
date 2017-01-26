@@ -35,7 +35,7 @@
     _drawGraph: function() {
       //convert numerical values from strings to numbers
       var data = this.collection.toJSON().map(function(d){
-        d.value = +d['sum'];
+        d.value = +d['cost'];
         return d;
       });
 
@@ -113,13 +113,13 @@
           .attr('preserveAspectRatio', 'none')
           .attr("dy", "18")
           .text(function(d){
-            if (d['sum'] > this.defaults.threshold || d['sum'] < -this.defaults.threshold) {
-              var sum = '$' + d3.format('.3s')(d['sum']);
-              sum = sum.replace("G", "B");
+            if (d['cost'] > this.defaults.threshold || d['cost'] < -this.defaults.threshold) {
+              var cost = '$' + d3.format('.3s')(d['cost']);
+              cost = cost.replace("G", "B");
             } else {
-              var sum = '$' + d3.round(d['sum'], 2);
+              var cost = '$' + d3.round(d['cost'], 2);
             }
-            var text = sum;
+            var text = cost;
             return text;
           }.bind(this))
     }
