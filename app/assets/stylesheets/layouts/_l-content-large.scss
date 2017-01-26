@@ -33,21 +33,21 @@
     background-image: image-url('bg-about.png');
   }
 
-  &.-stunting {
-    background-image: image-url('causes/closed/stunting.png');
-  }
+  // &.-stunting {
+  //   background-image: image-url('causes/closed/stunting.png');
+  // }
 
-  &.-wasting {
-    background-image: image-url('causes/closed/wasting.png');
-  }
+  // &.-wasting {
+  //   background-image: image-url('causes/closed/wasting.png');
+  // }
 
-  &.-anemia {
-    background-image: image-url('causes/closed/anemia.png');
-  }
+  // &.-anemia {
+  //   background-image: image-url('causes/closed/anemia.png');
+  // }
 
-  &.-breastfeeding {
-    background-image: image-url('causes/closed/breastfeeding.png');
-  }
+  // &.-breastfeeding {
+  //   background-image: image-url('causes/closed/breastfeeding.png');
+  // }
 
   &.-others {
     @media screen and (min-width: $screen-m) {
