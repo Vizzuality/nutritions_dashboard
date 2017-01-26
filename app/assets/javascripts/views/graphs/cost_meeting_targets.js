@@ -99,15 +99,27 @@
       bubbles.append('text')
           .attr('text-anchor', 'middle')
           .attr('class', 'bubble-text')
-          .html(function(d){
-            // return d['target'];
+          .attr('preserveAspectRatio', 'none')
+          .attr("dy", "-5")
+          .text(function(d){
+            var text = d['target'];
+            return text;
+          }.bind(this))
+
+      //format the text for each bubble
+      bubbles.append('text')
+          .attr('text-anchor', 'middle')
+          .attr('class', 'bubble-text')
+          .attr('preserveAspectRatio', 'none')
+          .attr("dy", "18")
+          .text(function(d){
             if (d['sum'] > this.defaults.threshold || d['sum'] < -this.defaults.threshold) {
               var sum = '$' + d3.format('.3s')(d['sum']);
               sum = sum.replace("G", "B");
             } else {
               var sum = '$' + d3.round(d['sum'], 2);
             }
-            var text = '<tspan dy="-10">' + d['target'] + '</tspan><tspan x="0" dy="25">' + sum + '<tspan>';
+            var text = sum;
             return text;
           }.bind(this))
     }
