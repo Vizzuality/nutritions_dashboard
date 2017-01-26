@@ -39,8 +39,12 @@
   font-family: $font-family-1;
   color: $color-2;
   font-weight: 500;
-  line-height: 1.67;
+  line-height: 1.4;
   width: 100%;
+
+  @media screen and (min-width: $screen-m) {
+    line-height: 1.67;
+  }
 
   &.-menu {
     font-size: rem(16px);
@@ -98,10 +102,11 @@
 
   &.-cta-title {
     font-family: $font-family-2;
-    font-size: rem(42px);
+    font-size: rem(35px);
     font-weight: 900;
     line-height: 1;
     letter-spacing: -0.7px;
+    padding-bottom: rem(10px);
 
     a {
       text-decoration: underline;
@@ -109,6 +114,7 @@
 
     @media screen and (min-width: $screen-l) {
       font-size: rem(52px);
+      padding-bottom: 0;
     }
   }
 
@@ -129,12 +135,23 @@
   }
 
   &.-accordion {
-    font-size: 28px;
+    display: block;
+    font-size: rem(20px);
     font-weight: 700;
     font-family: $font-family-2;
+    margin-bottom: rem(20px);
+
+    &:after {
+      content: "";
+      @include equi-triangle (5px, $color-2, bottom);
+      display: inline-block;
+      position: relative;
+      top: -3px;
+    }
 
     @media screen and (min-width: $screen-m) {
-      font-size: rem(32px);
+      margin-bottom: 0;
+      font-size: rem(28px);
     }
   }
 
