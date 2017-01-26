@@ -60,7 +60,7 @@
 
     _drawGraph: function() {
       var data = this._parseData()[this.props.scenario][this.status.get('graphMode')];
-      console.log(_.pluck(_.where(data, {source: 'Innovative'}), 'cost'))
+
       this.stackChart = new App.View.C3Chart({
         el: this.el,
         options: {
