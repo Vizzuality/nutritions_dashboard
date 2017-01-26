@@ -56,12 +56,13 @@
     },
 
     _drawText: function(data) {
-      var sum = 0;
-      _.each(data, function(value){
-        if ( !isNaN(value) )
-        sum += value;
-      });
-      sum = this._formatNum(sum);
+      // var sum = 0;
+      // _.each(data, function(value){
+      //   if ( !isNaN(value) )
+      //   sum += value;
+      // });
+
+      var sum = this._formatNum(data.composite);
       this.$el.find('#currentDonorFundingText').html(this.template({
         sum: sum,
         country: data.country

@@ -60,7 +60,7 @@
 
     _drawGraph: function() {
       var data = this._parseData()[this.props.scenario][this.status.get('graphMode')];
-
+      console.log(_.pluck(_.where(data, {source: 'Innovative'}), 'cost'))
       this.stackChart = new App.View.C3Chart({
         el: this.el,
         options: {
@@ -114,9 +114,27 @@
               count: 6
             }
           },
+          legend: {
+            item: {
+              onclick: function () {}
+            }
+          },
           grid: {
             y: {
               show: true
+            }
+          },
+          tooltip: {
+            format: {
+              value: function (v, id, i, j) {
+                if (v > 1000 || v < -1000) {
+                  var num = d3.format('.3s')(v);
+                  num = num.replace("G", "B");
+                  return '$' + num;
+                } else {
+                  return d3.round(v, 2);
+                }
+              }
             }
           }
         }

@@ -34,7 +34,7 @@
         options: {
           data: {
             columns: [
-              ['All', data.anemia, data.non_ebf, data.stunting, data.wasting],
+              ['All', d3.format(".2f")(data.anemia), data.non_ebf, data.stunting, data.wasting],
               // ['Non Exclusive breastfeeding', null, data.non_ebf, null, null],
               // ['Stunting', null, null, data.stunting, null],
               // ['Wasting', null, null, null, data.wasting]
@@ -83,6 +83,17 @@
           },
           legend: {
             show: false
+          },
+          tooltip: {
+            format: {
+              value: function(v) {
+                if (v % 1 != 0) {
+                  return v.toFixed(2) + '%'
+                } else {
+                  return v + '%'
+                }
+              }
+            }
           }
         },
       });
