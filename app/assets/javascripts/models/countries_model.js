@@ -23,7 +23,22 @@
       var url = this._urlForQuery(query);
 
       return this.fetch({url: url});
+    },
+
+    getCSV: function(params) {
+      var links = {};
+      params.graphs.map(function(graph) {
+        links[graph.key] = {};
+        var query = this.queries[graph.key]({
+          iso: params.selectors.iso
+        });
+        var url = this._urlForQuery(query) + '&format=CSV&filename=' + graph.key + '_' + params.selectors.iso;
+        links[graph.key]['link'] = url;
+        links[graph.key]['name'] = graph.name;
+      }.bind(this));
+      return links;
     }
+
   });
 
 })(this.App);

@@ -6,10 +6,10 @@
 
   App.Collection.CountriesCollection = App.Collection.CartoCollection.extend({
 
-    querie:  HandlebarsTemplates['queries/countries'],
+    queries: HandlebarsTemplates['queries/countries'],
 
     getCountries: function() {
-      var query = this.querie();
+      var query = this.queries();
       var url = this._urlForQuery(query);
 
       return this.fetch({url: url});

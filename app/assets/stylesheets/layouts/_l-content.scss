@@ -4,9 +4,16 @@
     max-width: 100%;
     height: rem(70px);
     margin: 0 0 rem(10px);
+    width: rem(320px);
 
     &.-days {
       max-width: rem(150px);
+    }
+
+    @media screen and (min-width: $screen-m) {
+      &.-r4d {
+        margin-left: rem(-15px);
+      }
     }
   }
 
