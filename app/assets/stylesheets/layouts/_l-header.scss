@@ -38,8 +38,7 @@
 
   .mobile {
     display: block;
-    margin-right: rem(20px);
-    height: rem(20px);
+    padding: rem(20px);
 
     @media screen and (min-width: $screen-m) {
       display: none;
@@ -53,6 +52,10 @@
 
     .-close {
       display: none;
+    }
+
+    .-open {
+      margin-top: rem(10px);
     }
 
     &.-is-open {
