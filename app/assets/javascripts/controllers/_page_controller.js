@@ -25,9 +25,10 @@
 
     initialize: function() {
       var mobileMenuView = new App.View.MobileMenu();
-      var smoothScroll = new App.Helper.SmoothScrollView({});
-      var actionClick = new App.Helper.ActionClick({});
-      var shareModal = new App.View.ShareModalView({});
+      var smoothScroll = new App.Helper.SmoothScrollView();
+      var actionClick = new App.Helper.ActionClick();
+      var shareModal = new App.View.ShareModalView();
+      var mobileCheck = new App.Helper.MobileCheck();
     },
 
     /**

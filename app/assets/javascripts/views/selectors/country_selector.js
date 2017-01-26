@@ -14,11 +14,12 @@
 
     initialize: function() {
       this.status = new Backbone.Model();
-
       this.collection = new App.Collection.CountriesCollection();
-      this._setListeners();
 
       this._fetchData();
+      this.render();
+      this._setListeners();
+
       this.$el.find('select').select2({
         minimumResultsForSearch: Infinity
       });
@@ -81,7 +82,8 @@
       var urlParams = location.pathname.split('/')[2];
       if ( urlParams ) {
         var $selector = this.$el.find('.js--country-selector');
-        $selector.val(urlParams).trigger('change');
+        var selectorValue = $selector.val(urlParams)
+        var $selectorOption = $selector.find('option[value="'+ urlParams +'"]');
       }
     },
 

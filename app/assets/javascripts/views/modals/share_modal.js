@@ -48,9 +48,9 @@
 
     render: function() {
       this.$el.html(HandlebarsTemplates['modal_share']({
-      url: window.location.href,
-      urlEncoded: encodeURIComponent(window.location.href)
-    }));
+        url: window.location.href,
+        urlEncoded: encodeURIComponent(window.location.href)
+      }));
     },
 
     // UI EVENTS

@@ -25,8 +25,10 @@
         </ul>
         <ul class="c-navigation -dark">
           <li class="text -menu js-btn-action" data-action="Share:toggle">Share</li>
-          <li class="text -menu">Download</li>
-          <li class="text -menu">Print</li>
+          <% if controller_name == 'dashboards' || controller_name == 'countries' %>
+            <li class="text -menu js-btn-action" data-action="Data:toggle">Download</li>
+            <li class="text -menu">Print</li>
+          <% end %>
         </ul>
       </div>
     </div>

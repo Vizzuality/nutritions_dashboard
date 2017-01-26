@@ -59,8 +59,8 @@
       } else {
         this.$el.find('#governmentFundingText').html(this.templates.domestic({
           donor: this._formatNum(data[0].cost),
-          gov: this._formatNum(data[0].total_spend*1000000),
-          total: this._formatNum(data[0].cost + data[0].total_spend*1000000),
+          gov: this._formatNum(data[0].total_spend),
+          total: this._formatNum(data[0].cost + data[0].total_spend),
           country: data[0].country
         }));
       }
@@ -79,7 +79,7 @@
             color: this.colors.funding,
             data: {
               columns: [
-                ['Gov', data[0].total_spend*1000000, null, data[0].total_spend*1000000],
+                ['Gov', data[0].total_spend, null, data[0].total_spend],
                 ['Donor', null, data[0].cost, data[0].cost]
               ],
               type: 'bar',

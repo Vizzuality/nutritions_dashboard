@@ -7,9 +7,9 @@
   App.Controller.Countries = App.Controller.Page.extend({
 
     show: function(params) {
-      //Init here the views for the countries profile. Order matters.
       this.initMapView();
       this.initGraphsViews();
+      this.initModalViews();
       this.initSelectorsViews(params);
     },
 
@@ -22,6 +22,21 @@
     initSelectorsViews: function(params) {
       this.countrySelector = new App.View.CountrySelectorView({
         el: '#countrySelectorView'
+      });
+    },
+
+    initModalViews: function() {
+      this.downloadData = new App.View.DownloadDataView({
+        collection: new App.Model.CountriesModel(),
+        trigger: 'iso',
+        graphs: [{
+          name: 'Breakdown of current donor funding',
+          key: 'current_spending_donors'
+        }, {
+          name: 'Current Funding',
+          key: 'current_spending_government'
+        }],
+        selectors: ['iso']
       });
     },
 
