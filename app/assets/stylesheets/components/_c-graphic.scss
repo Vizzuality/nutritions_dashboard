@@ -14,9 +14,9 @@
     height: rem(300px);
 
     @media screen and (min-width: $screen-m) {
-      position: absolute;
+      // position: absolute;
       margin-top: 0;
-      top: rem(150px);
+      // top: rem(150px);
       height: rem(450px);
     }
 
@@ -24,7 +24,7 @@
       background-image: image_url('illustrations/stunting_grow.png');
 
       @media screen and (min-width: $screen-m) {
-        top: rem(160px);
+        // top: rem(160px);
       }
     }
 

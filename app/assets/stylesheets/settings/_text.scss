@@ -107,14 +107,19 @@
     line-height: 1;
     letter-spacing: -0.7px;
     padding-bottom: rem(10px);
+    margin-bottom: rem(20px);
 
     a {
       text-decoration: underline;
     }
 
+    @media screen and (min-width: $screen-m) {
+      margin-bottom: rem(40px);
+      padding-bottom: 0;
+    }
+
     @media screen and (min-width: $screen-l) {
       font-size: rem(52px);
-      padding-bottom: 0;
     }
   }
 
@@ -142,11 +147,17 @@
     margin-bottom: rem(20px);
 
     &:after {
-      content: "";
-      @include equi-triangle (5px, $color-2, bottom);
+      content: ' ';
       display: inline-block;
       position: relative;
-      top: -3px;
+      top: rem(-5px);
+      width: 10px;
+      height: 10px;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      border-width: 2px;
+      border-color: transparent #81786b #81786b transparent;
+      border-style: solid;
     }
 
     @media screen and (min-width: $screen-m) {
