@@ -28,7 +28,7 @@
       var smoothScroll = new App.Helper.SmoothScrollView();
       var actionClick = new App.Helper.ActionClick();
       var shareModal = new App.View.ShareModalView();
-      this.mobileCheck = new App.Helper.MobileCheck();
+      var mobileCheck = new App.Helper.MobileCheck();
     },
 
     /**
