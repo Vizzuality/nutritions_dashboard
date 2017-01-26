@@ -130,8 +130,8 @@
 
   &.-accordion {
     font-size: 28px;
+    font-weight: 700;
     font-family: $font-family-2;
-    text-decoration: underline;
 
     @media screen and (min-width: $screen-m) {
       font-size: rem(32px);
