@@ -9,6 +9,7 @@
 
   @media screen and (min-width: $screen-m) {
     flex-direction: row;
+    height: auto;
   }
 
   &.-dark {

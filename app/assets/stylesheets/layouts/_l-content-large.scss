@@ -2,10 +2,10 @@
   position: relative;
   background-position-y: bottom;
   background-repeat: repeat-x;
-  padding: rem(20px) 0 0;
+  padding: 0 0 rem(20px);
 
   @media screen and (min-width: $screen-m) {
-    padding: rem(50px) 0;
+    padding: 0 0 rem(50px);
   }
 
   .overlay {
@@ -29,9 +29,9 @@
     padding-top: 0;
     min-height: rem(580px);
 
-    @media screen and (min-width: $screen-m) {
-      min-height: rem(700px);
-    }
+    // @media screen and (min-width: $screen-m) {
+    //   min-height: rem(700px);
+    // }
   }
 
   &.-about {
