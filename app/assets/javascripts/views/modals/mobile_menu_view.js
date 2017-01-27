@@ -10,7 +10,7 @@
 
     events: {
       'click .js-btn-mobile-menu' : 'onClickChangeStatus',
-      'click .js-btn-close' : 'onClickChangeStatus'
+      'click .js-btn-close' : 'onClickChangeStatus',
     },
 
     initialize: function() {
@@ -36,8 +36,6 @@
       this.$('.c-mobile-menu').toggleClass('-is-open', !hidden);
       this.$('.mobile').toggleClass('-is-open', !hidden);
       $('.l-header').toggleClass('-is-open', !hidden);
-      $('html').toggleClass('-fixed', !hidden);
-      $('body').toggleClass('-fixed', !hidden);
     }
   });
 

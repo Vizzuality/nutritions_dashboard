@@ -1,7 +1,9 @@
 .c-map-regions {
-  margin-bottom: rem(20px);
-  width: 100%;
-  height: rem(130px);
+  margin-bottom: rem(10px);
+  margin-top: rem(10px);
+  width: 112%;
+  margin-left: -12%;
+  height: rem(150px);
   background-size: contain;
   background-repeat: no-repeat;
   background-image: image_url('global@2x.png');
@@ -9,6 +11,7 @@
   @media screen and (min-width: $screen-m) {
     height: rem(180px);
     margin-bottom: 0;
+    margin-left: -5%;
   }
 
   @media screen and (min-width: $screen-l) {

@@ -9,8 +9,9 @@
 
   .c-navigation {
     justify-content: center;
-    padding-bottom: rem(20px);
-    padding-top: rem(40px);
+    padding-bottom: rem(30px);
+    padding-top: rem(30px);
+    height: rem(200px);
 
     @media screen and (min-width: $screen-m) {
       padding-bottom: rem(60px);

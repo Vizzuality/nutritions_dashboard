@@ -21,10 +21,11 @@
     }
 
     &.-stunting {
+      height: rem(380px);
       background-image: image_url('illustrations/stunting_grow.png');
 
       @media screen and (min-width: $screen-m) {
-        // top: rem(160px);
+        margin-top: rem(20px);
       }
     }
 
