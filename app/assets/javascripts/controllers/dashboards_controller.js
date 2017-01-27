@@ -57,16 +57,16 @@
         collection: new App.Collection.IndicatorsCollection(),
         trigger: 'group',
         graphs: [{
-          name: 'Current burden',
+          name: 'Prevalence of nutritional conditions',
           key: 'current_burden'
         }, {
-          name: 'Cost of meeting targets',
+          name: 'Cost of meeting targets on top of current spending, 2016-2025',
           key: 'cost_meeting_targets'
         }, {
-          name: 'Cost of packages',
+          name: 'Cost of packages comparison',
           key: 'cost_packages'
         }, {
-          name: 'Scenario Comparison',
+          name: 'Financing the targets through Business as Usual vs. Global Solidarity',
           key: 'scenario_comparison'
         }],
         selectors: ['mode', 'group']

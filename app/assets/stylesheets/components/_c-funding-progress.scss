@@ -1,6 +1,9 @@
 .c-funding-progress {
-   margin-top: 20px;
-   margin-bottom: -20px;
+   margin-top: 10px;
+
+   @media screen and (min-width: $screen-m) {
+     margin-bottom: -20px;
+   }
 
   .domain {
     fill: none;

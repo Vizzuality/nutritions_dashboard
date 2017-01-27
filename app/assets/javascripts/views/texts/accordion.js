@@ -9,6 +9,7 @@
     events: {
       'click .-open' : '_onClickGrowHeight',
       'click .btn-close-detail' : '_onClickCloseHeight',
+      'click .-close' : '_onClickCloseHeightNoScroll',
     },
 
     initialize: function(settings) {
@@ -34,13 +35,23 @@
 
     _onClickGrowHeight: function() {
       this.content.removeClass('-no-height');
+      this.open.removeClass('-open');
+      this.open.addClass('-close');
     },
 
     _onClickCloseHeight: function() {
+      this.open.removeClass('-close');
+      this.open.addClass('-open');
       this.content.addClass('-no-height');
       $('html,body').animate({
          scrollTop: this.$el.offset().top
       }, 300);
+    },
+
+    _onClickCloseHeightNoScroll: function() {
+      this.open.removeClass('-close');
+      this.open.addClass('-open');
+      this.content.addClass('-no-height');
     },
 
   });

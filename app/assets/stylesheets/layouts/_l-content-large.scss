@@ -2,10 +2,10 @@
   position: relative;
   background-position-y: bottom;
   background-repeat: repeat-x;
-  padding: rem(20px) 0 0;
+  padding: 0 0 rem(20px);
 
   @media screen and (min-width: $screen-m) {
-    padding: rem(50px) 0;
+    padding: 0 0 rem(50px);
   }
 
   .overlay {
@@ -27,11 +27,6 @@
   &.-home {
     background-image: image-url('bg-home.png');
     padding-top: 0;
-    min-height: rem(580px);
-
-    @media screen and (min-width: $screen-m) {
-      min-height: rem(700px);
-    }
   }
 
   &.-about {
@@ -39,42 +34,67 @@
   }
 
   &.-stunting {
-    // background-image: image-url('causes/closed/stunting.png');
-    border-bottom: 0.0625rem solid #a99c89;
-
     @media screen and (min-width: $screen-m) {
       border: 0;
+    }
+
+    @media screen and (min-width: $screen-l) {
+      .c-accordion {
+        margin-top: rem(-60px);
+        margin-bottom: rem(60px);
+      }
     }
   }
 
   &.-wasting {
-    // background-image: image-url('causes/closed/wasting.png');
-    border-bottom: 0.0625rem solid #a99c89;
 
     @media screen and (min-width: $screen-m) {
       border: 0;
+
+      .c-accordion {
+        margin-top: rem(-50px);
+        margin-bottom: rem(50px);
+      }
+    }
+
+    @media screen and (min-width: $screen-l) {
+      .c-accordion {
+        margin-top: rem(-50px);
+        margin-bottom: rem(50px);
+      }
     }
   }
 
   &.-anemia {
-    // background-image: image-url('causes/closed/anemia.png');
-    border-bottom: 0.0625rem solid #a99c89;
 
     @media screen and (min-width: $screen-m) {
       border: 0;
+    }
+
+    @media screen and (min-width: $screen-l) {
+      .c-accordion {
+        margin-top: rem(-50px);
+        margin-bottom: rem(50px);
+      }
     }
   }
 
   &.-breastfeeding {
-    // background-image: image-url('causes/closed/breastfeeding.png');
-    border-bottom: 0.0625rem solid #a99c89;
 
     @media screen and (min-width: $screen-m) {
       border: 0;
     }
+
+    @media screen and (min-width: $screen-l) {
+      .c-accordion {
+        margin-top: rem(-40px);
+        margin-bottom: rem(40px);
+      }
+    }
   }
 
   &.-others {
+
     @media screen and (min-width: $screen-m) {
       min-height: rem(400px);
     }
@@ -97,7 +117,7 @@
   }
 
   .info {
-    padding: rem(30px) 0;
+    padding: rem(10px) 0 rem(30px);
     text-align: center;
 
     @media screen and (min-width: $screen-m) {
