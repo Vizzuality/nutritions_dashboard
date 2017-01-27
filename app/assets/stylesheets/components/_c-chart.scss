@@ -1,6 +1,11 @@
 .c-chart {
   width: 100%;
-  margin-bottom: rem(20px);
+  margin-top: rem(20px);
+
+  @media screen and (min-width: $screen-m) {
+    margin-top: 0;
+    margin-bottom: rem(20px);
+  }
 
   .c3-chart {
     background-color: rgba($white, .3);
