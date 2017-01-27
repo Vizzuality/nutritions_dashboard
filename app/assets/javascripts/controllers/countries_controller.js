@@ -33,7 +33,7 @@
           name: 'Breakdown of current donor funding',
           key: 'current_spending_donors'
         }, {
-          name: 'Current Funding',
+          name: 'Current funding',
           key: 'current_spending_government'
         }],
         selectors: ['iso']
