@@ -9,7 +9,8 @@
     templates: {
       domestic: HandlebarsTemplates['current_funding_domestic'],
       foreign: HandlebarsTemplates['current_funding_domestic_null'],
-      no_data_placeholder: HandlebarsTemplates['no_data_placeholder']
+      no_data_placeholder: HandlebarsTemplates['no_data_placeholder'],
+      foreign_footnote: HandlebarsTemplates['current_funding_domestic_footnote']
     },
 
     initialize: function() {
@@ -56,6 +57,7 @@
           donor: this._formatNum(data[0].cost),
           country: data[0].country
         }));
+        this.$el.find('#governmentFundingFootnote').html('<p></p>');
       } else {
         this.$el.find('#governmentFundingText').html(this.templates.domestic({
           donor: this._formatNum(data[0].cost),
@@ -63,6 +65,7 @@
           total: this._formatNum(data[0].cost + data[0].total_spend),
           country: data[0].country
         }));
+        this.$el.find('#governmentFundingFootnote').html(this.templates.foreign_footnote());
       }
     },
 
