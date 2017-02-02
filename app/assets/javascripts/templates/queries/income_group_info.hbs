@@ -1,1 +1,10 @@
-SELECT * FROM income_groups WHERE income_group='{{group}}'
+with c as (
+  SELECT c.income_group, c.target, c.sum, r.description, r.title
+  FROM cost_meeting_targets_income_group c
+  INNER JOIN income_groups r
+  ON r.income_group = c.income_group
+  WHERE r.income_group = '{{group}}'
+  AND c.target = 'Composite'
+)
+
+SELECT * FROM c

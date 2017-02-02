@@ -1,3 +1,10 @@
-SELECT * 
-FROM groups_info 
-WHERE group_name='{{group}}'
+with c as (
+  SELECT c.region, c.target, c.sum, r.title, r.group_name
+  FROM cost_meeting_targets_region c
+  INNER JOIN groups_info r
+  ON r.target = c.target
+  WHERE r.group_name = '{{group}}'
+  AND c.target = 'Composite'
+)
+
+SELECT * FROM c
