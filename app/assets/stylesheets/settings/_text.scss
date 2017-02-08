@@ -305,6 +305,12 @@
     }
   }
 
+  &.-right {
+    @media screen and (min-width: $screen-m) {
+      text-align: right;
+    }
+  }
+
   &.-light {
     color: $white;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
