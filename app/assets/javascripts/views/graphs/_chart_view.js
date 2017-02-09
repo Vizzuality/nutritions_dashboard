@@ -24,11 +24,11 @@
         'Gov': '#00a3b7'
       },
       sources: {
-        'Gap': '#00a3b7',
-        'Household': '#9C9080',
-        'Innovative': '#EEE6DC',
-        'Domestic': '#D4CCC1',
-        'Donor': '#e6d6ba'
+        'Gap': '#bcb3a4',
+        'Household': '#047482',
+        'Innovative': '#00a3b7',
+        'Domestic': '#7cc7c8',
+        'Donor': '#b5e0e1'
       },
       other: ['#c1de11', '#8ac230', '#3f8c3f', '#fff000', '#fabada']
     },

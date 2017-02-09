@@ -102,7 +102,11 @@
           .attr('preserveAspectRatio', 'none')
           .attr("dy", "-5")
           .text(function(d){
-            var text = d['target'];
+            if (d['target'] === 'Composite') {
+              var text = 'Total cost';
+            } else {
+              var text = d['target'];
+            }
             return text;
           }.bind(this))
 

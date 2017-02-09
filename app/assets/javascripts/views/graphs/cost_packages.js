@@ -64,7 +64,7 @@
           color: this.colors.other,
           data: {
             json: {
-              'Priority': _.pluck(groupedData.RTS, 'cost'),
+              'Priority': _.pluck(groupedData.Priority, 'cost'),
               'Full': _.pluck(groupedData.Full, 'cost')
             },
             type: 'bar',

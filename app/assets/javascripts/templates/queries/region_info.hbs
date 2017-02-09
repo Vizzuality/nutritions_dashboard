@@ -1,1 +1,10 @@
-SELECT * FROM regions WHERE region='{{group}}'
+with c as (
+  SELECT c.region, c.target, c.sum, r.description, r.title
+  FROM cost_meeting_targets_region c
+  INNER JOIN regions r
+  ON r.region = c.region
+  WHERE r.region = '{{group}}'
+  AND c.target = 'Composite'
+)
+
+SELECT * FROM c

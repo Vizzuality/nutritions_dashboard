@@ -21,7 +21,7 @@
       this._setListeners();
 
       this.$el.find('select').select2({
-        minimumResultsForSearch: Infinity
+        placeholder: 'Select a country'
       });
     },
 

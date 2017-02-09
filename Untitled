@@ -1,0 +1,8 @@
+UPDATE scenario_comp_region
+SET cost = scenario_comp_region_middle_east_north_africa.cost
+FROM scenario_comp_region_middle_east_north_africa
+WHERE scenario_comp_region_middle_east_north_africa.region = scenario_comp_region.region
+AND scenario_comp_region.package = scenario_comp_region_middle_east_north_africa.package
+AND scenario_comp_region.scenario = scenario_comp_region_middle_east_north_africa.scenario
+AND scenario_comp_region.source = scenario_comp_region_middle_east_north_africa.source
+AND scenario_comp_region.year = scenario_comp_region_middle_east_north_africa.year
