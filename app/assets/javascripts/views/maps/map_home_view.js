@@ -38,6 +38,26 @@
         ebfbc7: '#004235',
         defaultFill: 'rgba(216, 216, 216,0.5)'
       },
+      values: {
+        all: {
+          v1: '< 15%',
+          v2: '16% - 30%',
+          v3: '31% - 45%',
+          v4: '46% - 60%',
+          v5: '61% - 75%',
+          v6: '76% - 90%',
+          v7: '< 90%'
+        },
+        wasting: {
+          v1: '< 5%',
+          v2: '6% - 10%',
+          v3: '11% - 15%',
+          v4: '16% - 20%',
+          v5: '21% - 25%',
+          v6: '26% - 30%',
+          v7: '< 30%'
+        }
+      }
     },
 
     events: {
@@ -90,18 +110,30 @@
       this._fetchData();
     },
 
-    _setBucket: function(sum) {;
-      var bucket = ~~(( sum * (7 - 1) ) / 100) + 1;
-      var target = this.status.get('target');
+    _setBucket: function(sum) {
+      this.status.get('target') === 'wasting' ? 'wasting' : 'all'
+      if (this.status.get('target') !== 'wasting') {
+        var bucket = ~~(( sum * (7 - 1) ) / 100) + 1;
+        var target = this.status.get('target');
+      } else {
+        var bucket = ~~(( sum * (7 - 1) ) / 35) + 1;
+        var target = this.status.get('target');
+      }
+
       return target + "bc" + bucket;
     },
 
     _paintLegend: function() {
       var bucketList = $('#mapLegendView').find('.bucket span');
+
       _.each(bucketList, function(bucket, index) {
         var color = this.defaults.buckets[this.status.get('target') + 'bc' + (index + 1)];
+        var value = this.defaults.values[this.status.get('target') === 'wasting' ? 'wasting' : 'all']['v' + (index + 1)];
+
         $(bucket).attr('style', 'background-color:' + color );
+        $(bucket).html(value);
       }.bind(this));
+
     },
 
     _parseData: function(data) {
