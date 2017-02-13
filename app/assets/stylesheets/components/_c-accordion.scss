@@ -141,6 +141,14 @@
         background-image: image-url('illustrations/wasted_hospital.png');
         width: 300px;
         height: 200px;
+        display: none;
+
+        @media screen and (min-width: $screen-m) {
+          display: block;
+          margin: 10px auto;
+          position: relative;
+          top: -40px;
+        }
       }
 
       &.-wasting-2 {
