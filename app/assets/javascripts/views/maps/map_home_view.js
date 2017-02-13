@@ -57,6 +57,12 @@
           v6: '26% - 30%',
           v7: '< 30%'
         }
+      },
+      legendText: {
+        'stunting': 'Percentage of children under 5 affected',
+        'wasting': 'Percentage of children under 5 affected',
+        'anaemia': 'Percentage of women of reproductive age affected',
+        'ebf': 'Percentage of newborns affected'
       }
     },
 
@@ -124,9 +130,9 @@
     },
 
     _paintLegend: function() {
-      var bucketList = $('#mapLegendView').find('.bucket span');
+      var $bucketList = $('#mapLegendView').find('.bucket span');
 
-      _.each(bucketList, function(bucket, index) {
+      _.each($bucketList, function(bucket, index) {
         var color = this.defaults.buckets[this.status.get('target') + 'bc' + (index + 1)];
         var value = this.defaults.values[this.status.get('target') === 'wasting' ? 'wasting' : 'all']['v' + (index + 1)];
 
@@ -134,6 +140,9 @@
         $(bucket).html(value);
       }.bind(this));
 
+      var $legendText = $('#mapLegendView').find('.js-legend-title');
+      var text = this.defaults.legendText[this.status.get('target')];
+      $legendText.html(text);
     },
 
     _parseData: function(data) {
