@@ -105,6 +105,12 @@
 
     #costMeetingPackagesView {
       margin-left: 6% !important;
+      margin-top: -80px !important;
+      margin-bottom: -80px !important;
+
+      .bubble {
+        width: 800px !important;
+      }
     }
 
     #governmentFundingText {

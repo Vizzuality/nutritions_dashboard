@@ -173,6 +173,29 @@
 		}
 	}
 
+	.select2-search--dropdown {
+    margin-top: -59px;
+    padding: 0;
+	}
+
+	.select2-search--dropdown .select2-search__field {
+    padding: 0;
+    height: 59px;
+		border: 0;
+		border-bottom: solid 1px #b8ac9c;
+    background: #f7f0e4;
+		padding-left: 15px;
+		font-weight: 700;
+		line-height: 65px;
+		font-size: 21px;
+		font-family: $font-family-2;
+		color: #81786b;
+
+		@media screen and (min-width: $screen-m) {
+			font-size: 32px;
+		}
+	}
+
   .select2-search--inline .select2-search__field {
     height: 26px;
     margin: 0;
