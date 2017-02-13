@@ -50,7 +50,7 @@
     font-size: rem(16px);
     letter-spacing: 2px;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 500;
     width: auto;
 
     &:hover {
@@ -314,5 +314,9 @@
   &.-light {
     color: $white;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  &.-center {
+    text-align: center;
   }
 }

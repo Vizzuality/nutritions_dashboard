@@ -24,7 +24,7 @@
           popupOnHover: true,
           popupTemplate: function(geo, data) {
             if ( data ) {
-              if ( data.sum ) {
+              if ( data.sum .toString() ) {
                 return '<div class="text -map"><strong>' + data.name + '</strong><p>' + data.sum + '%</p></div>';
               } else {
                 return '<div class="text -map"><strong>' + data.name + '</strong></div>';

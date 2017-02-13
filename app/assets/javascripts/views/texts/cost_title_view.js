@@ -20,7 +20,7 @@
           sum += data.sum
         });
       } else if ( data.title.indexOf('countries') !== -1 ) {
-        title = 'the ' + data.title;
+        title = (data.title).toLowerCase();
         sum = data.sum;
       } else {
         title = 'the ' + data.title + ' region';

@@ -24,6 +24,8 @@
         height: rem(10px);
         width: 100%;
         margin-bottom: rem(5px);
+        padding-top: rem(10px);
+
         @media screen and (min-width: $screen-m) {
           margin: 0;
         }
