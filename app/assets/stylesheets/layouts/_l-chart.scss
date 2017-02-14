@@ -89,6 +89,10 @@
         margin-left: rem(-40px);
       }
     }
+
+    .c3-xgrid-focus {
+      display: none;
+    }
   }
 
   &#currentCountryGovernment {
@@ -106,6 +110,10 @@
 
     .c-placeholder {
       min-height: rem(300px);
+    }
+
+    .c3-xgrid-focus {
+      display: none;
     }
   }
 
