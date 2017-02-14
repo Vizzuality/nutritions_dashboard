@@ -2,42 +2,55 @@
 <div class="row">
   <div class="columns small-12">
     <div id="homeMapView">
-      <h2 class="title-width text -title-map">
-        Current Status of Global Nutrition:
-        <div id="targetSelectorView" class="plain">
-          <select name="target" id="targetSelector" class="js--target-selector">
-            <option value="stunting">Stunting</option>
-            <option value="wasting">Wasting</option>
-            <option value="anaemia">Anemia</option>
-            <option value="ebf">Non-exclusive breastfeeding</option>
-          </select>
-        </div>
-      </h2>
-      <div id="fundingProgressView" class="c-funding-progress"></div>
-      <div id="map-container" class="c-map-home"></div>
+
       <div class="row">
         <div class="columns small-12">
+          <h2 class="title-width text -title-map">
+            Current Status of Global Nutrition:
+            <div id="targetSelectorView" class="plain">
+              <select name="target" id="targetSelector" class="js--target-selector">
+                <option value="stunting">Stunting</option>
+                <option value="wasting">Wasting</option>
+                <option value="anaemia">Anemia</option>
+                <option value="ebf">Non-exclusive breastfeeding</option>
+              </select>
+            </div>
+          </h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="columns small-12 medium-8">
+          <h3 class="text -subtitle">Prevalence</h3>
+          <p></p>
+        </div>
+        <div class="columns small-12 medium-4">
           <div id="mapLegendView" class="c-map-legend">
             <h4 class="text -legend js-legend-title">Percentage of people affected</h4>
+            <p class="text -footnote">Source: Global Nutrition Report, 2016</p>
             <div class="buckets text -legend">
-              <div class="bucket"><span class="bc1"></span></div>
-              <div class="bucket"><span class="bc2"></span></div>
-              <div class="bucket"><span class="bc3"></span></div>
-              <div class="bucket"><span class="bc4"></span></div>
-              <div class="bucket"><span class="bc5"></span></div>
-              <div class="bucket"><span class="bc6"></span></div>
-              <div class="bucket"><span class="bc7"></span></div>
-              <div class="bucket"><span class="default">no data</span></div>
+              <div class="bucket"><span class="color bc1"></span><span class="title"></span></div>
+              <div class="bucket"><span class="color bc2"></span><span class="title"></span></div>
+              <div class="bucket"><span class="color bc3"></span><span class="title"></span></div>
+              <div class="bucket"><span class="color bc4"></span><span class="title"></span></div>
+              <div class="bucket"><span class="color bc5"></span><span class="title"></span></div>
+              <div class="bucket"><span class="color bc6"></span><span class="title"></span></div>
+              <div class="bucket"><span class="color bc7"></span><span class="title"></span></div>
+              <div class="bucket"><span class="color default"></span><span>no data</span></div>
             </div>
           </div>
         </div>
-        <div class="columns small-12">
-          <p class="text -footnote -right">
-            Source: Global Nutrition Report, 2016
-          </p>
-        </div>
       </div>
+
+      <div id="map-container" class="c-map-home"></div>
+
+      <div class="columns small-12 medium-6">
+        <h3 class="text -subtitle">Current funding and future resources needs</h3>
+        <p></p>
+      </div>
+      <div id="fundingProgressView" class="c-funding-progress"></div>
     </div>
+
     <hr class="c-separator"/>
   </div>
 </div>

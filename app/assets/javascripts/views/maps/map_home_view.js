@@ -130,14 +130,14 @@
     },
 
     _paintLegend: function() {
-      var $bucketList = $('#mapLegendView').find('.bucket span');
+      var $bucketList = $('#mapLegendView').find('.bucket');
 
       _.each($bucketList, function(bucket, index) {
         var color = this.defaults.buckets[this.status.get('target') + 'bc' + (index + 1)];
         var value = this.defaults.values[this.status.get('target') === 'wasting' ? 'wasting' : 'all']['v' + (index + 1)];
 
-        $(bucket).attr('style', 'background-color:' + color );
-        $(bucket).html(value);
+        $(bucket).find('.color').attr('style', 'background-color:' + color );
+        $(bucket).find('.title').html(value);
       }.bind(this));
 
       var $legendText = $('#mapLegendView').find('.js-legend-title');
