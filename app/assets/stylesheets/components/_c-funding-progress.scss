@@ -1,5 +1,5 @@
 .c-funding-progress {
-   margin-top: 10px;
+   margin-top: 80px;
 
    @media screen and (min-width: $screen-m) {
      margin-bottom: -20px;
@@ -27,5 +27,47 @@
 
   .triangle {
     fill: #81786b;
+  }
+
+  text {
+    fill: $font-color-2;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .circle {
+    fill: #d8d8d8;
+    stroke: $color-2;
+    stroke-width: 3;
+  }
+
+  .dashed-line {
+    stroke: $color-2;
+    stroke-width: 3;
+    stroke-dasharray: 5, 5;
+  }
+
+  .text.-figure {
+    font-size: rem(16px);
+    font-weight: 700;
+  }
+
+  .milestone {
+    stroke: $color-2;
+    stroke-width: 1;
+
+    &.-achieved {
+      stroke: #d8d8d8;
+    }
+  }
+
+  .progress-line-tooltip {
+    fill: #d8d8d8;
+    stroke-width: 1;
+    stroke: $color-2;
+
+    text {
+      font-weight: bold;
+    }
   }
 }

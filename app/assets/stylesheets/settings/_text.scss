@@ -50,7 +50,7 @@
     font-size: rem(16px);
     letter-spacing: 2px;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 300;
     width: auto;
 
     &:hover {
@@ -318,5 +318,9 @@
 
   &.-center {
     text-align: center;
+  }
+
+  &.-bold {
+    font-weight: 700;
   }
 }

@@ -63,6 +63,12 @@
         'wasting': 'Percentage of children under 5 affected',
         'anaemia': 'Percentage of women of reproductive age affected',
         'ebf': 'Percentage of newborns affected'
+      },
+      prevalenceText: {
+        stunting: "Stunting affects 159 million children under five worldwide.",
+        wasting: "Wasting affects 50 million children under five worldwide.",
+        anemia: "Anemia affects 533 women of reproductive age worldwide.",
+        ebf: "Worldwide, 61% of infants under 6 months are not exclusively breastfed."
       }
     },
 
@@ -143,6 +149,12 @@
       var $legendText = $('#mapLegendView').find('.js-legend-title');
       var text = this.defaults.legendText[this.status.get('target')];
       $legendText.html(text);
+
+      var $prevalenceText  = $('.js-prevalence-text');
+      var prevalenceText = this.defaults.prevalenceText[this.status.get('target')];
+      $prevalenceText.html(prevalenceText);
+
+      $('.js--funding-needs-target').html(this.status.get('target'));
     },
 
     _parseData: function(data) {
