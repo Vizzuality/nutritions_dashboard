@@ -33,6 +33,10 @@
     fill: $font-color-2;
     font-size: 16px;
     line-height: 1.25;
+
+    &.-milestone {
+      cursor: pointer;
+    }
   }
 
   .circle {
@@ -55,6 +59,8 @@
   .milestone {
     stroke: $color-2;
     stroke-width: 1;
+    transition: .2s ease-in;
+    cursor: pointer;
 
     &.-achieved {
       stroke: #d8d8d8;
@@ -65,9 +71,15 @@
     fill: #d8d8d8;
     stroke-width: 1;
     stroke: $color-2;
+    pointer-events: none;
 
     text {
-      font-weight: bold;
+      font-weight: 500;
     }
+  }
+
+  .clickable-area {
+    cursor: pointer;
+    fill: transparent;
   }
 }

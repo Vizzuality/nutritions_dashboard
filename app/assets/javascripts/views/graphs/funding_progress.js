@@ -130,6 +130,7 @@
           .attr("y1", height-15)
           .attr("x2", year)
           .attr("y2", height-25)
+          .attr("data-tooltip", "milestone-" + year.toFixed(0))
           .attr("class", function() {
             var classes;
             if (year < currentSpent) {
@@ -148,11 +149,30 @@
           .attr("x", milestoneTextOffset)
           .attr("y", height)
           .attr('preserveAspectRatio', 'none')
-          .attr("class", "text -milestone");
+          .attr("class", "text -milestone")
+          .attr("data-tooltip", "milestone-" + year.toFixed(0))
+
+        svgContainer.append("rect")
+          .attr("x", year-20)
+          .attr("y", height-100)
+          .attr("width", 40)
+          .attr("height", 100)
+          .attr("class", "clickable-area")
+          .attr("data-tooltip", "milestone-" + year.toFixed(0))
+          .on("mouseover", function() {
+            $(this).addClass('is-current');
+            this.currentTooltip = $(this).data('tooltip');
+            $('#' + this.currentTooltip).removeClass('is-hidden');
+          })
+          .on('mouseout', function() {
+            $(this).removeClass('is-current');
+            $('#' + this.currentTooltip).addClass('is-hidden');
+          });
 
         var g = svgContainer
           .append("g")
-          .attr("class", "progress-line-tooltip")
+          .attr("class", "progress-line-tooltip is-hidden")
+          .attr("id", "milestone-" + year.toFixed(0))
 
           g.append("rect")
             .attr("x", year-30)
@@ -168,8 +188,8 @@
               text = text.replace("G", "B");
               return text;
             })
-            .attr("x", year-17)
-            .attr("y", height-30)
+            .attr("x", year-19)
+            .attr("y", height-32)
       }
 
       // plot milestones
