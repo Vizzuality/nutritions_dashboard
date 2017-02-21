@@ -11,6 +11,10 @@
         el: '#homeMapView'
       });
 
+      this.progress = new App.View.FundingProgressView({
+        el: '#homeMapView'
+      });
+
       $('.pannel').hide();
       $('.l-tabs > div:first-of-type').show();
       $('.c-tabs-links a').on('click', function(e){
@@ -25,6 +29,8 @@
         $('.pannel').hide();
         $(target).show();
       })
+
     }
+
   });
 })(this.App);
