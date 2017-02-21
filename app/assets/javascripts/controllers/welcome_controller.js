@@ -11,26 +11,20 @@
         el: '#homeMapView'
       });
 
-      this.progress = new App.View.FundingProgressView({
-        el: '#homeMapView'
-      });
+      $('.pannel').hide();
+      $('.l-tabs > div:first-of-type').show();
+      $('.tabs-links a').on('click', function(e){
+        e.preventDefault();
+        var $this = $(this),
+            target = $this.attr('href'),
+            $links = $('.tabs-links a');
 
-      this.stunting = new App.View.AccordionView({
-        el: '.-stunting'
-      });
-
-      this.wasting = new App.View.AccordionView({
-        el: '.-wasting'
-      });
-
-      this.anemia = new App.View.AccordionView({
-        el: '.-anemia'
-      });
-
-      this.breastfeeding = new App.View.AccordionView({
-        el: '.-breastfeeding'
+        $('.pannel').removeClass('active');
+        $links.removeClass('active');
+        $this.addClass('active');
+        $('.pannel').hide();
+        $(target).show();
       })
     }
-
   });
 })(this.App);

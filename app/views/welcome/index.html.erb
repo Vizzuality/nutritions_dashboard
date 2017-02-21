@@ -20,20 +20,29 @@
   <%= render 'impact-map'%>
 </div>
 
-<div class="l-content-large -stunting">
-  <%= render 'impact-stunting'%>
-</div>
+<ul class="tabs-links">
+  <li><a href="#stunting" class="active">Tab 1</a></li>
+  <li><a href="#wasting">Tab 2</a></li>
+  <li><a href="#anemia">Tab 3</a></li>
+  <li><a href="#ebf">Tab 4</a></li>
+</ul>
 
-<div class="l-content-large -wasting">
-  <%= render 'impact-wasting'%>
-</div>
+<div class="l-tabs" id="tabs">
+  <div id="stunting" class="l-content-large -stunting pannel">
+    <%= render 'impact-stunting'%>
+  </div>
 
-<div class="l-content-large -anemia">
-  <%= render 'impact-anemia'%>
-</div>
+  <div id="wasting" class="l-content-large -wasting pannel">
+    <%= render 'impact-wasting'%>
+  </div>
 
-<div class="l-content-large -breastfeeding">
-  <%= render 'impact-breastfeeding'%>
+  <div id="anemia" class="l-content-large -anemia pannel">
+    <%= render 'impact-anemia'%>
+  </div>
+
+  <div id="ebf" class="l-content-large -breastfeeding pannel">
+    <%= render 'impact-breastfeeding'%>
+  </div>
 </div>
 
 <div class="l-content-large -others -last">
