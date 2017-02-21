@@ -189,10 +189,18 @@
   }
 
   .border {
+    position: relative;
     margin-left: 0;
 
+    &:before {
+      content: "";
+      position: absolute;
+      right: -20px;
+      top: 0;
+      @include arrow (30px, rgba(0, 0, 0, 0.4), 3px, 135deg)
+    }
+
     @media screen and (min-width: $screen-m) {
-      border-left: solid 2px rgba(0, 0, 0, 0.4);
       padding-left: rem(20px);
       margin-left: rem(-20px);
     }
