@@ -69,6 +69,7 @@
         }
       }.bind(this));
       var compData = {};
+
       var comp = 0;
       _.each(scaledData, function(value, index) {
         compData[index] = value + comp;
@@ -89,16 +90,6 @@
       var xScale = d3.scale.linear()
         .domain([xMin, xMax])
         .range([padding, width - padding]);
-
-      //Create the Axis
-      // var xAxis = d3.svg.axis()
-      //   .scale(xScale)
-      //   .tickPadding(10)
-      //   .tickFormat(function(d){
-      //     var text = '$' + d3.format('.2s')(d);
-      //     text = text.replace("G", "B");
-      //     return text;
-      //   });
 
       //Create an SVG group Element for the Axis elements and call the xAxis function
       var xAxisGroup = svgContainer.append("g")
@@ -143,8 +134,8 @@
 
         svgContainer.append("text")
           .text(function(){
-            var text = index;
-            return text;
+            return index;
+
           }.bind(this))
           .attr("x", milestoneTextOffset)
           .attr("y", height)
@@ -175,27 +166,22 @@
           .attr("id", "milestone-" + year.toFixed(0))
 
           g.append("rect")
-            .attr("x", year-30)
+            .attr("x", year-28)
             .attr("y", height-50)
             .attr("rx", 5)
             .attr("ry", 5)
-            .attr("width", 60)
+            .attr("width", 56)
             .attr("height", 25);
 
           g.append("text")
             .text(function(){
-              var text = '$' + d3.format('.3s')(year);
+              var text = '$' + d3.format('.3s')(data['year_'+index]);
               text = text.replace("G", "B");
               return text;
             })
-            .attr("x", year-19)
-            .attr("y", height-32)
-      }
-
-      // plot milestones
-      _.each(compData, function(year, index) {
-        this._plotMilestones(year, index);
-      }.bind(this));
+            .attr("x", year-20)
+            .attr("y", height-32);
+                }
 
       svgContainer.append("text")
         .text("currently spent")
@@ -206,7 +192,7 @@
 
       svgContainer.append("text")
         .attr("class", "current-spend-value")
-        .text(function(d){
+        .text(function(){
           var text = '$' + d3.format('.3s')(data.year_2015);
           text = text.replace("G", "B");
           return text;
@@ -224,6 +210,11 @@
         .attr("y2", height-20)
         .attr("class", "dashed-line");
 
+       // plot milestones
+      _.each(compData, function(year, index) {
+        this._plotMilestones(year, index);
+      }.bind(this));
+
       svgContainer
         .append("circle")
         .attr("cx", currentSpent)
@@ -232,7 +223,6 @@
         .attr("transform", function(d) { return "translate(0,"+ (height-20) +")"; })
         .attr("class", "circle");
     }
-
   });
 
 })(this.App);
