@@ -13,11 +13,11 @@
 
       $('.pannel').hide();
       $('.l-tabs > div:first-of-type').show();
-      $('.tabs-links a').on('click', function(e){
+      $('.c-tabs-links a').on('click', function(e){
         e.preventDefault();
         var $this = $(this),
             target = $this.attr('href'),
-            $links = $('.tabs-links a');
+            $links = $('.c-tabs-links a');
 
         $('.pannel').removeClass('active');
         $links.removeClass('active');

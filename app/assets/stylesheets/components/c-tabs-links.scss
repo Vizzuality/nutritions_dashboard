@@ -1,0 +1,13 @@
+.c-tabs-links {
+  padding-bottom: 90px;
+
+  li {
+    width: 20%;
+    margin: 0 2%;
+    height: 130px;
+
+    @media screen and (min-width: $screen-m) {
+      display: inline-block;
+    }
+  }
+}
