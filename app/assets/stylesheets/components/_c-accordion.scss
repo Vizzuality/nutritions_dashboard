@@ -1,9 +1,5 @@
 .c-accordion {
 
-  // @media screen and (min-width: $screen-l) {
-  //   margin-top: rem(-50px);
-  // }
-
   input {
     display: none;
   }
@@ -116,10 +112,15 @@
     }
 
     .image {
+      display: none;
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
       margin: rem(20px) 0;
+
+      @media screen and (min-width: $screen-l) {
+        display: block;
+      }
 
       &.-stunting-1 {
         background-image: image-url('illustrations/stunting_starving.png');
@@ -143,7 +144,7 @@
         height: 200px;
         display: none;
 
-        @media screen and (min-width: $screen-m) {
+        @media screen and (min-width: $screen-l) {
           display: block;
           margin: 10px auto;
           position: relative;

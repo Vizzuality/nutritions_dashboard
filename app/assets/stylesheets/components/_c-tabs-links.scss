@@ -8,6 +8,11 @@
     padding: 0 25px;
     border: 3px solid rgba($color-3, .2);
     color: $color-3;
+    margin-bottom: 10px;
+
+    @media screen and (min-width: $screen-l) {
+      margin-bottom: 0;
+    }
 
     h3 {
       position: relative;
@@ -64,12 +69,14 @@
         left: 0;
       }
 
-      &:before {
-        content: "";
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        transform: translatex(-50%);
+      @media screen and (min-width: $screen-l) {
+        &:before {
+          content: "";
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          transform: translatex(-50%);
+        }
       }
 
       &.-stunting {
@@ -88,9 +95,9 @@
       &.-wasting {
         border-color: $color-graph-3;
         color: $white;
-        background-image: none;
 
         &:after {
+          background-image: none;
           background-color: $color-graph-3;
         }
 
