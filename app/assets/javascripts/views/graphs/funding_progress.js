@@ -40,44 +40,45 @@
       this.status.set({ 'target': target });
     },
 
-    _round: function(num) {
-      var len=(num+'').length;
-      var fac=Math.pow(10,len-1);
-      return Math.ceil(num/fac)*fac;
-    },
+    // _round: function(num) {
+    //   var len=(num+'').length;
+    //   var fac=Math.pow(10,len-1);
+    //   return Math.ceil(num/fac)*fac;
+    // },
 
-    _scaleValue: function(num, width, max) {
-      return (num/max)*width;
+    _scaleValue: function(num, width, max, min) {
+      return ((num/max)*width) - (((min/max)*width)/2);
     },
 
     _drawGraph: function() {
       var data = this.model.toJSON()[0],
           screenWidth = $(document).width(),
-          xMin = 0,
           yMax = 0,
           yMin = 100,
           height = 200,
           width = screenWidth >= 768 ? 1080 : 500,
           padding = 20,
-          xMax = this.status.get('target') === 'wasting' ? 16000000000 : this._round(data.total);
+          xMin = data.year_2015,
+          xMax = data.year_2025;
 
       var scaledData = {};
       _.each(data, function (value, index){
         if ( index.indexOf("year_") !== -1 ) {
           var year = index.replace('year_', '');
-          scaledData[year] = this._scaleValue(value, width, xMax) - 5;
+          if (this.status.get('target') === 'wasting') {
+            scaledData[year] = this._scaleValue(value, width, xMax, xMin);
+          } else if (year < 2021 || year == 2025) {
+            scaledData[year] = this._scaleValue(value, width, xMax, xMin);
+          }
         }
       }.bind(this));
-      var compData = {};
 
-      var comp = 0;
+      var compData = {};
       _.each(scaledData, function(value, index) {
-        compData[index] = value + comp;
-        comp = compData[index];
+        compData[index] = value + 100;
       })
 
-      var currentSpent = scaledData['2015'],
-          milestone = scaledData['2016'];
+      var currentSpent = scaledData['2015'];
 
       //Create the SVG Viewport
       var svgContainer = d3.select("#fundingProgressView")
