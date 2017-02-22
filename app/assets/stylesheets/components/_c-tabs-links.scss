@@ -1,0 +1,136 @@
+.c-tabs-links {
+  padding: 55px 0 90px;
+
+  a {
+    position: relative;
+    display: block;
+    height: 130px;
+    padding: 0 25px;
+    border: 3px solid rgba($color-3, .2);
+    color: $color-3;
+    margin-bottom: 10px;
+
+    @media screen and (min-width: $screen-l) {
+      margin-bottom: 0;
+    }
+
+    h3 {
+      position: relative;
+      z-index: 3;
+    }
+
+    &.-stunting {
+      background-image: image-url('illustrations/stunting_grow.png');
+      background-position: bottom right;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    &.-wasting:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      transform: scalex(-1);
+      background-image: image-url('illustrations/wasted_brain.png');
+      background-position: bottom left;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    &.-anemia {
+      background-image: image-url('illustrations/anaemia_woman.png');
+      background-position: bottom right;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    &.-ebf {
+      background-image: image-url('illustrations/breastfeeding_woman_child.png');
+      background-position: bottom right;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    &.active {
+
+      .text {
+        color: $white;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+      }
+
+      @media screen and (min-width: $screen-l) {
+        &:before {
+          content: "";
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          transform: translatex(-50%);
+        }
+      }
+
+      &.-stunting {
+        border-color: $color-graph-4;
+        color: $white;
+
+        &:after {
+          background-color: $color-graph-4;
+        }
+
+        &:before {
+          @include equi-triangle (10px, $color-graph-4, bottom)
+        }
+      }
+
+      &.-wasting {
+        border-color: $color-graph-3;
+        color: $white;
+
+        &:after {
+          background-image: none;
+          background-color: $color-graph-3;
+        }
+
+        &:before {
+          @include equi-triangle (10px, $color-graph-3, bottom)
+        }
+      }
+
+      &.-anemia {
+        border-color: $color-graph-2;
+        color: $white;
+
+        &:after {
+          background-color: $color-graph-2;
+        }
+
+        &:before {
+          @include equi-triangle (10px, $color-graph-2, bottom)
+        }
+      }
+
+      &.-ebf {
+        border-color: $color-graph-1;
+        color: $white;
+
+        &:after {
+          background-color: $color-graph-1;
+        }
+
+        &:before {
+          @include equi-triangle (10px, $color-graph-1, bottom)
+        }
+      }
+    }
+  }
+}

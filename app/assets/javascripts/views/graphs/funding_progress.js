@@ -40,43 +40,45 @@
       this.status.set({ 'target': target });
     },
 
-    _round: function(num) {
-      var len=(num+'').length;
-      var fac=Math.pow(10,len-1);
-      return Math.ceil(num/fac)*fac;
-    },
+    // _round: function(num) {
+    //   var len=(num+'').length;
+    //   var fac=Math.pow(10,len-1);
+    //   return Math.ceil(num/fac)*fac;
+    // },
 
-    _scaleValue: function(num, width, max) {
-      return (num/max)*width;
+    _scaleValue: function(num, width, max, min) {
+      return ((num/max)*width) - (((min/max)*width)/2);
     },
 
     _drawGraph: function() {
       var data = this.model.toJSON()[0],
           screenWidth = $(document).width(),
-          xMin = 0,
           yMax = 0,
           yMin = 100,
-          height = 100,
+          height = 200,
           width = screenWidth >= 768 ? 1080 : 500,
           padding = 20,
-          xMax = this.status.get('target') === 'wasting' ? 16000000000 : this._round(data.total);
+          xMin = data.year_2015,
+          xMax = data.year_2025;
 
       var scaledData = {};
       _.each(data, function (value, index){
         if ( index.indexOf("year_") !== -1 ) {
           var year = index.replace('year_', '');
-          scaledData[year] = this._scaleValue(value, width, xMax) - 5;
+          if (this.status.get('target') === 'wasting') {
+            scaledData[year] = this._scaleValue(value, width, xMax, xMin);
+          } else if (year < 2021 || year == 2025) {
+            scaledData[year] = this._scaleValue(value, width, xMax, xMin);
+          }
         }
       }.bind(this));
+
       var compData = {};
-      var comp = 0;
       _.each(scaledData, function(value, index) {
-        compData[index] = value + comp;
-        comp = compData[index];
+        compData[index] = value + 100;
       })
 
-      var currentSpent = scaledData['2015'],
-          milestone = scaledData['2016'];
+      var currentSpent = scaledData['2015'];
 
       //Create the SVG Viewport
       var svgContainer = d3.select("#fundingProgressView")
@@ -90,96 +92,138 @@
         .domain([xMin, xMax])
         .range([padding, width - padding]);
 
-      //Create the Axis
-      var xAxis = d3.svg.axis()
-        .scale(xScale)
-        .tickPadding(10)
-        .tickFormat(function(d){
-          var text = '$' + d3.format('.2s')(d);
-          text = text.replace("G", "B");
-          return text;
-        });
-
       //Create an SVG group Element for the Axis elements and call the xAxis function
       var xAxisGroup = svgContainer.append("g")
         .attr('class', 'axis')
-        .attr("transform", "translate(" + 0 + "," + 70 + ")")
+        .attr("transform", "translate(" + 0 + "," + (height-20) + ")")
         .attr("height", 10)
-        .call(xAxis);
+        // .call(xAxis);
 
       svgContainer.append("rect")
         .attr("x", 0)
-        .attr("y", 70)
+        .attr("y", height-20)
         .attr("width", width)
         .attr("height", 1)
         .attr("class", "base-axis");
 
       svgContainer.append("rect")
         .attr("x", 0)
-        .attr("y", 70)
+        .attr("y", height-20)
         .attr("width", currentSpent)
         .attr("height", 1)
         .attr("class", "current-axis");
 
       this._plotMilestones = function(year, index){
         var yearTextOffset = screenWidth >= 768 ? year + 1 : year - 8;
-        var milestoneTextOffset = screenWidth >= 768 ? year - 26 : year - 43;
-        svgContainer.append("path")
-        .attr("transform", function(d) { return "translate(" + (year + 25) + "," + 60 + ")"; }.bind(this))
-        .attr("d", d3.svg.symbol().type("triangle-down").size( function(d) { return 25 }))
-        .attr("class", "triangle");
+        var milestoneTextOffset = screenWidth >= 768 ? year - 10 : year - 43;
+
+        svgContainer.append("line")
+          .attr("x1", year)
+          .attr("y1", height-15)
+          .attr("x2", year)
+          .attr("y2", height-25)
+          .attr("data-tooltip", "milestone-" + year.toFixed(0))
+          .attr("class", function() {
+            var classes;
+            if (year < currentSpent) {
+              classes =  "milestone -achieved"
+            } else {
+              classes = "milestone"
+            }
+            return classes;
+          }.bind(this));
 
         svgContainer.append("text")
-        .text(function(d){
-          var text = index;
-          return text;
-        }.bind(this))
-        .attr("x", yearTextOffset)
-        .attr("y", 40)
-        .attr('preserveAspectRatio', 'none')
-        .attr("class", "text -milestone");
+          .text(function(){
+            return index;
 
-        svgContainer.append("text")
-        .text('milestone')
-        .attr("x", milestoneTextOffset)
-        .attr("y", 52)
-        .attr('preserveAspectRatio', 'none')
-        .attr("class", "text -milestone");
-      }
+          }.bind(this))
+          .attr("x", milestoneTextOffset)
+          .attr("y", height)
+          .attr('preserveAspectRatio', 'none')
+          .attr("class", "text -milestone")
+          .attr("data-tooltip", "milestone-" + year.toFixed(0))
 
-      // plot mile stones
-      _.each(compData, function(year, index) {
-        if ( index >= 2018 && screenWidth >= 768 ) {
-          this._plotMilestones(year, index);
-        } else if ( index === "2020" || index === "2025" ) {
-          this._plotMilestones(year, index);
-        }
-      }.bind(this));
+        svgContainer.append("rect")
+          .attr("x", year-20)
+          .attr("y", height-100)
+          .attr("width", 40)
+          .attr("height", 100)
+          .attr("class", "clickable-area")
+          .attr("data-tooltip", "milestone-" + year.toFixed(0))
+          .on("mouseover", function() {
+            $(this).addClass('is-current');
+            this.currentTooltip = $(this).data('tooltip');
+            $('#' + this.currentTooltip).removeClass('is-hidden');
+          })
+          .on('mouseout', function() {
+            $(this).removeClass('is-current');
+            $('#' + this.currentTooltip).addClass('is-hidden');
+          });
+
+        var g = svgContainer
+          .append("g")
+          .attr("class", "progress-line-tooltip is-hidden")
+          .attr("id", "milestone-" + year.toFixed(0))
+
+          g.append("rect")
+            .attr("x", year-28)
+            .attr("y", height-50)
+            .attr("rx", 5)
+            .attr("ry", 5)
+            .attr("width", 56)
+            .attr("height", 25);
+
+          g.append("text")
+            .text(function(){
+              var text = '$' + d3.format('.3s')(data['year_'+index]);
+              text = text.replace("G", "B");
+              return text;
+            })
+            .attr("x", year-20)
+            .attr("y", height-32);
+                }
 
       svgContainer.append("text")
         .text("currently spent")
-        .attr("x", currentSpent)
-        .attr("y", 20)
+        .attr("x", currentSpent+5)
+        .attr("y", 55)
         .attr('preserveAspectRatio', 'none')
         .attr("class", "text -funding");
 
-      svgContainer.append("path")
-        .attr("transform", function(d) { return "translate(" + (currentSpent + 5) + "," + 60 + ")"; })
-        .attr("d", d3.svg.symbol().type("triangle-down").size( function(d) { return 25 }))
-        .attr("class", "triangle");
-
       svgContainer.append("text")
-        .text(function(d){
+        .attr("class", "current-spend-value")
+        .text(function(){
           var text = '$' + d3.format('.3s')(data.year_2015);
           text = text.replace("G", "B");
           return text;
         })
-        .attr("x", currentSpent)
-        .attr("y", 45)
+        .attr("x", currentSpent+5)
+        .attr("y", 75)
         .attr('preserveAspectRatio', 'none')
         .attr("class", "text -figure");
-    }
 
+      svgContainer
+        .append("line")
+        .attr("x1", currentSpent)
+        .attr("y1", 50)
+        .attr("x2", currentSpent)
+        .attr("y2", height-20)
+        .attr("class", "dashed-line");
+
+       // plot milestones
+      _.each(compData, function(year, index) {
+        this._plotMilestones(year, index);
+      }.bind(this));
+
+      svgContainer
+        .append("circle")
+        .attr("cx", currentSpent)
+        .attr("cy", 0)
+        .attr("r", 8)
+        .attr("transform", function(d) { return "translate(0,"+ (height-20) +")"; })
+        .attr("class", "circle");
+    }
   });
 
 })(this.App);

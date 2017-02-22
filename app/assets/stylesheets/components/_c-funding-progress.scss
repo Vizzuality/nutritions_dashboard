@@ -2,6 +2,7 @@
    margin-top: 10px;
 
    @media screen and (min-width: $screen-m) {
+    margin-top: 80px;
      margin-bottom: -20px;
    }
 
@@ -27,5 +28,60 @@
 
   .triangle {
     fill: #81786b;
+  }
+
+  text {
+    fill: $font-color-2;
+    font-size: 16px;
+    line-height: 1.25;
+
+    &.-milestone {
+      cursor: pointer;
+    }
+  }
+
+  .circle {
+    fill: #d8d8d8;
+    stroke: $color-2;
+    stroke-width: 3;
+  }
+
+  .dashed-line {
+    stroke: $color-2;
+    stroke-width: 3;
+    stroke-dasharray: 5, 5;
+  }
+
+  .text.-figure {
+    font-size: rem(16px);
+    font-weight: 700;
+  }
+
+  .milestone {
+    stroke: $color-2;
+    stroke-width: 1;
+    transition: .2s ease-in;
+    cursor: pointer;
+
+    &.-achieved {
+      stroke: #d8d8d8;
+    }
+  }
+
+  .progress-line-tooltip {
+    fill: #d8d8d8;
+    stroke-width: 1;
+    stroke: $color-2;
+    pointer-events: none;
+
+    text {
+      font-weight: 500;
+      font-size: 14px;
+    }
+  }
+
+  .clickable-area {
+    cursor: pointer;
+    fill: transparent;
   }
 }
