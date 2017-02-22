@@ -4,6 +4,7 @@
   position: relative;
 
   .image {
+    display: none;
     width: 100%;
     height: 100%;
     position: relative;;
@@ -14,9 +15,8 @@
     height: rem(300px);
 
     @media screen and (min-width: $screen-m) {
-      // position: absolute;
+      display: block;
       margin-top: 0;
-      // top: rem(150px);
       height: rem(450px);
     }
 

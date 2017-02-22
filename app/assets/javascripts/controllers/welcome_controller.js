@@ -15,21 +15,21 @@
         el: '#homeMapView'
       });
 
-      this.stunting = new App.View.AccordionView({
-        el: '.-stunting'
-      });
+      $('.pannel').hide();
+      $('.l-tabs > div:first-of-type').show();
+      $('.c-tabs-links a').on('click', function(e){
+        e.preventDefault();
+        var $this = $(this),
+            target = $this.attr('href'),
+            $links = $('.c-tabs-links a');
 
-      this.wasting = new App.View.AccordionView({
-        el: '.-wasting'
-      });
-
-      this.anemia = new App.View.AccordionView({
-        el: '.-anemia'
-      });
-
-      this.breastfeeding = new App.View.AccordionView({
-        el: '.-breastfeeding'
+        $('.pannel').removeClass('active');
+        $links.removeClass('active');
+        $this.addClass('active');
+        $('.pannel').hide();
+        $(target).show();
       })
+
     }
 
   });

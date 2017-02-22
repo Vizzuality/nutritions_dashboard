@@ -59,10 +59,16 @@
         }
       },
       legendText: {
-        'stunting': 'Percentage of children under 5 affected',
-        'wasting': 'Percentage of children under 5 affected',
-        'anaemia': 'Percentage of women of reproductive age affected',
-        'ebf': 'Percentage of newborns affected'
+        stunting: 'Percentage of children under 5 affected',
+        wasting: 'Percentage of children under 5 affected',
+        anaemia: 'Percentage of women of reproductive age affected',
+        ebf: 'Percentage of newborns affected'
+      },
+      prevalenceText: {
+        stunting: "Stunting affects 159 million children under five worldwide.",
+        wasting: "Wasting affects 50 million children under five worldwide.",
+        anaemia: "Anemia affects 533 women of reproductive age worldwide.",
+        ebf: "Worldwide, 61% of infants under 6 months are not exclusively breastfed."
       }
     },
 
@@ -130,19 +136,25 @@
     },
 
     _paintLegend: function() {
-      var $bucketList = $('#mapLegendView').find('.bucket span');
+      var $bucketList = $('#mapLegendView').find('.bucket');
 
       _.each($bucketList, function(bucket, index) {
         var color = this.defaults.buckets[this.status.get('target') + 'bc' + (index + 1)];
         var value = this.defaults.values[this.status.get('target') === 'wasting' ? 'wasting' : 'all']['v' + (index + 1)];
 
-        $(bucket).attr('style', 'background-color:' + color );
-        $(bucket).html(value);
+        $(bucket).find('.color').attr('style', 'background-color:' + color );
+        $(bucket).find('.title').html(value);
       }.bind(this));
 
       var $legendText = $('#mapLegendView').find('.js-legend-title');
       var text = this.defaults.legendText[this.status.get('target')];
       $legendText.html(text);
+
+      var $prevalenceText  = $('.js-prevalence-text');
+      var prevalenceText = this.defaults.prevalenceText[this.status.get('target')];
+      $prevalenceText.html(prevalenceText);
+
+      $('.js--funding-needs-target').html(this.status.get('target'));
     },
 
     _parseData: function(data) {

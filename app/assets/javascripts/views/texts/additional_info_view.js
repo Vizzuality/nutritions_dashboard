@@ -12,11 +12,11 @@
       var data = this.collection.toJSON()[0];
       var title;
       if ( data.group_name === 'global' ) {
-        title = 'the world';
+        title = 'everyone does their part';
       } else if ( data.title.indexOf('countries') !== -1 ) {
         title = (data.title).toLowerCase();
       } else {
-        title = 'the ' + data.title + ' region';
+        title = 'the ' + data.title + ' region and others worldwide do their part';
       }
       this.$el.find('.text').html(this.template({
         title: title
