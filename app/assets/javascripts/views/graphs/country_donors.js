@@ -95,7 +95,7 @@
           axis: {
             x: {
               type: 'category',
-              categories: ['Anemia', 'Non EBF', 'Stunting', 'Wasting'],
+              categories: ['Anemia', 'Exclusive breastfeed', 'Stunting', 'Wasting'],
               tick: {
                 fit: true
               },
