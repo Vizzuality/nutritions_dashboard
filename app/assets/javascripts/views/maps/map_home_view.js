@@ -72,10 +72,6 @@
       }
     },
 
-    events: {
-      'change .js--target-selector' : '_onChangeSetTarget'
-    },
-
     initialize: function() {
       if (!this.el) {
         return;
@@ -95,6 +91,7 @@
     },
 
     _setListeners: function() {
+      App.Events.on('target:selected', this._onChangeSetTarget.bind(this));
       $(window).on('resize', this._resizeMap.bind(this));
       this.status.on('change:target', this._triggerSelectedTarget.bind(this));
     },
@@ -113,9 +110,8 @@
       }.bind(this));
     },
 
-    _onChangeSetTarget: function() {
-      var target = this.$el.find('.js--target-selector').val();
-      this.status.set({ 'target': target });
+    _onChangeSetTarget: function(target) {
+      this.status.set(target);
     },
 
     _triggerSelectedTarget: function() {
