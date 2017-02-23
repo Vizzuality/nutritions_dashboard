@@ -34,6 +34,8 @@
   }
 
   &.-stunting {
+    padding-bottom: 0;
+
     @media screen and (min-width: $screen-m) {
       border: 0;
     }
@@ -41,31 +43,30 @@
     @media screen and (min-width: $screen-l) {
       .c-accordion {
         margin-top: rem(-60px);
-        margin-bottom: rem(60px);
       }
     }
   }
 
   &.-wasting {
+    padding-bottom: 0;
 
     @media screen and (min-width: $screen-m) {
       border: 0;
 
       .c-accordion {
         margin-top: rem(-50px);
-        margin-bottom: rem(50px);
       }
     }
 
     @media screen and (min-width: $screen-l) {
       .c-accordion {
         margin-top: rem(-50px);
-        margin-bottom: rem(50px);
       }
     }
   }
 
   &.-anemia {
+    padding-bottom: 0;
 
     @media screen and (min-width: $screen-m) {
       border: 0;
@@ -74,12 +75,12 @@
     @media screen and (min-width: $screen-l) {
       .c-accordion {
         margin-top: rem(-50px);
-        margin-bottom: rem(50px);
       }
     }
   }
 
   &.-breastfeeding {
+    padding-bottom: 0;
 
     @media screen and (min-width: $screen-m) {
       border: 0;
@@ -88,7 +89,6 @@
     @media screen and (min-width: $screen-l) {
       .c-accordion {
         margin-top: rem(-40px);
-        margin-bottom: rem(40px);
       }
     }
   }
