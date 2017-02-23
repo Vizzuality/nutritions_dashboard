@@ -72,10 +72,6 @@
       }
     },
 
-    events: {
-      'change .js--target-selector' : '_onChangeSetTarget'
-    },
-
     initialize: function() {
       if (!this.el) {
         return;
