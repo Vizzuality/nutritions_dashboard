@@ -67,7 +67,7 @@
       prevalenceText: {
         stunting: "Stunting affects 159 million children under five worldwide.",
         wasting: "Wasting affects 50 million children under five worldwide.",
-        anaemia: "Anemia affects 533 women of reproductive age worldwide.",
+        anaemia: "Anemia affects 533 million women of reproductive age worldwide.",
         ebf: "Worldwide, 61% of infants under 6 months are not exclusively breastfed."
       }
     },
