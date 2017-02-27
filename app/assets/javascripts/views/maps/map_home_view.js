@@ -155,14 +155,18 @@
 
     _parseData: function(data) {
       var summedData = {};
+
       _.each(data, function(country) {
-        var sum = country['per_' + this.status.get('target')] !== null ? country['per_' + this.status.get('target')] : 0;
+        if (country['per_' + this.status.get('target')] !== null ) {}
+        var sum = country['per_' + this.status.get('target')] !== null ? country['per_' + this.status.get('target')] : '-';
+
         summedData[country.iso_code] = {
-          fillKey: this._setBucket(sum),
+          fillKey: sum !== '-' ? this._setBucket(sum) : "defaultFill",
           sum: sum,
           name: country.country
         }
       }.bind(this));
+
       return summedData;
     },
 
