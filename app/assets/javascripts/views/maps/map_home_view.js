@@ -132,25 +132,16 @@
     },
 
     _paintLegend: function() {
-      var $bucketList = $('#mapLegendView').find('.bucket');
+      var bucketList = $('#mapLegendView').find('.bucket span');
 
-      _.each($bucketList, function(bucket, index) {
+      _.each(bucketList, function(bucket, index) {
         var color = this.defaults.buckets[this.status.get('target') + 'bc' + (index + 1)];
         var value = this.defaults.values[this.status.get('target') === 'wasting' ? 'wasting' : 'all']['v' + (index + 1)];
 
-        $(bucket).find('.color').attr('style', 'background-color:' + color );
-        $(bucket).find('.title').html(value);
+        $(bucket).attr('style', 'background-color:' + color );
+        $(bucket).html(value);
       }.bind(this));
 
-      var $legendText = $('#mapLegendView').find('.js-legend-title');
-      var text = this.defaults.legendText[this.status.get('target')];
-      $legendText.html(text);
-
-      var $prevalenceText  = $('.js-prevalence-text');
-      var prevalenceText = this.defaults.prevalenceText[this.status.get('target')];
-      $prevalenceText.html(prevalenceText);
-
-      $('.js--funding-needs-target').html(this.status.get('target'));
     },
 
     _parseData: function(data) {
