@@ -1,1 +1,3 @@
-with a as (SELECT c.iso_code, c.cost, d.total_spend, c.package, c.scenario, c.source, c.target, c.country FROM current_spenditure_donors c full join current_government_funding d ON c.iso_code = d.iso_code) SELECT * FROM a WHERE a.package='Full' and a.scenario='Global Solidarity' and a.source='Donor' and a.cost is not null and a.target='Composite' ORDER BY a.country
+with a as (SELECT c.iso_code, c.cost, d.total_spend, c.package, c.scenario, c.source, c.target, c.country FROM current_spenditure_donors c 
+full join current_government_funding d ON c.iso_code = d.iso_code) 
+SELECT a.iso_code, a.cost, a.total_spend, a.package, a.scenario, a.source, a.target, b.country FROM a join countries b on a.iso_code=b.iso_code WHERE a.package='Full' and a.scenario='Global Solidarity' and a.source='Donor' and a.cost is not null and a.target='Composite' ORDER BY b.country
