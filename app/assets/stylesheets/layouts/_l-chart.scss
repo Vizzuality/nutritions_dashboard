@@ -11,6 +11,10 @@
     @media screen and (min-width: $screen-xl + 1px) {
       margin-left: rem(-40px);
     }
+
+    .c3-xgrid-focus {
+      display: none;
+    }
   }
 
   &#costPackagesView{

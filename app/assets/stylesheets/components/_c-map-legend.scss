@@ -1,6 +1,6 @@
 .c-map-legend {
-  float: left;
   width: 100%;
+  margin-bottom: 70px;
 
   h4 {
     margin: rem(10px) 0 rem(5px);
@@ -11,23 +11,30 @@
   }
 
   .buckets {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
     .bucket {
-      width: 50%;
-      float: left;
-      margin-bottom: rem(5px);
+      width: 100%;
+      text-align: center;
 
-      .color {
-        display: inline-block;
+      span {
+        display: block;
         height: rem(10px);
-        width: rem(10px);
-        border-radius: 50%;
-        margin: 0;
-        margin-right: rem(15px);
-        border: 1px solid rgba(216, 216, 216, 0.5);
+        width: 100%;
+        margin-bottom: rem(5px);
+        padding-top: rem(10px);
 
-        &.default {
-          background-color: rgba(#d8d8d8, 0.5);
+        @media screen and (min-width: $screen-m) {
+          margin: 0;
         }
+      }
+
+      .default {
+        background-color: rgba(#d8d8d8, 0.5);
+        margin-left: rem(5px);
       }
     }
   }
