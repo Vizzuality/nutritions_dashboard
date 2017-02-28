@@ -142,6 +142,14 @@
         $(bucket).html(value);
       }.bind(this));
 
+      var $legendText = $('#mapLegendView').find('.js-legend-title');
+      var text = this.defaults.legendText[this.status.get('target')];
+      $legendText.html(text);
+
+      var $prevalenceText  = $('.js-prevalence-text');
+      var prevalenceText = this.defaults.prevalenceText[this.status.get('target')];
+      $prevalenceText.html(prevalenceText);
+
     },
 
     _parseData: function(data) {
