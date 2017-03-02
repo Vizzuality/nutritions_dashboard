@@ -51,6 +51,7 @@
 
     _drawGraph: function() {
       var data = this.collection.toJSON();
+      console.log(data)
       var groupedData = _.groupBy(data, 'package');
       // TODO: Fix this ASAP
       var ticks = this.status.get('group') === 'east-asia-pacific' ? this._createTicks(_.pluck(groupedData.Full, 'cost')).slice(0, 5) : this._createTicks(_.pluck(groupedData.Full, 'cost'));
@@ -109,17 +110,18 @@
             }
           },
           tooltip: {
-            format: {
-              value: function (v) {
-                if (v > 1000 || v < -1000) {
-                  var num = '$' + d3.format('.3s')(v);
-                  num = num.replace("G", "B");
-                  return num;
-                } else {
-                  return d3.round(v, 2);
-                }
-              }
-            }
+            show: false
+            // format: {
+            //   value: function (v) {
+            //     if (v > 1000 || v < -1000) {
+            //       var num = '$' + d3.format('.3s')(v);
+            //       num = num.replace("G", "B");
+            //       return num;
+            //     } else {
+            //       return d3.round(v, 2);
+            //     }
+            //   }
+            // }
           },
           legend: {
             item: {
