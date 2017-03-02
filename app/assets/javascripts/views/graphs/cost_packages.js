@@ -51,7 +51,6 @@
 
     _drawGraph: function() {
       var data = this.collection.toJSON();
-      console.log(data)
       var groupedData = _.groupBy(data, 'package');
       // TODO: Fix this ASAP
       var ticks = this.status.get('group') === 'east-asia-pacific' ? this._createTicks(_.pluck(groupedData.Full, 'cost')).slice(0, 5) : this._createTicks(_.pluck(groupedData.Full, 'cost'));
