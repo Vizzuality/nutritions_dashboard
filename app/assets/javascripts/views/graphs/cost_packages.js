@@ -14,16 +14,21 @@
     },
 
     _fetchData: function() {
-      this.ajaxStart('#packageComparisonSection');
-      var params = {
-        mode: this.status.get('mode'),
-        group: this.status.get('group')
-      };
+      if (this.status.get('mode') === "global") {
+        this.ajaxStart('#packageComparisonSection');
+        var params = {
+          mode: this.status.get('mode'),
+          group: this.status.get('group')
+        };
 
-      this.collection.getDataForCostPackages(params).done(function(){
-        this.render();
-        this.ajaxComplete('#packageComparisonSection');
-      }.bind(this));
+        this.collection.getDataForCostPackages(params).done(function(){
+          $('#packageComparisonSection').removeClass('is-hidden');
+          this.render();
+          this.ajaxComplete('#packageComparisonSection');
+        }.bind(this));
+      } else {
+        $('#packageComparisonSection').addClass('is-hidden');
+      }
     },
 
     _round: function(num) {
