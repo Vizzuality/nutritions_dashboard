@@ -179,6 +179,10 @@
   &.-footnote {
     font-size: rem(12px);
     margin-bottom: rem(10px);
+
+    a {
+      font-weight: 500;
+    }
   }
 
   &.-logo {
