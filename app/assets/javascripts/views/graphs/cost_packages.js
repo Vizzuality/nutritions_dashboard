@@ -45,7 +45,6 @@
     _createTicks: function(array) {
       var maximun = array[(array.length -1)];
       maximun = this._round(maximun);
-      console.log(maximun)
       var scale = [0];
       var prev = 0;
 
