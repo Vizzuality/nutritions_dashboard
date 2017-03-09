@@ -32,7 +32,7 @@
     },
 
     _round: function(num) {
-      var len = (num + '').length;
+      var len = (Math.round(num) + '').length;
       var fac = Math.pow(10, len - 1);
       var max = Math.ceil(num / fac) * fac;
       var offset = 0;
@@ -43,14 +43,17 @@
     },
 
     _createTicks: function(array) {
-      var max = Math.max.apply(null, array);
-      max = this._round(max);
+      var maximun = array[(array.length -1)];
+      maximun = this._round(maximun);
+      console.log(maximun)
       var scale = [0];
       var prev = 0;
+
       for ( var i = 1; i < 6; i++ ) {
-        scale[i] = prev + max / 6;
+        scale[i] = prev + maximun / 6;
         prev = scale[i];
       }
+
       return scale;
     },
 
