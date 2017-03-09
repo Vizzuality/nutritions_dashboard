@@ -179,6 +179,15 @@
   &.-footnote {
     font-size: rem(12px);
     margin-bottom: rem(10px);
+
+    a {
+      font-weight: 500;
+      color: $color-2;
+    }
+
+    #fullPrioritySection & {
+      margin-top: rem(20px);
+    }
   }
 
   &.-logo {

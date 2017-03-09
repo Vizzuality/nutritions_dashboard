@@ -77,9 +77,12 @@
           mode: params.selectors.mode,
           group: params.selectors.group
         });
+
         var url = this._urlForQuery(query) + '&format=CSV&filename=' + graph.key + '_' + params.selectors.mode + '_' + params.selectors.group;
+
         links[graph.key]['link'] = url;
         links[graph.key]['name'] = graph.name;
+        links[graph.key]['key'] = graph.key;
       }.bind(this));
       return links;
     }

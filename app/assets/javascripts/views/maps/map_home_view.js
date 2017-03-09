@@ -69,6 +69,12 @@
         wasting: "Wasting affects 50 million children under five in low- and middle-income countries.",
         anaemia: "Anemia affects 533 million women of reproductive age in low- and middle-income countries.",
         ebf: "In low- and middle-income countries, 61% of infants under 6 months are not exclusively breastfed."
+      },
+      sourceText: {
+        stunting: 'Source: <a href="http://www.globalnutritionreport.org/" target="_blank">Global Nutrition Report 2016</a>, (drawing on: <a href="http://www.who.int/nutgrowthdb/estimates2014/en/" target="_blank">UNICEF, WHO and World Bank 2015)</a>; India data based on <a href="http://wcd.nic.in/sites/default/files/State%20RSOC.pdf" target="_blank">Rapid Survey of Children: 2013-4</a>',
+        wasting: 'Source: <a href="http://www.globalnutritionreport.org/" target="_blank">Global Nutrition Report 2016</a>, (drawing on: <a href="http://www.who.int/nutgrowthdb/estimates2014/en/" target="_blank">UNICEF, WHO and World Bank 2015)</a>; India data based on <a href="http://wcd.nic.in/sites/default/files/State%20RSOC.pdf" target="_blank">Rapid Survey of Children: 2013-4</a>',
+        anaemia: 'Source: <a href="http://www.globalnutritionreport.org/" target="_blank">Global Nutrition Report 2016</a> (drawing on: <a href="http://dx.doi.org/10.1016/S2214-109X(13)70001-9" target="_blank">Stevens et al. 2013</a>)',
+        ebf: 'For EBF, change to: Source: <a href="http://www.globalnutritionreport.org/" target="_blank">Global Nutrition Report 2016</a> (drawing on: <a href="http://www.who.int/nutrition/publications/globaltargets2025_policybrief_breastfeeding/en/" target="_blank">WHO and UNICEF 2014</a>); India data based on <a href="http://wcd.nic.in/sites/default/files/State%20RSOC.pdf" target="_blank">Rapid Survey of Children: 2013-4</a>'
       }
     },
 
@@ -149,6 +155,10 @@
       var $prevalenceText  = $('.js-prevalence-text');
       var prevalenceText = this.defaults.prevalenceText[this.status.get('target')];
       $prevalenceText.html(prevalenceText);
+
+      var $source = $('.js-footnote');
+      var sourceText = this.defaults.sourceText[this.status.get('target')];
+      $source.html(sourceText);
 
     },
 

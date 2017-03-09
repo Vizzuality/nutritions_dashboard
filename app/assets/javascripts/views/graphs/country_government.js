@@ -82,12 +82,12 @@
             color: this.colors.funding,
             data: {
               columns: [
-                ['Gov', data[0].total_spend, null, data[0].total_spend],
+                ['Domestic sources', data[0].total_spend, null, data[0].total_spend],
                 ['Donor', null, data[0].cost, data[0].cost]
               ],
               type: 'bar',
               groups: [
-                ['Gov', 'Donor']
+                ['Domestic sources', 'Donor']
               ],
               colors: this.colors.funding,
               order: false
@@ -105,7 +105,7 @@
             axis: {
               x: {
                 type: 'category',
-                categories: ['Gov.', 'Donors', 'Gov + Donors'],
+                categories: ['Domestic sources', 'Donors', 'Total'],
                 tick: {},
                 padding: {
                   left: 0,

@@ -47,20 +47,24 @@
 
     _getQueries: function() {
       var selectors = {};
+
       this.settings.selectors.map(function(selector) {
         selectors[selector] = this.status.get(selector);
       }.bind(this));
+
       this.queries = this.collection.getCSV({
         selectors: selectors,
         graphs: this.settings.graphs
       });
+
       this._setLinks();
     },
 
     _setLinks: function() {
       this.modalWindow = this.$el.find('.c-download');
       this.modalWindow.html(HandlebarsTemplates['download_links']({
-        data: this.queries
+        data: this.queries,
+        className: this.status.get('mode')
       }));
     },
 

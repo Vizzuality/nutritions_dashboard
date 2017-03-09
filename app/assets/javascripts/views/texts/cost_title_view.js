@@ -15,7 +15,7 @@
       var sum = 0;
       if ( data.group_name === 'global' ) {
         var dataGlobal = this.collection.toJSON();
-        title = 'the world';
+        title = '<strong>globally</strong>';
         dataGlobal.forEach(function (data){
           sum += data.sum
         });
@@ -23,7 +23,7 @@
         title = (data.title).toLowerCase();
         sum = data.sum;
       } else {
-        title = 'the ' + data.title + ' region';
+        title = ' in the <strong>' + data.title + '</strong> region';
         sum = data.sum;
       }
       cost = '$' + d3.format('.3s')(sum);
