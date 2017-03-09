@@ -184,6 +184,10 @@
       font-weight: 500;
       color: $color-2;
     }
+
+    #fullPrioritySection & {
+      margin-top: rem(20px);
+    }
   }
 
   &.-logo {

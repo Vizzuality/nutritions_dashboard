@@ -11,4 +11,12 @@
     fill: $color-2;
     margin-right: rem(10px);
   }
+
+  .cost_packages {
+    display: none;
+  }
+
+  .global .cost_packages {
+    display: block;
+  }
 }
