@@ -12,11 +12,13 @@
     margin-right: rem(10px);
   }
 
-  .cost_packages {
+  .cost_packages,
+  .scenario_comparison {
     display: none;
   }
 
-  .global .cost_packages {
+  .global .cost_packages,
+  .global .scenario_comparison {
     display: block;
   }
 }
