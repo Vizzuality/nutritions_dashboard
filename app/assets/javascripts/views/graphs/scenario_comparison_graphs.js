@@ -20,16 +20,21 @@
     },
 
     _fetchData: function() {
-      this.ajaxStart('#fullPrioritySection');
-      var params = {
-        mode: this.status.get('mode'),
-        group: this.status.get('group')
-      };
+      if (this.status.get('mode') === "global") {
+        this.ajaxStart('#fullPrioritySection');
+        var params = {
+          mode: this.status.get('mode'),
+          group: this.status.get('group')
+        };
 
-      this.collection.getDataForScenarios(params).done(function(){
-        this.render();
-        this.ajaxComplete('#fullPrioritySection');
-      }.bind(this));
+        this.collection.getDataForScenarios(params).done(function(){
+          $('#fullPrioritySection').removeClass('is-hidden');
+          this.render();
+          this.ajaxComplete('#fullPrioritySection');
+        }.bind(this));
+       } else {
+        $('#fullPrioritySection').addClass('is-hidden');
+      }
     },
 
     _setListeners: function() {
