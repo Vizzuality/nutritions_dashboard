@@ -1,56 +1,127 @@
 .l-chart {
 
-  .l-current-burden,
-  .l-meeting-targets,
-  .l-cost-packages,
-  .l-scenario-comparison {
-    padding-top: rem(55px);
-    padding-bottom: rem(45px);
-    border-bottom: rem(1px) solid $color-3;
+  &#currentBurdenView {
+    margin-left: rem(-10px);
 
-    .chart-wrapper {
-      display: flex;
-      padding-top: rem(55px);
+    @media screen and (min-width: $screen-m) {
+      margin-left: rem(-5px);
+      margin-bottom: rem(-50px);
     }
 
-    .text-wrapper {
-      display: flex;
-      padding-top: rem(14px);
+    @media screen and (min-width: $screen-xl + 1px) {
+      margin-left: rem(-40px);
     }
 
-    .title-wrapper {
-      display: flex;
-      justify-content: space-between;
+    .c3-xgrid-focus {
+      display: none;
+    }
+  }
+
+  &#costPackagesView{
+    margin-left: rem(-15px);
+    margin-top: rem(-50px);
+
+    @media screen and (min-width: $screen-m) {
+      margin-left: rem(-5px);
+      margin-top: 0;
     }
 
-    .text {
-      width: 50%;
+    @media screen and (min-width: $screen-xl + 1px) {
+      margin-left: rem(-50px);
+    }
 
-      + & {
-        margin-right: rem(20px);
+    .c3-xgrid-focus {
+      display: none;
+    }
+  }
+
+  &#costPackagesViewPrint{
+    margin-left: rem(-20px);
+    width: 210mm;
+    .c-chart {
+      display: none;
+      width: 210mm;
+    }
+  }
+
+  &#costMeetingPackagesView{
+    margin: rem(-40px) 0 rem(-15px);
+
+    @media screen and (min-width: $screen-m) {
+      margin: rem(-10px) 0 rem(-70px);
+    }
+  }
+
+  &#businessAsUsualView{
+    margin-left: rem(-15px);
+    margin-top: rem(-20px);
+    margin-bottom: rem(10px);
+
+    @media screen and (min-width: $screen-m) {
+      margin-left: rem(-5px);
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    @media screen and (min-width: $screen-xl + 1px) {
+      margin-left: rem(-50px);
+    }
+  }
+
+  &#globalSolidarityView{
+    margin-left: rem(-15px);
+    margin-top: rem(-20px);
+    margin-bottom: rem(10px);
+
+    @media screen and (min-width: $screen-m) {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &#currentCountryDonor {
+
+    .c-chart {
+      margin-top: rem(20px);
+      margin-left: rem(-20px);
+
+      @media screen and (min-width: $screen-m) {
+        margin-left: rem(-5px);
+      }
+
+      @media screen and (min-width: $screen-xl + 1px) {
+        margin-left: rem(-40px);
       }
     }
-  }
-}
 
-.l-current-burden {
-
-  .c-chart {
-    width: 50%;
-    margin-right: rem(20px);
-  }
-}
-
-.l-scenario-comparison {
-
-  .chart-wrapper {
-    > div {
-      width: 50%;
-
-      + & {
-        margin-right: rem(20px);
-      }
+    .c3-xgrid-focus {
+      display: none;
     }
   }
-}
 
+  &#currentCountryGovernment {
+
+    .c-chart {
+      margin-top: rem(20px);
+      margin-left: rem(-15px);
+    }
+
+    .-offset {
+      @media screen and (min-width: $screen-m) {
+        margin-bottom: rem(40px);
+      }
+    }
+
+    .c-placeholder {
+      min-height: rem(300px);
+    }
+
+    .c3-xgrid-focus {
+      display: none;
+    }
+  }
+
+  #governmentFundingFootnote {
+    margin-top: rem(-30px);
+  }
+}

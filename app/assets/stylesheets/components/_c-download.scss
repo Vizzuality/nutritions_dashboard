@@ -1,0 +1,24 @@
+.c-download {
+  margin-top: rem(20px);
+
+  li {
+    display: block;
+  }
+
+  .icon {
+    width: rem(15px);
+    height: rem(15px);
+    fill: $color-2;
+    margin-right: rem(10px);
+  }
+
+  .cost_packages,
+  .scenario_comparison {
+    display: none;
+  }
+
+  .global .cost_packages,
+  .global .scenario_comparison {
+    display: block;
+  }
+}

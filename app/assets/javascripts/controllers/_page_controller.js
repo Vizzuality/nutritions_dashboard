@@ -23,7 +23,13 @@
 
   App.Controller.Page = Controller.extend({
 
-    initialize: function() {},
+    initialize: function() {
+      var mobileMenuView = new App.View.MobileMenu();
+      var smoothScroll = new App.Helper.SmoothScrollView();
+      var actionClick = new App.Helper.ActionClick();
+      var shareModal = new App.View.ShareModalView();
+      var mobileCheck = new App.Helper.MobileCheck();
+    },
 
     /**
      * Instance common and global view here

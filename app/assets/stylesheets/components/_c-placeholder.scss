@@ -1,0 +1,22 @@
+.c-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 220px;
+  height: 300px;
+
+  .image {
+    width: rem(160px);
+    height: rem(90px);
+    background-image: image_url('empty_state@2x.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .text {
+    margin-top: rem(20px);
+    text-align: center;
+  }
+}

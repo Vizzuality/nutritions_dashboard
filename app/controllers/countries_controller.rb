@@ -1,4 +1,4 @@
-class DashboardsController < ApplicationController
+class CountriesController < ApplicationController
   def show
   end
 end

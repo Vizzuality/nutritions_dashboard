@@ -1,1 +1,66 @@
-<p>welcome to countries</p>
+<%= render 'shared/header', class_name: '-normal' %>
+<%= render 'shared/share_menu', class_name: '-normal' %>
+
+<div id="map-section" class="l-map l-ajax-loader -countries">
+  <div class="spinner"></div>
+  <div class="row">
+    <div class="columns small-12">
+      <div id="countryMapView">
+        <div class="columns small-12 medium-6 medium-offset-3">
+          <div id="countrySelectorView">
+            <select name="group" id="groupSelector" class="js--country-selector"></select>
+          </div>
+        </div>
+        <div id="map-container" class="c-map-home"></div>
+        <div class="row">
+          <div class="columns small-12 medium-5 medium-offset-7">
+            <div class="c-countries-map-legend no-print">
+              <ul>
+                <li>
+                  <span class="color-code -donor-gov"></span>
+                  <span class="text -legend">Data available on domestic and donor investments in nutrition</span>
+                </li>
+                <li>
+                  <span class="color-code -only-donor"></span>
+                  <span class="text -legend">Data on only donor investments in nutrition available</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="smooth-scroll">
+      <a href="#data-section" class="js-btn-smooth-scroll">
+        <svg class="icon"><use xlink:href="#icon-scroll"></use></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns small-12">
+    <div id="data-section" class="l-content -top placeholder"></div>
+  </div>
+  <div class="columns small-12 large-6">
+    <div id="currentCountryGovernment" class="l-chart l-ajax-loader">
+      <div id="governmentFundingText"></div>
+      <div class="spinner"></div>
+      <div class="c-chart"></div>
+      <div id="governmentFundingFootnote"></div>
+    </div>
+  </div>
+  <div class="columns small-12 large-6">
+    <div id="currentCountryDonor" class="l-chart l-ajax-loader">
+      <div id="currentDonorFundingText"></div>
+      <div class="spinner"></div>
+      <div class="c-chart -burden"></div>
+    </div>
+  </div>
+  <div class="columns small-12">
+    <p class="text -footnote">Source: Creditor Reporting System for the OECD Database; Sources of government contributions are listed in Chapter 8 of <a href="http://www.worldbank.org/en/topic/nutrition/publication/an-investment-framework-for-nutrition-reaching-the-global-targets-for-stunting-anemia-breastfeeding-wasting" target="_blank">“An Investment Framework for Nutrition: reaching the global targets for stunting, anemia, breastfeeding and wasting”</a></p>
+  </div>
+  <div class="columns small-12">
+    <div class="l-content -last"></div>
+  </div>
+</div>

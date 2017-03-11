@@ -1,0 +1,73 @@
+.c-share {
+  line-height: 1.5;
+
+  p {
+    margin-top: rem(30px);
+  }
+
+  .share-input {
+    margin: rem(15px) 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-direction: column;
+
+    @media screen and (min-width: $screen-m) {
+      flex-direction: row;
+    }
+
+    button {
+      display: block;
+      background-color: $color-2;
+      border: 1px solid #979797;
+      border-radius: 0;
+      width: 100%;
+      text-transform: uppercase;
+      height: 50px;
+      color: $white;
+
+      @media screen and (min-width: $screen-m) {
+        width: rem(160px);
+      }
+    }
+
+    input {
+      position: relative;
+      top: -2px;
+      display: block;
+      font-style: italic;
+      margin-top: 2px;
+      font-family: inherit;
+      font-size: rem(18px);
+      width: 100%;
+      min-width: 0;
+      border: 1px solid $color-2;
+      border-radius: 0;
+      margin: 0;
+      margin-top: 2px;
+      height: 50px;
+      padding: 0 rem(10px);
+      background-color: transparent;
+      margin-right: rem(20px);
+      cursor: pointer;
+
+      @media screen and (min-width: $screen-m) {
+        width: calc(100% - 150px);
+      }
+    }
+  }
+
+  .share-social {
+    margin: rem(40px) 0 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .icon {
+      width: rem(45px);
+      height: rem(45px);
+      fill: $color-2;
+    }
+  }
+}

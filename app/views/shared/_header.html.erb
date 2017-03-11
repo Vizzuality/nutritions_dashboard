@@ -1,6 +1,38 @@
-<div class="l-header">
-  <div class="wrap">
-    <a href="/">Investing in Nutrition</a>
-    <%= render 'shared/navigation', className:"-header" %>
+<div class="row no-print">
+  <div class="columns small-12">
+    <div class="l-header <%= class_name %>">
+      <div class="logo">
+        <a class="text -logo" href="/">
+          Investing in Nutrition
+        </a>
+      </div>
+      <div class="desktop">
+        <ul class="c-navigation <%= class_name %>">
+          <li class="text -menu <%= "-active" if controller_name == 'welcome' %>"><%= link_to 'The challenge', '/' %></li>
+          <li class="text -menu <%= "-active" if controller_name == 'dashboards' %>"><%= link_to 'Financing Needs', '/dashboards/global' %></li>
+          <li class="text -menu <%= "-active" if controller_name == 'countries' %>"><%= link_to 'Current Funding', countries_show_path %></li>
+          <li class="text -menu <%= "-active" if controller_name == 'about' %>"><%= link_to 'About', about_path %></li>
+        </ul>
+      </div>
+      <div class="js-btn-mobile-menu mobile">
+        <svg class="icon -open"><use xlink:href="#icon-menu"></use></svg>
+        <svg class="icon -close"><use xlink:href="#icon-close"></use></svg>
+      </div>
+      <div class="c-mobile-menu <%= class_name %>">
+        <ul class="c-navigation <%= class_name %>">
+          <li class="text -menu <%= "-active" if controller_name == 'dashboards' %>"><%= link_to 'Financing Needs', '/dashboards/global' %></li>
+          <li class="text -menu <%= "-active" if controller_name == 'dashboards' %>"><%= link_to 'Financing Needs', '/dashboards/global' %></li>
+          <li class="text -menu <%= "-active" if controller_name == 'countries' %>"><%= link_to 'Current Funding', countries_show_path %></li>
+          <li class="text -menu <%= "-active" if controller_name == 'about' %>"><%= link_to 'About', about_path %></li>
+        </ul>
+        <ul class="c-navigation -dark">
+          <li class="text -menu js-btn-action" data-action="Share:toggle">Share</li>
+          <% if controller_name == 'dashboards' || controller_name == 'countries' %>
+            <li class="text -menu js-btn-action desktop" data-action="Data:toggle">Download</li>
+            <li class="text -menu desktop">Print</li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,0 +1,50 @@
+.c-share-menu {
+  position: relative;
+  margin-top: rem(15px);
+  display: none;
+
+  @media screen and (min-width: $screen-m) {
+    display: block;
+  }
+
+  .links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    li {
+      margin-left: rem(15px);
+      padding-left: rem(15px);
+      cursor: pointer;
+      border-left: solid 1px $color-2;
+    }
+
+    li:first-child {
+      border-left: none;
+    }
+
+    .icon {
+      fill: $color-2;
+      width: rem(18px);
+      height: rem(18px);
+      vertical-align: middle;
+      margin-top: -2px;
+    }
+
+    span {
+      vertical-align: middle;
+    }
+  }
+
+  &.-transparent {
+
+    li {
+      border-left: solid 1px $white;
+      color: $white;
+    }
+
+    .icon {
+      fill: $white;
+    }
+  }
+}

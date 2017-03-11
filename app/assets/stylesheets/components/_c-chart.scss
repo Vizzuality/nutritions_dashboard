@@ -1,5 +1,126 @@
 .c-chart {
   width: 100%;
-  height: rem(300px);
-  background-color: rgba($white, .3);
+  margin-top: rem(20px);
+
+  @media screen and (min-width: $screen-m) {
+    margin-top: 0;
+    margin-bottom: rem(20px);
+  }
+
+  .c3-chart {
+    background-color: rgba($white, .3);
+    fill: rgba($white, .3);
+  }
+
+  .c3-axis {
+    font-size: rem(10px);
+    font-family: $font-family-1;
+    fill: $color-2;
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(14px);
+    }
+  }
+
+  .c3-chart-bar {
+    opacity: .8 !important;
+  }
+
+  .c3-area {
+    opacity: .7 !important;
+  }
+
+  .c3-line {
+    opacity: 0 !important;
+  }
+
+  .c3-circles {
+    opacity: 0 !important;
+  }
+
+  &.-burden {
+
+    .c3-bar-0 {
+      stroke: #e0534f;
+      fill: #e0534f !important;
+    }
+
+    .c3-bar-1 {
+      stroke: #a1d549;
+      fill: #a1d549 !important;
+    }
+
+    .c3-bar-2 {
+      stroke: #db67fa;
+      fill: #db67fa !important;
+    }
+
+    .c3-bar-3 {
+      stroke: #f4bd19;
+      fill: #f4bd19 !important;
+    }
+  }
+
+
+  .c3-legend-item {
+    font-family: $font-family-1;
+    color: $color-3;
+    // text-transform: uppercase;
+    opacity: 1 !important;
+    cursor: default !important;
+  }
+
+  .bubble-text {
+    font-size: rem(24px);
+    font-family: $font-family-1;
+    fill: $white;
+    font-weight: 700;
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(16px);
+    }
+  }
+
+  .c3-tooltip-name--All {
+    .name {
+      display: none !important;
+    }
+    .value {
+      float: left;
+    }
+  }
+
+  path.domain {
+    // Hide y axis.
+    display: none;
+  }
+
+  .tick line {
+    // hide ticks.
+    display: none;
+  }
+
+  .c3-ygrids line {
+    stroke-dasharray: 0 !important;
+    stroke: $color-3;
+    opacity: .5;
+
+    &:first-child {
+      stroke: $black !important;
+      opacity: 1;
+    }
+  }
+
+  &.-government {
+    height: rem(500px);
+  }
+
+  &.-print-half {
+    width: 135mm;
+  }
+
+  &.-print-full {
+    width: 270mm;
+
+  }
 }

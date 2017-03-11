@@ -1,2 +1,1 @@
-SELECT * FROM cost_meeting_targets_{{mode}} 
-where {{mode}}='{{group}}'
+SELECT target, sum as cost FROM cost_meeting_targets_{{mode}} where {{mode}}='{{group}}' ORDER BY target

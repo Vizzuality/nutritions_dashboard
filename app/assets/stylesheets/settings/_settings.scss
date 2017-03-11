@@ -1,6 +1,6 @@
 /* FONTS */
-$font-family-1: "Raleway";
-$font-family-2: "Roboto Slab";
+$font-family-1: "museo-sans";
+$font-family-2: "museo-slab";
 
 
 /* SCREENS */
@@ -26,8 +26,9 @@ $beige: #f7f0e4;
 $denim: #326975;
 $greyish-brown: #595755;
 $stone: #a99c89;
+$stone-dark: #81786b;
 
-$light-olive-green: #aecc4f;
+$light-olive-green: #47b655;
 $dark-coral: #d26358;
 $macaroni-and-cheese: #efbb37;
 $light-purple: #ca82f8;
@@ -38,11 +39,11 @@ $bland: #b3a691;
 
 $light-grey-blue: #93c9d8;
 $black: #222222;
-$white: #ffffff;
+$white: #faf3e9;
 
 /* THEME COLORS */
 $color-1: $denim;
-$color-2: $greyish-brown;
+$color-2: $stone-dark;
 $color-3: $stone;
 
 /* GRAPH COLORS */
@@ -58,6 +59,7 @@ $color-graph-7: $beige-two;
 $color-graph-8: $bland;
 $color-graph-9: $stone;
 $color-graph-10: $beige;
+
 
 /* BACKGROUND */
 $color-bg-1: $beige;

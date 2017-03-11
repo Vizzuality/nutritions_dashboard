@@ -1,16 +1,59 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Nutritions Dashboard</title>
+    <title>Invest In Nutrition</title>
+    <meta name="description" content="Visualize the resources needed and current funding available to reduce malnutrition worldwide.">
+
     <%= csrf_meta_tags %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:700|Raleway:300,400,700" rel="stylesheet">
+
+    <!-- style sheets and js -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- for Facebook -->
+    <meta property="og:title" content="The urgent need for global action on nutrition | Invest In Nutrition" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content=<%= image_url("investing_nutritions.png")%> />
+    <meta property="og:description" content="Visualize the resources needed and current funding available to reduce malnutrition worldwide." />
+
+    <!-- for Twitter -->
+    <meta name="twitter:title" content="The urgent need for global action on nutrition | Invest In Nutrition" />
+    <meta property="twitter:image" content=<%= image_url("investing_nutritions.png")%> />
+    <meta name="twitter:description" content="Visualize the resources needed and current funding available to reduce malnutrition worldwide." />
+    <meta property="twitter:url" content="" />
+
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= asset_path('favicons/apple-touch-icon.png') %>">
+    <link rel="icon" type="image/png" href="<%= asset_path('favicons/favicon-32x32.png') %>" sizes="32x32">
+    <link rel="icon" type="image/png" href="<%= asset_path('favicons/favicon-16x16.png') %>" sizes="16x16">
+    <link rel="manifest" href="<%= asset_path('favicons/manifest.json') %>">
+    <link rel="mask-icon" href="<%= asset_path('favicons/safari-pinned-tab.svg') %>" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- SVG icons -->
+    <%= render 'shared/icons' %>
+
+    <!-- datamaps -->
+    <script src="https://d3js.org/d3.geo.projection.v0.min.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-8479985-19', 'auto');
+      ga('send', 'pageview');
+    </script>
+
   </head>
 
   <body>
-    <%= render 'shared/header'%>
     <%= yield %>
-    <%= render 'shared/footer'%>
+    <%= render 'shared/footer' %>
   </body>
 </html>

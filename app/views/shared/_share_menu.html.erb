@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="columns small-12">
+    <div class="c-share-menu <%= class_name %>">
+      <ul class="links text">
+        <li class="js-btn-action" data-action="Share:toggle">
+          <svg class="icon"><use xlink:href="#icon-share"></use></svg>
+          <span>Share</span>
+        </li>
+        <% if controller_name == 'dashboards' || controller_name == 'countries' %>
+          <li class="js-btn-action desktop" data-action="Data:toggle">
+            <svg class="icon"><use xlink:href="#icon-download"></use></svg>
+            <span>Download</span>
+          </li>
+          <li class="desktop">
+            <a href="javascript:window.print()">
+              <svg class="icon"><use xlink:href="#icon-print"></use></svg>
+              <span>Print</span>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

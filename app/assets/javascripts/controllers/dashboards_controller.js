@@ -11,12 +11,22 @@
       this.initTitleView();
       this.initGraphsViews();
       this.initMapViews();
+      this.initModalViews();
       this.initSelectorsViews(params);
     },
 
     initTitleView: function() {
-      this.title = new App.View.TitleView({
-        el: '#titleView'
+      this.description = new App.View.MapTitleView({
+        el: '#mapTitleView'
+      })
+      this.title = new App.View.ChartTitleView({
+        el: '#chartTitleView'
+      })
+      this.info = new App.View.AdditionalInfoView({
+        el: '#additionalInfoView'
+      })
+      this.cost = new App.View.CostTitleView({
+        el: '#costTitleView'
       })
     },
 
@@ -35,9 +45,34 @@
 
       this.modeSelector.setParams({mode: params[0]});
       this.groupSelector.setParams(urlParams);
+      this.downloadData.setStatus(urlParams);
     },
 
     initMapViews: function() {
+    },
+
+    initModalViews: function() {
+      this.modalInfo = new App.View.ModalInfoView({});
+      this.downloadData = new App.View.DownloadDataView({
+        collection: new App.Collection.IndicatorsCollection(),
+        trigger: 'group',
+        graphs: [{
+          name: 'Prevalence of nutritional conditions',
+          key: 'current_burden'
+        }, {
+          name: 'Cost of meeting targets on top of current spending, 2016-2025',
+          key: 'cost_meeting_targets'
+        },
+        {
+          name: 'Cost of packages comparison',
+          key: 'cost_packages'
+        },
+        {
+          name: 'Financing the targets through Business as Usual vs. Global Solidarity',
+          key: 'scenario_comparison'
+        }],
+        selectors: ['mode', 'group']
+      });
     },
 
     initGraphsViews: function() {
@@ -52,6 +87,10 @@
 
       this.costPackagesView = new App.View.CostPackagesView({
         el: '#costPackagesView'
+      });
+
+      this.costPackagesViewPrint = new App.View.CostPackagesView({
+        el: '#costPackagesViewPrint'
       });
 
       this.ScenarioComparisonView = new App.View.ScenarioComparisonView();

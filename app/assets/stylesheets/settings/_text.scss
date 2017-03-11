@@ -7,38 +7,329 @@
  * color along the project and setted with the apropiate
  * class or it will inherit it from its father.
  */
-.header {
-  font-family: $font-family-2;
 
-  &.-title {
-    font-size: rem(32px);
-    font-weight: 700;
-    line-height: 1.25;
+ a {
+   color: inherit;
+ }
+
+ p {
+   a {
+     font-weight: 700;
+     text-decoration: underline;
+     color: #5b564e;
+
+     &:hover {
+       color: $color-2;
+     }
+   }
+
+   b {
+     color: #5b564e;
+   }
+ }
+
+ p.-light {
+  a {
+    color: $white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
-}
+ }
 
 .text {
   font-family: $font-family-1;
-  
-  &.-plain {
-    font-size: rem(18px);
-    font-weight: 300;
+  color: $color-2;
+  font-weight: 500;
+  line-height: 1.4;
+  width: 100%;
+
+  @media screen and (min-width: $screen-m) {
     line-height: 1.67;
   }
-}
 
-.text, 
-.header {
-  
-  &.-dark {
-    color: $black;
+  &.-menu {
+    font-size: rem(16px);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 300;
+    width: auto;
+
+    &:hover {
+      color: $color-graph-6;
+    }
+  }
+
+  &.-tabs {
+    font-size: rem(16px);
+    letter-spacing: 0.5px;
+    font-weight: 500;
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(18px);
+    }
+  }
+
+  &.-title {
+    font-size: rem(28px);
+    font-weight: 700;
+    line-height: 1.25;
+    font-family: $font-family-2;
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(32px);
+    }
+  }
+
+  &.-title-map {
+    font-size: rem(20px);
+    font-weight: 700;
+    line-height: 1.25;
+    font-family: $font-family-2;
+
+    @media screen and (min-width: $screen-xs + 1px) {
+      font-size: rem(24px);
+    }
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(28px);
+    }
+  }
+
+  &.-subtitle {
+    font-size: 18px;
+    font-weight: 900;
+    padding: rem(10px) 0;
+  }
+
+  &.-cta-title {
+    font-family: $font-family-2;
+    font-size: rem(35px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.7px;
+    padding-bottom: rem(10px);
+    margin-bottom: rem(20px);
+
+    a {
+      text-decoration: underline;
+    }
+
+    @media screen and (min-width: $screen-m) {
+      margin-bottom: rem(40px);
+      padding-bottom: 0;
+    }
+
+    @media screen and (min-width: $screen-l) {
+      font-size: rem(52px);
+    }
+  }
+
+  &.-cta-title-header {
+    font-family: $font-family-2;
+    font-size: rem(45px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.7px;
+
+    @media screen and (min-width: $screen-l) {
+      font-size: rem(70px);
+    }
+  }
+
+  &.-cta-text {
+    font-size: rem(18px);
+  }
+
+  &.-accordion {
+    display: block;
+    font-size: rem(20px);
+    font-weight: 700;
+    font-family: $font-family-2;
+    margin-bottom: rem(20px);
+
+    &:after {
+      content: ' ';
+      display: inline-block;
+      position: relative;
+      top: rem(-5px);
+      right: rem(-5px);
+      width: 10px;
+      height: 10px;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      border-width: 2px;
+      border-color: transparent #81786b #81786b transparent;
+      border-style: solid;
+    }
+
+    @media screen and (min-width: $screen-m) {
+      margin-bottom: 0;
+      font-size: rem(28px);
+    }
+  }
+
+  &.-legend {
+    font-size: rem(11px);
+    font-weight: 700;
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(16px);
+    }
+  }
+
+  &.-footnote {
+    font-size: rem(12px);
+    margin-bottom: rem(10px);
+
+    a {
+      font-weight: 500;
+      color: $color-2;
+    }
+
+    #fullPrioritySection & {
+      margin-top: rem(20px);
+    }
+  }
+
+  &.-logo {
+    font-family: $font-family-2;
+    font-size: rem(14px);
+    text-transform: uppercase;
+    letter-spacing: rem(2px);
+    font-weight: 300;
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(16px);
+    }
+  }
+
+  &.-map {
+    background: $white;
+    padding: rem(5px) rem(10px);
+  }
+
+  &.-funding {
+    font-size: 16px;
+    fill: rgba(#81786b, 0.5);
+  }
+
+  &.-figure {
+    font-size: 24px;
+    text-transform: uppercase;
+    fill: #81786b;
+    font-weight: 500;
+  }
+
+  &.-milestone {
+    font-size: 16px;
+    fill: rgba(#81786b, 0.5);
+
+    @media screen and (min-width: $screen-m) {
+      font-size: 12px;
+    }
+  }
+
+  &.-button {
+    font-weight: 700;
+    text-decoration: underline;
+    color: #5b564e;
+
+    &:hover {
+      color: $color-2;
+    }
+  }
+
+  &.-impact {
+    font-family: $font-family-2;
+    line-height: 1.03;
+    color: #000000;
+    opacity: 0.6;
+
+    & + .-num {
+      margin-top: rem(20px);
+    }
+
+    &.-num {
+      font-size: rem(24px);
+      font-weight: 700;
+      margin-bottom: 10px;
+
+      @media screen and (min-width: $screen-m) {
+        font-size: rem(30px);
+      }
+    }
+
+    &.-strap {
+      font-size: rem(26px);
+      font-weight: 300;
+
+      @media screen and (min-width: $screen-m) {
+        font-size: rem(32px);
+      }
+    }
+
+    &.-action {
+      position: relative;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    &.-white {
+      color: #ffffff;
+      opacity: 1;
+    }
+
+    &.-sub {
+      font-size: rem(14px);
+      opacity: 0.4;
+      font-weight: 500;
+
+      @media screen and (min-width: $screen-m) {
+        font-size: rem(18px);
+      }
+    }
+  }
+
+  &.-goal-title {
+    font-size: rem(21px);
+    font-weight: 700;
+    line-height: 1.25;
+    width: auto;
+    font-family: $font-family-2;
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(28px);
+    }
+  }
+
+  &.-placeholder {
+    font-size: rem(14px);
+  }
+
+  &.-legend {
+    font-size: rem(10px);
+    font-weight: 500;
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(14px);
+    }
+  }
+
+  &.-right {
+    @media screen and (min-width: $screen-m) {
+      text-align: right;
+    }
   }
 
   &.-light {
     color: $white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
-  &.-highlight {
-    color: $color-1;
+  &.-center {
+    text-align: center;
+  }
+
+  &.-bold {
+    font-weight: 700;
   }
 }

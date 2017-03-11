@@ -1,0 +1,62 @@
+.l-content {
+
+  .icon {
+    max-width: 100%;
+    height: rem(70px);
+    margin: 0 0 rem(10px);
+    width: rem(320px);
+
+    &.-days {
+      max-width: rem(150px);
+    }
+
+    @media screen and (min-width: $screen-m) {
+      &.-r4d {
+        margin-left: rem(-15px);
+      }
+    }
+  }
+
+  .two-column {
+
+    @media screen and (min-width: $screen-m) {
+      -webkit-column-count: 2; /* Chrome, Safari, Opera */
+      -moz-column-count: 2; /* Firefox */
+      column-count: 2;
+    }
+  }
+
+  h2 {
+    margin-bottom: rem(20px);
+  }
+
+  &.-top {
+    border-top: solid $color-3 1px;
+    padding-top: rem(20px);
+
+    @media screen and (min-width: $screen-m) {
+      padding-top: rem(30px);
+    }
+  }
+
+  &.-first {
+    margin-top: rem(25px);
+
+    @media screen and (min-width: $screen-m) {
+      margin-top: rem(50px);
+    }
+  }
+
+  &.-last, .last {
+    border-bottom: solid $color-3 1px;
+    padding-bottom: rem(20px);
+
+    @media screen and (min-width: $screen-m) {
+      padding-bottom: rem(30px);
+    }
+  }
+
+  &.placeholder {
+    display: none;
+  }
+}

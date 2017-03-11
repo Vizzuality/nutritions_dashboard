@@ -1,0 +1,137 @@
+.l-content-large {
+  position: relative;
+  background-position-y: bottom;
+  background-repeat: repeat-x;
+  padding: 0 0 rem(20px);
+
+  @media screen and (min-width: $screen-m) {
+    padding: 0 0 rem(50px);
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 1;
+  }
+
+  &.-image {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  &.-home {
+    background-image: image-url('bg-home.png');
+    padding-top: 0;
+  }
+
+  &.-about {
+    background-image: image-url('bg-about.png');
+  }
+
+  &.-stunting {
+    padding-bottom: 0;
+
+    @media screen and (min-width: $screen-m) {
+      border: 0;
+    }
+
+    @media screen and (min-width: $screen-l) {
+      // .c-accordion {
+      //   margin-top: rem(-60px);
+      // }
+    }
+  }
+
+  &.-wasting {
+    padding-bottom: 0;
+
+    @media screen and (min-width: $screen-m) {
+      border: 0;
+
+      // .c-accordion {
+      //   margin-top: rem(-50px);
+      // }
+    }
+
+    @media screen and (min-width: $screen-l) {
+      // .c-accordion {
+      //   margin-top: rem(-50px);
+      // }
+    }
+  }
+
+  &.-anemia {
+    padding-bottom: 0;
+
+    @media screen and (min-width: $screen-m) {
+      border: 0;
+    }
+
+    @media screen and (min-width: $screen-l) {
+      // .c-accordion {
+      //   margin-top: rem(-50px);
+      // }
+    }
+  }
+
+  &.-breastfeeding {
+    padding-bottom: 0;
+
+    @media screen and (min-width: $screen-m) {
+      border: 0;
+    }
+
+    @media screen and (min-width: $screen-l) {
+      // .c-accordion {
+      //   margin-top: rem(-40px);
+      // }
+    }
+  }
+
+  &.-others {
+
+    @media screen and (min-width: $screen-m) {
+      min-height: rem(400px);
+    }
+  }
+
+  .smooth-scroll {
+    display: flex;
+    justify-content: center;
+    padding-bottom: rem(20px);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    .icon {
+      width: rem(25px);
+      height: rem(50px);
+      fill: #faf3e9;
+    }
+  }
+
+  .info {
+    padding: rem(10px) 0 rem(30px);
+    text-align: center;
+
+    @media screen and (min-width: $screen-m) {
+      padding: rem(50px) 0;
+    }
+  }
+
+  &.-last {
+    padding-bottom: 0;
+
+    @media screen and (min-width: $screen-m) {
+      .c-separator {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

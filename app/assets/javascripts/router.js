@@ -16,7 +16,8 @@
     routes: {
       '': 'Welcome#index',
       'dashboards(/:mode)(/:id)': 'Dashboards#show',
-
+      'countries(/)(:id)': 'Countries#show',
+      'about': 'About#index',
       // Here you have an example
       // 'countries': 'Countries#index',
       // 'countries/:iso': 'Countries#show'
@@ -45,7 +46,6 @@
      * @param  {Object} params
      */
     updateParams: function(params) {
-      debugger
       this.params.clear().set(params, { silent: true });
       this.updateUrl();
     },

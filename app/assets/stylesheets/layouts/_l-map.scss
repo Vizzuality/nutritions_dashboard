@@ -1,0 +1,40 @@
+.l-map {
+  padding: rem(20px) 0;
+
+  @media screen and (min-width: $screen-m) {
+    padding: rem(40px) 0 0;
+  }
+
+  hr {
+    margin-bottom: 0;
+  }
+
+  .title-width {
+    display: inline-block;
+  }
+
+  .smooth-scroll {
+    display: none;
+    justify-content: center;
+    padding-bottom: rem(20px);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+
+    @media screen and (min-width: $screen-m) {
+      display: flex
+    }
+
+    .icon {
+      width: rem(25px);
+      height: rem(50px);
+      fill: $color-3;
+    }
+  }
+
+  &.-countries {
+    padding-bottom: 0;
+  }
+}

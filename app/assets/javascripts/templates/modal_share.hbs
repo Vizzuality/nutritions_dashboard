@@ -1,0 +1,34 @@
+{{!-- BACKDROP --}}
+<div class="modal-backdrop js-btn-modal-close"></div>
+{{!-- WINDOW --}}
+<div class="modal-window">
+  <a href="#" class="modal-close js-btn-modal-close">
+    <svg class="c-icon -medium"><use xlink:href="#icon-close-modal"></use></svg>
+  </a>
+  <div class="modal-wrapper scroll-dark">
+    <div class="modal-content">
+      <div class="c-share">
+        <h2 class='modal-title text -impact -strap'>Share</h2>
+        <p class='text'>Copy the link below to share it</p>
+
+        <div class="share-input">
+          <input class="js-input-copy" type="text" name="url" value="{{this.url}}" readonly="readonly">
+          <button class="js-btn-copy" type="button" name="button">Copy</button>
+        </div>
+
+        <ul class="share-social">
+          <li>
+            <a href="http://www.facebook.com/sharer.php?u={{this.urlEncoded}}" target="_blank" rel="noopener" class="btn -light -with-icon -facebook js-btn-popup">
+              <svg class="icon"><use xlink:href="#icon-facebook"></use></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/share?url={{this.urlEncoded}}" target="_blank" rel="noopener" class="btn -light -with-icon -twitter js-btn-popup">
+              <svg class="icon"><use xlink:href="#icon-twitter"></use></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

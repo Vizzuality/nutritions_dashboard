@@ -1,0 +1,217 @@
+.c-accordion {
+
+  input {
+    display: none;
+  }
+
+  label {
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+  }
+
+  .accordion-content {
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+    z-index: 10;
+    transition:
+      height 0.5s ease-in-out;
+
+    &.-no-height {
+      height: 0 !important;
+    }
+
+    .info-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-direction: column;
+      padding-right: rem(50px);
+      margin-bottom: rem(30px);
+
+      @media screen and (min-width: $screen-l) {
+        margin-bottom: 0;
+
+        &.-aligned {
+          margin-top: rem(-60px);
+        }
+      }
+
+      &.-lower {
+        justify-content: center;
+
+        @media screen and (min-width: $screen-l) {
+          height: rem(400px);
+        }
+      }
+
+      &.-medium {
+        justify-content: center;
+
+        @media screen and (min-width: $screen-l) {
+          height: rem(200px);
+        }
+      }
+
+      .title {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;;
+        align-items: flex-start;
+        width: 100%;
+
+        @media screen and (min-width: $screen-m) {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: flex-end;
+        }
+
+        &.-tall {
+          @media screen and (min-width: $screen-l) {
+            height: rem(280px);
+          }
+        }
+
+        &.-medium {
+          @media screen and (min-width: $screen-l) {
+            height: rem(210px);
+          }
+        }
+
+        &.-short {
+          @media screen and (min-width: $screen-l) {
+            height: rem(150px);
+          }
+        }
+
+        .image {
+          background-position: bottom;
+        }
+      }
+
+      p {
+        @media screen and (min-width: $screen-m) {
+          margin-top: rem(30px);
+        }
+      }
+    }
+
+    .image-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+
+      @media screen and (min-width: $screen-m) {
+        &.-extra-space-hack {
+          padding-top: rem(120px);
+        }
+      }
+    }
+
+    .image {
+      display: none;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      margin: rem(20px) 0;
+
+      @media screen and (min-width: $screen-l) {
+        display: block;
+      }
+
+      &.-stunting-1 {
+        background-image: image-url('illustrations/stunting_starving.png');
+        width: 100%;
+        height: 300px;
+
+        @media screen and (min-width: $screen-m) {
+          width: 230px;
+        }
+      }
+
+      &.-stunting-2 {
+        background-image: image-url('illustrations/stunting_student.png');
+        width: rem(270px);
+        height: rem(300px);
+      }
+
+      &.-wasting-1 {
+        background-image: image-url('illustrations/wasted_hospital.png');
+        width: 300px;
+        height: 200px;
+        display: none;
+
+        @media screen and (min-width: $screen-l) {
+          display: block;
+          margin: 10px auto;
+          position: relative;
+          top: -40px;
+        }
+      }
+
+      &.-wasting-2 {
+        background-image: image-url('illustrations/wasted_hospital_child.png');
+        width: 230px;
+        height: 300px;
+      }
+
+      &.-anaemia-1 {
+        background-image: image-url('illustrations/anaemia_lab.png');
+        width: 300px;
+        height: 220px;
+      }
+
+      &.-anaemia-2 {
+        background-image: image-url('illustrations/anaemia_medi.png');
+        width: rem(270px);
+        height: rem(340px);
+      }
+
+      &.-breastfeeding-1 {
+        background-image: image-url('illustrations/breastfeeding_learn.png');
+        width: 230px;
+        height: 300px;
+      }
+    }
+  }
+
+  .icon {
+    width: rem(30px);
+    height: rem(27px);
+    margin-left: rem(10px);
+
+    &.-light {
+      fill: $white;
+    }
+  }
+
+  .border {
+    position: relative;
+    margin-left: 0;
+
+
+    @media screen and (min-width: $screen-m) {
+      padding-left: rem(20px);
+      margin-left: rem(-20px);
+
+      &:before {
+        content: "";
+        position: absolute;
+        right: -20px;
+        top: 0;
+        @include arrow (30px, rgba(0, 0, 0, 0.4), 3px, 135deg)
+      }
+    }
+  }
+
+  .-title {
+    @media screen and (min-width: $screen-m) {
+      &.-aligned-breestfeeding {
+        margin-top: rem(-40px);
+      }
+    }
+  }
+}

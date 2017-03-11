@@ -1,12 +1,40 @@
-<div class="l-footer">
-  <div class="wrap">
-    <%= render 'shared/navigation', className: "-footer" %>
-    <ul class="c-partners">
-      <li>World bank</li>
-      <li>R4D</li>
-      <li>Bill Melinda Gates</li>
-      <li>CHF</li>
-      <li>1000 days</li>
-    </ul>
+<div class="l-footer no-print">
+  <div class="row">
+    <div class="column small-12">
+      <ul class="c-navigation">
+        <li class="text -menu <%= "-active" if controller_name == 'welcome' %>"><%= link_to 'The challenge', '/' %></li>
+        <li class="text -menu <%= "-active" if controller_name == 'dashboards' %>"><%= link_to 'Financing Needs', '/dashboards/global' %></li>
+        <li class="text -menu <%= "-active" if controller_name == 'countries' %>"><%= link_to 'Current Funding', countries_show_path %></li>
+        <li class="text -menu <%= "-active" if controller_name == 'about' %>"><%= link_to 'About', about_path %></li>
+      </ul>
+      <ul class="c-partners">
+        <li>
+          <a href="http://www.worldbank.org/" target="_blank" rel="noopener">
+            <svg class="icon"><use xlink:href="#icon-world-bank"></use></svg>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.r4d.org/" target="_blank" rel="noopener">
+            <svg class="icon"><use xlink:href="#icon-logo"></use></svg>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.gatesfoundation.org/" target="_blank" rel="noopener">
+            <svg class="icon"><use xlink:href="#icon-gates-foundation"></use></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://ciff.org/" target="_blank" rel="noopener">
+            <svg class="icon"><use xlink:href="#icon-ciff"></use></svg>
+          </a>
+        </li>
+        <li>
+          <a href="http://thousanddays.org/" target="_blank" rel="noopener">
+            <svg class="icon"><use xlink:href="#icon-days"></use></svg>
+          </a>
+        </li>
+      </ul>
+      <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener"><p class="text -footnote -center">Creative Commons 4.0 license</p></a>
+    </div>
   </div>
 </div>

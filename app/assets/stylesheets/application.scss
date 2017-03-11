@@ -20,14 +20,15 @@
 /*
  * Settings
  */
-
+@import "settings/foundation";
+@import "settings/fonts";
 @import "settings/settings";
 @import "settings/utils";
 @import "settings/general";
 @import "settings/text";
 @import "settings/icons";
 @import "settings/buttons";
-@import "settings/select-2-reset";
+@import "settings/print";
 
 /*
  * THANK YOU FOR KEEPING ALPHABETICAL ORDER
