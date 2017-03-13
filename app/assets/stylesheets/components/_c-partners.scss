@@ -4,9 +4,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: rem(30px);
 
   @media screen and (min-width: $screen-m) {
     flex-direction: row;
+    margin-bottom: rem(60px);
   }
 
   li {
