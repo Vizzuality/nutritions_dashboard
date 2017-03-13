@@ -14,9 +14,9 @@
       if ( data.group_name === 'global' ) {
         title = 'everyone does their part';
       } else if ( data.title.indexOf('countries') !== -1 ) {
-        title = (data.title).toLowerCase();
+        title = '<strong>' + (data.title).toLowerCase() + '</strong> and others worldwide do their part';
       } else {
-        title = 'the ' + data.title + ' region and others worldwide do their part';
+        title = 'the <strong>' + data.title + '</strong> region and others worldwide do their part';
       }
       this.$el.find('.text').html(this.template({
         title: title

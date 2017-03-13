@@ -4,7 +4,7 @@
   padding-bottom: rem(50px);
 
   @media screen and (min-width: $screen-m) {
-    padding-bottom: rem(80px);
+    padding-bottom: rem(30px);
   }
 
   .c-navigation {
@@ -31,6 +31,46 @@
       border-bottom: none;
       margin-bottom: 0;
       padding-bottom: rem(15px);
+    }
+  }
+
+  .designed-by {
+    text-align: center;
+    margin-bottom: rem(30px);
+
+    .designed {
+      position: relative;
+      display: inline-block;
+      width: auto;
+
+      &:after,
+      &:before {
+        content: "";
+        height: 1px;
+        width: rem(100px);
+        border-bottom: 1px solid $color-2;
+        position: absolute;
+        top: 50%
+      }
+
+      &:before {
+        left: 105%;
+      }
+
+      &:after {
+        right: 105%;
+      }
+    }
+
+    .vizz-logo {
+      display: block;
+      margin: 0 auto;
+      width: rem(100px);
+      height: rem(30px);
+      background-image: image-url('vizzuality_logo.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
     }
   }
 }
