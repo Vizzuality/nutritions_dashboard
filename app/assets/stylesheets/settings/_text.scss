@@ -107,14 +107,14 @@
     line-height: 1;
     letter-spacing: -0.7px;
     padding-bottom: rem(10px);
-    margin-bottom: rem(20px);
+    margin-bottom: rem(10px);
 
     a {
       text-decoration: underline;
     }
 
     @media screen and (min-width: $screen-m) {
-      margin-bottom: rem(40px);
+      // margin-bottom: rem(40px);
       padding-bottom: 0;
     }
 
