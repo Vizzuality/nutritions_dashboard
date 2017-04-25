@@ -75,6 +75,12 @@
         wasting: 'Source: <a href="http://www.globalnutritionreport.org/" target="_blank">Global Nutrition Report 2016</a>, (drawing on: <a href="http://www.who.int/nutgrowthdb/estimates2014/en/" target="_blank">UNICEF, WHO and World Bank 2015)</a>; India data based on <a href="http://wcd.nic.in/sites/default/files/State%20RSOC.pdf" target="_blank">Rapid Survey of Children: 2013-4</a>',
         anaemia: 'Source: <a href="http://www.globalnutritionreport.org/" target="_blank">Global Nutrition Report 2016</a> (drawing on: <a href="http://dx.doi.org/10.1016/S2214-109X(13)70001-9" target="_blank">Stevens et al. 2013</a>)',
         ebf: 'Source: <a href="http://www.globalnutritionreport.org/" target="_blank">Global Nutrition Report 2016</a> (drawing on: <a href="http://www.who.int/nutrition/publications/globaltargets2025_policybrief_breastfeeding/en/" target="_blank">WHO and UNICEF 2014</a>); India data based on <a href="http://wcd.nic.in/sites/default/files/State%20RSOC.pdf" target="_blank">Rapid Survey of Children: 2013-4</a>'
+      },
+      titleText: {
+        anemia: "Anemia",
+        ebf: "Exclusive Breastfeeding",
+        stunting: "Stunting",
+        wasting: "Wasting"
       }
     },
 
@@ -148,18 +154,34 @@
         $(bucket).html(value);
       }.bind(this));
 
+      this._changeLegendText();
+      this._changePrevalenceText();
+      this._changeSource();
+      this._updateText();
+    },
+
+    _changeLegendText: function() {
       var $legendText = $('#mapLegendView').find('.js-legend-title');
       var text = this.defaults.legendText[this.status.get('target')];
       $legendText.html(text);
+    },
 
+    _changePrevalenceText: function() {
       var $prevalenceText  = $('.js-prevalence-text');
       var prevalenceText = this.defaults.prevalenceText[this.status.get('target')];
       $prevalenceText.html(prevalenceText);
+    },
 
+    _updateText: function() {
+      var $title = $('.js-title');
+      var titleText = this.defaults.titleText[this.status.get('target')];
+      $title.html(titleText);
+    },
+
+    _changeSource: function() {
       var $source = $('.js-footnote');
       var sourceText = this.defaults.sourceText[this.status.get('target')];
       $source.html(sourceText);
-
     },
 
     _parseData: function(data) {
