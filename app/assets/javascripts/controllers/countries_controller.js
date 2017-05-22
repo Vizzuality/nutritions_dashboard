@@ -34,7 +34,7 @@
           key: 'current_spending_donors'
         }, {
           name: 'Current funding',
-          key: 'current_spending_government'
+          key: 'current_spending_government_download'
         }],
         selectors: ['iso']
       });

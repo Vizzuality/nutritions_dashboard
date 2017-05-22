@@ -8,7 +8,8 @@
 
     queries: {
       current_spending_donors: HandlebarsTemplates['queries/current_spending_donors'],
-      current_spending_government: HandlebarsTemplates['queries/current_spending_government']
+      current_spending_government: HandlebarsTemplates['queries/current_spending_government'],
+      current_spending_government_download: HandlebarsTemplates['queries/current_spending_government_download']
     },
 
     getDataForCountryDonors: function(params) {
