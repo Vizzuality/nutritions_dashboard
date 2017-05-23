@@ -31,7 +31,7 @@
         trigger: 'iso',
         graphs: [{
           name: 'Breakdown of current donor funding',
-          key: 'current_spending_donors'
+          key: 'current_spending_donors_download'
         }, {
           name: 'Current funding',
           key: 'current_spending_government_download'
